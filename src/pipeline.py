@@ -21,6 +21,9 @@ import sys
 from datetime import date, datetime
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from match import enrich_with_match, segment_summary, load_profile  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "applications.json"
 
@@ -138,6 +141,7 @@ def reminders_for(app, today):
 
 
 def enrich(data, today):
+    enrich_with_match(data["applications"])
     apps = []
     for app in data["applications"]:
         item = dict(app)
@@ -146,9 +150,26 @@ def enrich(data, today):
         item["reminders"] = reminders_for(app, today)
         item["days_silent"] = days_between(today, parse_date(app.get("last_contact")))
         item["days_to_deadline"] = days_between(parse_date(app.get("deadline")), today)
+        mr = app.get("match_result") or {}
+        item["match_score"] = mr.get("score")
+        item["match_segment"] = mr.get("segment")
+        item["match_segment_key"] = mr.get("segment_key")
+        item["match_rationale"] = mr.get("rationale")
+        item["match_weakest"] = mr.get("weakest")
         apps.append(item)
     apps.sort(key=lambda a: (-a["score"], a["company"]))
     return apps
+
+
+def focus_list(apps):
+    """Aktif ve eşleşmesi güçlü olanlar — enerjinin gitmesi gereken yer."""
+    return [a for a in apps
+            if a["status"] != "rejected" and a.get("match_segment_key") in ("strong", "good")]
+
+
+def wasted_effort(apps):
+    """Zayıf/orta eşleşmeye harcanan başvurular."""
+    return [a for a in apps if a.get("match_segment_key") in ("fair", "weak")]
 
 
 def funnel(apps):
@@ -202,6 +223,35 @@ def render_markdown(apps, stats, data, today, weekly=False):
             L.append(f"- **{a['company']} — {a['role']}**: {r}")
         L.append("")
 
+    # Eşleşme segmentasyonu
+    segs = segment_summary(apps)
+    L.append("## 🎯 CV Eşleşme Segmentasyonu")
+    L.append("")
+    L.append("| Segment | Başvuru | İleri aşamaya geçen | Red |")
+    L.append("|---|---:|---:|---:|")
+    for k in ("strong", "good", "fair", "weak"):
+        s_ = segs[k]
+        L.append(f"| {s_['label']} | {s_['count']} | %{s_['advance_rate']} | %{s_['reject_rate']} |")
+    L.append("")
+    waste = wasted_effort(apps)
+    if waste:
+        L.append(f"> Başvuruların **{len(waste)}'i (%{round(100*len(waste)/len(apps))})** "
+                 f"orta veya zayıf eşleşmeye gitmiş. Bu enerji güçlü eşleşmelere kaydırılabilir.")
+        L.append("")
+
+    focus = sorted(focus_list(apps), key=lambda a: -a["match_score"])[:12]
+    if focus:
+        L.append("### Odaklanılacak açık süreçler (eşleşmesi en güçlü 12)")
+        L.append("")
+        L.append("| Eşleşme | Şirket | Pozisyon | Aşama | Neden uyuyor |")
+        L.append("|---:|---|---|---|---|")
+        for a in focus:
+            why = (a.get("match_rationale") or "").replace("|", "/")
+            if len(why) > 88:
+                why = why[:85] + "…"
+            L.append(f"| {a['match_score']} | {a['company']} | {a['role']} | {a['stage']} | {why} |")
+        L.append("")
+
     # Öncelik tabloları
     for key in ("critical", "high", "normal", "low"):
         rows = [a for a in apps if a["band"] == key]
@@ -209,15 +259,17 @@ def render_markdown(apps, stats, data, today, weekly=False):
             continue
         L.append(f"## {BAND_LABEL[key]} ({len(rows)})")
         L.append("")
-        L.append("| Şirket | Pozisyon | Aşama | Deadline | Sessiz | Puan | Sonraki adım |")
-        L.append("|---|---|---|---|---:|---:|---|")
+        L.append("| Şirket | Pozisyon | Aşama | Deadline | Sessiz | Aciliyet | Eşleşme | Sonraki adım |")
+        L.append("|---|---|---|---|---:|---:|---:|---|")
         for a in rows:
             dl = a.get("deadline") or "—"
             silent = f"{a['days_silent']}g" if a["days_silent"] is not None else "—"
             nxt = (a.get("next_step") or "—").replace("|", "/")
-            if len(nxt) > 95:
-                nxt = nxt[:92] + "…"
-            L.append(f"| {a['company']} | {a['role']} | {a['stage']} | {dl} | {silent} | {a['score']} | {nxt} |")
+            if len(nxt) > 80:
+                nxt = nxt[:77] + "…"
+            ms = f"{a['match_score']}" if a.get("match_score") is not None else "—"
+            L.append(f"| {a['company']} | {a['role']} | {a['stage']} | {dl} | {silent} | "
+                     f"{a['score']} | {ms} | {nxt} |")
         L.append("")
 
     rejected = [a for a in apps if a["status"] == "rejected"]
@@ -270,6 +322,12 @@ def render_text(apps, stats, today):
         for a in high:
             L.append(f"- {a['company']} ({a['role']}) — {a['stage']}")
         L.append("")
+    focus = sorted(focus_list(apps), key=lambda a: -a["match_score"])[:5]
+    if focus:
+        L.append("EŞLEŞMESİ EN GÜÇLÜ AÇIK SÜREÇLER:")
+        for a in focus:
+            L.append(f"- [{a['match_score']}] {a['company']} — {a['role']}")
+        L.append("")
     L.append(f"ÖZET: {stats['active']} aktif / {stats['interviews']} mülakat aşaması / "
              f"{stats['stale']} sessiz / {stats['rejected']} olumsuz (toplam {stats['total']})")
     return "\n".join(L)
@@ -278,13 +336,16 @@ def render_text(apps, stats, today):
 def render_csv(apps):
     buf = io.StringIO()
     w = csv.writer(buf)
-    w.writerow(["oncelik", "puan", "sirket", "pozisyon", "asama", "durum", "kanal",
-                "basvuru", "son_temas", "sessiz_gun", "deadline", "uyum", "sonraki_adim"])
+    w.writerow(["oncelik", "aciliyet_puani", "eslesme_puani", "eslesme_segmenti", "sirket",
+                "pozisyon", "asama", "durum", "kanal", "basvuru", "son_temas", "sessiz_gun",
+                "deadline", "en_zayif_boyut", "eslesme_gerekcesi", "sonraki_adim"])
     for a in apps:
-        w.writerow([BAND_LABEL[a["band"]], a["score"], a["company"], a["role"], a["stage"],
+        w.writerow([BAND_LABEL[a["band"]], a["score"], a.get("match_score", ""),
+                    a.get("match_segment", ""), a["company"], a["role"], a["stage"],
                     a["status"], a.get("channel", ""), a.get("applied", ""),
                     a.get("last_contact", ""), a["days_silent"] if a["days_silent"] is not None else "",
-                    a.get("deadline") or "", a.get("fit", ""), a.get("next_step", "")])
+                    a.get("deadline") or "", a.get("match_weakest", ""),
+                    a.get("match_rationale", ""), a.get("next_step", "")])
     return buf.getvalue()
 
 

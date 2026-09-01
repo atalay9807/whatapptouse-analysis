@@ -1,230 +1,356 @@
-<title>Başvuru Kontrol Kulesi</title>
+<title>Kariyer Pilotu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
   :root {
-    --ground:#F4F7F8; --surface:#FFFFFF; --surface-2:#EAF0F2; --surface-3:#DFE8EB;
-    --ink:#0F1D25; --ink-2:#445A65; --ink-3:#6E858F;
-    --line:#D5E0E4; --line-strong:#B9C9CF;
-    --brand:#17506F; --brand-2:#2A7BA5; --brand-soft:#E1EDF3;
-    --critical:#C0392B; --warning:#B07A10; --good:#0E7D63; --archive:#6E858F;
-    --chip-critical-bg:#FBE9E6; --chip-warning-bg:#FBF1DC; --chip-good-bg:#E1F2EC; --chip-archive-bg:#E9EEF0;
-    --bar:#2A7BA5;
-    --shadow:0 1px 2px rgba(15,29,37,.06), 0 4px 14px rgba(15,29,37,.05);
-    --radius:10px;
+    --ground:#EFF4FA; --ground-2:#E3ECF7;
+    --surface:#FFFFFF; --surface-2:#F2F6FB; --surface-3:#E4ECF6;
+    --ink:#0E2136; --ink-2:#4A6076; --ink-3:#778DA3;
+    --line:#D6E2EF; --line-strong:#B6C9DD;
+
+    --brand:#0A66C2; --brand-deep:#08508F; --brand-soft:#E3EFFB; --brand-ring:#9CC6EE;
+    --violet:#5B4BC4; --violet-soft:#EDEAFA;
+
+    --m1:#372A7A; --m2:#5B4BC4; --m3:#8C82E0; --m4:#C6C0F0;
+    --m1-bg:#E8E5F6; --m2-bg:#EDEAFA; --m3-bg:#F1EFFC; --m4-bg:#F6F5FD;
+    --m1-tx:#372A7A; --m2-tx:#4A3CAB; --m3-tx:#5B4BC4; --m4-tx:#6E62C9;
+
+    --critical:#C0392B; --warning:#B07A10; --good:#0E7D63; --archive:#778DA3;
+    --chip-critical-bg:#FBE9E6; --chip-warning-bg:#FBF1DC; --chip-good-bg:#E1F2EC; --chip-archive-bg:#EAEFF4;
+
+    --glow-a:rgba(10,102,194,.10); --glow-b:rgba(91,75,196,.07);
+    --shadow:0 1px 2px rgba(14,33,54,.05), 0 6px 20px rgba(14,33,54,.06);
+    --shadow-lift:0 2px 4px rgba(14,33,54,.07), 0 12px 32px rgba(14,33,54,.10);
+    --dot:rgba(10,102,194,.055);
+    --r:12px;
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --ground:#0C1418; --surface:#131F26; --surface-2:#1A2A32; --surface-3:#22353E;
-      --ink:#E6EEF1; --ink-2:#A2B6BE; --ink-3:#7A8F99;
-      --line:#25373F; --line-strong:#354B55;
-      --brand:#7FBEE0; --brand-2:#5FA9D2; --brand-soft:#17303D;
-      --critical:#EE7B67; --warning:#E3AE3E; --good:#3FB795; --archive:#8199A3;
-      --chip-critical-bg:#331C18; --chip-warning-bg:#33280F; --chip-good-bg:#12302A; --chip-archive-bg:#1C2A31;
-      --bar:#5FA9D2;
-      --shadow:0 1px 2px rgba(0,0,0,.35), 0 4px 16px rgba(0,0,0,.28);
+      --ground:#08111E; --ground-2:#0C1A2C;
+      --surface:#101F33; --surface-2:#16283F; --surface-3:#1D344E;
+      --ink:#E4EDF7; --ink-2:#9FB6CC; --ink-3:#748CA6;
+      --line:#1F374F; --line-strong:#2E4A67;
+
+      --brand:#5EA9EE; --brand-deep:#8CC4F5; --brand-soft:#13314E; --brand-ring:#3B7FBF;
+      --violet:#A99BF0; --violet-soft:#221D4A;
+
+      --m1:#C6C0F0; --m2:#A99BF0; --m3:#8073D8; --m4:#5A4FA0;
+      --m1-bg:#282153; --m2-bg:#231E48; --m3-bg:#1E1A3D; --m4-bg:#191632;
+      --m1-tx:#C6C0F0; --m2-tx:#B5A9F3; --m3-tx:#9C8FE8; --m4-tx:#8578C9;
+
+      --critical:#EE7B67; --warning:#E3AE3E; --good:#3FB795; --archive:#8FA6BC;
+      --chip-critical-bg:#331915; --chip-warning-bg:#332711; --chip-good-bg:#10302A; --chip-archive-bg:#17293C;
+
+      --glow-a:rgba(94,169,238,.13); --glow-b:rgba(169,155,240,.09);
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 22px rgba(0,0,0,.32);
+      --shadow-lift:0 2px 6px rgba(0,0,0,.45), 0 14px 36px rgba(0,0,0,.4);
+      --dot:rgba(94,169,238,.06);
       color-scheme: dark;
     }
   }
   :root[data-theme="dark"] {
-    --ground:#0C1418; --surface:#131F26; --surface-2:#1A2A32; --surface-3:#22353E;
-    --ink:#E6EEF1; --ink-2:#A2B6BE; --ink-3:#7A8F99;
-    --line:#25373F; --line-strong:#354B55;
-    --brand:#7FBEE0; --brand-2:#5FA9D2; --brand-soft:#17303D;
-    --critical:#EE7B67; --warning:#E3AE3E; --good:#3FB795; --archive:#8199A3;
-    --chip-critical-bg:#331C18; --chip-warning-bg:#33280F; --chip-good-bg:#12302A; --chip-archive-bg:#1C2A31;
-    --bar:#5FA9D2;
-    --shadow:0 1px 2px rgba(0,0,0,.35), 0 4px 16px rgba(0,0,0,.28);
+    --ground:#08111E; --ground-2:#0C1A2C;
+    --surface:#101F33; --surface-2:#16283F; --surface-3:#1D344E;
+    --ink:#E4EDF7; --ink-2:#9FB6CC; --ink-3:#748CA6;
+    --line:#1F374F; --line-strong:#2E4A67;
+    --brand:#5EA9EE; --brand-deep:#8CC4F5; --brand-soft:#13314E; --brand-ring:#3B7FBF;
+    --violet:#A99BF0; --violet-soft:#221D4A;
+    --m1:#C6C0F0; --m2:#A99BF0; --m3:#8073D8; --m4:#5A4FA0;
+    --m1-bg:#282153; --m2-bg:#231E48; --m3-bg:#1E1A3D; --m4-bg:#191632;
+    --m1-tx:#C6C0F0; --m2-tx:#B5A9F3; --m3-tx:#9C8FE8; --m4-tx:#8578C9;
+    --critical:#EE7B67; --warning:#E3AE3E; --good:#3FB795; --archive:#8FA6BC;
+    --chip-critical-bg:#331915; --chip-warning-bg:#332711; --chip-good-bg:#10302A; --chip-archive-bg:#17293C;
+    --glow-a:rgba(94,169,238,.13); --glow-b:rgba(169,155,240,.09);
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 22px rgba(0,0,0,.32);
+    --shadow-lift:0 2px 6px rgba(0,0,0,.45), 0 14px 36px rgba(0,0,0,.4);
+    --dot:rgba(94,169,238,.06);
     color-scheme: dark;
   }
 
   *,*::before,*::after { box-sizing:border-box; }
   body {
-    margin:0; background:var(--ground); color:var(--ink);
+    margin:0; color:var(--ink); background:var(--ground);
     font-family:"Source Sans 3", ui-sans-serif, system-ui, sans-serif;
     font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(var(--dot) 1px, transparent 1px),
+      radial-gradient(ellipse 1100px 620px at 12% -8%, var(--glow-a), transparent 62%),
+      radial-gradient(ellipse 900px 540px at 92% 4%, var(--glow-b), transparent 60%),
+      linear-gradient(180deg, var(--ground-2) 0%, var(--ground) 420px);
+    background-size: 22px 22px, auto, auto, auto;
+    background-attachment: fixed, fixed, fixed, scroll;
   }
-  .wrap { max-width:1180px; margin:0 auto; padding:0 20px 72px; }
-  h1,h2,h3 { font-family:"Familjen Grotesk", ui-sans-serif, system-ui, sans-serif; text-wrap:balance; margin:0; }
+  .wrap { max-width:1200px; margin:0 auto; padding:0 20px 80px; }
+  h1,h2,h3 { font-family:"Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif; text-wrap:balance; margin:0; }
   .mono { font-family:"IBM Plex Mono", ui-monospace, monospace; font-variant-numeric:tabular-nums; }
 
   /* ---------- başlık ---------- */
-  .masthead {
-    border-bottom:1px solid var(--line); background:var(--surface);
-    padding:26px 0 22px; margin-bottom:26px;
+  .masthead { padding:30px 0 24px; }
+  .masthead .top { display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; justify-content:space-between; }
+  .masthead .top > .lead { flex:1 1 460px; min-width:min(100%,420px); }
+  .masthead .top > .aside { flex:0 0 auto; }
+  .brandmark { display:flex; align-items:center; gap:11px; margin-bottom:12px; }
+  .brandmark .sq {
+    width:30px; height:30px; border-radius:7px; flex:none;
+    background:linear-gradient(135deg, var(--brand) 0%, var(--violet) 130%);
+    display:grid; place-items:center; color:#fff;
+    font-family:"Plus Jakarta Sans",sans-serif; font-weight:800; font-size:15px;
   }
-  .masthead .wrap { padding-bottom:0; display:flex; flex-wrap:wrap; gap:18px; align-items:flex-end; justify-content:space-between; }
-  .eyebrow {
-    font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.14em;
-    text-transform:uppercase; color:var(--brand); margin-bottom:8px;
+  .brandmark .txt {
+    font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.15em;
+    text-transform:uppercase; color:var(--brand);
   }
-  h1 { font-size:clamp(26px,3.6vw,36px); font-weight:700; letter-spacing:-.02em; }
-  .sub { color:var(--ink-2); font-size:14px; margin-top:6px; }
-  .meta-list { display:flex; flex-direction:column; gap:3px; font-size:12.5px; color:var(--ink-3); text-align:right; }
-  .meta-list b { color:var(--ink-2); font-weight:600; }
+  h1 { font-size:clamp(28px,3.8vw,40px); font-weight:800; letter-spacing:-.028em; line-height:1.08; }
+  .sub { color:var(--ink-2); font-size:15px; margin-top:9px; max-width:56ch; }
+
+  .idcard {
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+    padding:14px 16px; box-shadow:var(--shadow); min-width:260px; max-width:340px;
+  }
+  .idcard .row { display:flex; gap:9px; font-size:12.5px; padding:3px 0; }
+  .idcard .row .k { color:var(--ink-3); flex:none; width:74px; }
+  .idcard .row .v { color:var(--ink-2); }
+  .idcard .hd {
+    font-family:"Plus Jakarta Sans",sans-serif; font-size:13px; font-weight:700;
+    padding-bottom:8px; margin-bottom:6px; border-bottom:1px solid var(--line);
+    display:flex; align-items:center; gap:7px;
+  }
   .theme-btn {
-    font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
-    background:var(--surface-2); color:var(--ink-2); border:1px solid var(--line);
-    border-radius:99px; padding:5px 12px; cursor:pointer; margin-top:8px;
+    font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.07em; text-transform:uppercase;
+    background:var(--surface); color:var(--ink-2); border:1px solid var(--line);
+    border-radius:99px; padding:6px 13px; cursor:pointer; margin-top:10px; width:100%;
   }
-  .theme-btn:hover { border-color:var(--line-strong); color:var(--ink); }
+  .theme-btn:hover { border-color:var(--brand-ring); color:var(--brand); }
 
   /* ---------- ölçü şeridi ---------- */
-  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:30px; }
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr)); gap:12px; margin-bottom:34px; }
   .tile {
-    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
-    padding:14px 16px 13px; box-shadow:var(--shadow);
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+    padding:14px 16px 13px; box-shadow:var(--shadow); position:relative; overflow:hidden;
   }
-  .tile .k { font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-3); }
-  .tile .v { font-family:"Familjen Grotesk",sans-serif; font-size:30px; font-weight:600; letter-spacing:-.02em;
-             font-variant-numeric:tabular-nums; line-height:1.15; margin-top:4px; }
+  .tile::after {
+    content:""; position:absolute; inset:0 auto 0 0; width:3px; background:var(--brand); opacity:.55;
+  }
+  .tile.hot::after { background:var(--critical); opacity:1; }
+  .tile.mat::after { background:var(--violet); opacity:1; }
+  .tile .k { font-size:11.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-3); }
+  .tile .v { font-family:"Plus Jakarta Sans",sans-serif; font-size:31px; font-weight:700;
+             letter-spacing:-.03em; font-variant-numeric:tabular-nums; line-height:1.12; margin-top:4px; }
+  .tile.hot .v { color:var(--critical); }
+  .tile.mat .v { color:var(--violet); }
   .tile .n { font-size:12px; color:var(--ink-3); margin-top:2px; }
-  .tile.accent { border-color:var(--critical); }
-  .tile.accent .v { color:var(--critical); }
 
-  section { margin-bottom:34px; }
-  .sec-head { display:flex; align-items:baseline; gap:12px; margin-bottom:14px; flex-wrap:wrap; }
-  .sec-head h2 { font-size:18px; font-weight:600; letter-spacing:-.01em; }
-  .sec-head .count { font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-3); }
+  section { margin-bottom:38px; }
+  .sec-head { display:flex; align-items:baseline; gap:12px; margin-bottom:15px; flex-wrap:wrap; }
+  .sec-head h2 { font-size:19px; font-weight:700; letter-spacing:-.018em; }
+  .sec-head .count {
+    font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--brand);
+    background:var(--brand-soft); border-radius:99px; padding:3px 9px;
+  }
   .sec-head .hint { font-size:13px; color:var(--ink-3); margin-left:auto; }
 
-  /* ---------- aksiyon kartları ---------- */
-  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:13px; }
+  /* ---------- kartlar ---------- */
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:14px; }
   .card {
-    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--critical);
-    border-radius:var(--radius); padding:15px 17px; box-shadow:var(--shadow);
-    display:flex; flex-direction:column; gap:8px;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+    padding:16px 18px; box-shadow:var(--shadow);
+    display:flex; flex-direction:column; gap:9px; position:relative; overflow:hidden;
+    transition:box-shadow .16s, transform .16s;
   }
-  .card.warn { border-left-color:var(--warning); }
+  .card:hover { box-shadow:var(--shadow-lift); transform:translateY(-1px); }
+  .card::before { content:""; position:absolute; inset:0 auto 0 0; width:3px; background:var(--critical); }
+  .card.warn::before { background:var(--warning); }
   .card-top { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
-  .card h3 { font-size:15.5px; font-weight:600; }
-  .card .role { font-size:13px; color:var(--ink-2); margin-top:1px; }
+  .card h3 { font-size:16px; font-weight:700; letter-spacing:-.012em; }
+  .card .role { font-size:13px; color:var(--ink-2); margin-top:2px; }
   .card p { margin:0; font-size:13.5px; color:var(--ink-2); }
-  .card .rem { font-size:13px; color:var(--ink); display:flex; gap:7px; align-items:flex-start; }
+  .card .rem { font-size:12.5px; color:var(--ink); display:flex; gap:7px; align-items:flex-start; }
   .card .rem span:first-child { flex:none; }
 
   .chip {
     display:inline-flex; align-items:center; gap:5px; flex:none;
     font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:500;
-    letter-spacing:.03em; padding:3px 9px; border-radius:99px; white-space:nowrap;
+    letter-spacing:.02em; padding:3px 9px; border-radius:99px; white-space:nowrap;
   }
-  .chip-critical { background:var(--chip-critical-bg); color:var(--critical); }
-  .chip-warning  { background:var(--chip-warning-bg);  color:var(--warning); }
-  .chip-good     { background:var(--chip-good-bg);     color:var(--good); }
-  .chip-archive  { background:var(--chip-archive-bg);  color:var(--archive); }
-  .chip-brand    { background:var(--brand-soft);       color:var(--brand); }
+  .chip-critical{background:var(--chip-critical-bg);color:var(--critical)}
+  .chip-warning {background:var(--chip-warning-bg); color:var(--warning)}
+  .chip-good    {background:var(--chip-good-bg);    color:var(--good)}
+  .chip-archive {background:var(--chip-archive-bg); color:var(--archive)}
+  .chip-brand   {background:var(--brand-soft);      color:var(--brand)}
+  .chip-strong{background:var(--m1-bg);color:var(--m1-tx)}
+  .chip-good-m{background:var(--m2-bg);color:var(--m2-tx)}
+  .chip-fair  {background:var(--m3-bg);color:var(--m3-tx)}
+  .chip-weak  {background:var(--m4-bg);color:var(--m4-tx)}
 
-  /* ---------- grafikler ---------- */
-  .charts { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-  @media (max-width:820px) { .charts { grid-template-columns:1fr; } }
+  /* ---------- aksiyon butonları ---------- */
+  .acts { display:flex; flex-wrap:wrap; gap:7px; margin-top:2px; }
+  .act {
+    display:inline-flex; align-items:center; gap:6px; text-decoration:none;
+    font-family:"Source Sans 3",sans-serif; font-size:12.5px; font-weight:600;
+    padding:6px 12px; border-radius:99px; border:1px solid var(--line);
+    background:var(--surface-2); color:var(--ink-2); transition:all .14s; white-space:nowrap;
+  }
+  .act:hover { border-color:var(--brand-ring); color:var(--brand); background:var(--brand-soft); }
+  .act.primary { background:var(--brand); border-color:var(--brand); color:#fff; }
+  .act.primary:hover { background:var(--brand-deep); border-color:var(--brand-deep); color:#fff; }
+  .act svg { width:13px; height:13px; flex:none; }
+  .act:focus-visible, .fchip:focus-visible, .search:focus-visible, .theme-btn:focus-visible,
+  .row-act:focus-visible { outline:2px solid var(--brand); outline-offset:2px; }
+
+  /* ---------- paneller / grafikler ---------- */
+  .charts { display:grid; grid-template-columns:1.05fr 1fr 1fr; gap:15px; }
+  @media (max-width:980px){ .charts{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:680px){ .charts{ grid-template-columns:1fr; } }
   .panel {
-    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
-    padding:16px 18px 18px; box-shadow:var(--shadow);
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+    padding:17px 19px 19px; box-shadow:var(--shadow);
   }
-  .panel h3 { font-size:14.5px; font-weight:600; }
-  .panel .cap { font-size:12.5px; color:var(--ink-3); margin:3px 0 16px; }
+  .panel h3 { font-size:14.5px; font-weight:700; letter-spacing:-.01em; }
+  .panel .cap { font-size:12.5px; color:var(--ink-3); margin:4px 0 17px; }
 
-  .vbars { display:flex; align-items:flex-end; gap:10px; height:150px; }
+  .vbars { display:flex; align-items:flex-end; gap:9px; height:142px; }
   .vbar { flex:1; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; gap:6px; height:100%; }
-  .vbar .col {
-    width:100%; background:var(--bar); border-radius:4px 4px 0 0; min-height:3px;
-    transition:filter .15s; position:relative;
-  }
-  .vbar:hover .col { filter:brightness(1.12); }
+  .vbar .col { width:100%; background:var(--brand); border-radius:5px 5px 0 0; min-height:3px; transition:filter .15s; }
+  .vbar:hover .col { filter:brightness(1.14); }
   .vbar .num { font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; }
-  .vbar .lbl { font-size:11px; color:var(--ink-3); text-align:center; line-height:1.25; }
+  .vbar .lbl { font-size:10.5px; color:var(--ink-3); text-align:center; line-height:1.25; }
 
-  .hbars { display:flex; flex-direction:column; gap:11px; }
-  .hbar-row { display:grid; grid-template-columns:1fr auto; gap:4px 10px; align-items:center; }
-  .hbar-lbl { font-size:13px; color:var(--ink-2); display:flex; align-items:center; gap:7px; }
+  .hbars { display:flex; flex-direction:column; gap:12px; }
+  .hbar-row { display:grid; grid-template-columns:1fr auto; gap:5px 10px; align-items:center; }
+  .hbar-lbl { font-size:12.5px; color:var(--ink-2); display:flex; align-items:center; gap:7px; }
   .hbar-val { font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; }
-  .hbar-track { grid-column:1/-1; height:9px; background:var(--surface-2); border-radius:99px; overflow:hidden; }
+  .hbar-track { grid-column:1/-1; height:9px; background:var(--surface-3); border-radius:99px; overflow:hidden; }
   .hbar-fill { height:100%; border-radius:99px; }
-  .dot { width:9px; height:9px; border-radius:2px; flex:none; }
+  .hbar-sub { grid-column:1/-1; font-size:11.5px; color:var(--ink-3); margin-top:-1px; }
+  .dot { width:9px; height:9px; border-radius:3px; flex:none; }
 
-  /* ---------- filtreler + tablo ---------- */
-  .controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:14px; }
-  .fchip {
-    font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.03em;
-    background:var(--surface); color:var(--ink-2); border:1px solid var(--line);
-    border-radius:99px; padding:5px 13px; cursor:pointer; transition:all .13s;
+  /* ---------- odak listesi ---------- */
+  .focus { display:grid; grid-template-columns:repeat(auto-fit,minmax(316px,1fr)); gap:14px; }
+  .fcard {
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+    padding:15px 17px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:9px;
+    transition:box-shadow .16s, transform .16s;
   }
-  .fchip:hover { border-color:var(--line-strong); color:var(--ink); }
-  .fchip[aria-pressed="true"] { background:var(--brand); border-color:var(--brand); color:var(--surface); }
-  :root[data-theme="dark"] .fchip[aria-pressed="true"],
-  .fchip[aria-pressed="true"] { color:#fff; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .fchip[aria-pressed="true"] { color:#0C1418; } }
-  :root[data-theme="dark"] .fchip[aria-pressed="true"] { color:#0C1418; }
+  .fcard:hover { box-shadow:var(--shadow-lift); transform:translateY(-1px); }
+  .fcard-top { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .fcard h3 { font-size:15.5px; font-weight:700; }
+  .fcard .role { font-size:12.5px; color:var(--ink-2); margin-top:1px; }
+  .mscore {
+    font-family:"Plus Jakarta Sans",sans-serif; font-size:23px; font-weight:800;
+    color:var(--violet); line-height:1; font-variant-numeric:tabular-nums; flex:none; text-align:right;
+  }
+  .mscore small { display:block; font-family:"IBM Plex Mono",monospace; font-size:9.5px;
+                  font-weight:500; letter-spacing:.09em; color:var(--ink-3); margin-top:3px; text-transform:uppercase; }
+  .why { font-size:12.5px; color:var(--ink-2); }
+  .dims { display:flex; flex-direction:column; gap:5px; }
+  .dim { display:grid; grid-template-columns:88px 1fr 30px; gap:8px; align-items:center; font-size:11.5px; color:var(--ink-3); }
+  .dim-track { height:5px; background:var(--surface-3); border-radius:99px; overflow:hidden; }
+  .dim-fill { height:100%; background:var(--violet); border-radius:99px; }
+  .dim-val { font-family:"IBM Plex Mono",monospace; font-size:11px; text-align:right; font-variant-numeric:tabular-nums; }
+
+  /* ---------- filtreler / tablo ---------- */
+  .controls { display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-bottom:15px; }
+  .fgroup { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+  .fgroup > .glabel {
+    font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--ink-3); margin-right:2px;
+  }
+  .fchip {
+    font-family:"Source Sans 3",sans-serif; font-size:12.5px; font-weight:600;
+    background:var(--surface); color:var(--ink-2); border:1px solid var(--line);
+    border-radius:99px; padding:5px 12px; cursor:pointer; transition:all .13s;
+  }
+  .fchip:hover { border-color:var(--brand-ring); color:var(--brand); }
+  .fchip[aria-pressed="true"] { background:var(--brand); border-color:var(--brand); color:#fff; }
+  .fchip.v[aria-pressed="true"] { background:var(--violet); border-color:var(--violet); color:#fff; }
   .search {
-    flex:1; min-width:180px; max-width:280px; margin-left:auto;
+    flex:1; min-width:180px; max-width:290px; margin-left:auto;
     font-family:"Source Sans 3",sans-serif; font-size:13.5px;
     background:var(--surface); color:var(--ink); border:1px solid var(--line);
-    border-radius:99px; padding:6px 14px;
+    border-radius:99px; padding:7px 15px;
   }
   .search::placeholder { color:var(--ink-3); }
-  .search:focus-visible, .fchip:focus-visible, .theme-btn:focus-visible {
-    outline:2px solid var(--brand-2); outline-offset:2px;
-  }
 
-  .tbl-scroll { overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
-  table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:860px; }
+  .tbl-scroll { overflow-x:auto; border:1px solid var(--line); border-radius:var(--r); background:var(--surface); box-shadow:var(--shadow); }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:1020px; }
   thead th {
-    text-align:left; font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:500;
-    letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3);
-    padding:11px 14px; border-bottom:1px solid var(--line); background:var(--surface-2);
-    white-space:nowrap; position:sticky; top:0;
+    text-align:left; font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:500;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3);
+    padding:11px 13px; border-bottom:1px solid var(--line); background:var(--surface-2);
+    white-space:nowrap; position:sticky; top:0; z-index:1;
   }
-  tbody td { padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tbody td { padding:11px 13px; border-bottom:1px solid var(--line); vertical-align:top; }
   tbody tr:last-child td { border-bottom:none; }
   tbody tr:hover { background:var(--surface-2); }
   td.num { font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; }
   .co { font-weight:600; }
   .ro { color:var(--ink-2); font-size:12.5px; }
-  .step { color:var(--ink-2); font-size:12.5px; max-width:330px; }
+  .step { color:var(--ink-2); font-size:12.5px; max-width:270px; }
   .sev { width:3px; padding:0 !important; }
-  .sev-critical { background:var(--critical); }
-  .sev-high { background:var(--warning); }
-  .sev-normal { background:var(--brand-2); }
-  .sev-low { background:var(--line-strong); }
-  .sev-archive { background:var(--archive); }
-  .empty { padding:26px; text-align:center; color:var(--ink-3); font-size:13.5px; }
+  .sev-critical{background:var(--critical)} .sev-high{background:var(--warning)}
+  .sev-normal{background:var(--brand)} .sev-low{background:var(--line-strong)}
+  .sev-archive{background:var(--archive)}
+  .mcell { display:flex; flex-direction:column; gap:4px; min-width:96px; }
+  .mnum { font-family:"IBM Plex Mono",monospace; font-size:14px; font-weight:600; font-variant-numeric:tabular-nums; }
+  .mbar { height:4px; background:var(--surface-3); border-radius:99px; overflow:hidden; }
+  .mbar i { display:block; height:100%; border-radius:99px; }
+  .row-acts { display:flex; gap:5px; }
+  .row-act {
+    display:grid; place-items:center; width:27px; height:27px; border-radius:7px;
+    border:1px solid var(--line); background:var(--surface-2); color:var(--ink-3);
+    text-decoration:none; transition:all .13s;
+  }
+  .row-act:hover { border-color:var(--brand-ring); color:var(--brand); background:var(--brand-soft); }
+  .row-act svg { width:13px; height:13px; }
+  .empty { padding:28px; text-align:center; color:var(--ink-3); font-size:13.5px; }
 
   /* ---------- geri bildirim ---------- */
-  .feedback { background:var(--brand-soft); border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px; }
-  .feedback h2 { font-size:17px; margin-bottom:6px; }
-  .feedback p { margin:0 0 14px; font-size:13.5px; color:var(--ink-2); }
+  .feedback {
+    background:linear-gradient(135deg, var(--brand-soft) 0%, var(--violet-soft) 100%);
+    border:1px solid var(--line); border-radius:var(--r); padding:22px 24px;
+  }
+  .feedback h2 { font-size:18px; margin-bottom:6px; }
+  .feedback p { margin:0 0 15px; font-size:13.5px; color:var(--ink-2); max-width:62ch; }
   .qs { display:grid; gap:9px; margin:0; padding:0; list-style:none; counter-reset:q; }
   .qs li {
     display:flex; gap:11px; align-items:flex-start; font-size:14px;
-    background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:11px 14px;
+    background:var(--surface); border:1px solid var(--line); border-radius:9px; padding:11px 14px;
   }
   .qs li::before {
     counter-increment:q; content:counter(q); flex:none;
-    font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600; color:var(--brand);
-    background:var(--brand-soft); border-radius:4px; width:20px; height:20px;
+    font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600; color:#fff;
+    background:var(--brand); border-radius:5px; width:20px; height:20px;
     display:grid; place-items:center; margin-top:1px;
   }
-  footer { margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-3); }
-  @media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important; } }
+  .note {
+    margin-top:16px; font-size:12.5px; color:var(--ink-2);
+    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--violet);
+    border-radius:8px; padding:11px 14px;
+  }
+  footer { margin-top:44px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-3); }
+  @media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
 </style>
 
-<header class="masthead">
-  <div class="wrap">
-    <div>
-      <div class="eyebrow" id="eyebrow">Kontrol kulesi</div>
-      <h1>Başvuru Kontrol Kulesi</h1>
-      <div class="sub" id="subtitle"></div>
-    </div>
-    <div>
-      <div class="meta-list" id="meta"></div>
-      <button class="theme-btn" id="themeBtn" type="button">Tema</button>
-    </div>
-  </div>
-</header>
-
 <div class="wrap">
+  <header class="masthead">
+    <div class="top">
+      <div class="lead">
+        <div class="brandmark"><span class="sq">in</span><span class="txt">Kariyer Pilotu</span></div>
+        <h1>Başvuru takibi, CV eşleşmesiyle birlikte</h1>
+        <p class="sub" id="subtitle"></p>
+      </div>
+      <div class="aside">
+        <div class="idcard">
+          <div class="hd"><span class="dot" style="background:var(--violet)"></span>Eşleşme neye göre</div>
+          <div id="idbody"></div>
+        </div>
+        <button class="theme-btn" id="themeBtn" type="button">Koyu tema</button>
+      </div>
+    </div>
+  </header>
+
   <div class="tiles" id="tiles"></div>
 
   <section>
@@ -239,7 +365,7 @@
   <section class="charts">
     <div class="panel">
       <h3>Haftalık başvuru hacmi</h3>
-      <p class="cap">1 Ağustos – 1 Eylül 2026 arasında gönderilen başvurular</p>
+      <p class="cap">1 Ağustos – 1 Eylül arasında gönderilen başvurular</p>
       <div class="vbars" id="weekly"></div>
     </div>
     <div class="panel">
@@ -247,36 +373,58 @@
       <p class="cap">68 başvurunun bugünkü dağılımı</p>
       <div class="hbars" id="states"></div>
     </div>
+    <div class="panel">
+      <h3>CV eşleşme segmentleri</h3>
+      <p class="cap">Her segmentin ileri aşamaya geçme oranı</p>
+      <div class="hbars" id="segs"></div>
+    </div>
   </section>
 
   <section>
     <div class="sec-head">
-      <h2>Öncelik tablosu</h2>
+      <h2>Odak listesi</h2>
+      <span class="count" id="focusCount"></span>
+      <span class="hint">Açık süreçler içinde CV'ye en çok uyanlar</span>
+    </div>
+    <div class="focus" id="focusCards"></div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Tüm başvurular</h2>
       <span class="count" id="tblCount"></span>
     </div>
     <div class="controls">
-      <button class="fchip" data-f="all" aria-pressed="true" type="button">Tümü</button>
-      <button class="fchip" data-f="critical" aria-pressed="false" type="button">Kritik</button>
-      <button class="fchip" data-f="high" aria-pressed="false" type="button">Yüksek</button>
-      <button class="fchip" data-f="normal" aria-pressed="false" type="button">Normal</button>
-      <button class="fchip" data-f="low" aria-pressed="false" type="button">Düşük</button>
-      <button class="fchip" data-f="archive" aria-pressed="false" type="button">Olumsuz</button>
+      <div class="fgroup" id="bandGroup">
+        <span class="glabel">Aciliyet</span>
+        <button class="fchip" data-b="all" aria-pressed="true" type="button">Tümü</button>
+        <button class="fchip" data-b="critical" aria-pressed="false" type="button">Kritik</button>
+        <button class="fchip" data-b="high" aria-pressed="false" type="button">Yüksek</button>
+        <button class="fchip" data-b="normal" aria-pressed="false" type="button">Normal</button>
+        <button class="fchip" data-b="archive" aria-pressed="false" type="button">Olumsuz</button>
+      </div>
+      <div class="fgroup" id="segGroup">
+        <span class="glabel">Eşleşme</span>
+        <button class="fchip v" data-s="all" aria-pressed="true" type="button">Tümü</button>
+        <button class="fchip v" data-s="strong" aria-pressed="false" type="button">Güçlü</button>
+        <button class="fchip v" data-s="good" aria-pressed="false" type="button">İyi</button>
+        <button class="fchip v" data-s="fair" aria-pressed="false" type="button">Orta</button>
+        <button class="fchip v" data-s="weak" aria-pressed="false" type="button">Zayıf</button>
+      </div>
       <input class="search" id="search" type="search" placeholder="Şirket veya pozisyon ara…" aria-label="Şirket veya pozisyon ara">
     </div>
     <div class="tbl-scroll">
       <table>
-        <thead>
-          <tr>
-            <th class="sev" scope="col"><span class="sr-only"></span></th>
-            <th scope="col">Şirket / Pozisyon</th>
-            <th scope="col">Aşama</th>
-            <th scope="col">Kanal</th>
-            <th scope="col">Deadline</th>
-            <th scope="col">Sessiz</th>
-            <th scope="col">Puan</th>
-            <th scope="col">Sonraki adım</th>
-          </tr>
-        </thead>
+        <thead><tr>
+          <th class="sev" scope="col"></th>
+          <th scope="col">Şirket / Pozisyon</th>
+          <th scope="col">Eşleşme</th>
+          <th scope="col">Aşama</th>
+          <th scope="col">Deadline</th>
+          <th scope="col">Sessiz</th>
+          <th scope="col">Sonraki adım</th>
+          <th scope="col">Aksiyon</th>
+        </tr></thead>
         <tbody id="tbody"></tbody>
       </table>
       <div class="empty" id="empty" hidden>Bu filtreye uyan başvuru yok.</div>
@@ -289,10 +437,8 @@
       <span class="count" id="outCount"></span>
     </div>
     <div class="tbl-scroll">
-      <table>
-        <thead>
-          <tr><th scope="col">Tarih</th><th scope="col">Kimden</th><th scope="col">Konu</th><th scope="col">Kanal</th></tr>
-        </thead>
+      <table style="min-width:640px">
+        <thead><tr><th scope="col">Tarih</th><th scope="col">Kimden</th><th scope="col">Konu</th><th scope="col">Kanal</th></tr></thead>
         <tbody id="outbody"></tbody>
       </table>
     </div>
@@ -300,167 +446,240 @@
 
   <section class="feedback">
     <h2>Senden beklenen geri bildirim</h2>
-    <p>Bu dört yanıt bir sonraki taramanın önceliklerini belirler. Günlük rapor e-postasına cevap yazman yeterli.</p>
+    <p>Bu dört yanıt hem bir sonraki taramanın önceliklerini hem de eşleşme puanlarını yeniden ayarlar. Günlük rapor e-postasına cevap yazman yeterli.</p>
     <ol class="qs">
       <li>Bu hafta hangi <strong>3 role</strong> odaklanmak istiyorsun?</li>
       <li>12+ gündür sessiz olan süreçlerden hangilerini <strong>kapatalım</strong>?</li>
       <li>Hedef sektör, rol ya da lokasyon tercihin değişti mi?</li>
       <li>Maaş beklentin güncellenmeli mi?</li>
     </ol>
+    <p class="note" id="matchnote"></p>
   </section>
 
   <footer id="foot"></footer>
 </div>
 
 <script>
-const D = {"generated": "2026-09-01", "meta": {"owner": "Atalay Denizer", "email": "atalay.denizer0@gmail.com", "scan_window": {"from": "2026-08-01", "to": "2026-09-01"}, "last_scan": "2026-09-01", "source": "Gmail (LinkedIn Easy Apply + ATS onay/red mailleri + doğrudan İK yazışmaları)", "schema_version": 1}, "stats": {"total": 68, "active": 53, "rejected": 15, "interviews": 9, "stale": 27, "response_rate": 67.6, "interview_rate": 13.2, "rejection_rate": 22.1}, "weekly": [{"label": "1–7 Ağu", "value": 17}, {"label": "8–14 Ağu", "value": 10}, {"label": "15–21 Ağu", "value": 19}, {"label": "22–28 Ağu", "value": 12}, {"label": "29 Ağu–1 Eyl", "value": 10}], "states": [{"label": "Aksiyon gerekli", "value": 8, "tone": "critical", "icon": "!"}, {"label": "Aktif / yanıt bekleniyor", "value": 22, "tone": "good", "icon": "→"}, {"label": "Sessizleşen (12+ gün)", "value": 23, "tone": "warning", "icon": "~"}, {"label": "Olumsuz sonuçlanan", "value": 15, "tone": "archive", "icon": "×"}], "applications": [{"id": "nebil-cfo-office", "company": "Nebil Project", "role": "CFO Office Executive", "stage": "assessment", "status": "action_required", "band": "critical", "score": 145, "channel": "direct", "track": "Finance/Strategy", "location": "Maslak, İstanbul (ofis, 5 gün)", "applied": "2026-08-20", "last_contact": "2026-08-25", "deadline": "2026-08-31", "days_silent": 7, "days_to_deadline": -1, "next_step": "TestGorilla testi + 3 soruya mail yanıtı (maaş / lokasyon / 7 Eyl başlangıç). Yüz yüze mülakatlar 1-2 Eylül, hedef başlangıç 7 Eylül.", "reminders": ["⏳ Deadline 1 gün önce doldu (2026-08-31) — uzatma iste ya da kapat."], "contact": "Aleyna Nur Alagöz — aleyna.alagoz@nebil.com", "notes": "Sürecin en ileri aşamadaki adayı. Deadline 31 Ağu'da doldu — tamamlanmadıysa acil kapatılmalı.", "fit": 5}, {"id": "puffy-data-analyst", "company": "Puffy", "role": "Data Analyst (Dubai, on-site)", "stage": "assessment", "status": "action_required", "band": "critical", "score": 141, "channel": "linkedin", "track": "Data", "location": "Dubai", "applied": "2026-08-01", "last_contact": "2026-08-20", "deadline": "2026-08-22", "days_silent": 12, "days_to_deadline": -10, "next_step": "Faz-1 yetenek değerlendirmesi (~30 dk, proctored/kameralı; başlayınca 4 saat içinde bitmeli).", "reminders": ["⏳ Deadline 10 gün önce doldu (2026-08-22) — uzatma iste ya da kapat."], "contact": "Shreya K. — shreya.k@puffy.com", "notes": "Deadline 22 Ağu'da doldu. Tamamlanmadıysa uzatma talebi için İK'ya yaz.", "fit": 4}, {"id": "eoai-lab-founding", "company": "EOAI Lab", "role": "Kurucu ekip", "stage": "interview_scheduling", "status": "action_required", "band": "critical", "score": 129, "channel": "direct", "track": "AI/Startup", "location": "Remote", "applied": "2026-08-28", "last_contact": "2026-08-29", "deadline": "2026-09-04", "days_silent": 3, "days_to_deadline": 3, "next_step": "Online mülakat için müsaitlik bildirimi — pencere 4 Eylül'de kapanıyor.", "reminders": ["📅 Deadline 3 gün sonra (2026-09-04)."], "contact": null, "notes": "Müsaitlik iletilmezse süreç otomatik düşer.", "fit": 4}, {"id": "theflex-base360", "company": "The Flex & Base360", "role": "Growth Marketer / Marketing", "stage": "next_stage", "status": "in_progress", "band": "high", "score": 98, "channel": "ats", "track": "Growth", "location": "Remote", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "Bir sonraki aşama görevi (adayların ~%10'u geçti).", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "Ashby üzerinden ilerliyor.", "fit": 4}, {"id": "peks-global-ticari-analist", "company": "Peks Global A.Ş.", "role": "Ticari Analist", "stage": "interviewed", "status": "awaiting_response", "band": "high", "score": 94, "channel": "direct", "track": "Business Analysis", "location": "İstanbul", "applied": "2026-08-25", "last_contact": "2026-08-28", "deadline": null, "days_silent": 4, "days_to_deadline": null, "next_step": "28 Ağu 12:00 Teams görüşmesi yapıldı — geri dönüş bekleniyor. 5+ iş günü geçtiyse takip maili at.", "reminders": [], "contact": "Raşit Okman / Barış Türkan (İK Müdürü)", "notes": "Aktif mülakat süreci.", "fit": 4}, {"id": "micro1-data-analyst", "company": "micro1", "role": "Data Analyst (AI training)", "stage": "assessment", "status": "action_required", "band": "critical", "score": 93, "channel": "direct", "track": "Data", "location": "Remote", "applied": "2026-08-03", "last_contact": "2026-08-22", "deadline": null, "days_silent": 10, "days_to_deadline": null, "next_step": "~30 dk konuşma tabanlı AI mülakatı tamamlanmalı.", "reminders": [], "contact": null, "notes": "3 Ağu–22 Ağu arası 8 hatırlatma geldi. Düşük öncelik ama tek adımda kapanır.", "fit": 2}, {"id": "drbombay-deel", "company": "Dr. Bombay (Snoop Dogg) / Deel", "role": "International Ice-Cream Taster", "stage": "next_stage", "status": "action_required", "band": "high", "score": 86, "channel": "direct", "track": "Novelty", "location": "Remote", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": "2026-09-17", "days_silent": 1, "days_to_deadline": 16, "next_step": "60-90 sn tanıtım videosu gönder.", "reminders": [], "contact": null, "notes": "Düşük öncelik / eğlence amaçlı.", "fit": 1}, {"id": "trendyolgo", "company": "TrendyolGo", "role": "Belirtilmemiş", "stage": "interviewed", "status": "awaiting_response", "band": "high", "score": 86, "channel": "ats", "track": "E-commerce", "location": "İstanbul", "applied": "2026-08-05", "last_contact": "2026-08-18", "deadline": null, "days_silent": 14, "days_to_deadline": null, "next_step": "Mülakat tamamlandı, deneyim anketi geldi — sonuç bekleniyor.", "reminders": ["✉️ Mülakattan 14 gün geçti — nazik takip maili at."], "contact": null, "notes": "Anket maili genelde sürecin sonuna yakın gelir.", "fit": 4}, {"id": "yapikredi-peoplise", "company": "Yapı Kredi", "role": "Belirtilmemiş (peoplise başvurusu)", "stage": "application_incomplete", "status": "action_required", "band": "critical", "score": 86, "channel": "ats", "track": "Banking", "location": "İstanbul", "applied": "2026-08-21", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "E-posta doğrulama linkine tıkla + CV bilgilerini doldur (spam kutusunu kontrol et).", "reminders": [], "contact": null, "notes": "21 Ağu'da da aynı doğrulama maili gelmiş; adım hâlâ tamamlanmamış görünüyor.", "fit": 4}, {"id": "eren-perakende-flowq", "company": "Eren Perakende", "role": "Belirtilmemiş", "stage": "assessment", "status": "action_required", "band": "critical", "score": 77, "channel": "ats", "track": "Retail", "location": "İstanbul", "applied": "2026-08-05", "last_contact": "2026-08-06", "deadline": null, "days_silent": 26, "days_to_deadline": null, "next_step": "FlowQ çevrimiçi yetenek/beceri uygulaması.", "reminders": [], "contact": null, "notes": "6 Ağu'dan beri bekliyor — muhtemelen süresi doldu, kontrol et.", "fit": 3}, {"id": "shift-data-ops-fellow", "company": "shift (joinshift.ai)", "role": "Data Operations Fellow", "stage": "in_process", "status": "awaiting_response", "band": "high", "score": 76, "channel": "direct", "track": "Data", "location": "İstanbul", "applied": "2026-08-26", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "Program süreç akışı paylaşıldı — sonraki adım bildirimi bekleniyor.", "reminders": [], "contact": "kaan.dursun@joinshift.ai", "notes": "Klasik staj değil, fellowship programı.", "fit": 4}, {"id": "omtera-join", "company": "Omtera", "role": "Belirtilmemiş", "stage": "application_incomplete", "status": "action_required", "band": "critical", "score": 74, "channel": "ats", "track": "Data", "location": "İstanbul", "applied": "2026-08-15", "last_contact": "2026-08-15", "deadline": null, "days_silent": 17, "days_to_deadline": null, "next_step": "join.com üzerinden giriş yapıp başvuruyu tamamla (link 60 dk geçerliydi — yeniden tetikle).", "reminders": [], "contact": null, "notes": "Başvuru hiç tamamlanmadı.", "fit": 3}, {"id": "dataroid", "company": "Dataroid", "role": "Belirtilmemiş", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 55, "channel": "ats", "track": "Data", "location": "İstanbul", "applied": "2026-08-28", "last_contact": "2026-08-28", "deadline": null, "days_silent": 4, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "Lever.", "fit": 5}, {"id": "obilet-strategy-analyst", "company": "Obilet", "role": "Strategy Analyst", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 55, "channel": "linkedin", "track": "Strategy", "location": "İstanbul", "applied": "2026-08-30", "last_contact": "2026-08-30", "deadline": null, "days_silent": 2, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "Obilet'e ikinci başvuru.", "fit": 5}, {"id": "sanction-scanner-founders", "company": "Sanction Scanner", "role": "Founder's Associate", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 55, "channel": "ats", "track": "Strategy", "location": "İstanbul", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "Nitelikler inceleniyor.", "reminders": [], "contact": null, "notes": "Founder's Associate rolü profile çok uygun.", "fit": 5}, {"id": "amazon-content-acq", "company": "Amazon", "role": "Content Acquisition Manager, Prime Video Turkey (10506884)", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Content/BD", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok — amazon.jobs portalından durum kontrol edilebilir.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 4}, {"id": "assistant-app-growth-pm", "company": "Assistant App A.Ş.", "role": "Growth Product Manager", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Product/Growth", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "hrpanda.", "fit": 4}, {"id": "baytek-ba-ai", "company": "Baytek", "role": "Business Analyst – AI & Product Analytics", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Business Analysis", "location": "İstanbul", "applied": "2026-09-01", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "CV işverene iletildi.", "reminders": [], "contact": null, "notes": "resreader.com üzerinden.", "fit": 4}, {"id": "ceva-logistics-bpe", "company": "CEVA Logistics", "role": "Business Process Excellence Professional Turkey", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Operations", "location": "İstanbul", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "cricut-ecom-ops-lead", "company": "Cricut", "role": "Regional E-commerce Operations Lead, META", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "linkedin", "track": "E-commerce", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 4}, {"id": "firefly-biz-ops", "company": "Firefly", "role": "Business Operations Associate", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Operations", "location": "Remote", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "Lever.", "fit": 4}, {"id": "goodjobgames-product-specialist", "company": "Good Job Games", "role": "Product Specialist, Hybrid-Casual", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Product/Gaming", "location": "İstanbul", "applied": "2026-08-26", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "hyundai-product-senior", "company": "Hyundai Motor Türkiye", "role": "Product Senior Specialist (Pricing & Hyundai Finance)", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Finance/Pricing", "location": "İstanbul", "applied": "2026-09-01", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "SuccessFactors.", "fit": 4}, {"id": "midas-lever", "company": "Midas", "role": "Belirtilmemiş", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Fintech", "location": "İstanbul", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "Lever.", "fit": 4}, {"id": "miniclip-data-analyst", "company": "Miniclip", "role": "Data Analyst / Data Scientist I", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Data/Gaming", "location": "Remote/EU", "applied": "2026-08-24", "last_contact": "2026-08-24", "deadline": null, "days_silent": 8, "days_to_deadline": null, "next_step": "8 gündür dönüş yok.", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "nlr-bi-analyst", "company": "NLR", "role": "Business Intelligence (BI) Analyst", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Data", "location": "Remote", "applied": "2026-08-25", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "Workday bildirimi geldi — Workday Inbox'ı kontrol et.", "reminders": [], "contact": null, "notes": "1 Eyl Workday digest'inde bildirim var, içeriği okunmalı.", "fit": 4}, {"id": "pernod-ricard-fpa", "company": "Pernod Ricard", "role": "Financial Planning & Analysis Management Trainee", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Finance", "location": "İstanbul", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "Workday.", "fit": 4}, {"id": "pfizer-data-ops", "company": "Pfizer", "role": "Data Operations Specialist (Contractor) 4960477", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Data", "location": "İstanbul", "applied": "2026-08-03", "last_contact": "2026-08-21", "deadline": null, "days_silent": 11, "days_to_deadline": null, "next_step": "Değerlendirme sürüyor — karar bekleniyor.", "reminders": [], "contact": null, "notes": "3 kez 'öne çıkan aday' hatırlatması geldi (3, 5, 7 Ağu), 21 Ağu'da hâlâ inceleme.", "fit": 4}, {"id": "revolut-product-owner", "company": "Revolut", "role": "Product Owner (Technical)", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Product", "location": "Remote/EU", "applied": "2026-09-01", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "Başvuru onaylandı — inceleme aşamasında.", "reminders": [], "contact": null, "notes": "Revolut'ta ikinci deneme (S&O Manager 25 Ağu'da olumsuz sonuçlandı).", "fit": 4}, {"id": "socgen-coverage-support", "company": "Societe Generale", "role": "Coverage Support Analyst (26000J28)", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Banking", "location": "Remote/EU", "applied": "2026-08-27", "last_contact": "2026-08-27", "deadline": null, "days_silent": 5, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "tripcom-bd-manager", "company": "Trip.com Group", "role": "Business Development Manager (Attractions & Tours), Turkey", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Sales/BD", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 4}, {"id": "vizio-ai-saas-growth", "company": "VIZIO AI", "role": "SaaS Growth Strategist (AI-Native)", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Growth", "location": "İstanbul/Remote", "applied": "2026-08-27", "last_contact": "2026-08-27", "deadline": null, "days_silent": 5, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "hrpanda.", "fit": 4}, {"id": "vodafone", "company": "Vodafone", "role": "Belirtilmemiş", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Telco", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "İşe alım ekibi inceliyor.", "reminders": [], "contact": null, "notes": "20 ve 26 Ağu'da iki takip maili.", "fit": 4}, {"id": "flalingo-influencer", "company": "Flalingo", "role": "Influencer Marketing & Partnership Specialist", "stage": "under_review", "status": "stale", "band": "normal", "score": 47, "channel": "ats", "track": "Marketing", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "hrpanda.", "fit": 3}, {"id": "ingram-micro-bde-hpe", "company": "Ingram Micro", "role": "Business Development Executive - HPE", "stage": "under_review", "status": "stale", "band": "normal", "score": 47, "channel": "ats", "track": "Sales/BD", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "Workday.", "fit": 3}, {"id": "jobgether-supply-chain", "company": "Jobgether", "role": "Supply Chain Analyst", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 47, "channel": "aggregator", "track": "Operations", "location": "Remote", "applied": "2026-09-01", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "Eşleşme skoru inceleniyor.", "reminders": [], "contact": null, "notes": "Jobgether = agregatör; dönüş oranı düşük.", "fit": 3}, {"id": "jobgether-ba-vdi", "company": "Jobgether", "role": "Business Analyst – Data Sensitivity & VDI Migration", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 47, "channel": "aggregator", "track": "Business Analysis", "location": "Remote", "applied": "2026-08-27", "last_contact": "2026-08-27", "deadline": null, "days_silent": 5, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "", "fit": 3}, {"id": "obilet-strategic-finance", "company": "Obilet", "role": "Strategic Finance and Analytics Specialist", "stage": "under_review", "status": "stale", "band": "normal", "score": 47, "channel": "linkedin", "track": "Finance", "location": "İstanbul", "applied": "2026-08-19", "last_contact": "2026-08-19", "deadline": null, "days_silent": 13, "days_to_deadline": null, "next_step": "13 gündür dönüş yok — takip maili düşünülebilir.", "reminders": ["✉️ 13 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 5}, {"id": "cypher-games-growth", "company": "Cypher Games", "role": "Growth Manager / Senior Growth Manager", "stage": "under_review", "status": "stale", "band": "low", "score": 43, "channel": "linkedin", "track": "Growth/Gaming", "location": "İstanbul", "applied": "2026-08-12", "last_contact": "2026-08-12", "deadline": null, "days_silent": 20, "days_to_deadline": null, "next_step": "20 gündür dönüş yok.", "reminders": ["✉️ 20 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "Lever.", "fit": 4}, {"id": "eaton-pricing-ci", "company": "Eaton", "role": "Pricing Continuous Improvement Specialist", "stage": "under_review", "status": "stale", "band": "low", "score": 43, "channel": "ats", "track": "Pricing", "location": "İstanbul", "applied": "2026-08-13", "last_contact": "2026-08-13", "deadline": null, "days_silent": 19, "days_to_deadline": null, "next_step": "19 gündür dönüş yok.", "reminders": ["✉️ 19 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 4}, {"id": "teamblue-ticimax-pm", "company": "Team Blue Ticimax", "role": "Product Manager", "stage": "under_review", "status": "stale", "band": "low", "score": 43, "channel": "ats", "track": "Product", "location": "İstanbul", "applied": "2026-08-16", "last_contact": "2026-08-16", "deadline": null, "days_silent": 16, "days_to_deadline": null, "next_step": "16 gündür dönüş yok.", "reminders": ["✉️ 16 gündür sessiz — takip maili zamanı."], "contact": "sinem.ozkan@teamblueticimax", "notes": "", "fit": 4}, {"id": "jobgether-games-data", "company": "Jobgether", "role": "Senior Games Data Analyst (Europe, Asia)", "stage": "under_review", "status": "stale", "band": "low", "score": 39, "channel": "aggregator", "track": "Data/Gaming", "location": "Remote", "applied": "2026-08-17", "last_contact": "2026-08-17", "deadline": null, "days_silent": 15, "days_to_deadline": null, "next_step": "15 gündür dönüş yok.", "reminders": ["✉️ 15 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 3}, {"id": "jobgether-pm-data-activation", "company": "Jobgether", "role": "Product Manager, Data Activation", "stage": "under_review", "status": "stale", "band": "low", "score": 39, "channel": "aggregator", "track": "Product/Data", "location": "Remote", "applied": "2026-08-16", "last_contact": "2026-08-16", "deadline": null, "days_silent": 16, "days_to_deadline": null, "next_step": "16 gündür dönüş yok.", "reminders": ["✉️ 16 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 3}, {"id": "versuni-perfect-store", "company": "Versuni", "role": "Perfect Store & Trade Shopper Marketing Specialist", "stage": "under_review", "status": "stale", "band": "low", "score": 39, "channel": "ats", "track": "Marketing", "location": "İstanbul", "applied": "2026-08-16", "last_contact": "2026-08-16", "deadline": null, "days_silent": 16, "days_to_deadline": null, "next_step": "16 gündür dönüş yok.", "reminders": ["✉️ 16 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 3}, {"id": "sipay-product-data-analyst", "company": "Sipay", "role": "Product Data Analyst", "stage": "under_review", "status": "stale", "band": "low", "score": 35, "channel": "linkedin", "track": "Data/Fintech", "location": "İstanbul", "applied": "2026-08-03", "last_contact": "2026-08-03", "deadline": null, "days_silent": 29, "days_to_deadline": null, "next_step": "29 gündür dönüş yok — kapanmış say.", "reminders": ["💤 29 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "", "fit": 5}, {"id": "bosch-cx-analyst", "company": "Bosch", "role": "Customer Experience (CX) Analyst", "stage": "under_review", "status": "stale", "band": "low", "score": 31, "channel": "ats", "track": "Business Analysis", "location": "İstanbul", "applied": "2026-08-07", "last_contact": "2026-08-07", "deadline": null, "days_silent": 25, "days_to_deadline": null, "next_step": "25 gündür dönüş yok — kapanmış say.", "reminders": ["💤 25 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "SmartRecruiters.", "fit": 4}, {"id": "metro-analytical-marketing", "company": "METRO / MAKRO", "role": "Analytical Marketing Senior Executive (Temporary)", "stage": "under_review", "status": "stale", "band": "low", "score": 31, "channel": "ats", "track": "Marketing/Data", "location": "İstanbul", "applied": "2026-08-07", "last_contact": "2026-08-07", "deadline": null, "days_silent": 25, "days_to_deadline": null, "next_step": "25 gündür dönüş yok — kapanmış say.", "reminders": ["💤 25 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "", "fit": 4}, {"id": "nielseniq-consumer-insights", "company": "NielsenIQ", "role": "Consumer Insights Lead, Turkiye", "stage": "under_review", "status": "stale", "band": "low", "score": 31, "channel": "ats", "track": "Insights", "location": "İstanbul", "applied": "2026-08-04", "last_contact": "2026-08-04", "deadline": null, "days_silent": 28, "days_to_deadline": null, "next_step": "28 gündür dönüş yok — kapanmış say.", "reminders": ["💤 28 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "", "fit": 4}, {"id": "vml-digital-insight", "company": "VML", "role": "Digital Insight Analyst", "stage": "under_review", "status": "stale", "band": "low", "score": 31, "channel": "linkedin", "track": "Data/Marketing", "location": "İstanbul", "applied": "2026-08-10", "last_contact": "2026-08-10", "deadline": null, "days_silent": 22, "days_to_deadline": null, "next_step": "22 gündür dönüş yok — kapanmış say.", "reminders": ["💤 22 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "", "fit": 4}, {"id": "virtustant-pool", "company": "Virtustant", "role": "Yetenek havuzu", "stage": "talent_pool", "status": "awaiting_response", "band": "low", "score": 28, "channel": "direct", "track": "Remote", "location": "Remote", "applied": "2026-08-25", "last_contact": "2026-08-30", "deadline": null, "days_silent": 2, "days_to_deadline": null, "next_step": "Opsiyonel: kısa tanıtım videosu eklemek eşleşme şansını artırıyor.", "reminders": [], "contact": null, "notes": "Test tamamlandı, havuzda.", "fit": 2}, {"id": "cepres-fintech-analyst", "company": "CEPRES", "role": "FinTech – Junior Data Processing Analyst (Fix Term)", "stage": "under_review", "status": "stale", "band": "low", "score": 27, "channel": "ats", "track": "Data/Fintech", "location": "Remote/EU", "applied": "2026-08-04", "last_contact": "2026-08-04", "deadline": null, "days_silent": 28, "days_to_deadline": null, "next_step": "28 gündür dönüş yok — kapanmış say.", "reminders": ["💤 28 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "", "fit": 3}, {"id": "jobgether-data-analyst", "company": "Jobgether", "role": "Data Analyst", "stage": "under_review", "status": "stale", "band": "low", "score": 27, "channel": "aggregator", "track": "Data", "location": "Remote", "applied": "2026-08-10", "last_contact": "2026-08-10", "deadline": null, "days_silent": 22, "days_to_deadline": null, "next_step": "22 gündür dönüş yok — kapanmış say.", "reminders": ["💤 22 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "", "fit": 3}, {"id": "nielseniq-client-solutions", "company": "NielsenIQ", "role": "Client Solutions Specialist", "stage": "under_review", "status": "stale", "band": "low", "score": 27, "channel": "ats", "track": "Client Services", "location": "İstanbul", "applied": "2026-08-03", "last_contact": "2026-08-03", "deadline": null, "days_silent": 29, "days_to_deadline": null, "next_step": "29 gündür dönüş yok — kapanmış say.", "reminders": ["💤 29 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "", "fit": 3}, {"id": "abbvie-financial-analyst", "company": "AbbVie", "role": "Financial Analyst (R00146938)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Finance", "location": "İstanbul", "applied": "2026-08-01", "last_contact": "2026-08-05", "deadline": null, "days_silent": 27, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "akbank-dijital-musteri", "company": "Akbank", "role": "Dijitalden Müşteri Kazanımı ve Yönetimi Yöneticisi", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Banking/Growth", "location": "İstanbul", "applied": "2026-08-01", "last_contact": "2026-08-14", "deadline": null, "days_silent": 18, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "indeed-csm", "company": "Colife / Indeed başvuruları", "role": "Customer Success Manager", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "indeed", "track": "Customer Success", "location": "Remote", "applied": "2026-08-18", "last_contact": "2026-08-30", "deadline": null, "days_silent": 2, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "30 Ağu: Colife başka adaylarla ilerledi.", "fit": 2}, {"id": "elsevier-bd-manager", "company": "Elsevier (RELX)", "role": "Business Development Manager", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Sales/BD", "location": "İstanbul", "applied": "2026-08-26", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "Aynı gün başvuru + red (1 saat arayla).", "fit": 4}, {"id": "hilton-cluster-revenue", "company": "Hilton", "role": "Cluster Revenue Manager RMCC Türkiye (209637)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Revenue Management", "location": "İstanbul", "applied": "2026-08-14", "last_contact": "2026-08-24", "deadline": null, "days_silent": 8, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "hubx-web-cro", "company": "HubX", "role": "Web CRO Manager", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Growth", "location": "İstanbul", "applied": "2026-08-12", "last_contact": "2026-08-21", "deadline": null, "days_silent": 11, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "jpmorgan-client-data", "company": "JPMorganChase", "role": "Client Data Specialist (210770109)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Data/Banking", "location": "İstanbul", "applied": "2026-08-10", "last_contact": "2026-08-21", "deadline": null, "days_silent": 11, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "neonapps-sales-bd", "company": "Neon Apps", "role": "Sales & BD Specialist (RevenueCat Operations)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Sales/BD", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "Her adaya dönüş yapan şirket — 11 günde sonuç.", "fit": 4}, {"id": "progress-partners-growth-pm", "company": "Progress Partners", "role": "Growth Product Manager (Web Funnel & CRO)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Growth/Product", "location": "Remote", "applied": "2026-08-01", "last_contact": "2026-08-05", "deadline": null, "days_silent": 27, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "Ashby.", "fit": 4}, {"id": "revolut-strategy-ops", "company": "Revolut", "role": "Strategy & Operations Manager (Hiring Sprint)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Strategy", "location": "Remote/EU", "applied": "2026-08-01", "last_contact": "2026-08-25", "deadline": null, "days_silent": 7, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": "darya.razmara@revolut.com / ines.coutinho@revolut.com", "notes": "6 Ağu screen call yapıldı, 7 Ağu olumlu geri bildirim, 25 Ağu olumsuz sonuç. Bu ayın en ileri giden ikinci süreci.", "fit": 5}, {"id": "richemont-commercial-pm", "company": "Richemont", "role": "Commercial Project Manager", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Project Management", "location": "İstanbul", "applied": "2026-08-04", "last_contact": "2026-08-13", "deadline": null, "days_silent": 19, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "", "fit": 3}, {"id": "unilever-demand-planning", "company": "Unilever", "role": "Demand Planning Specialist", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Supply Chain", "location": "İstanbul", "applied": "2026-08-10", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "Pozisyon iptal edildi ('recruitment of this role...'). Yetenek havuzunda kalındı.", "fit": 4}, {"id": "unilever-foods-digital", "company": "Unilever", "role": "Foods Digital Experience Lead", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "linkedin", "track": "Digital", "location": "İstanbul", "applied": "2026-08-05", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "bunq-reporting-expert", "company": "bunq", "role": "Reporting Expert", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Data/Fintech", "location": "Remote/EU", "applied": "2026-08-14", "last_contact": "2026-08-17", "deadline": null, "days_silent": 15, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "Ön eleme sorularından sonra 3 günde red.", "fit": 4}, {"id": "sisecam-investment-bd", "company": "Şişecam", "role": "Investment & Business Development Specialist (29528)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Strategy/BD", "location": "İstanbul", "applied": "2026-08-14", "last_contact": "2026-08-18", "deadline": null, "days_silent": 14, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "4 günde sonuç.", "fit": 4}], "outreach": [{"date": "2026-08-18", "from": "LARUS", "topic": "Explore Career at LARUS", "channel": "LinkedIn InMail", "status": "unanswered"}, {"date": "2026-08-25", "from": "Bilinmeyen", "topic": "Business Development Manager fırsatı", "channel": "LinkedIn InMail", "status": "unanswered"}, {"date": "2026-08-17", "from": "Crossing Hurdles", "topic": "Sports Analyst | Turing x AI Labs", "channel": "E-posta", "status": "unanswered"}, {"date": "2026-08-18", "from": "Crossing Hurdles", "topic": "Management Consultant | $120/hr | micro1 x AI Labs", "channel": "E-posta", "status": "unanswered"}, {"date": "2026-08-22", "from": "Crossing Hurdles", "topic": "Investment Banking Analyst | $100/hr | micro1 x AI Labs", "channel": "E-posta", "status": "unanswered"}, {"date": "2026-08-22", "from": "Crossing Hurdles", "topic": "Management Consultant | $70/hr | micro1 x AI Labs", "channel": "E-posta", "status": "unanswered"}]};
+const D = {"generated": "2026-09-01", "meta": {"owner": "Atalay Denizer", "email": "atalay.denizer0@gmail.com", "scan_window": {"from": "2026-08-01", "to": "2026-09-01"}, "last_scan": "2026-09-01", "source": "Gmail (LinkedIn Easy Apply + ATS onay/red mailleri + doğrudan İK yazışmaları)", "schema_version": 1}, "stats": {"total": 68, "active": 53, "rejected": 15, "interviews": 9, "stale": 27, "response_rate": 67.6, "interview_rate": 13.2, "rejection_rate": 22.1}, "weekly": [{"label": "1–7 Ağu", "value": 17}, {"label": "8–14 Ağu", "value": 10}, {"label": "15–21 Ağu", "value": 19}, {"label": "22–28 Ağu", "value": 12}, {"label": "29 Ağu–1 Eyl", "value": 10}], "states": [{"label": "Aksiyon gerekli", "value": 8, "tone": "critical", "icon": "!"}, {"label": "Aktif / yanıt bekleniyor", "value": 22, "tone": "good", "icon": "→"}, {"label": "Sessizleşen (12+ gün)", "value": 23, "tone": "warning", "icon": "~"}, {"label": "Olumsuz sonuçlanan", "value": 15, "tone": "archive", "icon": "×"}], "profile": {"name": "Atalay Denizer", "cv_version": "2026-09 (AtalayDenizer.CV.pdf)", "location": "İstanbul", "headline": "Growth ve finansal analitik uzmanı — Getir'de 2 yıl", "summary": "FP&A ile lifecycle growth analitiğini birleştiriyor: milyonlarca kullanıcılı aktif tabanda churn azaltma, çok milyonlu TL retention bütçesi yönetimi, C-level raporlama. Mühendislik altyapısından staj ve FP&A rolleriyle ticari analitiğe geçti.", "seniority": {"current_title": "Growth Strategy Specialist", "level": "specialist", "years_professional": 2.0, "years_total_incl_early": 3.1, "target_bands": ["intern", "trainee", "junior", "associate", "analyst", "specialist"], "stretch_bands": ["senior specialist", "senior analyst"], "overreach_bands": ["manager", "senior manager", "lead", "head", "director"], "note": "Ekip yönetimi deneyimi yok; 'Manager'/'Lead' ilanları kıdem olarak esneme sayılır."}, "experience": [{"title": "Growth Strategy Specialist", "company": "Getir", "from": "2025-12", "to": null, "highlights": ["GetirFood + GetirLocals growth planlama, kullanıcı kazanımı ve 1-5 sipariş alışkanlık oluşturma", "90 günlük churn -4.8pp, 60 günlük churn -5.1pp (5 ay)", "Aylık 10M TL newcomer + 15M TL churn bütçesi sahipliği, aktif müşteride %17 artış", "CAC, LTV, kohort retention, conversion rate için Tableau/Excel panoları; A/B test takibi"]}, {"title": "Financial Planning & Analysis Specialist", "company": "Getir", "from": "2025-03", "to": "2025-12", "highlights": ["Çok senaryolu bütçe modelleri, aylık forecast döngüleri", "Restoran bazlı ve depo bazlı P&L analizleri; yapısal olarak kârsız lokasyonların tespiti", "Controlling, muhasebe ve hazine ile aylık kapanış mutabakatı"]}, {"title": "Commercial Strategy Intern", "company": "Getir", "from": "2024-09", "to": "2025-02", "highlights": ["Kategori/alt kategori hedef planlama, 1 yıllık gelir tahminleri, tedarikçi destek programları", "Rakip kampanya ve fiyat izleme panoları; talep ve esneklik sinyalleriyle fiyat stratejisi"]}, {"title": "Content Moderator", "company": "Conectys Turkey", "from": "2020-09", "to": "2021-10", "highlights": []}], "education": {"school": "İstanbul Teknik Üniversitesi", "degree": "BSc. Maden Mühendisliği", "graduated": "2025-01"}, "skills": {"Excel & MS Office": 5, "Tableau": 5, "Google Sheets & Apps Script": 4, "SQL": 3, "Power BI": 3, "Mixpanel": 3, "CRM Tools": 3}, "languages": {"Türkçe": "anadil", "İngilizce": "ileri"}, "domains_strong": ["growth analytics", "lifecycle / churn / retention", "CRM & kampanya analitiği", "FP&A / bütçe / forecast", "P&L ve kârlılık analizi", "ticari strateji", "fiyatlandırma & esneklik", "kohort & segmentasyon"], "industries_strong": ["q-commerce", "e-ticaret", "teslimat / marketplace", "perakende"], "industries_transferable": ["fintech", "bankacılık", "seyahat", "oyun", "FMCG"], "gaps": ["Python ve ileri veri bilimi CV'de yok — DS/ML ağırlıklı ilanlarda dezavantaj", "SQL 3/5 — SQL'in çekirdek olduğu Data Engineer/Analytics Engineer rolleri için yetersiz", "Ekip yönetimi deneyimi yok — Manager/Lead ilanlarında kıdem açığı", "Mühendislik lisansı; bazı finans/danışmanlık ilanları işletme/ekonomi lisansı şartı arıyor", "İngilizce ileri seviye ama anadil değil — anadil şartı olan global rollerde eleme riski"], "location_policy": {"istanbul_onsite": 0, "remote_tr": 0, "hybrid_istanbul": 0, "remote_eu": -8, "relocation_required": -12, "language_barrier": -20}}, "segments": {"strong": {"label": "🟢 Güçlü", "count": 22, "rejected": 5, "advanced": 4, "advance_rate": 18.2, "reject_rate": 22.7}, "good": {"label": "🔵 İyi", "count": 29, "rejected": 5, "advanced": 3, "advance_rate": 10.3, "reject_rate": 17.2}, "fair": {"label": "🟡 Orta", "count": 13, "rejected": 3, "advanced": 1, "advance_rate": 7.7, "reject_rate": 23.1}, "weak": {"label": "🔴 Zayıf", "count": 4, "rejected": 2, "advanced": 1, "advance_rate": 25.0, "reject_rate": 50.0}}, "applications": [{"id": "nebil-cfo-office", "company": "Nebil Project", "role": "CFO Office Executive", "stage": "assessment", "status": "action_required", "band": "critical", "score": 145, "channel": "direct", "track": "Finance/Strategy", "location": "Maslak, İstanbul (ofis, 5 gün)", "applied": "2026-08-20", "last_contact": "2026-08-25", "deadline": "2026-08-31", "days_silent": 7, "days_to_deadline": -1, "next_step": "TestGorilla testi + 3 soruya mail yanıtı (maaş / lokasyon / 7 Eyl başlangıç). Yüz yüze mülakatlar 1-2 Eylül, hedef başlangıç 7 Eylül.", "reminders": ["⏳ Deadline 1 gün önce doldu (2026-08-31) — uzatma iste ya da kapat."], "match_score": 87, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "CFO ofisi = FP&A + yönetim raporlaması; bütçe/forecast deneyimi birebir. Executive unvanı hafif esneme.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "TestGorilla testini aç", "url": "https://app.testgorilla.com/s/4gsyw8tr"}, {"label": "Takip maili yaz", "url": "mailto:aleyna.alagoz@nebil.com?subject=CFO%20Office%20Executive%20ba%C5%9Fvurusu%20%E2%80%94%20s%C3%BCre%20uzat%C4%B1m%C4%B1%20talebi&body=Merhaba%2C%0A%0ANebil%20Project%20b%C3%BCnyesindeki%20CFO%20Office%20Executive%20pozisyonu%20i%C3%A7in%20payla%C5%9Ft%C4%B1%C4%9F%C4%B1n%C4%B1z%20de%C4%9Ferlendirme%20ad%C4%B1m%C4%B1n%C4%B1%20belirtilen%20tarihte%20tamamlayamad%C4%B1m.%20S%C3%BCre%C3%A7%20h%C3%A2l%C3%A2%20a%C3%A7%C4%B1ksa%20k%C4%B1sa%20bir%20ek%20s%C3%BCre%20tan%C4%B1man%C4%B1z%20m%C3%BCmk%C3%BCn%20m%C3%BCd%C3%BCr%3F%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AAtalay%20Denizer%0Aatalay.denizer0%40gmail.com%20%7C%20%2B90%20544%20543%2003%2031", "kind": "mailto"}, {"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Nebil%20Project", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 33, "max": 35, "pct": 94}, {"dim": "seniority", "label": "Kıdem", "value": 20, "max": 25, "pct": 80}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 23, "max": 25, "pct": 92}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 11, "max": 15, "pct": 73}]}, {"id": "puffy-data-analyst", "company": "Puffy", "role": "Data Analyst (Dubai, on-site)", "stage": "assessment", "status": "action_required", "band": "critical", "score": 141, "channel": "linkedin", "track": "Data", "location": "Dubai", "applied": "2026-08-01", "last_contact": "2026-08-20", "deadline": "2026-08-22", "days_silent": 12, "days_to_deadline": -10, "next_step": "Faz-1 yetenek değerlendirmesi (~30 dk, proctored/kameralı; başlayınca 4 saat içinde bitmeli).", "reminders": ["⏳ Deadline 10 gün önce doldu (2026-08-22) — uzatma iste ya da kapat."], "match_score": 80, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Data Analyst + DTC e-ticaret birebir; tek engel Dubai'ye taşınma zorunluluğu.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "Takip maili yaz", "url": "mailto:shreya.k@puffy.com?subject=Data%20Analyst%20%28Dubai%2C%20on-site%29%20ba%C5%9Fvurusu%20%E2%80%94%20s%C3%BCre%20uzat%C4%B1m%C4%B1%20talebi&body=Merhaba%2C%0A%0APuffy%20b%C3%BCnyesindeki%20Data%20Analyst%20%28Dubai%2C%20on-site%29%20pozisyonu%20i%C3%A7in%20payla%C5%9Ft%C4%B1%C4%9F%C4%B1n%C4%B1z%20de%C4%9Ferlendirme%20ad%C4%B1m%C4%B1n%C4%B1%20belirtilen%20tarihte%20tamamlayamad%C4%B1m.%20S%C3%BCre%C3%A7%20h%C3%A2l%C3%A2%20a%C3%A7%C4%B1ksa%20k%C4%B1sa%20bir%20ek%20s%C3%BCre%20tan%C4%B1man%C4%B1z%20m%C3%BCmk%C3%BCn%20m%C3%BCd%C3%BCr%3F%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AAtalay%20Denizer%0Aatalay.denizer0%40gmail.com%20%7C%20%2B90%20544%20543%2003%2031", "kind": "mailto"}, {"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Puffy", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 33, "max": 35, "pct": 94}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 22, "max": 25, "pct": 88}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 12, "max": 15, "pct": 80}]}, {"id": "eoai-lab-founding", "company": "EOAI Lab", "role": "Kurucu ekip", "stage": "interview_scheduling", "status": "action_required", "band": "critical", "score": 129, "channel": "direct", "track": "AI/Startup", "location": "Remote", "applied": "2026-08-28", "last_contact": "2026-08-29", "deadline": "2026-09-04", "days_silent": 3, "days_to_deadline": 3, "next_step": "Online mülakat için müsaitlik bildirimi — pencere 4 Eylül'de kapanıyor.", "reminders": ["📅 Deadline 3 gün sonra (2026-09-04)."], "match_score": 70, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Kurucu ekipte analitik sahiplenme mümkün ama AI startup teknik derinlik bekleyebilir.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/EOAI%20Lab", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 24, "max": 35, "pct": 69}, {"dim": "seniority", "label": "Kıdem", "value": 22, "max": 25, "pct": 88}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 16, "max": 25, "pct": 64}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 8, "max": 15, "pct": 53}]}, {"id": "theflex-base360", "company": "The Flex & Base360", "role": "Growth Marketer / Marketing", "stage": "next_stage", "status": "in_progress", "band": "high", "score": 98, "channel": "ats", "track": "Growth", "location": "Remote", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "Bir sonraki aşama görevi (adayların ~%10'u geçti).", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "match_score": 77, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Growth marketing birebir; kampanya/CRO tarafı güçlü, uzaktan EU çalışma izni belirsiz.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/The%20Flex%20%26%20Base360", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 30, "max": 35, "pct": 86}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 20, "max": 25, "pct": 80}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 10, "max": 15, "pct": 67}]}, {"id": "peks-global-ticari-analist", "company": "Peks Global A.Ş.", "role": "Ticari Analist", "stage": "interviewed", "status": "awaiting_response", "band": "high", "score": 94, "channel": "direct", "track": "Business Analysis", "location": "İstanbul", "applied": "2026-08-25", "last_contact": "2026-08-28", "deadline": null, "days_silent": 4, "days_to_deadline": null, "next_step": "28 Ağu 12:00 Teams görüşmesi yapıldı — geri dönüş bekleniyor. 5+ iş günü geçtiyse takip maili at.", "reminders": [], "match_score": 91, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Ticari analist = ticari strateji + P&L + fiyatlandırma deneyiminin tam karşılığı.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Peks%20Global%20A.%C5%9E.", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 34, "max": 35, "pct": 97}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 23, "max": 25, "pct": 92}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 9, "max": 15, "pct": 60}]}, {"id": "micro1-data-analyst", "company": "micro1", "role": "Data Analyst (AI training)", "stage": "assessment", "status": "action_required", "band": "critical", "score": 93, "channel": "direct", "track": "Data", "location": "Remote", "applied": "2026-08-03", "last_contact": "2026-08-22", "deadline": null, "days_silent": 10, "days_to_deadline": null, "next_step": "~30 dk konuşma tabanlı AI mülakatı tamamlanmalı.", "reminders": [], "match_score": 60, "match_segment": "🟡 Orta eşleşme", "match_segment_key": "fair", "match_rationale": "Kariyer rolü değil, saatlik AI eğitim gig'i; CV'ye katkısı sınırlı.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/micro1", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 14, "max": 35, "pct": 40}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 16, "max": 25, "pct": 64}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 5, "max": 15, "pct": 33}]}, {"id": "drbombay-deel", "company": "Dr. Bombay (Snoop Dogg) / Deel", "role": "International Ice-Cream Taster", "stage": "next_stage", "status": "action_required", "band": "high", "score": 86, "channel": "direct", "track": "Novelty", "location": "Remote", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": "2026-09-17", "days_silent": 1, "days_to_deadline": 16, "next_step": "60-90 sn tanıtım videosu gönder.", "reminders": [], "match_score": 32, "match_segment": "🔴 Zayıf eşleşme", "match_segment_key": "weak", "match_rationale": "Profille hiçbir kesişim yok — eğlence amaçlı başvuru.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Dr.%20Bombay%20%28Snoop%20Dogg%29%20/%20Deel", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 2, "max": 35, "pct": 6}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 3, "max": 25, "pct": 12}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 2, "max": 15, "pct": 13}]}, {"id": "trendyolgo", "company": "TrendyolGo", "role": "Belirtilmemiş", "stage": "interviewed", "status": "awaiting_response", "band": "high", "score": 86, "channel": "ats", "track": "E-commerce", "location": "İstanbul", "applied": "2026-08-05", "last_contact": "2026-08-18", "deadline": null, "days_silent": 14, "days_to_deadline": null, "next_step": "Mülakat tamamlandı, deneyim anketi geldi — sonuç bekleniyor.", "reminders": ["✉️ Mülakattan 14 gün geçti — nazik takip maili at."], "match_score": 81, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Sektör birebir (q-commerce/teslimat) — Getir deneyimi doğrudan transfer olur. Rol belirsiz.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/TrendyolGo", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 24, "max": 35, "pct": 69}, {"dim": "seniority", "label": "Kıdem", "value": 22, "max": 25, "pct": 88}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 20, "max": 25, "pct": 80}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 15, "max": 15, "pct": 100}]}, {"id": "yapikredi-peoplise", "company": "Yapı Kredi", "role": "Belirtilmemiş (peoplise başvurusu)", "stage": "application_incomplete", "status": "action_required", "band": "critical", "score": 86, "channel": "ats", "track": "Banking", "location": "İstanbul", "applied": "2026-08-21", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "E-posta doğrulama linkine tıkla + CV bilgilerini doldur (spam kutusunu kontrol et).", "reminders": [], "match_score": 69, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Rol belirsiz; bankacılıkta FP&A/CRM analitiği açılırsa uyum yükselir.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Yap%C4%B1%20Kredi", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 18, "max": 35, "pct": 51}, {"dim": "seniority", "label": "Kıdem", "value": 22, "max": 25, "pct": 88}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 18, "max": 25, "pct": 72}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 11, "max": 15, "pct": 73}]}, {"id": "eren-perakende-flowq", "company": "Eren Perakende", "role": "Belirtilmemiş", "stage": "assessment", "status": "action_required", "band": "critical", "score": 77, "channel": "ats", "track": "Retail", "location": "İstanbul", "applied": "2026-08-05", "last_contact": "2026-08-06", "deadline": null, "days_silent": 26, "days_to_deadline": null, "next_step": "FlowQ çevrimiçi yetenek/beceri uygulaması.", "reminders": [], "match_score": 68, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Rol belirsiz; perakende sektörü yakın.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Eren%20Perakende", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 18, "max": 35, "pct": 51}, {"dim": "seniority", "label": "Kıdem", "value": 22, "max": 25, "pct": 88}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 18, "max": 25, "pct": 72}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 10, "max": 15, "pct": 67}]}, {"id": "shift-data-ops-fellow", "company": "shift (joinshift.ai)", "role": "Data Operations Fellow", "stage": "in_process", "status": "awaiting_response", "band": "high", "score": 76, "channel": "direct", "track": "Data", "location": "İstanbul", "applied": "2026-08-26", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "Program süreç akışı paylaşıldı — sonraki adım bildirimi bekleniyor.", "reminders": [], "match_score": 74, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Data ops analitiği uygun ama fellowship 2 yıllık deneyimin bir tık altında.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "Takip maili yaz", "url": "mailto:kaan.dursun@joinshift.ai?subject=Data%20Operations%20Fellow%20ba%C5%9Fvurusu%20%E2%80%94%20durum%20sorusu&body=Merhaba%2C%0A%0Ashift%20%28joinshift.ai%29%20b%C3%BCnyesindeki%20Data%20Operations%20Fellow%20pozisyonuna%20yapt%C4%B1%C4%9F%C4%B1m%20ba%C5%9Fvurunun%20mevcut%20durumu%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%20S%C3%BCre%C3%A7le%20ilgilenmeye%20devam%20ediyorum.%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AAtalay%20Denizer%0Aatalay.denizer0%40gmail.com%20%7C%20%2B90%20544%20543%2003%2031", "kind": "mailto"}, {"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/shift%20%28joinshift.ai%29", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 26, "max": 35, "pct": 74}, {"dim": "seniority", "label": "Kıdem", "value": 20, "max": 25, "pct": 80}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 20, "max": 25, "pct": 80}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 8, "max": 15, "pct": 53}]}, {"id": "omtera-join", "company": "Omtera", "role": "Belirtilmemiş", "stage": "application_incomplete", "status": "action_required", "band": "critical", "score": 74, "channel": "ats", "track": "Data", "location": "İstanbul", "applied": "2026-08-15", "last_contact": "2026-08-15", "deadline": null, "days_silent": 17, "days_to_deadline": null, "next_step": "join.com üzerinden giriş yapıp başvuruyu tamamla (link 60 dk geçerliydi — yeniden tetikle).", "reminders": [], "match_score": 74, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Veri danışmanlığı; rol belirsiz ama analitik odaklı olması muhtemel.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Omtera", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 24, "max": 35, "pct": 69}, {"dim": "seniority", "label": "Kıdem", "value": 22, "max": 25, "pct": 88}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 19, "max": 25, "pct": 76}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 9, "max": 15, "pct": 60}]}, {"id": "dataroid", "company": "Dataroid", "role": "Belirtilmemiş", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 55, "channel": "ats", "track": "Data", "location": "İstanbul", "applied": "2026-08-28", "last_contact": "2026-08-28", "deadline": null, "days_silent": 4, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "match_score": 82, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Dijital analitik ürünü; Mixpanel/kohort deneyimi doğrudan konuşuluyor.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Dataroid", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 29, "max": 35, "pct": 83}, {"dim": "seniority", "label": "Kıdem", "value": 22, "max": 25, "pct": 88}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 20, "max": 25, "pct": 80}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 11, "max": 15, "pct": 73}]}, {"id": "obilet-strategy-analyst", "company": "Obilet", "role": "Strategy Analyst", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 55, "channel": "linkedin", "track": "Strategy", "location": "İstanbul", "applied": "2026-08-30", "last_contact": "2026-08-30", "deadline": null, "days_silent": 2, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "match_score": 94, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Strategy Analyst + online seyahat marketplace — rol ve sektör birlikte çok güçlü.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Obilet", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 34, "max": 35, "pct": 97}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 22, "max": 25, "pct": 88}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 13, "max": 15, "pct": 87}]}, {"id": "sanction-scanner-founders", "company": "Sanction Scanner", "role": "Founder's Associate", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 55, "channel": "ats", "track": "Strategy", "location": "İstanbul", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "Nitelikler inceleniyor.", "reminders": [], "match_score": 92, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Founder's Associate = çapraz fonksiyonlu analitik/strateji; regtech fintech yakın.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Sanction%20Scanner", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 33, "max": 35, "pct": 94}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 22, "max": 25, "pct": 88}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 12, "max": 15, "pct": 80}]}, {"id": "amazon-content-acq", "company": "Amazon", "role": "Content Acquisition Manager, Prime Video Turkey (10506884)", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Content/BD", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok — amazon.jobs portalından durum kontrol edilebilir.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "match_score": 42, "match_segment": "🔴 Zayıf eşleşme", "match_segment_key": "weak", "match_rationale": "İçerik lisanslama ve müzakere işi; ne rol ne kıdem uyuyor.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Amazon", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 12, "max": 35, "pct": 34}, {"dim": "seniority", "label": "Kıdem", "value": 13, "max": 25, "pct": 52}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 10, "max": 25, "pct": 40}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 7, "max": 15, "pct": 47}]}, {"id": "assistant-app-growth-pm", "company": "Assistant App A.Ş.", "role": "Growth Product Manager", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Product/Growth", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "match_score": 71, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Growth PM analitik tarafı uygun; PM kıdemi ve ürün sahipliği deneyimi eksik.", "match_weakest": "Kıdem", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Assistant%20App%20A.%C5%9E.", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 28, "max": 35, "pct": 80}, {"dim": "seniority", "label": "Kıdem", "value": 15, "max": 25, "pct": 60}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 18, "max": 25, "pct": 72}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 10, "max": 15, "pct": 67}]}, {"id": "baytek-ba-ai", "company": "Baytek", "role": "Business Analyst – AI & Product Analytics", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Business Analysis", "location": "İstanbul", "applied": "2026-09-01", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "CV işverene iletildi.", "reminders": [], "match_score": 87, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Business Analyst + ürün analitiği birebir; AI kısmı öğrenilebilir.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Baytek", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 33, "max": 35, "pct": 94}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 20, "max": 25, "pct": 80}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 9, "max": 15, "pct": 60}]}, {"id": "ceva-logistics-bpe", "company": "CEVA Logistics", "role": "Business Process Excellence Professional Turkey", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Operations", "location": "İstanbul", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "match_score": 76, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Süreç mükemmelliği analitik/proje işi; lojistik sektörü orta yakınlık.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/CEVA%20Logistics", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 27, "max": 35, "pct": 77}, {"dim": "seniority", "label": "Kıdem", "value": 22, "max": 25, "pct": 88}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 19, "max": 25, "pct": 76}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 8, "max": 15, "pct": 53}]}, {"id": "cricut-ecom-ops-lead", "company": "Cricut", "role": "Regional E-commerce Operations Lead, META", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "linkedin", "track": "E-commerce", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "match_score": 58, "match_segment": "🟡 Orta eşleşme", "match_segment_key": "fair", "match_rationale": "E-ticaret operasyonu yakın ama 'Regional Lead' kıdem olarak çok üstte.", "match_weakest": "Kıdem", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Cricut", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 22, "max": 35, "pct": 63}, {"dim": "seniority", "label": "Kıdem", "value": 8, "max": 25, "pct": 32}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 16, "max": 25, "pct": 64}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 12, "max": 15, "pct": 80}]}, {"id": "firefly-biz-ops", "company": "Firefly", "role": "Business Operations Associate", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Operations", "location": "Remote", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "match_score": 76, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Business Operations = analitik + süreç; profile çok uygun.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Firefly", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 30, "max": 35, "pct": 86}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 21, "max": 25, "pct": 84}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 8, "max": 15, "pct": 53}]}, {"id": "goodjobgames-product-specialist", "company": "Good Job Games", "role": "Product Specialist, Hybrid-Casual", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Product/Gaming", "location": "İstanbul", "applied": "2026-08-26", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "match_score": 76, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Oyun ürün analitiği; kohort/retention bilgisi transfer olur, oyun metrikleri yeni.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Good%20Job%20Games", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 24, "max": 35, "pct": 69}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 18, "max": 25, "pct": 72}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 9, "max": 15, "pct": 60}]}, {"id": "hyundai-product-senior", "company": "Hyundai Motor Türkiye", "role": "Product Senior Specialist (Pricing & Hyundai Finance)", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Finance/Pricing", "location": "İstanbul", "applied": "2026-09-01", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "match_score": 84, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Pricing + finans birleşimi CV'nin merkezinde; Senior Specialist hafif esneme.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Hyundai%20Motor%20T%C3%BCrkiye", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 33, "max": 35, "pct": 94}, {"dim": "seniority", "label": "Kıdem", "value": 20, "max": 25, "pct": 80}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 22, "max": 25, "pct": 88}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 9, "max": 15, "pct": 60}]}, {"id": "midas-lever", "company": "Midas", "role": "Belirtilmemiş", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Fintech", "location": "İstanbul", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "match_score": 76, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Fintech/yatırım platformu sektörü uygun; rol belirsiz.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Midas", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 22, "max": 35, "pct": 63}, {"dim": "seniority", "label": "Kıdem", "value": 22, "max": 25, "pct": 88}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 20, "max": 25, "pct": 80}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 12, "max": 15, "pct": 80}]}, {"id": "miniclip-data-analyst", "company": "Miniclip", "role": "Data Analyst / Data Scientist I", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Data/Gaming", "location": "Remote/EU", "applied": "2026-08-24", "last_contact": "2026-08-24", "deadline": null, "days_silent": 8, "days_to_deadline": null, "next_step": "8 gündür dönüş yok.", "reminders": [], "match_score": 73, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Data Analyst uygun ama oyun analitiğinde SQL/Python beklentisi CV'nin üstünde.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Miniclip", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 30, "max": 35, "pct": 86}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 17, "max": 25, "pct": 68}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 9, "max": 15, "pct": 60}]}, {"id": "nlr-bi-analyst", "company": "NLR", "role": "Business Intelligence (BI) Analyst", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Data", "location": "Remote", "applied": "2026-08-25", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "Workday bildirimi geldi — Workday Inbox'ı kontrol et.", "reminders": [], "match_score": 75, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "BI Analyst = Tableau/Power BI güçlü yanı; SQL 3/5 sınırda.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/NLR", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 31, "max": 35, "pct": 89}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 20, "max": 25, "pct": 80}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 7, "max": 15, "pct": 47}]}, {"id": "pernod-ricard-fpa", "company": "Pernod Ricard", "role": "Financial Planning & Analysis Management Trainee", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Finance", "location": "İstanbul", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "match_score": 89, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "FP&A birebir; Management Trainee 2 yıllık deneyimin biraz altında ama marka değeri yüksek.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Pernod%20Ricard", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 34, "max": 35, "pct": 97}, {"dim": "seniority", "label": "Kıdem", "value": 23, "max": 25, "pct": 92}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 23, "max": 25, "pct": 92}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 9, "max": 15, "pct": 60}]}, {"id": "pfizer-data-ops", "company": "Pfizer", "role": "Data Operations Specialist (Contractor) 4960477", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Data", "location": "İstanbul", "applied": "2026-08-03", "last_contact": "2026-08-21", "deadline": null, "days_silent": 11, "days_to_deadline": null, "next_step": "Değerlendirme sürüyor — karar bekleniyor.", "reminders": [], "match_score": 77, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Veri operasyonları uygun; ilaç sektörü yeni ama analitik iş temelde aynı.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Pfizer", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 26, "max": 35, "pct": 74}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 19, "max": 25, "pct": 76}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 7, "max": 15, "pct": 47}]}, {"id": "revolut-product-owner", "company": "Revolut", "role": "Product Owner (Technical)", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Product", "location": "Remote/EU", "applied": "2026-09-01", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "Başvuru onaylandı — inceleme aşamasında.", "reminders": [], "match_score": 56, "match_segment": "🟡 Orta eşleşme", "match_segment_key": "fair", "match_rationale": "'Technical' Product Owner mühendislik altyapısı istiyor; fintech yakın ama teknik açık var.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Revolut", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 18, "max": 35, "pct": 51}, {"dim": "seniority", "label": "Kıdem", "value": 20, "max": 25, "pct": 80}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 14, "max": 25, "pct": 56}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 12, "max": 15, "pct": 80}]}, {"id": "socgen-coverage-support", "company": "Societe Generale", "role": "Coverage Support Analyst (26000J28)", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Banking", "location": "Remote/EU", "applied": "2026-08-27", "last_contact": "2026-08-27", "deadline": null, "days_silent": 5, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "match_score": 72, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Bankacılık analiz desteği; finans temeli uygun, uzaktan EU izni belirsiz.", "match_weakest": "Beceri örtüşmesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Societe%20Generale", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 26, "max": 35, "pct": 74}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 18, "max": 25, "pct": 72}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 11, "max": 15, "pct": 73}]}, {"id": "tripcom-bd-manager", "company": "Trip.com Group", "role": "Business Development Manager (Attractions & Tours), Turkey", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Sales/BD", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "match_score": 50, "match_segment": "🟡 Orta eşleşme", "match_segment_key": "fair", "match_rationale": "Satış odaklı Manager rolü; hem rol ailesi hem kıdem uyumsuz.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Trip.com%20Group", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 14, "max": 35, "pct": 40}, {"dim": "seniority", "label": "Kıdem", "value": 13, "max": 25, "pct": 52}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 12, "max": 25, "pct": 48}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 11, "max": 15, "pct": 73}]}, {"id": "vizio-ai-saas-growth", "company": "VIZIO AI", "role": "SaaS Growth Strategist (AI-Native)", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Growth", "location": "İstanbul/Remote", "applied": "2026-08-27", "last_contact": "2026-08-27", "deadline": null, "days_silent": 5, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "match_score": 81, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "SaaS growth stratejisi; funnel/retention deneyimi doğrudan geçerli.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/VIZIO%20AI", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 31, "max": 35, "pct": 89}, {"dim": "seniority", "label": "Kıdem", "value": 22, "max": 25, "pct": 88}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 19, "max": 25, "pct": 76}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 9, "max": 15, "pct": 60}]}, {"id": "vodafone", "company": "Vodafone", "role": "Belirtilmemiş", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Telco", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "İşe alım ekibi inceliyor.", "reminders": [], "match_score": 69, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Rol belirsiz; telco'da CRM/growth analitiği açılırsa uyum yükselir.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Vodafone", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 20, "max": 35, "pct": 57}, {"dim": "seniority", "label": "Kıdem", "value": 22, "max": 25, "pct": 88}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 18, "max": 25, "pct": 72}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 9, "max": 15, "pct": 60}]}, {"id": "flalingo-influencer", "company": "Flalingo", "role": "Influencer Marketing & Partnership Specialist", "stage": "under_review", "status": "stale", "band": "normal", "score": 47, "channel": "ats", "track": "Marketing", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "match_score": 55, "match_segment": "🟡 Orta eşleşme", "match_segment_key": "fair", "match_rationale": "Influencer/partnership içerik-ilişki işi; analitik profille örtüşmüyor.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Flalingo", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 12, "max": 35, "pct": 34}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 10, "max": 25, "pct": 40}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 8, "max": 15, "pct": 53}]}, {"id": "ingram-micro-bde-hpe", "company": "Ingram Micro", "role": "Business Development Executive - HPE", "stage": "under_review", "status": "stale", "band": "normal", "score": 47, "channel": "ats", "track": "Sales/BD", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "match_score": 58, "match_segment": "🟡 Orta eşleşme", "match_segment_key": "fair", "match_rationale": "Saf satış/iş geliştirme — analitik profille zayıf kesişim.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Ingram%20Micro", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 14, "max": 35, "pct": 40}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 12, "max": 25, "pct": 48}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 7, "max": 15, "pct": 47}]}, {"id": "jobgether-supply-chain", "company": "Jobgether", "role": "Supply Chain Analyst", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 47, "channel": "aggregator", "track": "Operations", "location": "Remote", "applied": "2026-09-01", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "Eşleşme skoru inceleniyor.", "reminders": [], "match_score": 72, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Tedarik zinciri analitiği FP&A/forecast ile örtüşüyor; agregatör kanalı zayıf.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Jobgether", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 26, "max": 35, "pct": 74}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 19, "max": 25, "pct": 76}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 10, "max": 15, "pct": 67}]}, {"id": "jobgether-ba-vdi", "company": "Jobgether", "role": "Business Analyst – Data Sensitivity & VDI Migration", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 47, "channel": "aggregator", "track": "Business Analysis", "location": "Remote", "applied": "2026-08-27", "last_contact": "2026-08-27", "deadline": null, "days_silent": 5, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "match_score": 54, "match_segment": "🟡 Orta eşleşme", "match_segment_key": "fair", "match_rationale": "BT altyapı/VDI migrasyonu — ticari analitikle kesişimi yok.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Jobgether", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 20, "max": 35, "pct": 57}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 12, "max": 25, "pct": 48}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 5, "max": 15, "pct": 33}]}, {"id": "obilet-strategic-finance", "company": "Obilet", "role": "Strategic Finance and Analytics Specialist", "stage": "under_review", "status": "stale", "band": "normal", "score": 47, "channel": "linkedin", "track": "Finance", "location": "İstanbul", "applied": "2026-08-19", "last_contact": "2026-08-19", "deadline": null, "days_silent": 13, "days_to_deadline": null, "next_step": "13 gündür dönüş yok — takip maili düşünülebilir.", "reminders": ["✉️ 13 gündür sessiz — takip maili zamanı."], "match_score": 96, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Strategic Finance + Analytics = FP&A ve growth analitiğinin tam kesişimi. Listedeki en iyi eşleşme.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Obilet", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 35, "max": 35, "pct": 100}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 23, "max": 25, "pct": 92}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 13, "max": 15, "pct": 87}]}, {"id": "cypher-games-growth", "company": "Cypher Games", "role": "Growth Manager / Senior Growth Manager", "stage": "under_review", "status": "stale", "band": "low", "score": 43, "channel": "linkedin", "track": "Growth/Gaming", "location": "İstanbul", "applied": "2026-08-12", "last_contact": "2026-08-12", "deadline": null, "days_silent": 20, "days_to_deadline": null, "next_step": "20 gündür dönüş yok.", "reminders": ["✉️ 20 gündür sessiz — takip maili zamanı."], "match_score": 73, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Growth işi birebir ama 'Manager/Senior Manager' kıdemi 2 yılın üstünde.", "match_weakest": "Kıdem", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Cypher%20Games", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 31, "max": 35, "pct": 89}, {"dim": "seniority", "label": "Kıdem", "value": 13, "max": 25, "pct": 52}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 20, "max": 25, "pct": 80}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 9, "max": 15, "pct": 60}]}, {"id": "eaton-pricing-ci", "company": "Eaton", "role": "Pricing Continuous Improvement Specialist", "stage": "under_review", "status": "stale", "band": "low", "score": 43, "channel": "ats", "track": "Pricing", "location": "İstanbul", "applied": "2026-08-13", "last_contact": "2026-08-13", "deadline": null, "days_silent": 19, "days_to_deadline": null, "next_step": "19 gündür dönüş yok.", "reminders": ["✉️ 19 gündür sessiz — takip maili zamanı."], "match_score": 85, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Fiyatlandırma + sürekli iyileştirme = ticari strateji ve esneklik analizi deneyimi birebir.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Eaton", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 32, "max": 35, "pct": 91}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 21, "max": 25, "pct": 84}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 7, "max": 15, "pct": 47}]}, {"id": "teamblue-ticimax-pm", "company": "Team Blue Ticimax", "role": "Product Manager", "stage": "under_review", "status": "stale", "band": "low", "score": 43, "channel": "ats", "track": "Product", "location": "İstanbul", "applied": "2026-08-16", "last_contact": "2026-08-16", "deadline": null, "days_silent": 16, "days_to_deadline": null, "next_step": "16 gündür dönüş yok.", "reminders": ["✉️ 16 gündür sessiz — takip maili zamanı."], "match_score": 73, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "E-ticaret SaaS ürün yönetimi; sektör yakın, PM deneyimi yok.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "Takip maili yaz", "url": "mailto:sinem.ozkan@teamblueticimax?subject=Product%20Manager%20ba%C5%9Fvurusu%20%E2%80%94%20durum%20sorusu&body=Merhaba%2C%0A%0ATeam%20Blue%20Ticimax%20b%C3%BCnyesindeki%20Product%20Manager%20pozisyonuna%20yapt%C4%B1%C4%9F%C4%B1m%20ba%C5%9Fvurunun%20mevcut%20durumu%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%20S%C3%BCre%C3%A7le%20ilgilenmeye%20devam%20ediyorum.%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AAtalay%20Denizer%0Aatalay.denizer0%40gmail.com%20%7C%20%2B90%20544%20543%2003%2031", "kind": "mailto"}, {"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Team%20Blue%20Ticimax", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 24, "max": 35, "pct": 69}, {"dim": "seniority", "label": "Kıdem", "value": 20, "max": 25, "pct": 80}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 18, "max": 25, "pct": 72}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 11, "max": 15, "pct": 73}]}, {"id": "jobgether-games-data", "company": "Jobgether", "role": "Senior Games Data Analyst (Europe, Asia)", "stage": "under_review", "status": "stale", "band": "low", "score": 39, "channel": "aggregator", "track": "Data/Gaming", "location": "Remote", "applied": "2026-08-17", "last_contact": "2026-08-17", "deadline": null, "days_silent": 15, "days_to_deadline": null, "next_step": "15 gündür dönüş yok.", "reminders": ["✉️ 15 gündür sessiz — takip maili zamanı."], "match_score": 68, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Senior Games Data Analyst — rol uygun, 'Senior' ve oyun domaini esneme.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Jobgether", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 30, "max": 35, "pct": 86}, {"dim": "seniority", "label": "Kıdem", "value": 20, "max": 25, "pct": 80}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 17, "max": 25, "pct": 68}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 9, "max": 15, "pct": 60}]}, {"id": "jobgether-pm-data-activation", "company": "Jobgether", "role": "Product Manager, Data Activation", "stage": "under_review", "status": "stale", "band": "low", "score": 39, "channel": "aggregator", "track": "Product/Data", "location": "Remote", "applied": "2026-08-16", "last_contact": "2026-08-16", "deadline": null, "days_silent": 16, "days_to_deadline": null, "next_step": "16 gündür dönüş yok.", "reminders": ["✉️ 16 gündür sessiz — takip maili zamanı."], "match_score": 61, "match_segment": "🟡 Orta eşleşme", "match_segment_key": "fair", "match_rationale": "Veri aktivasyonu PM'i; analitik yakın ama ürün yönetimi kıdemi eksik.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Jobgether", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 26, "max": 35, "pct": 74}, {"dim": "seniority", "label": "Kıdem", "value": 18, "max": 25, "pct": 72}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 17, "max": 25, "pct": 68}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 8, "max": 15, "pct": 53}]}, {"id": "versuni-perfect-store", "company": "Versuni", "role": "Perfect Store & Trade Shopper Marketing Specialist", "stage": "under_review", "status": "stale", "band": "low", "score": 39, "channel": "ats", "track": "Marketing", "location": "İstanbul", "applied": "2026-08-16", "last_contact": "2026-08-16", "deadline": null, "days_silent": 16, "days_to_deadline": null, "next_step": "16 gündür dönüş yok.", "reminders": ["✉️ 16 gündür sessiz — takip maili zamanı."], "match_score": 70, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Trade marketing saha odaklı; analitik kısmı sınırlı.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Versuni", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 20, "max": 35, "pct": 57}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 16, "max": 25, "pct": 64}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 9, "max": 15, "pct": 60}]}, {"id": "sipay-product-data-analyst", "company": "Sipay", "role": "Product Data Analyst", "stage": "under_review", "status": "stale", "band": "low", "score": 35, "channel": "linkedin", "track": "Data/Fintech", "location": "İstanbul", "applied": "2026-08-03", "last_contact": "2026-08-03", "deadline": null, "days_silent": 29, "days_to_deadline": null, "next_step": "29 gündür dönüş yok — kapanmış say.", "reminders": ["💤 29 gündür sessiz — kapanmış say, listeden düşür."], "match_score": 90, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Ürün veri analisti + fintech; funnel/kohort deneyimi doğrudan aranıyor.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Sipay", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 32, "max": 35, "pct": 91}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 21, "max": 25, "pct": 84}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 12, "max": 15, "pct": 80}]}, {"id": "bosch-cx-analyst", "company": "Bosch", "role": "Customer Experience (CX) Analyst", "stage": "under_review", "status": "stale", "band": "low", "score": 31, "channel": "ats", "track": "Business Analysis", "location": "İstanbul", "applied": "2026-08-07", "last_contact": "2026-08-07", "deadline": null, "days_silent": 25, "days_to_deadline": null, "next_step": "25 gündür dönüş yok — kapanmış say.", "reminders": ["💤 25 gündür sessiz — kapanmış say, listeden düşür."], "match_score": 82, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Müşteri deneyimi analitiği; segmentasyon ve funnel bilgisi transfer olur.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Bosch", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 29, "max": 35, "pct": 83}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 20, "max": 25, "pct": 80}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 8, "max": 15, "pct": 53}]}, {"id": "metro-analytical-marketing", "company": "METRO / MAKRO", "role": "Analytical Marketing Senior Executive (Temporary)", "stage": "under_review", "status": "stale", "band": "low", "score": 31, "channel": "ats", "track": "Marketing/Data", "location": "İstanbul", "applied": "2026-08-07", "last_contact": "2026-08-07", "deadline": null, "days_silent": 25, "days_to_deadline": null, "next_step": "25 gündür dönüş yok — kapanmış say.", "reminders": ["💤 25 gündür sessiz — kapanmış say, listeden düşür."], "match_score": 83, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Analitik pazarlama + perakende; CRM/kampanya ölçümleme birebir.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/METRO%20/%20MAKRO", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 31, "max": 35, "pct": 89}, {"dim": "seniority", "label": "Kıdem", "value": 20, "max": 25, "pct": 80}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 21, "max": 25, "pct": 84}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 11, "max": 15, "pct": 73}]}, {"id": "nielseniq-consumer-insights", "company": "NielsenIQ", "role": "Consumer Insights Lead, Turkiye", "stage": "under_review", "status": "stale", "band": "low", "score": 31, "channel": "ats", "track": "Insights", "location": "İstanbul", "applied": "2026-08-04", "last_contact": "2026-08-04", "deadline": null, "days_silent": 28, "days_to_deadline": null, "next_step": "28 gündür dönüş yok — kapanmış say.", "reminders": ["💤 28 gündür sessiz — kapanmış say, listeden düşür."], "match_score": 59, "match_segment": "🟡 Orta eşleşme", "match_segment_key": "fair", "match_rationale": "'Lead' unvanı kıdem olarak çok üstte; içgörü metodolojisi de yeni alan.", "match_weakest": "Kıdem", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/NielsenIQ", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 24, "max": 35, "pct": 69}, {"dim": "seniority", "label": "Kıdem", "value": 8, "max": 25, "pct": 32}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 17, "max": 25, "pct": 68}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 10, "max": 15, "pct": 67}]}, {"id": "vml-digital-insight", "company": "VML", "role": "Digital Insight Analyst", "stage": "under_review", "status": "stale", "band": "low", "score": 31, "channel": "linkedin", "track": "Data/Marketing", "location": "İstanbul", "applied": "2026-08-10", "last_contact": "2026-08-10", "deadline": null, "days_silent": 22, "days_to_deadline": null, "next_step": "22 gündür dönüş yok — kapanmış say.", "reminders": ["💤 22 gündür sessiz — kapanmış say, listeden düşür."], "match_score": 81, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Dijital içgörü analisti; Tableau/kampanya ölçümleme deneyimi doğrudan geçerli.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/VML", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 29, "max": 35, "pct": 83}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 19, "max": 25, "pct": 76}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 8, "max": 15, "pct": 53}]}, {"id": "virtustant-pool", "company": "Virtustant", "role": "Yetenek havuzu", "stage": "talent_pool", "status": "awaiting_response", "band": "low", "score": 28, "channel": "direct", "track": "Remote", "location": "Remote", "applied": "2026-08-25", "last_contact": "2026-08-30", "deadline": null, "days_silent": 2, "days_to_deadline": null, "next_step": "Opsiyonel: kısa tanıtım videosu eklemek eşleşme şansını artırıyor.", "reminders": [], "match_score": 45, "match_segment": "🟡 Orta eşleşme", "match_segment_key": "fair", "match_rationale": "Belirli bir rol yok, genel yetenek havuzu — dönüşüm olasılığı düşük.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Virtustant", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 12, "max": 35, "pct": 34}, {"dim": "seniority", "label": "Kıdem", "value": 22, "max": 25, "pct": 88}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 14, "max": 25, "pct": 56}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 5, "max": 15, "pct": 33}]}, {"id": "cepres-fintech-analyst", "company": "CEPRES", "role": "FinTech – Junior Data Processing Analyst (Fix Term)", "stage": "under_review", "status": "stale", "band": "low", "score": 27, "channel": "ats", "track": "Data/Fintech", "location": "Remote/EU", "applied": "2026-08-04", "last_contact": "2026-08-04", "deadline": null, "days_silent": 28, "days_to_deadline": null, "next_step": "28 gündür dönüş yok — kapanmış say.", "reminders": ["💤 28 gündür sessiz — kapanmış say, listeden düşür."], "match_score": 72, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Junior veri işleme analisti; fintech yakın ama rol CV'nin bir tık altında.", "match_weakest": "Beceri örtüşmesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/CEPRES", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 26, "max": 35, "pct": 74}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 18, "max": 25, "pct": 72}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 11, "max": 15, "pct": 73}]}, {"id": "jobgether-data-analyst", "company": "Jobgether", "role": "Data Analyst", "stage": "under_review", "status": "stale", "band": "low", "score": 27, "channel": "aggregator", "track": "Data", "location": "Remote", "applied": "2026-08-10", "last_contact": "2026-08-10", "deadline": null, "days_silent": 22, "days_to_deadline": null, "next_step": "22 gündür dönüş yok — kapanmış say.", "reminders": ["💤 22 gündür sessiz — kapanmış say, listeden düşür."], "match_score": 75, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Data Analyst birebir; agregatör kanalı dönüşümü düşürüyor.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Jobgether", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 31, "max": 35, "pct": 89}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 20, "max": 25, "pct": 80}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 7, "max": 15, "pct": 47}]}, {"id": "nielseniq-client-solutions", "company": "NielsenIQ", "role": "Client Solutions Specialist", "stage": "under_review", "status": "stale", "band": "low", "score": 27, "channel": "ats", "track": "Client Services", "location": "İstanbul", "applied": "2026-08-03", "last_contact": "2026-08-03", "deadline": null, "days_silent": 29, "days_to_deadline": null, "next_step": "29 gündür dönüş yok — kapanmış say.", "reminders": ["💤 29 gündür sessiz — kapanmış say, listeden düşür."], "match_score": 68, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Müşteri çözümleri daha çok danışmanlık/ilişki; analitik ikincil.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/NielsenIQ", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 18, "max": 35, "pct": 51}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 15, "max": 25, "pct": 60}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 10, "max": 15, "pct": 67}]}, {"id": "abbvie-financial-analyst", "company": "AbbVie", "role": "Financial Analyst (R00146938)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Finance", "location": "İstanbul", "applied": "2026-08-01", "last_contact": "2026-08-05", "deadline": null, "days_silent": 27, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 87, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Financial Analyst = FP&A deneyiminin doğrudan karşılığı; ilaç sektörü yeni.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/AbbVie", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 33, "max": 35, "pct": 94}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 22, "max": 25, "pct": 88}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 7, "max": 15, "pct": 47}]}, {"id": "akbank-dijital-musteri", "company": "Akbank", "role": "Dijitalden Müşteri Kazanımı ve Yönetimi Yöneticisi", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Banking/Growth", "location": "İstanbul", "applied": "2026-08-01", "last_contact": "2026-08-14", "deadline": null, "days_silent": 18, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 78, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Dijitalden müşteri kazanımı = growth işinin birebir karşılığı; 'Yönetici' kıdemi esneme.", "match_weakest": "Kıdem", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Akbank", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 32, "max": 35, "pct": 91}, {"dim": "seniority", "label": "Kıdem", "value": 13, "max": 25, "pct": 52}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 22, "max": 25, "pct": 88}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 11, "max": 15, "pct": 73}]}, {"id": "indeed-csm", "company": "Colife / Indeed başvuruları", "role": "Customer Success Manager", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "indeed", "track": "Customer Success", "location": "Remote", "applied": "2026-08-18", "last_contact": "2026-08-30", "deadline": null, "days_silent": 2, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 41, "match_segment": "🔴 Zayıf eşleşme", "match_segment_key": "weak", "match_rationale": "Müşteri başarısı ilişki yönetimi; analitik derinlik aranmıyor.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Colife%20/%20Indeed%20ba%C5%9Fvurular%C4%B1", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 12, "max": 35, "pct": 34}, {"dim": "seniority", "label": "Kıdem", "value": 20, "max": 25, "pct": 80}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 11, "max": 25, "pct": 44}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 6, "max": 15, "pct": 40}]}, {"id": "elsevier-bd-manager", "company": "Elsevier (RELX)", "role": "Business Development Manager", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Sales/BD", "location": "İstanbul", "applied": "2026-08-26", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 44, "match_segment": "🔴 Zayıf eşleşme", "match_segment_key": "weak", "match_rationale": "Akademik yayıncılıkta satış müdürlüğü; rol ve kıdem birlikte uyumsuz.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Elsevier%20%28RELX%29", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 14, "max": 35, "pct": 40}, {"dim": "seniority", "label": "Kıdem", "value": 13, "max": 25, "pct": 52}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 11, "max": 25, "pct": 44}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 6, "max": 15, "pct": 40}]}, {"id": "hilton-cluster-revenue", "company": "Hilton", "role": "Cluster Revenue Manager RMCC Türkiye (209637)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Revenue Management", "location": "İstanbul", "applied": "2026-08-14", "last_contact": "2026-08-24", "deadline": null, "days_silent": 8, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 63, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Revenue management fiyatlandırma analitiğine yakın; otelcilik ve Manager kıdemi uzak.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Hilton", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 26, "max": 35, "pct": 74}, {"dim": "seniority", "label": "Kıdem", "value": 13, "max": 25, "pct": 52}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 18, "max": 25, "pct": 72}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 6, "max": 15, "pct": 40}]}, {"id": "hubx-web-cro", "company": "HubX", "role": "Web CRO Manager", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Growth", "location": "İstanbul", "applied": "2026-08-12", "last_contact": "2026-08-21", "deadline": null, "days_silent": 11, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 68, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "CRO = funnel optimizasyonu, growth işine yakın; Manager kıdemi esneme.", "match_weakest": "Kıdem", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/HubX", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 28, "max": 35, "pct": 80}, {"dim": "seniority", "label": "Kıdem", "value": 13, "max": 25, "pct": 52}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 17, "max": 25, "pct": 68}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 10, "max": 15, "pct": 67}]}, {"id": "jpmorgan-client-data", "company": "JPMorganChase", "role": "Client Data Specialist (210770109)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Data/Banking", "location": "İstanbul", "applied": "2026-08-10", "last_contact": "2026-08-21", "deadline": null, "days_silent": 11, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 76, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Müşteri veri uzmanlığı operasyonel; bankacılık yakın, analitik derinlik sınırlı.", "match_weakest": "Beceri örtüşmesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/JPMorganChase", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 24, "max": 35, "pct": 69}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 16, "max": 25, "pct": 64}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 11, "max": 15, "pct": 73}]}, {"id": "neonapps-sales-bd", "company": "Neon Apps", "role": "Sales & BD Specialist (RevenueCat Operations)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Sales/BD", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 60, "match_segment": "🟡 Orta eşleşme", "match_segment_key": "fair", "match_rationale": "Satış/BD odaklı; RevenueCat operasyonu teknik, analitik kesişim zayıf.", "match_weakest": "Rol ailesi", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Neon%20Apps", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 14, "max": 35, "pct": 40}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 12, "max": 25, "pct": 48}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 9, "max": 15, "pct": 60}]}, {"id": "progress-partners-growth-pm", "company": "Progress Partners", "role": "Growth Product Manager (Web Funnel & CRO)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Growth/Product", "location": "Remote", "applied": "2026-08-01", "last_contact": "2026-08-05", "deadline": null, "days_silent": 27, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 63, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Growth PM + CRO; analitik uygun, ürün yönetimi kıdemi ve uzaktan izin engel.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Progress%20Partners", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 29, "max": 35, "pct": 83}, {"dim": "seniority", "label": "Kıdem", "value": 15, "max": 25, "pct": 60}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 19, "max": 25, "pct": 76}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 8, "max": 15, "pct": 53}]}, {"id": "revolut-strategy-ops", "company": "Revolut", "role": "Strategy & Operations Manager (Hiring Sprint)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Strategy", "location": "Remote/EU", "applied": "2026-08-01", "last_contact": "2026-08-25", "deadline": null, "days_silent": 7, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 71, "match_segment": "🔵 İyi eşleşme", "match_segment_key": "good", "match_rationale": "Strateji & operasyon içeriği birebir — ama 'Manager' kıdemi ve EU çalışma izni engel oldu.", "match_weakest": "Kıdem", "links_actions": [{"label": "Takip maili yaz", "url": "mailto:darya.razmara@revolut.com?subject=Strategy%20%26%20Operations%20Manager%20%28Hiring%20Sprint%29%20ba%C5%9Fvurusu%20%E2%80%94%20durum%20sorusu&body=Merhaba%2C%0A%0ARevolut%20b%C3%BCnyesindeki%20Strategy%20%26%20Operations%20Manager%20%28Hiring%20Sprint%29%20pozisyonuna%20yapt%C4%B1%C4%9F%C4%B1m%20ba%C5%9Fvurunun%20mevcut%20durumu%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%20S%C3%BCre%C3%A7le%20ilgilenmeye%20devam%20ediyorum.%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AAtalay%20Denizer%0Aatalay.denizer0%40gmail.com%20%7C%20%2B90%20544%20543%2003%2031", "kind": "mailto"}, {"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Revolut", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 33, "max": 35, "pct": 94}, {"dim": "seniority", "label": "Kıdem", "value": 13, "max": 25, "pct": 52}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 21, "max": 25, "pct": 84}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 12, "max": 15, "pct": 80}]}, {"id": "richemont-commercial-pm", "company": "Richemont", "role": "Commercial Project Manager", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Project Management", "location": "İstanbul", "applied": "2026-08-04", "last_contact": "2026-08-13", "deadline": null, "days_silent": 19, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 58, "match_segment": "🟡 Orta eşleşme", "match_segment_key": "fair", "match_rationale": "Ticari proje yönetimi; lüks perakende ve Manager kıdemi uzak.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Richemont", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 22, "max": 35, "pct": 63}, {"dim": "seniority", "label": "Kıdem", "value": 13, "max": 25, "pct": 52}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 16, "max": 25, "pct": 64}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 7, "max": 15, "pct": 47}]}, {"id": "unilever-demand-planning", "company": "Unilever", "role": "Demand Planning Specialist", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Supply Chain", "location": "İstanbul", "applied": "2026-08-10", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 80, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Talep planlama forecast deneyimiyle örtüşüyor; FMCG tedarik zinciri yeni.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Unilever", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 26, "max": 35, "pct": 74}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 19, "max": 25, "pct": 76}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 10, "max": 15, "pct": 67}]}, {"id": "unilever-foods-digital", "company": "Unilever", "role": "Foods Digital Experience Lead", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "linkedin", "track": "Digital", "location": "İstanbul", "applied": "2026-08-05", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 56, "match_segment": "🟡 Orta eşleşme", "match_segment_key": "fair", "match_rationale": "'Lead' kıdemi çok üstte; dijital deneyim tasarımı da farklı bir alan.", "match_weakest": "Kıdem", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/Unilever", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 22, "max": 35, "pct": 63}, {"dim": "seniority", "label": "Kıdem", "value": 8, "max": 25, "pct": 32}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 16, "max": 25, "pct": 64}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 10, "max": 15, "pct": 67}]}, {"id": "bunq-reporting-expert", "company": "bunq", "role": "Reporting Expert", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Data/Fintech", "location": "Remote/EU", "applied": "2026-08-14", "last_contact": "2026-08-17", "deadline": null, "days_silent": 15, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 78, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Raporlama uzmanlığı = Tableau/Excel gücü; fintech yakın, EU uzaktan engel.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/bunq", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 31, "max": 35, "pct": 89}, {"dim": "seniority", "label": "Kıdem", "value": 22, "max": 25, "pct": 88}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 21, "max": 25, "pct": 84}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 12, "max": 15, "pct": 80}]}, {"id": "sisecam-investment-bd", "company": "Şişecam", "role": "Investment & Business Development Specialist (29528)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Strategy/BD", "location": "İstanbul", "applied": "2026-08-14", "last_contact": "2026-08-18", "deadline": null, "days_silent": 14, "days_to_deadline": null, "next_step": "-", "reminders": [], "match_score": 80, "match_segment": "🟢 Güçlü eşleşme", "match_segment_key": "strong", "match_rationale": "Yatırım analizi + iş geliştirme; finansal modelleme deneyimi geçerli.", "match_weakest": "Sektör yakınlığı", "links_actions": [{"label": "İlgili maili aç", "url": "https://mail.google.com/mail/u/0/#search/%C5%9Ei%C5%9Fecam", "kind": "gmail"}], "match_breakdown": [{"dim": "role_family", "label": "Rol ailesi", "value": 28, "max": 35, "pct": 80}, {"dim": "seniority", "label": "Kıdem", "value": 25, "max": 25, "pct": 100}, {"dim": "skills", "label": "Beceri örtüşmesi", "value": 20, "max": 25, "pct": 80}, {"dim": "domain", "label": "Sektör yakınlığı", "value": 7, "max": 15, "pct": 47}]}], "outreach": [{"date": "2026-08-18", "from": "LARUS", "topic": "Explore Career at LARUS", "channel": "LinkedIn InMail", "status": "unanswered"}, {"date": "2026-08-25", "from": "Bilinmeyen", "topic": "Business Development Manager fırsatı", "channel": "LinkedIn InMail", "status": "unanswered"}, {"date": "2026-08-17", "from": "Crossing Hurdles", "topic": "Sports Analyst | Turing x AI Labs", "channel": "E-posta", "status": "unanswered"}, {"date": "2026-08-18", "from": "Crossing Hurdles", "topic": "Management Consultant | $120/hr | micro1 x AI Labs", "channel": "E-posta", "status": "unanswered"}, {"date": "2026-08-22", "from": "Crossing Hurdles", "topic": "Investment Banking Analyst | $100/hr | micro1 x AI Labs", "channel": "E-posta", "status": "unanswered"}, {"date": "2026-08-22", "from": "Crossing Hurdles", "topic": "Management Consultant | $70/hr | micro1 x AI Labs", "channel": "E-posta", "status": "unanswered"}]};
 
-/* ---------- yardımcılar ---------- */
-const TONE = { critical:"critical", good:"good", warning:"warning", archive:"archive" };
-const STAGE_TR = {
-  offer:"Teklif", interview_scheduling:"Mülakat planlama", assessment:"Değerlendirme/test",
-  next_stage:"Sonraki aşama", interviewed:"Mülakat yapıldı", application_incomplete:"Başvuru yarım",
-  in_process:"Süreçte", under_review:"İncelemede", talent_pool:"Yetenek havuzu", closed:"Kapandı"
+const I = {
+  ext:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>',
+  mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>',
+  inbox:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>'
 };
-const CHANNEL_TR = { ats:"ATS", linkedin:"LinkedIn", direct:"Doğrudan", aggregator:"Agregatör", indeed:"Indeed" };
-const BAND_TR = { critical:"Kritik", high:"Yüksek", normal:"Normal", low:"Düşük", archive:"Olumsuz" };
+const ico = k => k === "mailto" ? I.mail : k === "gmail" ? I.inbox : I.ext;
+
+const STAGE_TR = { offer:"Teklif", interview_scheduling:"Mülakat planlama", assessment:"Değerlendirme/test",
+  next_stage:"Sonraki aşama", interviewed:"Mülakat yapıldı", application_incomplete:"Başvuru yarım",
+  in_process:"Süreçte", under_review:"İncelemede", talent_pool:"Yetenek havuzu", closed:"Kapandı" };
+const SEG_CHIP = { strong:"chip-strong", good:"chip-good-m", fair:"chip-fair", weak:"chip-weak" };
+const SEG_VAR  = { strong:"--m1", good:"--m2", fair:"--m3", weak:"--m4" };
+const SEG_SHORT= { strong:"Güçlü", good:"İyi", fair:"Orta", weak:"Zayıf" };
 const AY = ["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"];
-const fmtDate = s => { if (!s) return "—"; const [y,m,d] = s.split("-"); return `${+d} ${AY[+m-1]}`; };
-const fmtLong = s => { const [y,m,d] = s.split("-"); return `${+d} ${AY[+m-1]} ${y}`; };
+const fmtDate = s => { if(!s) return "—"; const [y,m,d]=s.split("-"); return `${+d} ${AY[+m-1]}`; };
+const fmtLong = s => { const [y,m,d]=s.split("-"); return `${+d} ${AY[+m-1]} ${y}`; };
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const attr = s => String(s ?? "").replace(/"/g,"&quot;").replace(/</g,"&lt;");
 
 /* ---------- başlık ---------- */
-const gen = new Date(D.generated + "T00:00:00");
 document.getElementById("subtitle").textContent =
-  `${D.meta.owner} · ${D.stats.total} başvuru, ${D.stats.active} aktif süreç`;
-document.getElementById("meta").innerHTML =
-  `<div><b>Tarama:</b> ${fmtDate(D.meta.scan_window.from)} – ${fmtLong(D.meta.scan_window.to)}</div>
-   <div><b>Hesap:</b> ${esc(D.meta.email)}</div>
-   <div><b>Üretim:</b> ${gen.toLocaleDateString("tr-TR",{day:"numeric",month:"long",year:"numeric"})}</div>`;
+  `${D.meta.owner} · ${D.stats.total} başvuru, ${D.stats.active} aktif süreç · ` +
+  `her ilan CV'ye göre 0-100 arası puanlanıp dört segmente ayrıldı.`;
+const P = D.profile;
+document.getElementById("idbody").innerHTML = `
+  <div class="row"><span class="k">CV</span><span class="v">${esc(P.cv_version)}</span></div>
+  <div class="row"><span class="k">Rol</span><span class="v">${esc(P.seniority.current_title)}</span></div>
+  <div class="row"><span class="k">Deneyim</span><span class="v">${P.seniority.years_professional} yıl · Specialist</span></div>
+  <div class="row"><span class="k">Güçlü</span><span class="v">Excel &amp; Tableau (5/5), growth &amp; FP&amp;A analitiği</span></div>
+  <div class="row"><span class="k">Açık</span><span class="v">SQL 3/5, Python yok, ekip yönetimi yok</span></div>
+  <div class="row"><span class="k">Tarama</span><span class="v">${fmtDate(D.meta.scan_window.from)} – ${fmtLong(D.meta.scan_window.to)}</span></div>`;
 
-/* ---------- ölçü şeridi ---------- */
+/* ---------- ölçüler ---------- */
 const actionApps = D.applications.filter(a => a.band === "critical");
-const tiles = [
+const strongOpen = D.applications.filter(a => a.status !== "rejected" && a.match_segment_key === "strong");
+const weakSpend  = D.applications.filter(a => ["fair","weak"].includes(a.match_segment_key));
+[
   { k:"Toplam başvuru", v:D.stats.total, n:"son 30 gün" },
-  { k:"Bugün aksiyon", v:actionApps.length, n:"deadline'ı yakın/geçmiş", accent:true },
+  { k:"Bugün aksiyon", v:actionApps.length, n:"deadline yakın/geçmiş", cls:"hot" },
+  { k:"Güçlü eşleşme", v:strongOpen.length, n:"açık ve CV'ye uygun", cls:"mat" },
   { k:"Mülakat aşaması", v:D.stats.interviews, n:`%${D.stats.interview_rate} dönüşüm` },
-  { k:"Aktif süreç", v:D.stats.active, n:"devam ediyor" },
   { k:"Sessizleşen", v:D.stats.stale, n:"12+ gün yanıtsız" },
-  { k:"Olumsuz", v:D.stats.rejected, n:`%${D.stats.rejection_rate} red oranı` },
-];
-document.getElementById("tiles").innerHTML = tiles.map(t =>
-  `<div class="tile${t.accent ? " accent" : ""}"><div class="k">${t.k}</div>
-   <div class="v mono">${t.v}</div><div class="n">${t.n}</div></div>`).join("");
+  { k:"Boşa giden", v:weakSpend.length, n:"orta/zayıf eşleşme" },
+].forEach(t => document.getElementById("tiles").insertAdjacentHTML("beforeend",
+  `<div class="tile ${t.cls||""}"><div class="k">${t.k}</div><div class="v">${t.v}</div><div class="n">${t.n}</div></div>`));
+
+/* ---------- aksiyon linkleri ---------- */
+function actionsHTML(a, primaryFirst) {
+  const links = a.links_actions || [];
+  if (!links.length) return "";
+  return `<div class="acts">` + links.map((l,i) =>
+    `<a class="act${primaryFirst && i===0 ? " primary" : ""}" href="${attr(l.url)}" target="_blank" rel="noopener">
+       ${ico(l.kind)}${esc(l.label)}</a>`).join("") + `</div>`;
+}
 
 /* ---------- aksiyon kartları ---------- */
 document.getElementById("actionCount").textContent = `${actionApps.length} iş`;
 document.getElementById("actionCards").innerHTML = actionApps.map(a => {
   const d = a.days_to_deadline;
-  let chip = `<span class="chip chip-warning">planlanmadı</span>`;
-  let warn = true;
+  let chip = `<span class="chip chip-warning">planlanmadı</span>`, warn = true;
   if (d !== null && d !== undefined) {
-    if (d < 0)       { chip = `<span class="chip chip-critical">${Math.abs(d)} gün gecikmiş</span>`; warn = false; }
-    else if (d === 0){ chip = `<span class="chip chip-critical">bugün son gün</span>`; warn = false; }
-    else             { chip = `<span class="chip chip-warning">${d} gün kaldı</span>`; }
+    if (d < 0)        { chip = `<span class="chip chip-critical">${Math.abs(d)} gün gecikmiş</span>`; warn = false; }
+    else if (d === 0) { chip = `<span class="chip chip-critical">bugün son gün</span>`; warn = false; }
+    else              { chip = `<span class="chip chip-warning">${d} gün kaldı</span>`; }
   }
-  const rems = (a.reminders || []).map(r => {
+  const rems = (a.reminders||[]).map(r => {
     const i = r.indexOf(" ");
     return `<div class="rem"><span>${esc(r.slice(0,i))}</span><span>${esc(r.slice(i+1))}</span></div>`;
   }).join("");
-  return `<article class="card${warn ? " warn" : ""}">
+  const mseg = a.match_segment_key
+    ? `<span class="chip ${SEG_CHIP[a.match_segment_key]}">eşleşme ${a.match_score}</span>` : "";
+  return `<article class="card${warn?" warn":""}">
     <div class="card-top">
-      <div><h3>${esc(a.company)}</h3><div class="role">${esc(a.role)}</div></div>${chip}
+      <div><h3>${esc(a.company)}</h3><div class="role">${esc(a.role)}</div></div>
+      <div style="display:flex;flex-direction:column;gap:5px;align-items:flex-end">${chip}${mseg}</div>
     </div>
-    <p>${esc(a.next_step)}</p>${rems}
+    <p>${esc(a.next_step)}</p>${rems}${actionsHTML(a, true)}
   </article>`;
 }).join("");
 
-/* ---------- haftalık hacim (tek seri, her sütun doğrudan etiketli) ---------- */
+/* ---------- grafikler ---------- */
 const maxW = Math.max(...D.weekly.map(w => w.value));
 document.getElementById("weekly").innerHTML = D.weekly.map(w =>
   `<div class="vbar" title="${esc(w.label)}: ${w.value} başvuru">
      <div class="num">${w.value}</div>
-     <div class="col" style="height:${Math.round(100 * w.value / maxW)}%"></div>
-     <div class="lbl">${esc(w.label)}</div>
-   </div>`).join("");
+     <div class="col" style="height:${Math.round(100*w.value/maxW)}%"></div>
+     <div class="lbl">${esc(w.label)}</div></div>`).join("");
 
-/* ---------- boru hattı durumu (status paleti + ikon + etiket) ---------- */
+const TONE = { critical:"critical", good:"good", warning:"warning", archive:"archive" };
 const maxS = Math.max(...D.states.map(s => s.value));
 document.getElementById("states").innerHTML = D.states.map(s =>
   `<div class="hbar-row" title="${esc(s.label)}: ${s.value}">
      <div class="hbar-lbl"><span class="dot" style="background:var(--${TONE[s.tone]})"></span>${esc(s.label)}</div>
      <div class="hbar-val">${s.value}</div>
-     <div class="hbar-track"><div class="hbar-fill" style="width:${Math.round(100 * s.value / maxS)}%;background:var(--${TONE[s.tone]})"></div></div>
+     <div class="hbar-track"><div class="hbar-fill" style="width:${Math.round(100*s.value/maxS)}%;background:var(--${TONE[s.tone]})"></div></div>
    </div>`).join("");
 
-/* ---------- tablo + filtreler ---------- */
-let filter = "all", query = "";
-const tbody = document.getElementById("tbody");
-const emptyEl = document.getElementById("empty");
+const segOrder = ["strong","good","fair","weak"];
+const maxSeg = Math.max(...segOrder.map(k => D.segments[k].count));
+// Segment adındaki trafik-ışığı emojisi mor rampayla çakışıyor; tek kodlama kalsın.
+const segName = s => s.replace(/^[^\p{L}]+/u, "");
+document.getElementById("segs").innerHTML = segOrder.map(k => {
+  const s = D.segments[k];
+  return `<div class="hbar-row" title="${esc(segName(s.label))}: ${s.count} başvuru">
+     <div class="hbar-lbl"><span class="dot" style="background:var(${SEG_VAR[k]})"></span>${esc(segName(s.label))} eşleşme</div>
+     <div class="hbar-val">${s.count}</div>
+     <div class="hbar-track"><div class="hbar-fill" style="width:${Math.round(100*s.count/maxSeg)}%;background:var(${SEG_VAR[k]})"></div></div>
+     <div class="hbar-sub">ileri aşamaya geçen %${s.advance_rate} · red %${s.reject_rate}</div>
+   </div>`;
+}).join("");
 
-function rows() {
-  const q = query.trim().toLocaleLowerCase("tr");
-  return D.applications.filter(a =>
-    (filter === "all" || a.band === filter) &&
-    (!q || (a.company + " " + a.role + " " + (a.track || "")).toLocaleLowerCase("tr").includes(q))
-  );
-}
+/* ---------- odak listesi ---------- */
+const focus = D.applications
+  .filter(a => a.status !== "rejected" && ["strong","good"].includes(a.match_segment_key))
+  .sort((a,b) => b.match_score - a.match_score).slice(0, 6);
+document.getElementById("focusCount").textContent = `en güçlü ${focus.length}`;
+document.getElementById("focusCards").innerHTML = focus.map(a => {
+  const dims = (a.match_breakdown||[]).map(d =>
+    `<div class="dim"><span>${esc(d.label)}</span>
+       <div class="dim-track"><div class="dim-fill" style="width:${d.pct}%"></div></div>
+       <span class="dim-val">${d.value}/${d.max}</span></div>`).join("");
+  return `<article class="fcard">
+    <div class="fcard-top">
+      <div><h3>${esc(a.company)}</h3><div class="role">${esc(a.role)}</div></div>
+      <div class="mscore">${a.match_score}<small>eşleşme</small></div>
+    </div>
+    <div class="dims">${dims}</div>
+    <p class="why">${esc(a.match_rationale)}</p>
+    ${actionsHTML(a, false)}
+  </article>`;
+}).join("");
+
+/* ---------- tablo ---------- */
+let band = "all", seg = "all", query = "";
+const tbody = document.getElementById("tbody"), emptyEl = document.getElementById("empty");
 
 function render() {
-  const list = rows();
-  document.getElementById("tblCount").textContent =
-    `${list.length} / ${D.applications.length} başvuru`;
+  const q = query.trim().toLocaleLowerCase("tr");
+  const list = D.applications.filter(a =>
+    (band === "all" || a.band === band) &&
+    (seg === "all" || a.match_segment_key === seg) &&
+    (!q || (a.company+" "+a.role+" "+(a.track||"")).toLocaleLowerCase("tr").includes(q)));
+
+  document.getElementById("tblCount").textContent = `${list.length} / ${D.applications.length}`;
   emptyEl.hidden = list.length > 0;
   tbody.innerHTML = list.map(a => {
     const d = a.days_to_deadline;
     let dl = "—";
     if (a.deadline) {
       const cls = d < 0 ? "chip-critical" : d <= 3 ? "chip-warning" : "chip-brand";
-      const txt = d < 0 ? `${fmtDate(a.deadline)} · geçti` : fmtDate(a.deadline);
-      dl = `<span class="chip ${cls}">${txt}</span>`;
+      dl = `<span class="chip ${cls}">${d < 0 ? fmtDate(a.deadline)+" · geçti" : fmtDate(a.deadline)}</span>`;
     }
-    const sil = a.days_silent === null || a.days_silent === undefined ? "—" : `${a.days_silent}g`;
+    const sil = a.days_silent == null ? "—" : `${a.days_silent}g`;
+    const k = a.match_segment_key;
+    const mcell = k ? `<div class="mcell">
+        <span class="mnum" style="color:var(${SEG_VAR[k]})">${a.match_score}
+          <span style="font-size:10px;color:var(--ink-3);font-weight:400">${SEG_SHORT[k]}</span></span>
+        <div class="mbar"><i style="width:${a.match_score}%;background:var(${SEG_VAR[k]})"></i></div>
+      </div>` : "—";
+    const acts = (a.links_actions||[]).map(l =>
+      `<a class="row-act" href="${attr(l.url)}" target="_blank" rel="noopener" title="${attr(l.label)}"
+          aria-label="${attr(l.label)}">${ico(l.kind)}</a>`).join("");
     return `<tr>
       <td class="sev sev-${a.band}"></td>
       <td><div class="co">${esc(a.company)}</div><div class="ro">${esc(a.role)}</div></td>
+      <td>${mcell}</td>
       <td>${esc(STAGE_TR[a.stage] || a.stage)}</td>
-      <td>${esc(CHANNEL_TR[a.channel] || a.channel)}</td>
       <td>${dl}</td>
       <td class="num">${sil}</td>
-      <td class="num">${a.score}</td>
       <td class="step">${esc(a.next_step)}</td>
+      <td><div class="row-acts">${acts}</div></td>
     </tr>`;
   }).join("");
 }
 
-document.querySelectorAll(".fchip").forEach(btn => {
-  btn.addEventListener("click", () => {
-    filter = btn.dataset.f;
-    document.querySelectorAll(".fchip").forEach(b =>
-      b.setAttribute("aria-pressed", String(b === btn)));
-    render();
-  });
-});
+document.querySelectorAll("#bandGroup .fchip").forEach(b => b.addEventListener("click", () => {
+  band = b.dataset.b;
+  document.querySelectorAll("#bandGroup .fchip").forEach(x => x.setAttribute("aria-pressed", String(x===b)));
+  render();
+}));
+document.querySelectorAll("#segGroup .fchip").forEach(b => b.addEventListener("click", () => {
+  seg = b.dataset.s;
+  document.querySelectorAll("#segGroup .fchip").forEach(x => x.setAttribute("aria-pressed", String(x===b)));
+  render();
+}));
 document.getElementById("search").addEventListener("input", e => { query = e.target.value; render(); });
 render();
 
-/* ---------- recruiter mesajları ---------- */
+/* ---------- recruiter ---------- */
 document.getElementById("outCount").textContent = `${D.outreach.length} mesaj`;
 document.getElementById("outbody").innerHTML = D.outreach.map(o =>
   `<tr><td class="num">${fmtDate(o.date)}</td><td class="co">${esc(o.from)}</td>
    <td>${esc(o.topic)}</td><td>${esc(o.channel)}</td></tr>`).join("");
 
+/* ---------- not ---------- */
+const pct = Math.round(100 * weakSpend.length / D.stats.total);
+document.getElementById("matchnote").innerHTML =
+  `<strong>Eşleşme verisi ne söylüyor:</strong> başvuruların ${weakSpend.length}'i (%${pct}) orta veya zayıf eşleşmeye gitmiş. ` +
+  `Güçlü eşleşmelerin ileri aşamaya geçme oranı %${D.segments.strong.advance_rate}, zayıflarınki %${D.segments.weak.advance_rate}. ` +
+  `Aynı efor güçlü segmente kaydırılırsa mülakat sayısı artar.`;
+
 /* ---------- tema ---------- */
 const btn = document.getElementById("themeBtn");
+function label() {
+  const c = document.documentElement.getAttribute("data-theme");
+  const dark = c === "dark" || (!c && matchMedia("(prefers-color-scheme: dark)").matches);
+  btn.textContent = dark ? "Açık tema" : "Koyu tema";
+}
 btn.addEventListener("click", () => {
-  const cur = document.documentElement.getAttribute("data-theme");
-  const next = cur === "dark" ? "light" : cur === "light" ? "dark"
-    : (matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "dark");
-  document.documentElement.setAttribute("data-theme", next);
-  btn.textContent = next === "dark" ? "Açık tema" : "Koyu tema";
+  const c = document.documentElement.getAttribute("data-theme");
+  const dark = c === "dark" || (!c && matchMedia("(prefers-color-scheme: dark)").matches);
+  document.documentElement.setAttribute("data-theme", dark ? "light" : "dark");
+  label();
 });
+label();
 
-document.getElementById("foot").textContent =
-  `Kaynak: ${D.meta.source} · Veri ${D.meta.scan_window.from} – ${D.meta.scan_window.to} arası Gmail taramasından üretildi · ` +
-  `Puan = aşama ağırlığı + uyum × 4 + deadline aciliyeti − sessizlik cezası.`;
+document.getElementById("foot").innerHTML =
+  `Kaynak: ${esc(D.meta.source)} · Eşleşme puanı = rol ailesi (35) + kıdem (25) + beceri örtüşmesi (25) + sektör yakınlığı (15) − lokasyon/dil cezası. ` +
+  `Aciliyet puanı = aşama ağırlığı + uyum×4 + deadline aciliyeti − sessizlik cezası. ` +
+  `"İlgili maili aç" bağlantıları Gmail'de o şirketin yazışmasını arar.`;
 </script>

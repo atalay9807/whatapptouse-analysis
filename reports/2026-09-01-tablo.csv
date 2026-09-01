@@ -1,69 +1,69 @@
-oncelik,puan,sirket,pozisyon,asama,durum,kanal,basvuru,son_temas,sessiz_gun,deadline,uyum,sonraki_adim
-🔴 KRİTİK,145,Nebil Project,CFO Office Executive,assessment,action_required,direct,2026-08-20,2026-08-25,7,2026-08-31,5,"TestGorilla testi + 3 soruya mail yanıtı (maaş / lokasyon / 7 Eyl başlangıç). Yüz yüze mülakatlar 1-2 Eylül, hedef başlangıç 7 Eylül."
-🔴 KRİTİK,141,Puffy,"Data Analyst (Dubai, on-site)",assessment,action_required,linkedin,2026-08-01,2026-08-20,12,2026-08-22,4,"Faz-1 yetenek değerlendirmesi (~30 dk, proctored/kameralı; başlayınca 4 saat içinde bitmeli)."
-🔴 KRİTİK,129,EOAI Lab,Kurucu ekip,interview_scheduling,action_required,direct,2026-08-28,2026-08-29,3,2026-09-04,4,Online mülakat için müsaitlik bildirimi — pencere 4 Eylül'de kapanıyor.
-🟠 YÜKSEK,98,The Flex & Base360,Growth Marketer / Marketing,next_stage,in_progress,ats,2026-08-20,2026-08-20,12,,4,Bir sonraki aşama görevi (adayların ~%10'u geçti).
-🟠 YÜKSEK,94,Peks Global A.Ş.,Ticari Analist,interviewed,awaiting_response,direct,2026-08-25,2026-08-28,4,,4,28 Ağu 12:00 Teams görüşmesi yapıldı — geri dönüş bekleniyor. 5+ iş günü geçtiyse takip maili at.
-🔴 KRİTİK,93,micro1,Data Analyst (AI training),assessment,action_required,direct,2026-08-03,2026-08-22,10,,2,~30 dk konuşma tabanlı AI mülakatı tamamlanmalı.
-🟠 YÜKSEK,86,Dr. Bombay (Snoop Dogg) / Deel,International Ice-Cream Taster,next_stage,action_required,direct,2026-08-31,2026-08-31,1,2026-09-17,1,60-90 sn tanıtım videosu gönder.
-🟠 YÜKSEK,86,TrendyolGo,Belirtilmemiş,interviewed,awaiting_response,ats,2026-08-05,2026-08-18,14,,4,"Mülakat tamamlandı, deneyim anketi geldi — sonuç bekleniyor."
-🔴 KRİTİK,86,Yapı Kredi,Belirtilmemiş (peoplise başvurusu),application_incomplete,action_required,ats,2026-08-21,2026-09-01,0,,4,E-posta doğrulama linkine tıkla + CV bilgilerini doldur (spam kutusunu kontrol et).
-🔴 KRİTİK,77,Eren Perakende,Belirtilmemiş,assessment,action_required,ats,2026-08-05,2026-08-06,26,,3,FlowQ çevrimiçi yetenek/beceri uygulaması.
-🟠 YÜKSEK,76,shift (joinshift.ai),Data Operations Fellow,in_process,awaiting_response,direct,2026-08-26,2026-08-26,6,,4,Program süreç akışı paylaşıldı — sonraki adım bildirimi bekleniyor.
-🔴 KRİTİK,74,Omtera,Belirtilmemiş,application_incomplete,action_required,ats,2026-08-15,2026-08-15,17,,3,join.com üzerinden giriş yapıp başvuruyu tamamla (link 60 dk geçerliydi — yeniden tetikle).
-🟡 NORMAL,55,Dataroid,Belirtilmemiş,under_review,awaiting_response,ats,2026-08-28,2026-08-28,4,,5,İnceleme aşamasında.
-🟡 NORMAL,55,Obilet,Strategy Analyst,under_review,awaiting_response,linkedin,2026-08-30,2026-08-30,2,,5,İnceleme aşamasında.
-🟡 NORMAL,55,Sanction Scanner,Founder's Associate,under_review,awaiting_response,ats,2026-08-31,2026-08-31,1,,5,Nitelikler inceleniyor.
-🟡 NORMAL,51,Amazon,"Content Acquisition Manager, Prime Video Turkey (10506884)",under_review,stale,ats,2026-08-20,2026-08-20,12,,4,12 gündür dönüş yok — amazon.jobs portalından durum kontrol edilebilir.
-🟡 NORMAL,51,Assistant App A.Ş.,Growth Product Manager,under_review,stale,ats,2026-08-20,2026-08-20,12,,4,12 gündür dönüş yok.
-🟡 NORMAL,51,Baytek,Business Analyst – AI & Product Analytics,under_review,awaiting_response,ats,2026-09-01,2026-09-01,0,,4,CV işverene iletildi.
-🟡 NORMAL,51,CEVA Logistics,Business Process Excellence Professional Turkey,under_review,awaiting_response,ats,2026-08-31,2026-08-31,1,,4,İnceleme aşamasında.
-🟡 NORMAL,51,Cricut,"Regional E-commerce Operations Lead, META",under_review,stale,linkedin,2026-08-20,2026-08-20,12,,4,12 gündür dönüş yok.
-🟡 NORMAL,51,Firefly,Business Operations Associate,under_review,stale,ats,2026-08-20,2026-08-20,12,,4,12 gündür dönüş yok.
-🟡 NORMAL,51,Good Job Games,"Product Specialist, Hybrid-Casual",under_review,awaiting_response,ats,2026-08-26,2026-08-26,6,,4,İnceleme aşamasında.
-🟡 NORMAL,51,Hyundai Motor Türkiye,Product Senior Specialist (Pricing & Hyundai Finance),under_review,awaiting_response,ats,2026-09-01,2026-09-01,0,,4,İnceleme aşamasında.
-🟡 NORMAL,51,Midas,Belirtilmemiş,under_review,awaiting_response,ats,2026-08-31,2026-08-31,1,,4,İnceleme aşamasında.
-🟡 NORMAL,51,Miniclip,Data Analyst / Data Scientist I,under_review,stale,ats,2026-08-24,2026-08-24,8,,4,8 gündür dönüş yok.
-🟡 NORMAL,51,NLR,Business Intelligence (BI) Analyst,under_review,awaiting_response,ats,2026-08-25,2026-09-01,0,,4,Workday bildirimi geldi — Workday Inbox'ı kontrol et.
-🟡 NORMAL,51,Pernod Ricard,Financial Planning & Analysis Management Trainee,under_review,awaiting_response,ats,2026-08-31,2026-08-31,1,,4,İnceleme aşamasında.
-🟡 NORMAL,51,Pfizer,Data Operations Specialist (Contractor) 4960477,under_review,awaiting_response,ats,2026-08-03,2026-08-21,11,,4,Değerlendirme sürüyor — karar bekleniyor.
-🟡 NORMAL,51,Revolut,Product Owner (Technical),under_review,awaiting_response,ats,2026-09-01,2026-09-01,0,,4,Başvuru onaylandı — inceleme aşamasında.
-🟡 NORMAL,51,Societe Generale,Coverage Support Analyst (26000J28),under_review,awaiting_response,ats,2026-08-27,2026-08-27,5,,4,İnceleme aşamasında.
-🟡 NORMAL,51,Trip.com Group,"Business Development Manager (Attractions & Tours), Turkey",under_review,stale,ats,2026-08-20,2026-08-20,12,,4,12 gündür dönüş yok.
-🟡 NORMAL,51,VIZIO AI,SaaS Growth Strategist (AI-Native),under_review,awaiting_response,ats,2026-08-27,2026-08-27,5,,4,İnceleme aşamasında.
-🟡 NORMAL,51,Vodafone,Belirtilmemiş,under_review,awaiting_response,ats,2026-08-20,2026-08-26,6,,4,İşe alım ekibi inceliyor.
-🟡 NORMAL,47,Flalingo,Influencer Marketing & Partnership Specialist,under_review,stale,ats,2026-08-20,2026-08-20,12,,3,12 gündür dönüş yok.
-🟡 NORMAL,47,Ingram Micro,Business Development Executive - HPE,under_review,stale,ats,2026-08-20,2026-08-20,12,,3,12 gündür dönüş yok.
-🟡 NORMAL,47,Jobgether,Supply Chain Analyst,under_review,awaiting_response,aggregator,2026-09-01,2026-09-01,0,,3,Eşleşme skoru inceleniyor.
-🟡 NORMAL,47,Jobgether,Business Analyst – Data Sensitivity & VDI Migration,under_review,awaiting_response,aggregator,2026-08-27,2026-08-27,5,,3,İnceleme aşamasında.
-🟡 NORMAL,47,Obilet,Strategic Finance and Analytics Specialist,under_review,stale,linkedin,2026-08-19,2026-08-19,13,,5,13 gündür dönüş yok — takip maili düşünülebilir.
-⚪ DÜŞÜK,43,Cypher Games,Growth Manager / Senior Growth Manager,under_review,stale,linkedin,2026-08-12,2026-08-12,20,,4,20 gündür dönüş yok.
-⚪ DÜŞÜK,43,Eaton,Pricing Continuous Improvement Specialist,under_review,stale,ats,2026-08-13,2026-08-13,19,,4,19 gündür dönüş yok.
-⚪ DÜŞÜK,43,Team Blue Ticimax,Product Manager,under_review,stale,ats,2026-08-16,2026-08-16,16,,4,16 gündür dönüş yok.
-⚪ DÜŞÜK,39,Jobgether,"Senior Games Data Analyst (Europe, Asia)",under_review,stale,aggregator,2026-08-17,2026-08-17,15,,3,15 gündür dönüş yok.
-⚪ DÜŞÜK,39,Jobgether,"Product Manager, Data Activation",under_review,stale,aggregator,2026-08-16,2026-08-16,16,,3,16 gündür dönüş yok.
-⚪ DÜŞÜK,39,Versuni,Perfect Store & Trade Shopper Marketing Specialist,under_review,stale,ats,2026-08-16,2026-08-16,16,,3,16 gündür dönüş yok.
-⚪ DÜŞÜK,35,Sipay,Product Data Analyst,under_review,stale,linkedin,2026-08-03,2026-08-03,29,,5,29 gündür dönüş yok — kapanmış say.
-⚪ DÜŞÜK,31,Bosch,Customer Experience (CX) Analyst,under_review,stale,ats,2026-08-07,2026-08-07,25,,4,25 gündür dönüş yok — kapanmış say.
-⚪ DÜŞÜK,31,METRO / MAKRO,Analytical Marketing Senior Executive (Temporary),under_review,stale,ats,2026-08-07,2026-08-07,25,,4,25 gündür dönüş yok — kapanmış say.
-⚪ DÜŞÜK,31,NielsenIQ,"Consumer Insights Lead, Turkiye",under_review,stale,ats,2026-08-04,2026-08-04,28,,4,28 gündür dönüş yok — kapanmış say.
-⚪ DÜŞÜK,31,VML,Digital Insight Analyst,under_review,stale,linkedin,2026-08-10,2026-08-10,22,,4,22 gündür dönüş yok — kapanmış say.
-⚪ DÜŞÜK,28,Virtustant,Yetenek havuzu,talent_pool,awaiting_response,direct,2026-08-25,2026-08-30,2,,2,Opsiyonel: kısa tanıtım videosu eklemek eşleşme şansını artırıyor.
-⚪ DÜŞÜK,27,CEPRES,FinTech – Junior Data Processing Analyst (Fix Term),under_review,stale,ats,2026-08-04,2026-08-04,28,,3,28 gündür dönüş yok — kapanmış say.
-⚪ DÜŞÜK,27,Jobgether,Data Analyst,under_review,stale,aggregator,2026-08-10,2026-08-10,22,,3,22 gündür dönüş yok — kapanmış say.
-⚪ DÜŞÜK,27,NielsenIQ,Client Solutions Specialist,under_review,stale,ats,2026-08-03,2026-08-03,29,,3,29 gündür dönüş yok — kapanmış say.
-⚫ KAPANDI,0,AbbVie,Financial Analyst (R00146938),closed,rejected,ats,2026-08-01,2026-08-05,27,,4,-
-⚫ KAPANDI,0,Akbank,Dijitalden Müşteri Kazanımı ve Yönetimi Yöneticisi,closed,rejected,ats,2026-08-01,2026-08-14,18,,4,-
-⚫ KAPANDI,0,Colife / Indeed başvuruları,Customer Success Manager,closed,rejected,indeed,2026-08-18,2026-08-30,2,,2,-
-⚫ KAPANDI,0,Elsevier (RELX),Business Development Manager,closed,rejected,ats,2026-08-26,2026-08-26,6,,4,-
-⚫ KAPANDI,0,Hilton,Cluster Revenue Manager RMCC Türkiye (209637),closed,rejected,ats,2026-08-14,2026-08-24,8,,4,-
-⚫ KAPANDI,0,HubX,Web CRO Manager,closed,rejected,ats,2026-08-12,2026-08-21,11,,4,-
-⚫ KAPANDI,0,JPMorganChase,Client Data Specialist (210770109),closed,rejected,ats,2026-08-10,2026-08-21,11,,4,-
-⚫ KAPANDI,0,Neon Apps,Sales & BD Specialist (RevenueCat Operations),closed,rejected,ats,2026-08-20,2026-08-31,1,,4,-
-⚫ KAPANDI,0,Progress Partners,Growth Product Manager (Web Funnel & CRO),closed,rejected,ats,2026-08-01,2026-08-05,27,,4,-
-⚫ KAPANDI,0,Revolut,Strategy & Operations Manager (Hiring Sprint),closed,rejected,ats,2026-08-01,2026-08-25,7,,5,-
-⚫ KAPANDI,0,Richemont,Commercial Project Manager,closed,rejected,ats,2026-08-04,2026-08-13,19,,3,-
-⚫ KAPANDI,0,Unilever,Demand Planning Specialist,closed,rejected,ats,2026-08-10,2026-08-26,6,,4,-
-⚫ KAPANDI,0,Unilever,Foods Digital Experience Lead,closed,rejected,linkedin,2026-08-05,2026-08-31,1,,4,-
-⚫ KAPANDI,0,bunq,Reporting Expert,closed,rejected,ats,2026-08-14,2026-08-17,15,,4,-
-⚫ KAPANDI,0,Şişecam,Investment & Business Development Specialist (29528),closed,rejected,ats,2026-08-14,2026-08-18,14,,4,-
+oncelik,aciliyet_puani,eslesme_puani,eslesme_segmenti,sirket,pozisyon,asama,durum,kanal,basvuru,son_temas,sessiz_gun,deadline,en_zayif_boyut,eslesme_gerekcesi,sonraki_adim
+🔴 KRİTİK,145,87,🟢 Güçlü eşleşme,Nebil Project,CFO Office Executive,assessment,action_required,direct,2026-08-20,2026-08-25,7,2026-08-31,Sektör yakınlığı,CFO ofisi = FP&A + yönetim raporlaması; bütçe/forecast deneyimi birebir. Executive unvanı hafif esneme.,"TestGorilla testi + 3 soruya mail yanıtı (maaş / lokasyon / 7 Eyl başlangıç). Yüz yüze mülakatlar 1-2 Eylül, hedef başlangıç 7 Eylül."
+🔴 KRİTİK,141,80,🟢 Güçlü eşleşme,Puffy,"Data Analyst (Dubai, on-site)",assessment,action_required,linkedin,2026-08-01,2026-08-20,12,2026-08-22,Sektör yakınlığı,Data Analyst + DTC e-ticaret birebir; tek engel Dubai'ye taşınma zorunluluğu.,"Faz-1 yetenek değerlendirmesi (~30 dk, proctored/kameralı; başlayınca 4 saat içinde bitmeli)."
+🔴 KRİTİK,129,70,🔵 İyi eşleşme,EOAI Lab,Kurucu ekip,interview_scheduling,action_required,direct,2026-08-28,2026-08-29,3,2026-09-04,Sektör yakınlığı,Kurucu ekipte analitik sahiplenme mümkün ama AI startup teknik derinlik bekleyebilir.,Online mülakat için müsaitlik bildirimi — pencere 4 Eylül'de kapanıyor.
+🟠 YÜKSEK,98,77,🔵 İyi eşleşme,The Flex & Base360,Growth Marketer / Marketing,next_stage,in_progress,ats,2026-08-20,2026-08-20,12,,Sektör yakınlığı,"Growth marketing birebir; kampanya/CRO tarafı güçlü, uzaktan EU çalışma izni belirsiz.",Bir sonraki aşama görevi (adayların ~%10'u geçti).
+🟠 YÜKSEK,94,91,🟢 Güçlü eşleşme,Peks Global A.Ş.,Ticari Analist,interviewed,awaiting_response,direct,2026-08-25,2026-08-28,4,,Sektör yakınlığı,Ticari analist = ticari strateji + P&L + fiyatlandırma deneyiminin tam karşılığı.,28 Ağu 12:00 Teams görüşmesi yapıldı — geri dönüş bekleniyor. 5+ iş günü geçtiyse takip maili at.
+🔴 KRİTİK,93,60,🟡 Orta eşleşme,micro1,Data Analyst (AI training),assessment,action_required,direct,2026-08-03,2026-08-22,10,,Sektör yakınlığı,"Kariyer rolü değil, saatlik AI eğitim gig'i; CV'ye katkısı sınırlı.",~30 dk konuşma tabanlı AI mülakatı tamamlanmalı.
+🟠 YÜKSEK,86,32,🔴 Zayıf eşleşme,Dr. Bombay (Snoop Dogg) / Deel,International Ice-Cream Taster,next_stage,action_required,direct,2026-08-31,2026-08-31,1,2026-09-17,Rol ailesi,Profille hiçbir kesişim yok — eğlence amaçlı başvuru.,60-90 sn tanıtım videosu gönder.
+🟠 YÜKSEK,86,81,🟢 Güçlü eşleşme,TrendyolGo,Belirtilmemiş,interviewed,awaiting_response,ats,2026-08-05,2026-08-18,14,,Rol ailesi,Sektör birebir (q-commerce/teslimat) — Getir deneyimi doğrudan transfer olur. Rol belirsiz.,"Mülakat tamamlandı, deneyim anketi geldi — sonuç bekleniyor."
+🔴 KRİTİK,86,69,🔵 İyi eşleşme,Yapı Kredi,Belirtilmemiş (peoplise başvurusu),application_incomplete,action_required,ats,2026-08-21,2026-09-01,0,,Rol ailesi,Rol belirsiz; bankacılıkta FP&A/CRM analitiği açılırsa uyum yükselir.,E-posta doğrulama linkine tıkla + CV bilgilerini doldur (spam kutusunu kontrol et).
+🔴 KRİTİK,77,68,🔵 İyi eşleşme,Eren Perakende,Belirtilmemiş,assessment,action_required,ats,2026-08-05,2026-08-06,26,,Rol ailesi,Rol belirsiz; perakende sektörü yakın.,FlowQ çevrimiçi yetenek/beceri uygulaması.
+🟠 YÜKSEK,76,74,🔵 İyi eşleşme,shift (joinshift.ai),Data Operations Fellow,in_process,awaiting_response,direct,2026-08-26,2026-08-26,6,,Sektör yakınlığı,Data ops analitiği uygun ama fellowship 2 yıllık deneyimin bir tık altında.,Program süreç akışı paylaşıldı — sonraki adım bildirimi bekleniyor.
+🔴 KRİTİK,74,74,🔵 İyi eşleşme,Omtera,Belirtilmemiş,application_incomplete,action_required,ats,2026-08-15,2026-08-15,17,,Sektör yakınlığı,Veri danışmanlığı; rol belirsiz ama analitik odaklı olması muhtemel.,join.com üzerinden giriş yapıp başvuruyu tamamla (link 60 dk geçerliydi — yeniden tetikle).
+🟡 NORMAL,55,82,🟢 Güçlü eşleşme,Dataroid,Belirtilmemiş,under_review,awaiting_response,ats,2026-08-28,2026-08-28,4,,Sektör yakınlığı,Dijital analitik ürünü; Mixpanel/kohort deneyimi doğrudan konuşuluyor.,İnceleme aşamasında.
+🟡 NORMAL,55,94,🟢 Güçlü eşleşme,Obilet,Strategy Analyst,under_review,awaiting_response,linkedin,2026-08-30,2026-08-30,2,,Sektör yakınlığı,Strategy Analyst + online seyahat marketplace — rol ve sektör birlikte çok güçlü.,İnceleme aşamasında.
+🟡 NORMAL,55,92,🟢 Güçlü eşleşme,Sanction Scanner,Founder's Associate,under_review,awaiting_response,ats,2026-08-31,2026-08-31,1,,Sektör yakınlığı,Founder's Associate = çapraz fonksiyonlu analitik/strateji; regtech fintech yakın.,Nitelikler inceleniyor.
+🟡 NORMAL,51,42,🔴 Zayıf eşleşme,Amazon,"Content Acquisition Manager, Prime Video Turkey (10506884)",under_review,stale,ats,2026-08-20,2026-08-20,12,,Rol ailesi,İçerik lisanslama ve müzakere işi; ne rol ne kıdem uyuyor.,12 gündür dönüş yok — amazon.jobs portalından durum kontrol edilebilir.
+🟡 NORMAL,51,71,🔵 İyi eşleşme,Assistant App A.Ş.,Growth Product Manager,under_review,stale,ats,2026-08-20,2026-08-20,12,,Kıdem,Growth PM analitik tarafı uygun; PM kıdemi ve ürün sahipliği deneyimi eksik.,12 gündür dönüş yok.
+🟡 NORMAL,51,87,🟢 Güçlü eşleşme,Baytek,Business Analyst – AI & Product Analytics,under_review,awaiting_response,ats,2026-09-01,2026-09-01,0,,Sektör yakınlığı,Business Analyst + ürün analitiği birebir; AI kısmı öğrenilebilir.,CV işverene iletildi.
+🟡 NORMAL,51,76,🔵 İyi eşleşme,CEVA Logistics,Business Process Excellence Professional Turkey,under_review,awaiting_response,ats,2026-08-31,2026-08-31,1,,Sektör yakınlığı,Süreç mükemmelliği analitik/proje işi; lojistik sektörü orta yakınlık.,İnceleme aşamasında.
+🟡 NORMAL,51,58,🟡 Orta eşleşme,Cricut,"Regional E-commerce Operations Lead, META",under_review,stale,linkedin,2026-08-20,2026-08-20,12,,Kıdem,E-ticaret operasyonu yakın ama 'Regional Lead' kıdem olarak çok üstte.,12 gündür dönüş yok.
+🟡 NORMAL,51,76,🔵 İyi eşleşme,Firefly,Business Operations Associate,under_review,stale,ats,2026-08-20,2026-08-20,12,,Sektör yakınlığı,Business Operations = analitik + süreç; profile çok uygun.,12 gündür dönüş yok.
+🟡 NORMAL,51,76,🔵 İyi eşleşme,Good Job Games,"Product Specialist, Hybrid-Casual",under_review,awaiting_response,ats,2026-08-26,2026-08-26,6,,Sektör yakınlığı,"Oyun ürün analitiği; kohort/retention bilgisi transfer olur, oyun metrikleri yeni.",İnceleme aşamasında.
+🟡 NORMAL,51,84,🟢 Güçlü eşleşme,Hyundai Motor Türkiye,Product Senior Specialist (Pricing & Hyundai Finance),under_review,awaiting_response,ats,2026-09-01,2026-09-01,0,,Sektör yakınlığı,Pricing + finans birleşimi CV'nin merkezinde; Senior Specialist hafif esneme.,İnceleme aşamasında.
+🟡 NORMAL,51,76,🔵 İyi eşleşme,Midas,Belirtilmemiş,under_review,awaiting_response,ats,2026-08-31,2026-08-31,1,,Rol ailesi,Fintech/yatırım platformu sektörü uygun; rol belirsiz.,İnceleme aşamasında.
+🟡 NORMAL,51,73,🔵 İyi eşleşme,Miniclip,Data Analyst / Data Scientist I,under_review,stale,ats,2026-08-24,2026-08-24,8,,Sektör yakınlığı,Data Analyst uygun ama oyun analitiğinde SQL/Python beklentisi CV'nin üstünde.,8 gündür dönüş yok.
+🟡 NORMAL,51,75,🔵 İyi eşleşme,NLR,Business Intelligence (BI) Analyst,under_review,awaiting_response,ats,2026-08-25,2026-09-01,0,,Sektör yakınlığı,BI Analyst = Tableau/Power BI güçlü yanı; SQL 3/5 sınırda.,Workday bildirimi geldi — Workday Inbox'ı kontrol et.
+🟡 NORMAL,51,89,🟢 Güçlü eşleşme,Pernod Ricard,Financial Planning & Analysis Management Trainee,under_review,awaiting_response,ats,2026-08-31,2026-08-31,1,,Sektör yakınlığı,FP&A birebir; Management Trainee 2 yıllık deneyimin biraz altında ama marka değeri yüksek.,İnceleme aşamasında.
+🟡 NORMAL,51,77,🔵 İyi eşleşme,Pfizer,Data Operations Specialist (Contractor) 4960477,under_review,awaiting_response,ats,2026-08-03,2026-08-21,11,,Sektör yakınlığı,Veri operasyonları uygun; ilaç sektörü yeni ama analitik iş temelde aynı.,Değerlendirme sürüyor — karar bekleniyor.
+🟡 NORMAL,51,56,🟡 Orta eşleşme,Revolut,Product Owner (Technical),under_review,awaiting_response,ats,2026-09-01,2026-09-01,0,,Rol ailesi,'Technical' Product Owner mühendislik altyapısı istiyor; fintech yakın ama teknik açık var.,Başvuru onaylandı — inceleme aşamasında.
+🟡 NORMAL,51,72,🔵 İyi eşleşme,Societe Generale,Coverage Support Analyst (26000J28),under_review,awaiting_response,ats,2026-08-27,2026-08-27,5,,Beceri örtüşmesi,"Bankacılık analiz desteği; finans temeli uygun, uzaktan EU izni belirsiz.",İnceleme aşamasında.
+🟡 NORMAL,51,50,🟡 Orta eşleşme,Trip.com Group,"Business Development Manager (Attractions & Tours), Turkey",under_review,stale,ats,2026-08-20,2026-08-20,12,,Rol ailesi,Satış odaklı Manager rolü; hem rol ailesi hem kıdem uyumsuz.,12 gündür dönüş yok.
+🟡 NORMAL,51,81,🟢 Güçlü eşleşme,VIZIO AI,SaaS Growth Strategist (AI-Native),under_review,awaiting_response,ats,2026-08-27,2026-08-27,5,,Sektör yakınlığı,SaaS growth stratejisi; funnel/retention deneyimi doğrudan geçerli.,İnceleme aşamasında.
+🟡 NORMAL,51,69,🔵 İyi eşleşme,Vodafone,Belirtilmemiş,under_review,awaiting_response,ats,2026-08-20,2026-08-26,6,,Rol ailesi,Rol belirsiz; telco'da CRM/growth analitiği açılırsa uyum yükselir.,İşe alım ekibi inceliyor.
+🟡 NORMAL,47,55,🟡 Orta eşleşme,Flalingo,Influencer Marketing & Partnership Specialist,under_review,stale,ats,2026-08-20,2026-08-20,12,,Rol ailesi,Influencer/partnership içerik-ilişki işi; analitik profille örtüşmüyor.,12 gündür dönüş yok.
+🟡 NORMAL,47,58,🟡 Orta eşleşme,Ingram Micro,Business Development Executive - HPE,under_review,stale,ats,2026-08-20,2026-08-20,12,,Rol ailesi,Saf satış/iş geliştirme — analitik profille zayıf kesişim.,12 gündür dönüş yok.
+🟡 NORMAL,47,72,🔵 İyi eşleşme,Jobgether,Supply Chain Analyst,under_review,awaiting_response,aggregator,2026-09-01,2026-09-01,0,,Sektör yakınlığı,Tedarik zinciri analitiği FP&A/forecast ile örtüşüyor; agregatör kanalı zayıf.,Eşleşme skoru inceleniyor.
+🟡 NORMAL,47,54,🟡 Orta eşleşme,Jobgether,Business Analyst – Data Sensitivity & VDI Migration,under_review,awaiting_response,aggregator,2026-08-27,2026-08-27,5,,Sektör yakınlığı,BT altyapı/VDI migrasyonu — ticari analitikle kesişimi yok.,İnceleme aşamasında.
+🟡 NORMAL,47,96,🟢 Güçlü eşleşme,Obilet,Strategic Finance and Analytics Specialist,under_review,stale,linkedin,2026-08-19,2026-08-19,13,,Sektör yakınlığı,Strategic Finance + Analytics = FP&A ve growth analitiğinin tam kesişimi. Listedeki en iyi eşleşme.,13 gündür dönüş yok — takip maili düşünülebilir.
+⚪ DÜŞÜK,43,73,🔵 İyi eşleşme,Cypher Games,Growth Manager / Senior Growth Manager,under_review,stale,linkedin,2026-08-12,2026-08-12,20,,Kıdem,Growth işi birebir ama 'Manager/Senior Manager' kıdemi 2 yılın üstünde.,20 gündür dönüş yok.
+⚪ DÜŞÜK,43,85,🟢 Güçlü eşleşme,Eaton,Pricing Continuous Improvement Specialist,under_review,stale,ats,2026-08-13,2026-08-13,19,,Sektör yakınlığı,Fiyatlandırma + sürekli iyileştirme = ticari strateji ve esneklik analizi deneyimi birebir.,19 gündür dönüş yok.
+⚪ DÜŞÜK,43,73,🔵 İyi eşleşme,Team Blue Ticimax,Product Manager,under_review,stale,ats,2026-08-16,2026-08-16,16,,Rol ailesi,"E-ticaret SaaS ürün yönetimi; sektör yakın, PM deneyimi yok.",16 gündür dönüş yok.
+⚪ DÜŞÜK,39,68,🔵 İyi eşleşme,Jobgether,"Senior Games Data Analyst (Europe, Asia)",under_review,stale,aggregator,2026-08-17,2026-08-17,15,,Sektör yakınlığı,"Senior Games Data Analyst — rol uygun, 'Senior' ve oyun domaini esneme.",15 gündür dönüş yok.
+⚪ DÜŞÜK,39,61,🟡 Orta eşleşme,Jobgether,"Product Manager, Data Activation",under_review,stale,aggregator,2026-08-16,2026-08-16,16,,Sektör yakınlığı,Veri aktivasyonu PM'i; analitik yakın ama ürün yönetimi kıdemi eksik.,16 gündür dönüş yok.
+⚪ DÜŞÜK,39,70,🔵 İyi eşleşme,Versuni,Perfect Store & Trade Shopper Marketing Specialist,under_review,stale,ats,2026-08-16,2026-08-16,16,,Rol ailesi,Trade marketing saha odaklı; analitik kısmı sınırlı.,16 gündür dönüş yok.
+⚪ DÜŞÜK,35,90,🟢 Güçlü eşleşme,Sipay,Product Data Analyst,under_review,stale,linkedin,2026-08-03,2026-08-03,29,,Sektör yakınlığı,Ürün veri analisti + fintech; funnel/kohort deneyimi doğrudan aranıyor.,29 gündür dönüş yok — kapanmış say.
+⚪ DÜŞÜK,31,82,🟢 Güçlü eşleşme,Bosch,Customer Experience (CX) Analyst,under_review,stale,ats,2026-08-07,2026-08-07,25,,Sektör yakınlığı,Müşteri deneyimi analitiği; segmentasyon ve funnel bilgisi transfer olur.,25 gündür dönüş yok — kapanmış say.
+⚪ DÜŞÜK,31,83,🟢 Güçlü eşleşme,METRO / MAKRO,Analytical Marketing Senior Executive (Temporary),under_review,stale,ats,2026-08-07,2026-08-07,25,,Sektör yakınlığı,Analitik pazarlama + perakende; CRM/kampanya ölçümleme birebir.,25 gündür dönüş yok — kapanmış say.
+⚪ DÜŞÜK,31,59,🟡 Orta eşleşme,NielsenIQ,"Consumer Insights Lead, Turkiye",under_review,stale,ats,2026-08-04,2026-08-04,28,,Kıdem,'Lead' unvanı kıdem olarak çok üstte; içgörü metodolojisi de yeni alan.,28 gündür dönüş yok — kapanmış say.
+⚪ DÜŞÜK,31,81,🟢 Güçlü eşleşme,VML,Digital Insight Analyst,under_review,stale,linkedin,2026-08-10,2026-08-10,22,,Sektör yakınlığı,Dijital içgörü analisti; Tableau/kampanya ölçümleme deneyimi doğrudan geçerli.,22 gündür dönüş yok — kapanmış say.
+⚪ DÜŞÜK,28,45,🟡 Orta eşleşme,Virtustant,Yetenek havuzu,talent_pool,awaiting_response,direct,2026-08-25,2026-08-30,2,,Sektör yakınlığı,"Belirli bir rol yok, genel yetenek havuzu — dönüşüm olasılığı düşük.",Opsiyonel: kısa tanıtım videosu eklemek eşleşme şansını artırıyor.
+⚪ DÜŞÜK,27,72,🔵 İyi eşleşme,CEPRES,FinTech – Junior Data Processing Analyst (Fix Term),under_review,stale,ats,2026-08-04,2026-08-04,28,,Beceri örtüşmesi,Junior veri işleme analisti; fintech yakın ama rol CV'nin bir tık altında.,28 gündür dönüş yok — kapanmış say.
+⚪ DÜŞÜK,27,75,🔵 İyi eşleşme,Jobgether,Data Analyst,under_review,stale,aggregator,2026-08-10,2026-08-10,22,,Sektör yakınlığı,Data Analyst birebir; agregatör kanalı dönüşümü düşürüyor.,22 gündür dönüş yok — kapanmış say.
+⚪ DÜŞÜK,27,68,🔵 İyi eşleşme,NielsenIQ,Client Solutions Specialist,under_review,stale,ats,2026-08-03,2026-08-03,29,,Rol ailesi,Müşteri çözümleri daha çok danışmanlık/ilişki; analitik ikincil.,29 gündür dönüş yok — kapanmış say.
+⚫ KAPANDI,0,87,🟢 Güçlü eşleşme,AbbVie,Financial Analyst (R00146938),closed,rejected,ats,2026-08-01,2026-08-05,27,,Sektör yakınlığı,Financial Analyst = FP&A deneyiminin doğrudan karşılığı; ilaç sektörü yeni.,-
+⚫ KAPANDI,0,78,🟢 Güçlü eşleşme,Akbank,Dijitalden Müşteri Kazanımı ve Yönetimi Yöneticisi,closed,rejected,ats,2026-08-01,2026-08-14,18,,Kıdem,Dijitalden müşteri kazanımı = growth işinin birebir karşılığı; 'Yönetici' kıdemi esneme.,-
+⚫ KAPANDI,0,41,🔴 Zayıf eşleşme,Colife / Indeed başvuruları,Customer Success Manager,closed,rejected,indeed,2026-08-18,2026-08-30,2,,Rol ailesi,Müşteri başarısı ilişki yönetimi; analitik derinlik aranmıyor.,-
+⚫ KAPANDI,0,44,🔴 Zayıf eşleşme,Elsevier (RELX),Business Development Manager,closed,rejected,ats,2026-08-26,2026-08-26,6,,Rol ailesi,Akademik yayıncılıkta satış müdürlüğü; rol ve kıdem birlikte uyumsuz.,-
+⚫ KAPANDI,0,63,🔵 İyi eşleşme,Hilton,Cluster Revenue Manager RMCC Türkiye (209637),closed,rejected,ats,2026-08-14,2026-08-24,8,,Sektör yakınlığı,Revenue management fiyatlandırma analitiğine yakın; otelcilik ve Manager kıdemi uzak.,-
+⚫ KAPANDI,0,68,🔵 İyi eşleşme,HubX,Web CRO Manager,closed,rejected,ats,2026-08-12,2026-08-21,11,,Kıdem,"CRO = funnel optimizasyonu, growth işine yakın; Manager kıdemi esneme.",-
+⚫ KAPANDI,0,76,🔵 İyi eşleşme,JPMorganChase,Client Data Specialist (210770109),closed,rejected,ats,2026-08-10,2026-08-21,11,,Beceri örtüşmesi,"Müşteri veri uzmanlığı operasyonel; bankacılık yakın, analitik derinlik sınırlı.",-
+⚫ KAPANDI,0,60,🟡 Orta eşleşme,Neon Apps,Sales & BD Specialist (RevenueCat Operations),closed,rejected,ats,2026-08-20,2026-08-31,1,,Rol ailesi,"Satış/BD odaklı; RevenueCat operasyonu teknik, analitik kesişim zayıf.",-
+⚫ KAPANDI,0,63,🔵 İyi eşleşme,Progress Partners,Growth Product Manager (Web Funnel & CRO),closed,rejected,ats,2026-08-01,2026-08-05,27,,Sektör yakınlığı,"Growth PM + CRO; analitik uygun, ürün yönetimi kıdemi ve uzaktan izin engel.",-
+⚫ KAPANDI,0,71,🔵 İyi eşleşme,Revolut,Strategy & Operations Manager (Hiring Sprint),closed,rejected,ats,2026-08-01,2026-08-25,7,,Kıdem,Strateji & operasyon içeriği birebir — ama 'Manager' kıdemi ve EU çalışma izni engel oldu.,-
+⚫ KAPANDI,0,58,🟡 Orta eşleşme,Richemont,Commercial Project Manager,closed,rejected,ats,2026-08-04,2026-08-13,19,,Sektör yakınlığı,Ticari proje yönetimi; lüks perakende ve Manager kıdemi uzak.,-
+⚫ KAPANDI,0,80,🟢 Güçlü eşleşme,Unilever,Demand Planning Specialist,closed,rejected,ats,2026-08-10,2026-08-26,6,,Sektör yakınlığı,Talep planlama forecast deneyimiyle örtüşüyor; FMCG tedarik zinciri yeni.,-
+⚫ KAPANDI,0,56,🟡 Orta eşleşme,Unilever,Foods Digital Experience Lead,closed,rejected,linkedin,2026-08-05,2026-08-31,1,,Kıdem,'Lead' kıdemi çok üstte; dijital deneyim tasarımı da farklı bir alan.,-
+⚫ KAPANDI,0,78,🟢 Güçlü eşleşme,bunq,Reporting Expert,closed,rejected,ats,2026-08-14,2026-08-17,15,,Sektör yakınlığı,"Raporlama uzmanlığı = Tableau/Excel gücü; fintech yakın, EU uzaktan engel.",-
+⚫ KAPANDI,0,80,🟢 Güçlü eşleşme,Şişecam,Investment & Business Development Specialist (29528),closed,rejected,ats,2026-08-14,2026-08-18,14,,Sektör yakınlığı,Yatırım analizi + iş geliştirme; finansal modelleme deneyimi geçerli.,-
