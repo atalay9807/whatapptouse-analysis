@@ -166,8 +166,40 @@ kurs kartı buradan beslenir, dolayısıyla ikisi asla ayrışmaz.
 öncelik = (redlerde görülme × 3) + (açık süreçlerde görülme × 1) + (seviye farkı × 2)
 ```
 
-Kurs bağlantıları platformun ilgili sayfasını açar; güncel fiyat ve içerik
-orada doğrulanmalıdır.
+### Kurs verisi simülasyondur
+
+`skills_catalog.json` içindeki kurs kayıtları — başlık, sağlayıcı, puan, kayıt
+sayısı, süre, fiyat — **uydurmadır** ve bağlantılar (`url: "#"`) gerçek bir
+sayfaya gitmez. Arayüz bunu üç yerde açıkça söyler: Eğitim sayfasının başındaki
+uyarı bandı, her kaynak listesinin başlığındaki `simülasyon` etiketi ve
+tıklandığında çıkan bildirim.
+
+Simüle olan yalnızca kaynaklardır. **Eksik yetkinliklerin kendisi ve öncelik
+sıralaması gerçek başvuru verisinden hesaplanır.** Canlı sürümde bu blok bir
+kurs sağlayıcı API'sinden doldurulur; `resources` dizisinin şeması aynı kalır.
+
+## Tasarım
+
+İki tema da **orta tondadır** — ne beyaz kâğıt ne siyah ekran:
+
+| | Zemin | Yüzey | Metin |
+|---|---|---|---|
+| Açık ("kemik") | `#E7E4DD` | `#F1EFEA` | `#262622` |
+| Koyu ("grafit") | `#22262B` | `#2A2E34` | `#DCDFE3` |
+
+Yapı gölgeyle değil **ince çizgiyle** kurulur; köşeler 5px, tipografi
+IBM Plex Mono (başlık, etiket, sayı) + IBM Plex Sans (gövde).
+
+Üç renk sistemi üç ayrı iş yapar ve birbirine karışmaz:
+
+- **Çelik mavi** — marka, gezinme, hacim grafikleri
+- **Mor rampa** (4 adım, sıralı) — eşleşme kalitesi
+- **Kırmızı / kehribar / yeşil** — boru hattı durumu, ayrılmış semantik renkler
+
+Orta-ton zeminler kontrast payını daralttığı için status renkleri **her tema
+için ayrı adımlandı** ve ikisi de kendi zemininde 3:1 üzerinde doğrulandı
+(kemik: 4.08–4.80, grafit: 4.74–6.17). Mor rampa her iki temada açıklık
+bakımından monotoniktir.
 
 ## Hatırlatma kuralları
 
