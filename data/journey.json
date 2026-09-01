@@ -1,0 +1,131 @@
+{
+  "_note": "Kullanıcıyı newcomer'dan habit'e taşıyan yaşam döngüsü. Aşama, ölçülebilir kriterlerle otomatik belirlenir; her sayfa kullanıcının aşamasına göre farklı 'sıradaki adım' gösterir.",
+  "stages": [
+    {
+      "key": "newcomer",
+      "order": 1,
+      "label": "Yeni kullanıcı",
+      "criteria": {
+        "has_cv": false,
+        "min_applications": 0
+      },
+      "desc": "Henüz CV yüklenmemiş. Sistem hiçbir şeyi eşleştiremez.",
+      "primary_cta": {
+        "label": "CV'ni yükle",
+        "page": "profil",
+        "why": "Eşleşme puanı, eksik yetkinlik analizi ve eğitim önerileri CV olmadan üretilemez."
+      }
+    },
+    {
+      "key": "activated",
+      "order": 2,
+      "label": "CV hazır",
+      "criteria": {
+        "has_cv": true,
+        "min_applications": 0,
+        "max_applications": 0
+      },
+      "desc": "CV yüklendi ama henüz başvuru yok.",
+      "primary_cta": {
+        "label": "İlk başvurunu ekle",
+        "page": "basvurular",
+        "why": "Eşleşme motoru ilk başvurudan itibaren öğrenmeye başlar."
+      }
+    },
+    {
+      "key": "applying",
+      "order": 3,
+      "label": "Başvuru yapıyor",
+      "criteria": {
+        "has_cv": true,
+        "min_applications": 1,
+        "max_applications": 9
+      },
+      "desc": "Başvurular başladı, ama istatistik üretecek hacim henüz yok.",
+      "primary_cta": {
+        "label": "10 başvuruya ulaş",
+        "page": "basvurular",
+        "why": "10 başvurunun altında red oranı ve segment başarısı anlamlı sinyal vermiyor."
+      }
+    },
+    {
+      "key": "tracking",
+      "order": 4,
+      "label": "Takip ediyor",
+      "criteria": {
+        "has_cv": true,
+        "min_applications": 10,
+        "min_reports": 1
+      },
+      "desc": "Yeterli hacim var, günlük rapor akışı açık.",
+      "primary_cta": {
+        "label": "İlk raporunu incele",
+        "page": "raporlar",
+        "why": "Hangi segmentin ilerlediğini görmeden nereye başvurulacağı tahmine kalıyor."
+      }
+    },
+    {
+      "key": "engaged",
+      "order": 5,
+      "label": "Düzenli kullanıyor",
+      "criteria": {
+        "has_cv": true,
+        "min_applications": 10,
+        "min_reports_7d": 4
+      },
+      "desc": "Raporlar düzenli okunuyor ama döngü tek yönlü — sistem kullanıcıdan hiç girdi almadı.",
+      "primary_cta": {
+        "label": "Bir rapora geri bildirim yaz",
+        "page": "raporlar",
+        "why": "Geri bildirim, eşleşme puanlarını ve kapatılacak süreçleri senin kararına göre yeniden ayarlar. Döngü kapanmadan sistem senin tercihlerini öğrenemiyor."
+      }
+    },
+    {
+      "key": "habit",
+      "order": 6,
+      "label": "Alışkanlık",
+      "criteria": {
+        "min_streak": 7,
+        "min_feedback": 1
+      },
+      "desc": "Kesintisiz takip ve kapanmış geri bildirim döngüsü.",
+      "primary_cta": {
+        "label": "Haftalık ritmi koru",
+        "page": "ana",
+        "why": "Haftada bir geri bildirim, eşleşme puanlarının güncel kalmasına yetiyor."
+      }
+    }
+  ],
+  "page_nudges": {
+    "ana": {
+      "engaged": "Streak'in {streak} gün. 7 güne ulaşırsan haftalık trend raporu anlamlı hale gelir.",
+      "tracking": "Raporlar sayfasında henüz bakmadığın bir huni analizi var.",
+      "habit": "Ritim yerinde. Bu hafta odak listendeki ilk üç süreci kovala."
+    },
+    "basvurular": {
+      "engaged": "Sessizleşen süreçleri filtrele ve kapatılacakları işaretle — bu, geri bildirimin en hızlı yolu.",
+      "tracking": "Bir başvuruya tıkla: eksik yetkinlik ve önerilen kurs detayda çıkıyor.",
+      "habit": "Güçlü eşleşme filtresini kullan; enerji oraya gitsin."
+    },
+    "raporlar": {
+      "engaged": "Aşağıdaki dört soruyu yanıtla — eşleşme puanları buna göre güncellenecek.",
+      "tracking": "Önce huni raporuna bak: nerede kaybettiğin orada görünüyor.",
+      "habit": "Trend raporunda haftalık hacmin düşüyorsa sebebini not et."
+    },
+    "egitim": {
+      "engaged": "En üstteki eksik ({top_gap_name}) tek başına {top_gap_count} başvuruyu etkiliyor. Bir kaynağı bu hafta başlat.",
+      "tracking": "Eksikler, başvurduğun ilanların beklentilerinden çıkarıldı — red mailleri gerekçe belirtmiyor.",
+      "habit": "Bir beceriyi tamamladıysan Profil sayfasından seviyeni güncelle; eşleşme puanları yeniden hesaplanır."
+    },
+    "profil": {
+      "engaged": "CV'n güncel mi? Yeni bir sürüm yüklersen tüm eşleşme puanları yeniden hesaplanır.",
+      "tracking": "Hedef rol ve lokasyon tercihlerini netleştir — eşleşme doğruluğu artar.",
+      "habit": "Beceri seviyelerini üç ayda bir gözden geçir."
+    }
+  },
+  "_template_vars": {
+    "top_gap_name": "En yüksek öncelikli eksik yetkinliğin adı",
+    "top_gap_count": "O yetkinliğin beklendiği başvuru sayısı",
+    "streak": "Güncel kesintisiz streak (gün)"
+  }
+}

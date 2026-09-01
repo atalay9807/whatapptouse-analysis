@@ -53,6 +53,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Nebil%20Project",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "financial_modeling"
       ]
     },
     {
@@ -84,6 +87,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/EOAI%20Lab",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "python",
+        "sql"
       ]
     },
     {
@@ -115,6 +122,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Yap%C4%B1%20Kredi",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql"
       ]
     },
     {
@@ -152,6 +162,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Puffy",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "python"
       ]
     },
     {
@@ -183,6 +197,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/micro1",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "python",
+        "sql"
       ]
     },
     {
@@ -214,6 +232,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Eren%20Perakende",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "powerbi"
       ]
     },
     {
@@ -245,6 +266,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Omtera",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "python"
       ]
     },
     {
@@ -276,7 +301,8 @@
           "url": "https://mail.google.com/mail/u/0/#search/Dr.%20Bombay%20%28Snoop%20Dogg%29%20/%20Deel",
           "kind": "gmail"
         }
-      ]
+      ],
+      "gap_skills": []
     },
     {
       "id": "theflex-base360",
@@ -307,6 +333,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/The%20Flex%20%26%20Base360",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "experimentation"
       ]
     },
     {
@@ -339,6 +368,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Peks%20Global%20A.%C5%9E.",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql"
       ]
     },
     {
@@ -370,6 +402,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/TrendyolGo",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql"
       ]
     },
     {
@@ -407,6 +442,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/shift%20%28joinshift.ai%29",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "python"
       ]
     },
     {
@@ -438,6 +477,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Pfizer",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "powerbi"
       ]
     },
     {
@@ -469,7 +512,8 @@
           "url": "https://mail.google.com/mail/u/0/#search/Virtustant",
           "kind": "gmail"
         }
-      ]
+      ],
+      "gap_skills": []
     },
     {
       "id": "revolut-product-owner",
@@ -500,6 +544,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Revolut",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "product_management",
+        "sql"
       ]
     },
     {
@@ -531,6 +579,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Hyundai%20Motor%20T%C3%BCrkiye",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "financial_modeling"
       ]
     },
     {
@@ -562,6 +613,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Baytek",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "product_analytics"
       ]
     },
     {
@@ -593,6 +648,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Jobgether",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "supply_chain",
+        "sql"
       ]
     },
     {
@@ -624,6 +683,11 @@
           "url": "https://mail.google.com/mail/u/0/#search/NLR",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "powerbi",
+        "dbt_analytics_eng"
       ]
     },
     {
@@ -655,6 +719,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Sanction%20Scanner",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql"
       ]
     },
     {
@@ -686,6 +753,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Midas",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql"
       ]
     },
     {
@@ -717,6 +787,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/CEVA%20Logistics",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "supply_chain"
       ]
     },
     {
@@ -748,6 +821,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Pernod%20Ricard",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "financial_modeling"
       ]
     },
     {
@@ -779,6 +855,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Obilet",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql"
       ]
     },
     {
@@ -810,6 +889,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Obilet",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "financial_modeling"
       ]
     },
     {
@@ -841,6 +924,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Dataroid",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "product_analytics"
       ]
     },
     {
@@ -872,6 +959,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Societe%20Generale",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "financial_modeling"
       ]
     },
     {
@@ -903,6 +993,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Jobgether",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql"
       ]
     },
     {
@@ -934,6 +1027,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/VIZIO%20AI",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "experimentation",
+        "product_analytics"
       ]
     },
     {
@@ -965,6 +1062,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Vodafone",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "powerbi"
       ]
     },
     {
@@ -996,6 +1097,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Good%20Job%20Games",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "product_analytics",
+        "sql"
       ]
     },
     {
@@ -1027,6 +1132,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Miniclip",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "python"
       ]
     },
     {
@@ -1058,7 +1167,8 @@
           "url": "https://mail.google.com/mail/u/0/#search/Ingram%20Micro",
           "kind": "gmail"
         }
-      ]
+      ],
+      "gap_skills": []
     },
     {
       "id": "tripcom-bd-manager",
@@ -1089,6 +1199,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Trip.com%20Group",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "people_leadership"
       ]
     },
     {
@@ -1120,6 +1233,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Cricut",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "people_leadership"
       ]
     },
     {
@@ -1151,6 +1267,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Firefly",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql"
       ]
     },
     {
@@ -1182,6 +1301,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Assistant%20App%20A.%C5%9E.",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "product_management",
+        "experimentation"
       ]
     },
     {
@@ -1213,7 +1336,8 @@
           "url": "https://mail.google.com/mail/u/0/#search/Flalingo",
           "kind": "gmail"
         }
-      ]
+      ],
+      "gap_skills": []
     },
     {
       "id": "amazon-content-acq",
@@ -1244,6 +1368,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Amazon",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "people_leadership"
       ]
     },
     {
@@ -1275,7 +1402,8 @@
           "url": "https://mail.google.com/mail/u/0/#search/Colife%20/%20Indeed%20ba%C5%9Fvurular%C4%B1",
           "kind": "gmail"
         }
-      ]
+      ],
+      "gap_skills": []
     },
     {
       "id": "jobgether-games-data",
@@ -1306,6 +1434,11 @@
           "url": "https://mail.google.com/mail/u/0/#search/Jobgether",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "python",
+        "product_analytics"
       ]
     },
     {
@@ -1337,6 +1470,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Jobgether",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "product_management",
+        "sql"
       ]
     },
     {
@@ -1368,6 +1505,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Jobgether",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "python"
       ]
     },
     {
@@ -1399,7 +1540,8 @@
           "url": "https://mail.google.com/mail/u/0/#search/Versuni",
           "kind": "gmail"
         }
-      ]
+      ],
+      "gap_skills": []
     },
     {
       "id": "teamblue-ticimax-pm",
@@ -1436,6 +1578,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Team%20Blue%20Ticimax",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "product_management"
       ]
     },
     {
@@ -1467,6 +1612,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Eaton",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "powerbi"
       ]
     },
     {
@@ -1498,6 +1646,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Cypher%20Games",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "people_leadership",
+        "experimentation"
       ]
     },
     {
@@ -1529,6 +1681,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/VML",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "product_analytics"
       ]
     },
     {
@@ -1560,6 +1716,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Bosch",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "powerbi"
       ]
     },
     {
@@ -1591,6 +1751,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/METRO%20/%20MAKRO",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "powerbi"
       ]
     },
     {
@@ -1622,6 +1786,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/NielsenIQ",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "people_leadership"
       ]
     },
     {
@@ -1653,7 +1820,8 @@
           "url": "https://mail.google.com/mail/u/0/#search/NielsenIQ",
           "kind": "gmail"
         }
-      ]
+      ],
+      "gap_skills": []
     },
     {
       "id": "cepres-fintech-analyst",
@@ -1684,6 +1852,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/CEPRES",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "python"
       ]
     },
     {
@@ -1715,6 +1887,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Sipay",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "product_analytics"
       ]
     },
     {
@@ -1746,6 +1922,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Unilever",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "supply_chain"
       ]
     },
     {
@@ -1777,6 +1956,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Unilever",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "people_leadership",
+        "product_management"
       ]
     },
     {
@@ -1808,7 +1991,8 @@
           "url": "https://mail.google.com/mail/u/0/#search/Neon%20Apps",
           "kind": "gmail"
         }
-      ]
+      ],
+      "gap_skills": []
     },
     {
       "id": "elsevier-bd-manager",
@@ -1839,6 +2023,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Elsevier%20%28RELX%29",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "people_leadership"
       ]
     },
     {
@@ -1876,6 +2063,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Revolut",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "people_leadership",
+        "sql"
       ]
     },
     {
@@ -1907,6 +2098,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/Hilton",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "people_leadership"
       ]
     },
     {
@@ -1938,6 +2132,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/JPMorganChase",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql"
       ]
     },
     {
@@ -1969,6 +2166,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/HubX",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "experimentation",
+        "people_leadership"
       ]
     },
     {
@@ -2000,6 +2201,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/%C5%9Ei%C5%9Fecam",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "financial_modeling"
       ]
     },
     {
@@ -2031,6 +2235,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/bunq",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "sql",
+        "dbt_analytics_eng"
       ]
     },
     {
@@ -2062,6 +2270,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Akbank",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "people_leadership",
+        "experimentation"
       ]
     },
     {
@@ -2093,6 +2305,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Richemont",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "people_leadership",
+        "product_management"
       ]
     },
     {
@@ -2124,6 +2340,9 @@
           "url": "https://mail.google.com/mail/u/0/#search/AbbVie",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "financial_modeling"
       ]
     },
     {
@@ -2155,6 +2374,10 @@
           "url": "https://mail.google.com/mail/u/0/#search/Progress%20Partners",
           "kind": "gmail"
         }
+      ],
+      "gap_skills": [
+        "product_management",
+        "experimentation"
       ]
     }
   ],

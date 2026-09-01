@@ -1,0 +1,105 @@
+{
+  "_note": "Beceri → öğrenme kaynağı eşlemesi. Hem Eğitim sayfası hem başvuru detayındaki kurs kartı bu tek kaynaktan beslenir. Bağlantılar platformun ilgili sayfasını açar; güncel fiyat ve içerik orada doğrulanmalı.",
+  "skills": {
+    "sql": {
+      "name": "SQL",
+      "cv_level": 3, "target_level": 5,
+      "why": "Veri/iş analisti ilanlarının neredeyse tamamında çekirdek şart. CV'de 3/5 — Tableau ve Excel 5/5 iken SQL en büyük tek açık.",
+      "effort": "4-6 hafta, haftada ~5 saat",
+      "resources": [
+        { "title": "SQL Tutorial", "provider": "Mode", "url": "https://mode.com/sql-tutorial/", "format": "İnteraktif", "cost": "Ücretsiz", "level": "Başlangıç → İleri", "note": "Analist işine en yakın anlatım; pencere fonksiyonlarına kadar götürür." },
+        { "title": "Intro to SQL + Advanced SQL", "provider": "Kaggle Learn", "url": "https://www.kaggle.com/learn/intro-to-sql", "format": "İnteraktif", "cost": "Ücretsiz", "level": "Başlangıç" },
+        { "title": "SQLBolt", "provider": "SQLBolt", "url": "https://sqlbolt.com/", "format": "Alıştırma", "cost": "Ücretsiz", "level": "Başlangıç", "note": "Hızlı tazeleme için; bir hafta sonunda bitirilebilir." },
+        { "title": "SQL Fundamentals", "provider": "DataCamp", "url": "https://www.datacamp.com/tracks/sql-fundamentals", "format": "Video + alıştırma", "cost": "Ücretli", "level": "Orta" }
+      ]
+    },
+    "python": {
+      "name": "Python (veri analizi)",
+      "cv_level": 0, "target_level": 3,
+      "why": "Güncel CV'de hiç yok. Data Analyst / Data Scientist ilanlarında pandas beklentisi yaygın; yokluğu bu ailedeki ilanlarda doğrudan eleme sebebi olabiliyor.",
+      "effort": "6-8 hafta, haftada ~5 saat",
+      "resources": [
+        { "title": "Python", "provider": "Kaggle Learn", "url": "https://www.kaggle.com/learn/python", "format": "İnteraktif", "cost": "Ücretsiz", "level": "Başlangıç" },
+        { "title": "Pandas", "provider": "Kaggle Learn", "url": "https://www.kaggle.com/learn/pandas", "format": "İnteraktif", "cost": "Ücretsiz", "level": "Başlangıç → Orta", "note": "Excel'den geliyorsan en hızlı köprü." },
+        { "title": "Google Data Analytics Professional Certificate", "provider": "Coursera", "url": "https://www.coursera.org/professional-certificates/google-data-analytics", "format": "Sertifika programı", "cost": "Ücretli (deneme süresi var)", "level": "Başlangıç → Orta", "note": "CV'ye yazılabilir sertifika; SQL ve R/Python birlikte." }
+      ]
+    },
+    "experimentation": {
+      "name": "A/B testi ve deney tasarımı",
+      "cv_level": 2, "target_level": 4,
+      "why": "CV'de A/B test takibi var ama tasarım/istatistiksel anlamlılık tarafı yok. Growth ve CRO ilanlarında bu ayrım açıkça soruluyor.",
+      "effort": "3-4 hafta",
+      "resources": [
+        { "title": "A/B Testing", "provider": "Udacity (Google)", "url": "https://www.udacity.com/course/ab-testing--ud257", "format": "Video", "cost": "Ücretsiz", "level": "Orta", "note": "Sektörün fiili standart giriş kursu." },
+        { "title": "Trustworthy Online Controlled Experiments", "provider": "Kitap (Kohavi vd.)", "url": "https://experimentguide.com/", "format": "Kitap", "cost": "Ücretli", "level": "İleri" }
+      ]
+    },
+    "product_management": {
+      "name": "Ürün yönetimi",
+      "cv_level": 1, "target_level": 3,
+      "why": "Product Manager / Product Owner ilanlarına başvuruluyor ama CV'de ürün sahipliği, roadmap veya backlog deneyimi yok. Analitik güçlü, ürün süreci zayıf.",
+      "effort": "6-8 hafta",
+      "resources": [
+        { "title": "Google Project Management Professional Certificate", "provider": "Coursera", "url": "https://www.coursera.org/professional-certificates/google-project-management", "format": "Sertifika programı", "cost": "Ücretli", "level": "Başlangıç → Orta" },
+        { "title": "Product Management temelleri", "provider": "Reforge / Product School blog", "url": "https://www.reforge.com/blog", "format": "Makale", "cost": "Ücretsiz", "level": "Orta", "note": "Sertifika değil; kavram ve dil kazandırır." }
+      ]
+    },
+    "people_leadership": {
+      "name": "Ekip yönetimi",
+      "cv_level": 0, "target_level": 2,
+      "why": "Manager / Lead unvanlı ilanlara başvuruluyor ama CV'de doğrudan rapor eden ekip yok. Bu ilanlarda kıdem puanı bu yüzden düşük.",
+      "effort": "4-6 hafta",
+      "resources": [
+        { "title": "Leading People and Teams", "provider": "Coursera (Michigan)", "url": "https://www.coursera.org/specializations/leading-teams", "format": "Uzmanlık programı", "cost": "Ücretli", "level": "Orta" }
+      ],
+      "caveat": "Kurs, olmayan yönetim deneyiminin yerini tutmaz. Kısa vadede daha etkili yol: mevcut işte proje/stajyer mentorluğu üstlenip bunu CV'ye yazmak."
+    },
+    "powerbi": {
+      "name": "Power BI",
+      "cv_level": 3, "target_level": 5,
+      "why": "CV'de 3/5. Tableau 5/5 olduğu için geçiş kolay; kurumsal ilanların çoğu Power BI istiyor ve bu ucuz bir kazanım.",
+      "effort": "2-3 hafta",
+      "resources": [
+        { "title": "Power BI eğitim yolu", "provider": "Microsoft Learn", "url": "https://learn.microsoft.com/tr-tr/training/browse/?products=power-bi", "format": "İnteraktif", "cost": "Ücretsiz", "level": "Başlangıç → İleri" },
+        { "title": "PL-300: Power BI Data Analyst sertifikası", "provider": "Microsoft", "url": "https://learn.microsoft.com/tr-tr/credentials/certifications/data-analyst-associate/", "format": "Sertifika sınavı", "cost": "Ücretli", "level": "Orta", "note": "CV'ye yazılabilir; Tableau bilgisiyle hazırlık süresi kısa." }
+      ]
+    },
+    "financial_modeling": {
+      "name": "Finansal modelleme",
+      "cv_level": 3, "target_level": 4,
+      "why": "FP&A deneyimi var ama CV'de sertifikalı modelleme yok. Financial Analyst ilanlarında değerleme ve 3-tablo modeli bekleniyor.",
+      "effort": "6-8 hafta",
+      "resources": [
+        { "title": "FMVA — Financial Modeling & Valuation Analyst", "provider": "Corporate Finance Institute", "url": "https://corporatefinanceinstitute.com/certifications/financial-modeling-valuation-analyst-fmva-program/", "format": "Sertifika programı", "cost": "Ücretli", "level": "Orta → İleri" }
+      ]
+    },
+    "product_analytics": {
+      "name": "Ürün analitiği (funnel, kohort, event)",
+      "cv_level": 3, "target_level": 4,
+      "why": "Mixpanel 3/5 ve kohort deneyimi var; event taksonomisi ve funnel kurgusu tarafı derinleştirilirse ürün veri analisti ilanlarında güçlü olur.",
+      "effort": "2-3 hafta",
+      "resources": [
+        { "title": "Mixpanel dokümantasyon ve rehberler", "provider": "Mixpanel", "url": "https://docs.mixpanel.com/", "format": "Doküman", "cost": "Ücretsiz", "level": "Orta" },
+        { "title": "Amplitude ürün analitiği rehberleri", "provider": "Amplitude", "url": "https://amplitude.com/blog", "format": "Makale", "cost": "Ücretsiz", "level": "Orta" }
+      ]
+    },
+    "supply_chain": {
+      "name": "Tedarik zinciri ve talep planlama",
+      "cv_level": 2, "target_level": 3,
+      "why": "Talep planlama ve tedarik zinciri analisti ilanlarına başvuruluyor; forecast deneyimi transfer oluyor ama alanın kendi terminolojisi CV'de yok.",
+      "effort": "8-10 hafta",
+      "resources": [
+        { "title": "MITx Supply Chain Management", "provider": "edX", "url": "https://www.edx.org/certificates/professional-certificate/mitx-supply-chain-management", "format": "Sertifika programı", "cost": "Ücretsiz izleme / ücretli sertifika", "level": "Orta" }
+      ]
+    },
+    "dbt_analytics_eng": {
+      "name": "dbt / analitik mühendisliği",
+      "cv_level": 0, "target_level": 2,
+      "why": "BI Analyst ve veri platformu ilanlarında giderek daha sık isteniyor. SQL sağlamlaştıktan sonraki doğal adım.",
+      "effort": "3-4 hafta",
+      "resources": [
+        { "title": "dbt Fundamentals", "provider": "dbt Labs", "url": "https://learn.getdbt.com/", "format": "Video + lab", "cost": "Ücretsiz", "level": "Başlangıç", "note": "Önce SQL'i 4/5 seviyesine getir." }
+      ]
+    }
+  }
+}

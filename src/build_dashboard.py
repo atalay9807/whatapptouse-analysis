@@ -8,6 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from pipeline import enrich, funnel, parse_date, DATA  # noqa: E402
 from match import segment_summary, load_profile  # noqa: E402
+import insights  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = ROOT / "src" / "dashboard.template.html"
@@ -49,13 +50,16 @@ def main():
         "weekly": weekly_volume(data["applications"]),
         "states": pipeline_states(apps),
         "profile": load_profile(),
+        "insights": insights.build_all(today),
+        "catalog": json.loads((ROOT / "data" / "skills_catalog.json").read_text(encoding="utf-8")),
         "segments": segment_summary(apps),
         "applications": [
             dict({k: a.get(k) for k in ("id", "company", "role", "stage", "status", "band", "score",
                                         "channel", "track", "location", "applied", "last_contact",
                                         "deadline", "days_silent", "days_to_deadline", "next_step",
                                         "reminders", "match_score", "match_segment",
-                                        "match_segment_key", "match_rationale", "match_weakest")},
+                                        "match_segment_key", "match_rationale", "match_weakest",
+                                        "gap_skills", "contact", "notes")},
                  links_actions=a.get("links_actions", []),
                  match_breakdown=(a.get("match_result") or {}).get("breakdown", []))
             for a in apps

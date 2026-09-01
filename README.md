@@ -11,6 +11,8 @@ Sistem üç parçadan oluşur:
 | **Günlük Routine** | Her sabah 09:00 (TSİ) Gmail'i tarar, panoyu günceller, özet e-posta atar | Claude Routine (`trig_01UdkGdW5SJxvPVB2X3ZSgYJ`) |
 | **Veri katmanı** | Tüm başvuruların tek doğruluk kaynağı | `data/applications.json` |
 | **Eşleşme motoru** | CV ↔ ilan uyumunu puanlar ve segmentler | `src/match.py`, `data/profile.json` |
+| **Rapor motoru** | Huni, eksik yetkinlik, trend, streak, kaçırılanlar | `src/insights.py` |
+| **Arayüz** | 5 sayfalık SPA — navigasyon, detay paneli, eğitim | `src/dashboard.template.html` |
 | **Raporlama** | Önceliklendirme, hatırlatma ve tablo üretimi | `src/pipeline.py`, `src/build_dashboard.py` |
 
 ## Hızlı kullanım
@@ -102,6 +104,71 @@ Her başvuru kaydı `links_actions` dizisi taşır. Üç tür link üretilir:
 - **Gmail'de yazışmayı aç** — şirket adına göre Gmail araması açan derin bağlantı.
   Her kayıt için üretilir; şirketin kendi portal linkine oradan ulaşılır.
 
+## Sayfalar ve yaşam döngüsü
+
+Arayüz beş sayfalı tek sayfa uygulaması (`#/ana`, `#/basvurular`, `#/raporlar`,
+`#/egitim`, `#/profil`). Başvuru detayı derin bağlantı alır:
+`#/basvurular/obilet-strategy-analyst`.
+
+Kullanıcı, ölçülebilir kriterlerle altı aşamalı bir hattın üzerinde konumlanır:
+
+| Aşama | Kriter |
+|---|---|
+| `newcomer` | CV yok |
+| `activated` | CV var, 0 başvuru |
+| `applying` | 1–9 başvuru |
+| `tracking` | 10+ başvuru, en az 1 rapor |
+| `engaged` | Son 7 günde 4+ rapor |
+| `habit` | 7 gün kesintisiz streak **ve** en az 1 geri bildirim |
+
+Her sayfa, kullanıcının aşamasına göre farklı bir "sıradaki adım" gösterir
+(`data/journey.json` → `page_nudges`). Metinlerdeki `{top_gap_name}`,
+`{top_gap_count}`, `{streak}` değişkenleri render sırasında gerçek veriyle
+doldurulur — sabit sayı yazılmaz.
+
+Gösterilen ana eylem, **mevcut** aşamanın `primary_cta` alanıdır: bir aşamanın
+CTA'sı, o aşamadayken kişiyi bir sonrakine taşıyan eylemdir.
+
+## Raporlar
+
+`src/insights.py` sekiz rapor üretir:
+
+1. **Başvuru hunisi** — kaydedilen → başvurulan → yanıt → ileri aşama → mülakat → teklif
+2. **Eksik yetkinlik analizi** — çıkarımsal, öncelik sıralı
+3. **Haftalık trend** — hacim ve o hafta ilerleyenler
+4. **Yanıt hızı** — şirketlerin dönüş süresi dağılımı ve medyanı
+5. **Rol/sektör bazlı başarı** — en az 2 başvuru yapılan alanlar
+6. **Kanal etkinliği** — ATS / LinkedIn / doğrudan / agregatör
+7. **Kullanım ve streak** — gün gün takvim, kapsama, geri bildirim sayısı
+8. **Kaçırılan fırsatlar** — kaydedilip başvurulmayan ve süresi dolan ilanlar
+
+### Huni verisinin sınırı
+
+"Görüntülenen ilan" verisi **yok** — LinkedIn bunu e-postayla bildirmiyor.
+Huninin ilk adımı "kaydedilen ilan"dır ve yalnızca LinkedIn'in hatırlatma
+gönderdiği ilanları kapsar, yani gerçek sayının **alt sınırıdır**. Arayüzde bu
+çubuk taralı gösterilir ve ondan sonraki adıma dönüşüm oranı hesaplanmaz.
+
+## Eksik yetkinlik ve eğitim
+
+**Kritik uyarı:** Taranan 15 red e-postasının hiçbiri gerekçe belirtmiyor —
+hepsi standart kalıp metin. Bu yüzden "eksik yetkinlik" şirketlerin söylediği
+bir şey değil, **ilanın rol ailesi ile CV arasındaki farktan çıkarılan bir
+tahmindir**. Arayüz bunu her yerde açıkça etiketler.
+
+Her başvuru `gap_skills` alanı taşır. `data/skills_catalog.json` beceri → kaynak
+eşlemesinin **tek kaynağıdır**: hem Eğitim sayfası hem de başvuru detayındaki
+kurs kartı buradan beslenir, dolayısıyla ikisi asla ayrışmaz.
+
+Öncelik formülü:
+
+```
+öncelik = (redlerde görülme × 3) + (açık süreçlerde görülme × 1) + (seviye farkı × 2)
+```
+
+Kurs bağlantıları platformun ilgili sayfasını açar; güncel fiyat ve içerik
+orada doğrulanmalıdır.
+
 ## Hatırlatma kuralları
 
 `config/rules.yaml` içindeki `reminders` bölümünde tanımlı:
@@ -128,10 +195,15 @@ Yanıtlar günlük rapor e-postasına cevap olarak yazılır ve bir sonraki tara
 ## Dosya düzeni
 
 ```
-data/applications.json          Tek doğruluk kaynağı — tüm başvurular + eşleşme boyutları
+data/applications.json          Tek doğruluk kaynağı — başvurular, eşleşme boyutları, gap_skills
 data/profile.json               CV'den türetilmiş profil (eşleşmenin referansı)
+data/skills_catalog.json        Beceri → öğrenme kaynağı eşlemesi (eğitim önerilerinin tek kaynağı)
+data/journey.json               Yaşam döngüsü aşamaları, kriterler, sayfa bazlı yönlendirmeler
+data/engagement.json            Gerçek rapor gönderim günleri (streak hesabı)
+data/saved_jobs.json            Kaydedilip başvurulmayan ilanlar (huninin üstü)
 config/rules.yaml               Gmail sorguları, sınıflandırma, puanlama, hatırlatmalar
 src/match.py                    CV ↔ ilan eşleşme motoru ve segmentasyon
+src/insights.py                 Sekiz raporun ve eğitim planının üreticisi
 src/pipeline.py                 Önceliklendirme + rapor üretimi (md/text/csv/json)
 src/build_dashboard.py          HTML pano üreticisi
 src/dashboard.template.html     Pano şablonu (veri enjekte edilir)
@@ -157,7 +229,9 @@ Bu repo, planlanan uygulamanın veri ve mantık katmanıdır. Uygulama yazılmad
 - ✅ Önceliklendirme ve hatırlatma kuralları
 - ✅ CV tabanlı eşleşme puanlaması ve segmentasyon
 - ✅ Aksiyon linki üretimi
-- ✅ Arayüz prototipi (`reports/pano.html`)
+- ✅ Arayüz prototipi (`reports/pano.html`) — 5 sayfa, navigasyon, detay paneli
+- ✅ Yaşam döngüsü hattı ve aşamaya duyarlı yönlendirme
+- ✅ Sekiz rapor ve eğitim planı üretimi
 - ⬜ Kullanıcı başına çoklu profil desteği
 - ⬜ İlan metninin otomatik çekilip beceri çıkarımı yapılması
   (şu an `match` boyutları elle atanıyor)
