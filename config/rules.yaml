@@ -1,0 +1,130 @@
+# LinkedIn / e-posta iş başvurusu takip otomasyonu — sınıflandırma kuralları
+# Bu dosya hem günlük Routine'in hem de src/pipeline.py'nin ortak sözlüğüdür.
+
+scan:
+  # Günlük tarama (son 24 saat)
+  daily_query: >-
+    newer_than:1d (mülakat OR interview OR "case study" OR başvuru OR pozisyon OR
+    recruiter OR "insan kaynakları" OR application OR görüşme OR assessment OR
+    candidate OR aday OR hiring OR offer OR teklif)
+  # Tam yeniden inşa (aylık backfill)
+  backfill_queries:
+    - '{subject:(başvuru) subject:(application) subject:(interview) subject:(mülakat) subject:("thank you for applying") subject:("we received your application")} newer_than:30d'
+    - '{unfortunately "not moving forward" "other candidates" "olumsuz" "başarılar dileriz" "regret" "decided to move forward with other"} newer_than:30d'
+    - '{interview mülakat görüşme "next step" "sonraki adım" assessment "case study" davet} newer_than:30d'
+    - 'from:linkedin.com newer_than:30d'
+
+# Gürültü: sadece sayılır, rapora satır olarak girmez
+noise_senders:
+  - jobalerts-noreply@linkedin.com
+  - jobs-noreply@linkedin.com
+  - groups-noreply@linkedin.com
+  - messaging-digest-noreply@linkedin.com
+  - noreply@glassdoor.com
+  - noreply@news.bloomberg.com
+  - subscriptions@message.bloomberg.com
+  - noreply@info.getmidas.com
+  - hello@students.udemy.com
+  - updates@mail.quillbot.com
+
+# ATS sağlayıcıları — başvuru onayı olarak yorumlanır
+ats_senders:
+  - myworkday.com
+  - successfactors.com
+  - hire.lever.co
+  - ashbyhq.com
+  - smartrecruiters.com
+  - recruitee-inbox.com
+  - recruitee-mailbox.com
+  - workablemail.com
+  - hrpanda.co
+  - teamtailor-mail.com
+  - peoplise.com
+  - gethirex.com
+  - resreader.com
+  - mokahr.com
+  - jobgether.com
+
+# Durum sınıflandırma — ilk eşleşen kazanır (yukarıdan aşağıya)
+status_rules:
+  - status: offer
+    priority_band: critical
+    keywords_en: ["offer letter", "we are pleased to offer", "job offer", "employment offer"]
+    keywords_tr: ["iş teklifi", "teklif mektubu", "teklifimiz"]
+
+  - status: interview_invite
+    priority_band: critical
+    keywords_en: ["invite you to", "schedule an interview", "interview invitation", "next stage",
+                  "moving forward", "you've progressed", "book a time", "availability"]
+    keywords_tr: ["görüşme daveti", "mülakat daveti", "bir sonraki aşama", "sonraki adım",
+                  "müsaitlik", "görüşmeye davet"]
+
+  - status: action_required
+    priority_band: high
+    keywords_en: ["assessment", "complete your application", "reply to this email",
+                  "verify your email", "test", "case study", "deadline", "expires"]
+    keywords_tr: ["değerlendirme", "testi tamamla", "başvurunu tamamla", "doğrula",
+                  "son tarih", "vaka çalışması", "yanıtla"]
+
+  - status: rejected
+    priority_band: archive
+    keywords_en: ["unfortunately", "not moving forward", "other candidates", "not to proceed",
+                  "regret to inform", "won't be moving forward", "decided to move forward with other"]
+    keywords_tr: ["olumsuz", "değerlendirmeye alınmamıştır", "başarılar dileriz",
+                  "birlikte ilerlemeyeceğiz", "uygun bulunmamıştır"]
+
+  - status: under_review
+    priority_band: normal
+    keywords_en: ["we received your application", "thank you for applying", "under review",
+                  "application confirmed", "reviewing your qualifications"]
+    keywords_tr: ["başvurunuz alındı", "başvurunuz için teşekkür", "inceleme aşamasında",
+                  "başvurun bize ulaştı"]
+
+# Önceliklendirme ağırlıkları (src/pipeline.py bunları kullanır)
+scoring:
+  stage_weight:
+    offer: 100
+    interview_scheduling: 88
+    interviewed: 78
+    next_stage: 82
+    assessment: 85
+    application_incomplete: 70
+    in_process: 60
+    under_review: 35
+    talent_pool: 20
+    closed: 0
+  fit_multiplier: 4          # fit (1-5) * 4 puan
+  deadline_bonus:            # kalan güne göre
+    overdue: 40
+    d0_1: 35
+    d2_3: 25
+    d4_7: 15
+    d8_14: 8
+  stale_threshold_days: 12   # bu süreden sonra takip maili öner
+  dead_threshold_days: 21    # bu süreden sonra kapanmış say
+
+# Hatırlatma kuralları
+reminders:
+  - trigger: deadline_within_days
+    value: 2
+    message: "Deadline 48 saat içinde — bugün kapat."
+  - trigger: deadline_overdue
+    message: "Deadline geçti — uzatma iste veya süreci kapat."
+  - trigger: interview_tomorrow
+    message: "Yarın mülakat — şirket/rol hazırlığı yap."
+  - trigger: stale
+    message: "Takip maili zamanı (12+ gün sessizlik)."
+  - trigger: post_interview_silence
+    value: 5
+    message: "Mülakattan 5+ iş günü geçti — nazik takip maili at."
+
+# Kullanıcıdan geri bildirim istenecek durumlar
+feedback_prompts:
+  - when: new_interview_invite
+    ask: "Bu daveti kabul ediyor musun? Takvim çakışması var mı?"
+  - when: stale_application
+    ask: "Bu süreci takip edeyim mi, yoksa kapatayım mı?"
+  - when: rejection
+    ask: "Bu şirkete başka rol için tekrar başvurmak ister misin?"
+  - when: weekly
+    ask: "Bu hafta hangi 3 role odaklanmak istiyorsun? Hedef sektör/rol değişti mi?"

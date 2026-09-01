@@ -1,0 +1,466 @@
+<title>Başvuru Kontrol Kulesi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground:#F4F7F8; --surface:#FFFFFF; --surface-2:#EAF0F2; --surface-3:#DFE8EB;
+    --ink:#0F1D25; --ink-2:#445A65; --ink-3:#6E858F;
+    --line:#D5E0E4; --line-strong:#B9C9CF;
+    --brand:#17506F; --brand-2:#2A7BA5; --brand-soft:#E1EDF3;
+    --critical:#C0392B; --warning:#B07A10; --good:#0E7D63; --archive:#6E858F;
+    --chip-critical-bg:#FBE9E6; --chip-warning-bg:#FBF1DC; --chip-good-bg:#E1F2EC; --chip-archive-bg:#E9EEF0;
+    --bar:#2A7BA5;
+    --shadow:0 1px 2px rgba(15,29,37,.06), 0 4px 14px rgba(15,29,37,.05);
+    --radius:10px;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#0C1418; --surface:#131F26; --surface-2:#1A2A32; --surface-3:#22353E;
+      --ink:#E6EEF1; --ink-2:#A2B6BE; --ink-3:#7A8F99;
+      --line:#25373F; --line-strong:#354B55;
+      --brand:#7FBEE0; --brand-2:#5FA9D2; --brand-soft:#17303D;
+      --critical:#EE7B67; --warning:#E3AE3E; --good:#3FB795; --archive:#8199A3;
+      --chip-critical-bg:#331C18; --chip-warning-bg:#33280F; --chip-good-bg:#12302A; --chip-archive-bg:#1C2A31;
+      --bar:#5FA9D2;
+      --shadow:0 1px 2px rgba(0,0,0,.35), 0 4px 16px rgba(0,0,0,.28);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0C1418; --surface:#131F26; --surface-2:#1A2A32; --surface-3:#22353E;
+    --ink:#E6EEF1; --ink-2:#A2B6BE; --ink-3:#7A8F99;
+    --line:#25373F; --line-strong:#354B55;
+    --brand:#7FBEE0; --brand-2:#5FA9D2; --brand-soft:#17303D;
+    --critical:#EE7B67; --warning:#E3AE3E; --good:#3FB795; --archive:#8199A3;
+    --chip-critical-bg:#331C18; --chip-warning-bg:#33280F; --chip-good-bg:#12302A; --chip-archive-bg:#1C2A31;
+    --bar:#5FA9D2;
+    --shadow:0 1px 2px rgba(0,0,0,.35), 0 4px 16px rgba(0,0,0,.28);
+    color-scheme: dark;
+  }
+
+  *,*::before,*::after { box-sizing:border-box; }
+  body {
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:"Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+    font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 20px 72px; }
+  h1,h2,h3 { font-family:"Familjen Grotesk", ui-sans-serif, system-ui, sans-serif; text-wrap:balance; margin:0; }
+  .mono { font-family:"IBM Plex Mono", ui-monospace, monospace; font-variant-numeric:tabular-nums; }
+
+  /* ---------- başlık ---------- */
+  .masthead {
+    border-bottom:1px solid var(--line); background:var(--surface);
+    padding:26px 0 22px; margin-bottom:26px;
+  }
+  .masthead .wrap { padding-bottom:0; display:flex; flex-wrap:wrap; gap:18px; align-items:flex-end; justify-content:space-between; }
+  .eyebrow {
+    font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--brand); margin-bottom:8px;
+  }
+  h1 { font-size:clamp(26px,3.6vw,36px); font-weight:700; letter-spacing:-.02em; }
+  .sub { color:var(--ink-2); font-size:14px; margin-top:6px; }
+  .meta-list { display:flex; flex-direction:column; gap:3px; font-size:12.5px; color:var(--ink-3); text-align:right; }
+  .meta-list b { color:var(--ink-2); font-weight:600; }
+  .theme-btn {
+    font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    background:var(--surface-2); color:var(--ink-2); border:1px solid var(--line);
+    border-radius:99px; padding:5px 12px; cursor:pointer; margin-top:8px;
+  }
+  .theme-btn:hover { border-color:var(--line-strong); color:var(--ink); }
+
+  /* ---------- ölçü şeridi ---------- */
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:30px; }
+  .tile {
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:14px 16px 13px; box-shadow:var(--shadow);
+  }
+  .tile .k { font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-3); }
+  .tile .v { font-family:"Familjen Grotesk",sans-serif; font-size:30px; font-weight:600; letter-spacing:-.02em;
+             font-variant-numeric:tabular-nums; line-height:1.15; margin-top:4px; }
+  .tile .n { font-size:12px; color:var(--ink-3); margin-top:2px; }
+  .tile.accent { border-color:var(--critical); }
+  .tile.accent .v { color:var(--critical); }
+
+  section { margin-bottom:34px; }
+  .sec-head { display:flex; align-items:baseline; gap:12px; margin-bottom:14px; flex-wrap:wrap; }
+  .sec-head h2 { font-size:18px; font-weight:600; letter-spacing:-.01em; }
+  .sec-head .count { font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-3); }
+  .sec-head .hint { font-size:13px; color:var(--ink-3); margin-left:auto; }
+
+  /* ---------- aksiyon kartları ---------- */
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:13px; }
+  .card {
+    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--critical);
+    border-radius:var(--radius); padding:15px 17px; box-shadow:var(--shadow);
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .card.warn { border-left-color:var(--warning); }
+  .card-top { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .card h3 { font-size:15.5px; font-weight:600; }
+  .card .role { font-size:13px; color:var(--ink-2); margin-top:1px; }
+  .card p { margin:0; font-size:13.5px; color:var(--ink-2); }
+  .card .rem { font-size:13px; color:var(--ink); display:flex; gap:7px; align-items:flex-start; }
+  .card .rem span:first-child { flex:none; }
+
+  .chip {
+    display:inline-flex; align-items:center; gap:5px; flex:none;
+    font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:500;
+    letter-spacing:.03em; padding:3px 9px; border-radius:99px; white-space:nowrap;
+  }
+  .chip-critical { background:var(--chip-critical-bg); color:var(--critical); }
+  .chip-warning  { background:var(--chip-warning-bg);  color:var(--warning); }
+  .chip-good     { background:var(--chip-good-bg);     color:var(--good); }
+  .chip-archive  { background:var(--chip-archive-bg);  color:var(--archive); }
+  .chip-brand    { background:var(--brand-soft);       color:var(--brand); }
+
+  /* ---------- grafikler ---------- */
+  .charts { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:820px) { .charts { grid-template-columns:1fr; } }
+  .panel {
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px 18px 18px; box-shadow:var(--shadow);
+  }
+  .panel h3 { font-size:14.5px; font-weight:600; }
+  .panel .cap { font-size:12.5px; color:var(--ink-3); margin:3px 0 16px; }
+
+  .vbars { display:flex; align-items:flex-end; gap:10px; height:150px; }
+  .vbar { flex:1; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; gap:6px; height:100%; }
+  .vbar .col {
+    width:100%; background:var(--bar); border-radius:4px 4px 0 0; min-height:3px;
+    transition:filter .15s; position:relative;
+  }
+  .vbar:hover .col { filter:brightness(1.12); }
+  .vbar .num { font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; }
+  .vbar .lbl { font-size:11px; color:var(--ink-3); text-align:center; line-height:1.25; }
+
+  .hbars { display:flex; flex-direction:column; gap:11px; }
+  .hbar-row { display:grid; grid-template-columns:1fr auto; gap:4px 10px; align-items:center; }
+  .hbar-lbl { font-size:13px; color:var(--ink-2); display:flex; align-items:center; gap:7px; }
+  .hbar-val { font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; }
+  .hbar-track { grid-column:1/-1; height:9px; background:var(--surface-2); border-radius:99px; overflow:hidden; }
+  .hbar-fill { height:100%; border-radius:99px; }
+  .dot { width:9px; height:9px; border-radius:2px; flex:none; }
+
+  /* ---------- filtreler + tablo ---------- */
+  .controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:14px; }
+  .fchip {
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.03em;
+    background:var(--surface); color:var(--ink-2); border:1px solid var(--line);
+    border-radius:99px; padding:5px 13px; cursor:pointer; transition:all .13s;
+  }
+  .fchip:hover { border-color:var(--line-strong); color:var(--ink); }
+  .fchip[aria-pressed="true"] { background:var(--brand); border-color:var(--brand); color:var(--surface); }
+  :root[data-theme="dark"] .fchip[aria-pressed="true"],
+  .fchip[aria-pressed="true"] { color:#fff; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .fchip[aria-pressed="true"] { color:#0C1418; } }
+  :root[data-theme="dark"] .fchip[aria-pressed="true"] { color:#0C1418; }
+  .search {
+    flex:1; min-width:180px; max-width:280px; margin-left:auto;
+    font-family:"Source Sans 3",sans-serif; font-size:13.5px;
+    background:var(--surface); color:var(--ink); border:1px solid var(--line);
+    border-radius:99px; padding:6px 14px;
+  }
+  .search::placeholder { color:var(--ink-3); }
+  .search:focus-visible, .fchip:focus-visible, .theme-btn:focus-visible {
+    outline:2px solid var(--brand-2); outline-offset:2px;
+  }
+
+  .tbl-scroll { overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:860px; }
+  thead th {
+    text-align:left; font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:500;
+    letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3);
+    padding:11px 14px; border-bottom:1px solid var(--line); background:var(--surface-2);
+    white-space:nowrap; position:sticky; top:0;
+  }
+  tbody td { padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:hover { background:var(--surface-2); }
+  td.num { font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; }
+  .co { font-weight:600; }
+  .ro { color:var(--ink-2); font-size:12.5px; }
+  .step { color:var(--ink-2); font-size:12.5px; max-width:330px; }
+  .sev { width:3px; padding:0 !important; }
+  .sev-critical { background:var(--critical); }
+  .sev-high { background:var(--warning); }
+  .sev-normal { background:var(--brand-2); }
+  .sev-low { background:var(--line-strong); }
+  .sev-archive { background:var(--archive); }
+  .empty { padding:26px; text-align:center; color:var(--ink-3); font-size:13.5px; }
+
+  /* ---------- geri bildirim ---------- */
+  .feedback { background:var(--brand-soft); border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px; }
+  .feedback h2 { font-size:17px; margin-bottom:6px; }
+  .feedback p { margin:0 0 14px; font-size:13.5px; color:var(--ink-2); }
+  .qs { display:grid; gap:9px; margin:0; padding:0; list-style:none; counter-reset:q; }
+  .qs li {
+    display:flex; gap:11px; align-items:flex-start; font-size:14px;
+    background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:11px 14px;
+  }
+  .qs li::before {
+    counter-increment:q; content:counter(q); flex:none;
+    font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600; color:var(--brand);
+    background:var(--brand-soft); border-radius:4px; width:20px; height:20px;
+    display:grid; place-items:center; margin-top:1px;
+  }
+  footer { margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-3); }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important; } }
+</style>
+
+<header class="masthead">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" id="eyebrow">Kontrol kulesi</div>
+      <h1>Başvuru Kontrol Kulesi</h1>
+      <div class="sub" id="subtitle"></div>
+    </div>
+    <div>
+      <div class="meta-list" id="meta"></div>
+      <button class="theme-btn" id="themeBtn" type="button">Tema</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="tiles" id="tiles"></div>
+
+  <section>
+    <div class="sec-head">
+      <h2>Bugün kapatılacaklar</h2>
+      <span class="count" id="actionCount"></span>
+      <span class="hint">Deadline'ı geçmiş ya da 3 gün içinde dolan işler</span>
+    </div>
+    <div class="cards" id="actionCards"></div>
+  </section>
+
+  <section class="charts">
+    <div class="panel">
+      <h3>Haftalık başvuru hacmi</h3>
+      <p class="cap">1 Ağustos – 1 Eylül 2026 arasında gönderilen başvurular</p>
+      <div class="vbars" id="weekly"></div>
+    </div>
+    <div class="panel">
+      <h3>Boru hattının durumu</h3>
+      <p class="cap">68 başvurunun bugünkü dağılımı</p>
+      <div class="hbars" id="states"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Öncelik tablosu</h2>
+      <span class="count" id="tblCount"></span>
+    </div>
+    <div class="controls">
+      <button class="fchip" data-f="all" aria-pressed="true" type="button">Tümü</button>
+      <button class="fchip" data-f="critical" aria-pressed="false" type="button">Kritik</button>
+      <button class="fchip" data-f="high" aria-pressed="false" type="button">Yüksek</button>
+      <button class="fchip" data-f="normal" aria-pressed="false" type="button">Normal</button>
+      <button class="fchip" data-f="low" aria-pressed="false" type="button">Düşük</button>
+      <button class="fchip" data-f="archive" aria-pressed="false" type="button">Olumsuz</button>
+      <input class="search" id="search" type="search" placeholder="Şirket veya pozisyon ara…" aria-label="Şirket veya pozisyon ara">
+    </div>
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th class="sev" scope="col"><span class="sr-only"></span></th>
+            <th scope="col">Şirket / Pozisyon</th>
+            <th scope="col">Aşama</th>
+            <th scope="col">Kanal</th>
+            <th scope="col">Deadline</th>
+            <th scope="col">Sessiz</th>
+            <th scope="col">Puan</th>
+            <th scope="col">Sonraki adım</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div class="empty" id="empty" hidden>Bu filtreye uyan başvuru yok.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Yanıtlanmamış recruiter mesajları</h2>
+      <span class="count" id="outCount"></span>
+    </div>
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th scope="col">Tarih</th><th scope="col">Kimden</th><th scope="col">Konu</th><th scope="col">Kanal</th></tr>
+        </thead>
+        <tbody id="outbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="feedback">
+    <h2>Senden beklenen geri bildirim</h2>
+    <p>Bu dört yanıt bir sonraki taramanın önceliklerini belirler. Günlük rapor e-postasına cevap yazman yeterli.</p>
+    <ol class="qs">
+      <li>Bu hafta hangi <strong>3 role</strong> odaklanmak istiyorsun?</li>
+      <li>12+ gündür sessiz olan süreçlerden hangilerini <strong>kapatalım</strong>?</li>
+      <li>Hedef sektör, rol ya da lokasyon tercihin değişti mi?</li>
+      <li>Maaş beklentin güncellenmeli mi?</li>
+    </ol>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+const D = /*__DATA__*/null;
+
+/* ---------- yardımcılar ---------- */
+const TONE = { critical:"critical", good:"good", warning:"warning", archive:"archive" };
+const STAGE_TR = {
+  offer:"Teklif", interview_scheduling:"Mülakat planlama", assessment:"Değerlendirme/test",
+  next_stage:"Sonraki aşama", interviewed:"Mülakat yapıldı", application_incomplete:"Başvuru yarım",
+  in_process:"Süreçte", under_review:"İncelemede", talent_pool:"Yetenek havuzu", closed:"Kapandı"
+};
+const CHANNEL_TR = { ats:"ATS", linkedin:"LinkedIn", direct:"Doğrudan", aggregator:"Agregatör", indeed:"Indeed" };
+const BAND_TR = { critical:"Kritik", high:"Yüksek", normal:"Normal", low:"Düşük", archive:"Olumsuz" };
+const AY = ["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"];
+const fmtDate = s => { if (!s) return "—"; const [y,m,d] = s.split("-"); return `${+d} ${AY[+m-1]}`; };
+const fmtLong = s => { const [y,m,d] = s.split("-"); return `${+d} ${AY[+m-1]} ${y}`; };
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---------- başlık ---------- */
+const gen = new Date(D.generated + "T00:00:00");
+document.getElementById("subtitle").textContent =
+  `${D.meta.owner} · ${D.stats.total} başvuru, ${D.stats.active} aktif süreç`;
+document.getElementById("meta").innerHTML =
+  `<div><b>Tarama:</b> ${fmtDate(D.meta.scan_window.from)} – ${fmtLong(D.meta.scan_window.to)}</div>
+   <div><b>Hesap:</b> ${esc(D.meta.email)}</div>
+   <div><b>Üretim:</b> ${gen.toLocaleDateString("tr-TR",{day:"numeric",month:"long",year:"numeric"})}</div>`;
+
+/* ---------- ölçü şeridi ---------- */
+const actionApps = D.applications.filter(a => a.band === "critical");
+const tiles = [
+  { k:"Toplam başvuru", v:D.stats.total, n:"son 30 gün" },
+  { k:"Bugün aksiyon", v:actionApps.length, n:"deadline'ı yakın/geçmiş", accent:true },
+  { k:"Mülakat aşaması", v:D.stats.interviews, n:`%${D.stats.interview_rate} dönüşüm` },
+  { k:"Aktif süreç", v:D.stats.active, n:"devam ediyor" },
+  { k:"Sessizleşen", v:D.stats.stale, n:"12+ gün yanıtsız" },
+  { k:"Olumsuz", v:D.stats.rejected, n:`%${D.stats.rejection_rate} red oranı` },
+];
+document.getElementById("tiles").innerHTML = tiles.map(t =>
+  `<div class="tile${t.accent ? " accent" : ""}"><div class="k">${t.k}</div>
+   <div class="v mono">${t.v}</div><div class="n">${t.n}</div></div>`).join("");
+
+/* ---------- aksiyon kartları ---------- */
+document.getElementById("actionCount").textContent = `${actionApps.length} iş`;
+document.getElementById("actionCards").innerHTML = actionApps.map(a => {
+  const d = a.days_to_deadline;
+  let chip = `<span class="chip chip-warning">planlanmadı</span>`;
+  let warn = true;
+  if (d !== null && d !== undefined) {
+    if (d < 0)       { chip = `<span class="chip chip-critical">${Math.abs(d)} gün gecikmiş</span>`; warn = false; }
+    else if (d === 0){ chip = `<span class="chip chip-critical">bugün son gün</span>`; warn = false; }
+    else             { chip = `<span class="chip chip-warning">${d} gün kaldı</span>`; }
+  }
+  const rems = (a.reminders || []).map(r => {
+    const i = r.indexOf(" ");
+    return `<div class="rem"><span>${esc(r.slice(0,i))}</span><span>${esc(r.slice(i+1))}</span></div>`;
+  }).join("");
+  return `<article class="card${warn ? " warn" : ""}">
+    <div class="card-top">
+      <div><h3>${esc(a.company)}</h3><div class="role">${esc(a.role)}</div></div>${chip}
+    </div>
+    <p>${esc(a.next_step)}</p>${rems}
+  </article>`;
+}).join("");
+
+/* ---------- haftalık hacim (tek seri, her sütun doğrudan etiketli) ---------- */
+const maxW = Math.max(...D.weekly.map(w => w.value));
+document.getElementById("weekly").innerHTML = D.weekly.map(w =>
+  `<div class="vbar" title="${esc(w.label)}: ${w.value} başvuru">
+     <div class="num">${w.value}</div>
+     <div class="col" style="height:${Math.round(100 * w.value / maxW)}%"></div>
+     <div class="lbl">${esc(w.label)}</div>
+   </div>`).join("");
+
+/* ---------- boru hattı durumu (status paleti + ikon + etiket) ---------- */
+const maxS = Math.max(...D.states.map(s => s.value));
+document.getElementById("states").innerHTML = D.states.map(s =>
+  `<div class="hbar-row" title="${esc(s.label)}: ${s.value}">
+     <div class="hbar-lbl"><span class="dot" style="background:var(--${TONE[s.tone]})"></span>${esc(s.label)}</div>
+     <div class="hbar-val">${s.value}</div>
+     <div class="hbar-track"><div class="hbar-fill" style="width:${Math.round(100 * s.value / maxS)}%;background:var(--${TONE[s.tone]})"></div></div>
+   </div>`).join("");
+
+/* ---------- tablo + filtreler ---------- */
+let filter = "all", query = "";
+const tbody = document.getElementById("tbody");
+const emptyEl = document.getElementById("empty");
+
+function rows() {
+  const q = query.trim().toLocaleLowerCase("tr");
+  return D.applications.filter(a =>
+    (filter === "all" || a.band === filter) &&
+    (!q || (a.company + " " + a.role + " " + (a.track || "")).toLocaleLowerCase("tr").includes(q))
+  );
+}
+
+function render() {
+  const list = rows();
+  document.getElementById("tblCount").textContent =
+    `${list.length} / ${D.applications.length} başvuru`;
+  emptyEl.hidden = list.length > 0;
+  tbody.innerHTML = list.map(a => {
+    const d = a.days_to_deadline;
+    let dl = "—";
+    if (a.deadline) {
+      const cls = d < 0 ? "chip-critical" : d <= 3 ? "chip-warning" : "chip-brand";
+      const txt = d < 0 ? `${fmtDate(a.deadline)} · geçti` : fmtDate(a.deadline);
+      dl = `<span class="chip ${cls}">${txt}</span>`;
+    }
+    const sil = a.days_silent === null || a.days_silent === undefined ? "—" : `${a.days_silent}g`;
+    return `<tr>
+      <td class="sev sev-${a.band}"></td>
+      <td><div class="co">${esc(a.company)}</div><div class="ro">${esc(a.role)}</div></td>
+      <td>${esc(STAGE_TR[a.stage] || a.stage)}</td>
+      <td>${esc(CHANNEL_TR[a.channel] || a.channel)}</td>
+      <td>${dl}</td>
+      <td class="num">${sil}</td>
+      <td class="num">${a.score}</td>
+      <td class="step">${esc(a.next_step)}</td>
+    </tr>`;
+  }).join("");
+}
+
+document.querySelectorAll(".fchip").forEach(btn => {
+  btn.addEventListener("click", () => {
+    filter = btn.dataset.f;
+    document.querySelectorAll(".fchip").forEach(b =>
+      b.setAttribute("aria-pressed", String(b === btn)));
+    render();
+  });
+});
+document.getElementById("search").addEventListener("input", e => { query = e.target.value; render(); });
+render();
+
+/* ---------- recruiter mesajları ---------- */
+document.getElementById("outCount").textContent = `${D.outreach.length} mesaj`;
+document.getElementById("outbody").innerHTML = D.outreach.map(o =>
+  `<tr><td class="num">${fmtDate(o.date)}</td><td class="co">${esc(o.from)}</td>
+   <td>${esc(o.topic)}</td><td>${esc(o.channel)}</td></tr>`).join("");
+
+/* ---------- tema ---------- */
+const btn = document.getElementById("themeBtn");
+btn.addEventListener("click", () => {
+  const cur = document.documentElement.getAttribute("data-theme");
+  const next = cur === "dark" ? "light" : cur === "light" ? "dark"
+    : (matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "dark");
+  document.documentElement.setAttribute("data-theme", next);
+  btn.textContent = next === "dark" ? "Açık tema" : "Koyu tema";
+});
+
+document.getElementById("foot").textContent =
+  `Kaynak: ${D.meta.source} · Veri ${D.meta.scan_window.from} – ${D.meta.scan_window.to} arası Gmail taramasından üretildi · ` +
+  `Puan = aşama ağırlığı + uyum × 4 + deadline aciliyeti − sessizlik cezası.`;
+</script>

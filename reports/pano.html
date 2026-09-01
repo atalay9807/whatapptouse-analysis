@@ -1,0 +1,466 @@
+<title>Başvuru Kontrol Kulesi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground:#F4F7F8; --surface:#FFFFFF; --surface-2:#EAF0F2; --surface-3:#DFE8EB;
+    --ink:#0F1D25; --ink-2:#445A65; --ink-3:#6E858F;
+    --line:#D5E0E4; --line-strong:#B9C9CF;
+    --brand:#17506F; --brand-2:#2A7BA5; --brand-soft:#E1EDF3;
+    --critical:#C0392B; --warning:#B07A10; --good:#0E7D63; --archive:#6E858F;
+    --chip-critical-bg:#FBE9E6; --chip-warning-bg:#FBF1DC; --chip-good-bg:#E1F2EC; --chip-archive-bg:#E9EEF0;
+    --bar:#2A7BA5;
+    --shadow:0 1px 2px rgba(15,29,37,.06), 0 4px 14px rgba(15,29,37,.05);
+    --radius:10px;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#0C1418; --surface:#131F26; --surface-2:#1A2A32; --surface-3:#22353E;
+      --ink:#E6EEF1; --ink-2:#A2B6BE; --ink-3:#7A8F99;
+      --line:#25373F; --line-strong:#354B55;
+      --brand:#7FBEE0; --brand-2:#5FA9D2; --brand-soft:#17303D;
+      --critical:#EE7B67; --warning:#E3AE3E; --good:#3FB795; --archive:#8199A3;
+      --chip-critical-bg:#331C18; --chip-warning-bg:#33280F; --chip-good-bg:#12302A; --chip-archive-bg:#1C2A31;
+      --bar:#5FA9D2;
+      --shadow:0 1px 2px rgba(0,0,0,.35), 0 4px 16px rgba(0,0,0,.28);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0C1418; --surface:#131F26; --surface-2:#1A2A32; --surface-3:#22353E;
+    --ink:#E6EEF1; --ink-2:#A2B6BE; --ink-3:#7A8F99;
+    --line:#25373F; --line-strong:#354B55;
+    --brand:#7FBEE0; --brand-2:#5FA9D2; --brand-soft:#17303D;
+    --critical:#EE7B67; --warning:#E3AE3E; --good:#3FB795; --archive:#8199A3;
+    --chip-critical-bg:#331C18; --chip-warning-bg:#33280F; --chip-good-bg:#12302A; --chip-archive-bg:#1C2A31;
+    --bar:#5FA9D2;
+    --shadow:0 1px 2px rgba(0,0,0,.35), 0 4px 16px rgba(0,0,0,.28);
+    color-scheme: dark;
+  }
+
+  *,*::before,*::after { box-sizing:border-box; }
+  body {
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:"Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+    font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 20px 72px; }
+  h1,h2,h3 { font-family:"Familjen Grotesk", ui-sans-serif, system-ui, sans-serif; text-wrap:balance; margin:0; }
+  .mono { font-family:"IBM Plex Mono", ui-monospace, monospace; font-variant-numeric:tabular-nums; }
+
+  /* ---------- başlık ---------- */
+  .masthead {
+    border-bottom:1px solid var(--line); background:var(--surface);
+    padding:26px 0 22px; margin-bottom:26px;
+  }
+  .masthead .wrap { padding-bottom:0; display:flex; flex-wrap:wrap; gap:18px; align-items:flex-end; justify-content:space-between; }
+  .eyebrow {
+    font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--brand); margin-bottom:8px;
+  }
+  h1 { font-size:clamp(26px,3.6vw,36px); font-weight:700; letter-spacing:-.02em; }
+  .sub { color:var(--ink-2); font-size:14px; margin-top:6px; }
+  .meta-list { display:flex; flex-direction:column; gap:3px; font-size:12.5px; color:var(--ink-3); text-align:right; }
+  .meta-list b { color:var(--ink-2); font-weight:600; }
+  .theme-btn {
+    font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    background:var(--surface-2); color:var(--ink-2); border:1px solid var(--line);
+    border-radius:99px; padding:5px 12px; cursor:pointer; margin-top:8px;
+  }
+  .theme-btn:hover { border-color:var(--line-strong); color:var(--ink); }
+
+  /* ---------- ölçü şeridi ---------- */
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:30px; }
+  .tile {
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:14px 16px 13px; box-shadow:var(--shadow);
+  }
+  .tile .k { font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-3); }
+  .tile .v { font-family:"Familjen Grotesk",sans-serif; font-size:30px; font-weight:600; letter-spacing:-.02em;
+             font-variant-numeric:tabular-nums; line-height:1.15; margin-top:4px; }
+  .tile .n { font-size:12px; color:var(--ink-3); margin-top:2px; }
+  .tile.accent { border-color:var(--critical); }
+  .tile.accent .v { color:var(--critical); }
+
+  section { margin-bottom:34px; }
+  .sec-head { display:flex; align-items:baseline; gap:12px; margin-bottom:14px; flex-wrap:wrap; }
+  .sec-head h2 { font-size:18px; font-weight:600; letter-spacing:-.01em; }
+  .sec-head .count { font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-3); }
+  .sec-head .hint { font-size:13px; color:var(--ink-3); margin-left:auto; }
+
+  /* ---------- aksiyon kartları ---------- */
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:13px; }
+  .card {
+    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--critical);
+    border-radius:var(--radius); padding:15px 17px; box-shadow:var(--shadow);
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .card.warn { border-left-color:var(--warning); }
+  .card-top { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .card h3 { font-size:15.5px; font-weight:600; }
+  .card .role { font-size:13px; color:var(--ink-2); margin-top:1px; }
+  .card p { margin:0; font-size:13.5px; color:var(--ink-2); }
+  .card .rem { font-size:13px; color:var(--ink); display:flex; gap:7px; align-items:flex-start; }
+  .card .rem span:first-child { flex:none; }
+
+  .chip {
+    display:inline-flex; align-items:center; gap:5px; flex:none;
+    font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:500;
+    letter-spacing:.03em; padding:3px 9px; border-radius:99px; white-space:nowrap;
+  }
+  .chip-critical { background:var(--chip-critical-bg); color:var(--critical); }
+  .chip-warning  { background:var(--chip-warning-bg);  color:var(--warning); }
+  .chip-good     { background:var(--chip-good-bg);     color:var(--good); }
+  .chip-archive  { background:var(--chip-archive-bg);  color:var(--archive); }
+  .chip-brand    { background:var(--brand-soft);       color:var(--brand); }
+
+  /* ---------- grafikler ---------- */
+  .charts { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:820px) { .charts { grid-template-columns:1fr; } }
+  .panel {
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px 18px 18px; box-shadow:var(--shadow);
+  }
+  .panel h3 { font-size:14.5px; font-weight:600; }
+  .panel .cap { font-size:12.5px; color:var(--ink-3); margin:3px 0 16px; }
+
+  .vbars { display:flex; align-items:flex-end; gap:10px; height:150px; }
+  .vbar { flex:1; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; gap:6px; height:100%; }
+  .vbar .col {
+    width:100%; background:var(--bar); border-radius:4px 4px 0 0; min-height:3px;
+    transition:filter .15s; position:relative;
+  }
+  .vbar:hover .col { filter:brightness(1.12); }
+  .vbar .num { font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; }
+  .vbar .lbl { font-size:11px; color:var(--ink-3); text-align:center; line-height:1.25; }
+
+  .hbars { display:flex; flex-direction:column; gap:11px; }
+  .hbar-row { display:grid; grid-template-columns:1fr auto; gap:4px 10px; align-items:center; }
+  .hbar-lbl { font-size:13px; color:var(--ink-2); display:flex; align-items:center; gap:7px; }
+  .hbar-val { font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; }
+  .hbar-track { grid-column:1/-1; height:9px; background:var(--surface-2); border-radius:99px; overflow:hidden; }
+  .hbar-fill { height:100%; border-radius:99px; }
+  .dot { width:9px; height:9px; border-radius:2px; flex:none; }
+
+  /* ---------- filtreler + tablo ---------- */
+  .controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:14px; }
+  .fchip {
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.03em;
+    background:var(--surface); color:var(--ink-2); border:1px solid var(--line);
+    border-radius:99px; padding:5px 13px; cursor:pointer; transition:all .13s;
+  }
+  .fchip:hover { border-color:var(--line-strong); color:var(--ink); }
+  .fchip[aria-pressed="true"] { background:var(--brand); border-color:var(--brand); color:var(--surface); }
+  :root[data-theme="dark"] .fchip[aria-pressed="true"],
+  .fchip[aria-pressed="true"] { color:#fff; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .fchip[aria-pressed="true"] { color:#0C1418; } }
+  :root[data-theme="dark"] .fchip[aria-pressed="true"] { color:#0C1418; }
+  .search {
+    flex:1; min-width:180px; max-width:280px; margin-left:auto;
+    font-family:"Source Sans 3",sans-serif; font-size:13.5px;
+    background:var(--surface); color:var(--ink); border:1px solid var(--line);
+    border-radius:99px; padding:6px 14px;
+  }
+  .search::placeholder { color:var(--ink-3); }
+  .search:focus-visible, .fchip:focus-visible, .theme-btn:focus-visible {
+    outline:2px solid var(--brand-2); outline-offset:2px;
+  }
+
+  .tbl-scroll { overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:860px; }
+  thead th {
+    text-align:left; font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:500;
+    letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3);
+    padding:11px 14px; border-bottom:1px solid var(--line); background:var(--surface-2);
+    white-space:nowrap; position:sticky; top:0;
+  }
+  tbody td { padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:hover { background:var(--surface-2); }
+  td.num { font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; }
+  .co { font-weight:600; }
+  .ro { color:var(--ink-2); font-size:12.5px; }
+  .step { color:var(--ink-2); font-size:12.5px; max-width:330px; }
+  .sev { width:3px; padding:0 !important; }
+  .sev-critical { background:var(--critical); }
+  .sev-high { background:var(--warning); }
+  .sev-normal { background:var(--brand-2); }
+  .sev-low { background:var(--line-strong); }
+  .sev-archive { background:var(--archive); }
+  .empty { padding:26px; text-align:center; color:var(--ink-3); font-size:13.5px; }
+
+  /* ---------- geri bildirim ---------- */
+  .feedback { background:var(--brand-soft); border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px; }
+  .feedback h2 { font-size:17px; margin-bottom:6px; }
+  .feedback p { margin:0 0 14px; font-size:13.5px; color:var(--ink-2); }
+  .qs { display:grid; gap:9px; margin:0; padding:0; list-style:none; counter-reset:q; }
+  .qs li {
+    display:flex; gap:11px; align-items:flex-start; font-size:14px;
+    background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:11px 14px;
+  }
+  .qs li::before {
+    counter-increment:q; content:counter(q); flex:none;
+    font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600; color:var(--brand);
+    background:var(--brand-soft); border-radius:4px; width:20px; height:20px;
+    display:grid; place-items:center; margin-top:1px;
+  }
+  footer { margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-3); }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important; } }
+</style>
+
+<header class="masthead">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" id="eyebrow">Kontrol kulesi</div>
+      <h1>Başvuru Kontrol Kulesi</h1>
+      <div class="sub" id="subtitle"></div>
+    </div>
+    <div>
+      <div class="meta-list" id="meta"></div>
+      <button class="theme-btn" id="themeBtn" type="button">Tema</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="tiles" id="tiles"></div>
+
+  <section>
+    <div class="sec-head">
+      <h2>Bugün kapatılacaklar</h2>
+      <span class="count" id="actionCount"></span>
+      <span class="hint">Deadline'ı geçmiş ya da 3 gün içinde dolan işler</span>
+    </div>
+    <div class="cards" id="actionCards"></div>
+  </section>
+
+  <section class="charts">
+    <div class="panel">
+      <h3>Haftalık başvuru hacmi</h3>
+      <p class="cap">1 Ağustos – 1 Eylül 2026 arasında gönderilen başvurular</p>
+      <div class="vbars" id="weekly"></div>
+    </div>
+    <div class="panel">
+      <h3>Boru hattının durumu</h3>
+      <p class="cap">68 başvurunun bugünkü dağılımı</p>
+      <div class="hbars" id="states"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Öncelik tablosu</h2>
+      <span class="count" id="tblCount"></span>
+    </div>
+    <div class="controls">
+      <button class="fchip" data-f="all" aria-pressed="true" type="button">Tümü</button>
+      <button class="fchip" data-f="critical" aria-pressed="false" type="button">Kritik</button>
+      <button class="fchip" data-f="high" aria-pressed="false" type="button">Yüksek</button>
+      <button class="fchip" data-f="normal" aria-pressed="false" type="button">Normal</button>
+      <button class="fchip" data-f="low" aria-pressed="false" type="button">Düşük</button>
+      <button class="fchip" data-f="archive" aria-pressed="false" type="button">Olumsuz</button>
+      <input class="search" id="search" type="search" placeholder="Şirket veya pozisyon ara…" aria-label="Şirket veya pozisyon ara">
+    </div>
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th class="sev" scope="col"><span class="sr-only"></span></th>
+            <th scope="col">Şirket / Pozisyon</th>
+            <th scope="col">Aşama</th>
+            <th scope="col">Kanal</th>
+            <th scope="col">Deadline</th>
+            <th scope="col">Sessiz</th>
+            <th scope="col">Puan</th>
+            <th scope="col">Sonraki adım</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div class="empty" id="empty" hidden>Bu filtreye uyan başvuru yok.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Yanıtlanmamış recruiter mesajları</h2>
+      <span class="count" id="outCount"></span>
+    </div>
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th scope="col">Tarih</th><th scope="col">Kimden</th><th scope="col">Konu</th><th scope="col">Kanal</th></tr>
+        </thead>
+        <tbody id="outbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="feedback">
+    <h2>Senden beklenen geri bildirim</h2>
+    <p>Bu dört yanıt bir sonraki taramanın önceliklerini belirler. Günlük rapor e-postasına cevap yazman yeterli.</p>
+    <ol class="qs">
+      <li>Bu hafta hangi <strong>3 role</strong> odaklanmak istiyorsun?</li>
+      <li>12+ gündür sessiz olan süreçlerden hangilerini <strong>kapatalım</strong>?</li>
+      <li>Hedef sektör, rol ya da lokasyon tercihin değişti mi?</li>
+      <li>Maaş beklentin güncellenmeli mi?</li>
+    </ol>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+const D = {"generated": "2026-09-01", "meta": {"owner": "Atalay Denizer", "email": "atalay.denizer0@gmail.com", "scan_window": {"from": "2026-08-01", "to": "2026-09-01"}, "last_scan": "2026-09-01", "source": "Gmail (LinkedIn Easy Apply + ATS onay/red mailleri + doğrudan İK yazışmaları)", "schema_version": 1}, "stats": {"total": 68, "active": 53, "rejected": 15, "interviews": 9, "stale": 27, "response_rate": 67.6, "interview_rate": 13.2, "rejection_rate": 22.1}, "weekly": [{"label": "1–7 Ağu", "value": 17}, {"label": "8–14 Ağu", "value": 10}, {"label": "15–21 Ağu", "value": 19}, {"label": "22–28 Ağu", "value": 12}, {"label": "29 Ağu–1 Eyl", "value": 10}], "states": [{"label": "Aksiyon gerekli", "value": 8, "tone": "critical", "icon": "!"}, {"label": "Aktif / yanıt bekleniyor", "value": 22, "tone": "good", "icon": "→"}, {"label": "Sessizleşen (12+ gün)", "value": 23, "tone": "warning", "icon": "~"}, {"label": "Olumsuz sonuçlanan", "value": 15, "tone": "archive", "icon": "×"}], "applications": [{"id": "nebil-cfo-office", "company": "Nebil Project", "role": "CFO Office Executive", "stage": "assessment", "status": "action_required", "band": "critical", "score": 145, "channel": "direct", "track": "Finance/Strategy", "location": "Maslak, İstanbul (ofis, 5 gün)", "applied": "2026-08-20", "last_contact": "2026-08-25", "deadline": "2026-08-31", "days_silent": 7, "days_to_deadline": -1, "next_step": "TestGorilla testi + 3 soruya mail yanıtı (maaş / lokasyon / 7 Eyl başlangıç). Yüz yüze mülakatlar 1-2 Eylül, hedef başlangıç 7 Eylül.", "reminders": ["⏳ Deadline 1 gün önce doldu (2026-08-31) — uzatma iste ya da kapat."], "contact": "Aleyna Nur Alagöz — aleyna.alagoz@nebil.com", "notes": "Sürecin en ileri aşamadaki adayı. Deadline 31 Ağu'da doldu — tamamlanmadıysa acil kapatılmalı.", "fit": 5}, {"id": "puffy-data-analyst", "company": "Puffy", "role": "Data Analyst (Dubai, on-site)", "stage": "assessment", "status": "action_required", "band": "critical", "score": 141, "channel": "linkedin", "track": "Data", "location": "Dubai", "applied": "2026-08-01", "last_contact": "2026-08-20", "deadline": "2026-08-22", "days_silent": 12, "days_to_deadline": -10, "next_step": "Faz-1 yetenek değerlendirmesi (~30 dk, proctored/kameralı; başlayınca 4 saat içinde bitmeli).", "reminders": ["⏳ Deadline 10 gün önce doldu (2026-08-22) — uzatma iste ya da kapat."], "contact": "Shreya K. — shreya.k@puffy.com", "notes": "Deadline 22 Ağu'da doldu. Tamamlanmadıysa uzatma talebi için İK'ya yaz.", "fit": 4}, {"id": "eoai-lab-founding", "company": "EOAI Lab", "role": "Kurucu ekip", "stage": "interview_scheduling", "status": "action_required", "band": "critical", "score": 129, "channel": "direct", "track": "AI/Startup", "location": "Remote", "applied": "2026-08-28", "last_contact": "2026-08-29", "deadline": "2026-09-04", "days_silent": 3, "days_to_deadline": 3, "next_step": "Online mülakat için müsaitlik bildirimi — pencere 4 Eylül'de kapanıyor.", "reminders": ["📅 Deadline 3 gün sonra (2026-09-04)."], "contact": null, "notes": "Müsaitlik iletilmezse süreç otomatik düşer.", "fit": 4}, {"id": "theflex-base360", "company": "The Flex & Base360", "role": "Growth Marketer / Marketing", "stage": "next_stage", "status": "in_progress", "band": "high", "score": 98, "channel": "ats", "track": "Growth", "location": "Remote", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "Bir sonraki aşama görevi (adayların ~%10'u geçti).", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "Ashby üzerinden ilerliyor.", "fit": 4}, {"id": "peks-global-ticari-analist", "company": "Peks Global A.Ş.", "role": "Ticari Analist", "stage": "interviewed", "status": "awaiting_response", "band": "high", "score": 94, "channel": "direct", "track": "Business Analysis", "location": "İstanbul", "applied": "2026-08-25", "last_contact": "2026-08-28", "deadline": null, "days_silent": 4, "days_to_deadline": null, "next_step": "28 Ağu 12:00 Teams görüşmesi yapıldı — geri dönüş bekleniyor. 5+ iş günü geçtiyse takip maili at.", "reminders": [], "contact": "Raşit Okman / Barış Türkan (İK Müdürü)", "notes": "Aktif mülakat süreci.", "fit": 4}, {"id": "micro1-data-analyst", "company": "micro1", "role": "Data Analyst (AI training)", "stage": "assessment", "status": "action_required", "band": "critical", "score": 93, "channel": "direct", "track": "Data", "location": "Remote", "applied": "2026-08-03", "last_contact": "2026-08-22", "deadline": null, "days_silent": 10, "days_to_deadline": null, "next_step": "~30 dk konuşma tabanlı AI mülakatı tamamlanmalı.", "reminders": [], "contact": null, "notes": "3 Ağu–22 Ağu arası 8 hatırlatma geldi. Düşük öncelik ama tek adımda kapanır.", "fit": 2}, {"id": "drbombay-deel", "company": "Dr. Bombay (Snoop Dogg) / Deel", "role": "International Ice-Cream Taster", "stage": "next_stage", "status": "action_required", "band": "high", "score": 86, "channel": "direct", "track": "Novelty", "location": "Remote", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": "2026-09-17", "days_silent": 1, "days_to_deadline": 16, "next_step": "60-90 sn tanıtım videosu gönder.", "reminders": [], "contact": null, "notes": "Düşük öncelik / eğlence amaçlı.", "fit": 1}, {"id": "trendyolgo", "company": "TrendyolGo", "role": "Belirtilmemiş", "stage": "interviewed", "status": "awaiting_response", "band": "high", "score": 86, "channel": "ats", "track": "E-commerce", "location": "İstanbul", "applied": "2026-08-05", "last_contact": "2026-08-18", "deadline": null, "days_silent": 14, "days_to_deadline": null, "next_step": "Mülakat tamamlandı, deneyim anketi geldi — sonuç bekleniyor.", "reminders": ["✉️ Mülakattan 14 gün geçti — nazik takip maili at."], "contact": null, "notes": "Anket maili genelde sürecin sonuna yakın gelir.", "fit": 4}, {"id": "yapikredi-peoplise", "company": "Yapı Kredi", "role": "Belirtilmemiş (peoplise başvurusu)", "stage": "application_incomplete", "status": "action_required", "band": "critical", "score": 86, "channel": "ats", "track": "Banking", "location": "İstanbul", "applied": "2026-08-21", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "E-posta doğrulama linkine tıkla + CV bilgilerini doldur (spam kutusunu kontrol et).", "reminders": [], "contact": null, "notes": "21 Ağu'da da aynı doğrulama maili gelmiş; adım hâlâ tamamlanmamış görünüyor.", "fit": 4}, {"id": "eren-perakende-flowq", "company": "Eren Perakende", "role": "Belirtilmemiş", "stage": "assessment", "status": "action_required", "band": "critical", "score": 77, "channel": "ats", "track": "Retail", "location": "İstanbul", "applied": "2026-08-05", "last_contact": "2026-08-06", "deadline": null, "days_silent": 26, "days_to_deadline": null, "next_step": "FlowQ çevrimiçi yetenek/beceri uygulaması.", "reminders": [], "contact": null, "notes": "6 Ağu'dan beri bekliyor — muhtemelen süresi doldu, kontrol et.", "fit": 3}, {"id": "shift-data-ops-fellow", "company": "shift (joinshift.ai)", "role": "Data Operations Fellow", "stage": "in_process", "status": "awaiting_response", "band": "high", "score": 76, "channel": "direct", "track": "Data", "location": "İstanbul", "applied": "2026-08-26", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "Program süreç akışı paylaşıldı — sonraki adım bildirimi bekleniyor.", "reminders": [], "contact": "kaan.dursun@joinshift.ai", "notes": "Klasik staj değil, fellowship programı.", "fit": 4}, {"id": "omtera-join", "company": "Omtera", "role": "Belirtilmemiş", "stage": "application_incomplete", "status": "action_required", "band": "critical", "score": 74, "channel": "ats", "track": "Data", "location": "İstanbul", "applied": "2026-08-15", "last_contact": "2026-08-15", "deadline": null, "days_silent": 17, "days_to_deadline": null, "next_step": "join.com üzerinden giriş yapıp başvuruyu tamamla (link 60 dk geçerliydi — yeniden tetikle).", "reminders": [], "contact": null, "notes": "Başvuru hiç tamamlanmadı.", "fit": 3}, {"id": "dataroid", "company": "Dataroid", "role": "Belirtilmemiş", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 55, "channel": "ats", "track": "Data", "location": "İstanbul", "applied": "2026-08-28", "last_contact": "2026-08-28", "deadline": null, "days_silent": 4, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "Lever.", "fit": 5}, {"id": "obilet-strategy-analyst", "company": "Obilet", "role": "Strategy Analyst", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 55, "channel": "linkedin", "track": "Strategy", "location": "İstanbul", "applied": "2026-08-30", "last_contact": "2026-08-30", "deadline": null, "days_silent": 2, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "Obilet'e ikinci başvuru.", "fit": 5}, {"id": "sanction-scanner-founders", "company": "Sanction Scanner", "role": "Founder's Associate", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 55, "channel": "ats", "track": "Strategy", "location": "İstanbul", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "Nitelikler inceleniyor.", "reminders": [], "contact": null, "notes": "Founder's Associate rolü profile çok uygun.", "fit": 5}, {"id": "amazon-content-acq", "company": "Amazon", "role": "Content Acquisition Manager, Prime Video Turkey (10506884)", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Content/BD", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok — amazon.jobs portalından durum kontrol edilebilir.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 4}, {"id": "assistant-app-growth-pm", "company": "Assistant App A.Ş.", "role": "Growth Product Manager", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Product/Growth", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "hrpanda.", "fit": 4}, {"id": "baytek-ba-ai", "company": "Baytek", "role": "Business Analyst – AI & Product Analytics", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Business Analysis", "location": "İstanbul", "applied": "2026-09-01", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "CV işverene iletildi.", "reminders": [], "contact": null, "notes": "resreader.com üzerinden.", "fit": 4}, {"id": "ceva-logistics-bpe", "company": "CEVA Logistics", "role": "Business Process Excellence Professional Turkey", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Operations", "location": "İstanbul", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "cricut-ecom-ops-lead", "company": "Cricut", "role": "Regional E-commerce Operations Lead, META", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "linkedin", "track": "E-commerce", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 4}, {"id": "firefly-biz-ops", "company": "Firefly", "role": "Business Operations Associate", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Operations", "location": "Remote", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "Lever.", "fit": 4}, {"id": "goodjobgames-product-specialist", "company": "Good Job Games", "role": "Product Specialist, Hybrid-Casual", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Product/Gaming", "location": "İstanbul", "applied": "2026-08-26", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "hyundai-product-senior", "company": "Hyundai Motor Türkiye", "role": "Product Senior Specialist (Pricing & Hyundai Finance)", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Finance/Pricing", "location": "İstanbul", "applied": "2026-09-01", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "SuccessFactors.", "fit": 4}, {"id": "midas-lever", "company": "Midas", "role": "Belirtilmemiş", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Fintech", "location": "İstanbul", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "Lever.", "fit": 4}, {"id": "miniclip-data-analyst", "company": "Miniclip", "role": "Data Analyst / Data Scientist I", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Data/Gaming", "location": "Remote/EU", "applied": "2026-08-24", "last_contact": "2026-08-24", "deadline": null, "days_silent": 8, "days_to_deadline": null, "next_step": "8 gündür dönüş yok.", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "nlr-bi-analyst", "company": "NLR", "role": "Business Intelligence (BI) Analyst", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Data", "location": "Remote", "applied": "2026-08-25", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "Workday bildirimi geldi — Workday Inbox'ı kontrol et.", "reminders": [], "contact": null, "notes": "1 Eyl Workday digest'inde bildirim var, içeriği okunmalı.", "fit": 4}, {"id": "pernod-ricard-fpa", "company": "Pernod Ricard", "role": "Financial Planning & Analysis Management Trainee", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Finance", "location": "İstanbul", "applied": "2026-08-31", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "Workday.", "fit": 4}, {"id": "pfizer-data-ops", "company": "Pfizer", "role": "Data Operations Specialist (Contractor) 4960477", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Data", "location": "İstanbul", "applied": "2026-08-03", "last_contact": "2026-08-21", "deadline": null, "days_silent": 11, "days_to_deadline": null, "next_step": "Değerlendirme sürüyor — karar bekleniyor.", "reminders": [], "contact": null, "notes": "3 kez 'öne çıkan aday' hatırlatması geldi (3, 5, 7 Ağu), 21 Ağu'da hâlâ inceleme.", "fit": 4}, {"id": "revolut-product-owner", "company": "Revolut", "role": "Product Owner (Technical)", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Product", "location": "Remote/EU", "applied": "2026-09-01", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "Başvuru onaylandı — inceleme aşamasında.", "reminders": [], "contact": null, "notes": "Revolut'ta ikinci deneme (S&O Manager 25 Ağu'da olumsuz sonuçlandı).", "fit": 4}, {"id": "socgen-coverage-support", "company": "Societe Generale", "role": "Coverage Support Analyst (26000J28)", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Banking", "location": "Remote/EU", "applied": "2026-08-27", "last_contact": "2026-08-27", "deadline": null, "days_silent": 5, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "tripcom-bd-manager", "company": "Trip.com Group", "role": "Business Development Manager (Attractions & Tours), Turkey", "stage": "under_review", "status": "stale", "band": "normal", "score": 51, "channel": "ats", "track": "Sales/BD", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 4}, {"id": "vizio-ai-saas-growth", "company": "VIZIO AI", "role": "SaaS Growth Strategist (AI-Native)", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Growth", "location": "İstanbul/Remote", "applied": "2026-08-27", "last_contact": "2026-08-27", "deadline": null, "days_silent": 5, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "hrpanda.", "fit": 4}, {"id": "vodafone", "company": "Vodafone", "role": "Belirtilmemiş", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 51, "channel": "ats", "track": "Telco", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "İşe alım ekibi inceliyor.", "reminders": [], "contact": null, "notes": "20 ve 26 Ağu'da iki takip maili.", "fit": 4}, {"id": "flalingo-influencer", "company": "Flalingo", "role": "Influencer Marketing & Partnership Specialist", "stage": "under_review", "status": "stale", "band": "normal", "score": 47, "channel": "ats", "track": "Marketing", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "hrpanda.", "fit": 3}, {"id": "ingram-micro-bde-hpe", "company": "Ingram Micro", "role": "Business Development Executive - HPE", "stage": "under_review", "status": "stale", "band": "normal", "score": 47, "channel": "ats", "track": "Sales/BD", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-20", "deadline": null, "days_silent": 12, "days_to_deadline": null, "next_step": "12 gündür dönüş yok.", "reminders": ["✉️ 12 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "Workday.", "fit": 3}, {"id": "jobgether-supply-chain", "company": "Jobgether", "role": "Supply Chain Analyst", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 47, "channel": "aggregator", "track": "Operations", "location": "Remote", "applied": "2026-09-01", "last_contact": "2026-09-01", "deadline": null, "days_silent": 0, "days_to_deadline": null, "next_step": "Eşleşme skoru inceleniyor.", "reminders": [], "contact": null, "notes": "Jobgether = agregatör; dönüş oranı düşük.", "fit": 3}, {"id": "jobgether-ba-vdi", "company": "Jobgether", "role": "Business Analyst – Data Sensitivity & VDI Migration", "stage": "under_review", "status": "awaiting_response", "band": "normal", "score": 47, "channel": "aggregator", "track": "Business Analysis", "location": "Remote", "applied": "2026-08-27", "last_contact": "2026-08-27", "deadline": null, "days_silent": 5, "days_to_deadline": null, "next_step": "İnceleme aşamasında.", "reminders": [], "contact": null, "notes": "", "fit": 3}, {"id": "obilet-strategic-finance", "company": "Obilet", "role": "Strategic Finance and Analytics Specialist", "stage": "under_review", "status": "stale", "band": "normal", "score": 47, "channel": "linkedin", "track": "Finance", "location": "İstanbul", "applied": "2026-08-19", "last_contact": "2026-08-19", "deadline": null, "days_silent": 13, "days_to_deadline": null, "next_step": "13 gündür dönüş yok — takip maili düşünülebilir.", "reminders": ["✉️ 13 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 5}, {"id": "cypher-games-growth", "company": "Cypher Games", "role": "Growth Manager / Senior Growth Manager", "stage": "under_review", "status": "stale", "band": "low", "score": 43, "channel": "linkedin", "track": "Growth/Gaming", "location": "İstanbul", "applied": "2026-08-12", "last_contact": "2026-08-12", "deadline": null, "days_silent": 20, "days_to_deadline": null, "next_step": "20 gündür dönüş yok.", "reminders": ["✉️ 20 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "Lever.", "fit": 4}, {"id": "eaton-pricing-ci", "company": "Eaton", "role": "Pricing Continuous Improvement Specialist", "stage": "under_review", "status": "stale", "band": "low", "score": 43, "channel": "ats", "track": "Pricing", "location": "İstanbul", "applied": "2026-08-13", "last_contact": "2026-08-13", "deadline": null, "days_silent": 19, "days_to_deadline": null, "next_step": "19 gündür dönüş yok.", "reminders": ["✉️ 19 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 4}, {"id": "teamblue-ticimax-pm", "company": "Team Blue Ticimax", "role": "Product Manager", "stage": "under_review", "status": "stale", "band": "low", "score": 43, "channel": "ats", "track": "Product", "location": "İstanbul", "applied": "2026-08-16", "last_contact": "2026-08-16", "deadline": null, "days_silent": 16, "days_to_deadline": null, "next_step": "16 gündür dönüş yok.", "reminders": ["✉️ 16 gündür sessiz — takip maili zamanı."], "contact": "sinem.ozkan@teamblueticimax", "notes": "", "fit": 4}, {"id": "jobgether-games-data", "company": "Jobgether", "role": "Senior Games Data Analyst (Europe, Asia)", "stage": "under_review", "status": "stale", "band": "low", "score": 39, "channel": "aggregator", "track": "Data/Gaming", "location": "Remote", "applied": "2026-08-17", "last_contact": "2026-08-17", "deadline": null, "days_silent": 15, "days_to_deadline": null, "next_step": "15 gündür dönüş yok.", "reminders": ["✉️ 15 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 3}, {"id": "jobgether-pm-data-activation", "company": "Jobgether", "role": "Product Manager, Data Activation", "stage": "under_review", "status": "stale", "band": "low", "score": 39, "channel": "aggregator", "track": "Product/Data", "location": "Remote", "applied": "2026-08-16", "last_contact": "2026-08-16", "deadline": null, "days_silent": 16, "days_to_deadline": null, "next_step": "16 gündür dönüş yok.", "reminders": ["✉️ 16 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 3}, {"id": "versuni-perfect-store", "company": "Versuni", "role": "Perfect Store & Trade Shopper Marketing Specialist", "stage": "under_review", "status": "stale", "band": "low", "score": 39, "channel": "ats", "track": "Marketing", "location": "İstanbul", "applied": "2026-08-16", "last_contact": "2026-08-16", "deadline": null, "days_silent": 16, "days_to_deadline": null, "next_step": "16 gündür dönüş yok.", "reminders": ["✉️ 16 gündür sessiz — takip maili zamanı."], "contact": null, "notes": "", "fit": 3}, {"id": "sipay-product-data-analyst", "company": "Sipay", "role": "Product Data Analyst", "stage": "under_review", "status": "stale", "band": "low", "score": 35, "channel": "linkedin", "track": "Data/Fintech", "location": "İstanbul", "applied": "2026-08-03", "last_contact": "2026-08-03", "deadline": null, "days_silent": 29, "days_to_deadline": null, "next_step": "29 gündür dönüş yok — kapanmış say.", "reminders": ["💤 29 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "", "fit": 5}, {"id": "bosch-cx-analyst", "company": "Bosch", "role": "Customer Experience (CX) Analyst", "stage": "under_review", "status": "stale", "band": "low", "score": 31, "channel": "ats", "track": "Business Analysis", "location": "İstanbul", "applied": "2026-08-07", "last_contact": "2026-08-07", "deadline": null, "days_silent": 25, "days_to_deadline": null, "next_step": "25 gündür dönüş yok — kapanmış say.", "reminders": ["💤 25 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "SmartRecruiters.", "fit": 4}, {"id": "metro-analytical-marketing", "company": "METRO / MAKRO", "role": "Analytical Marketing Senior Executive (Temporary)", "stage": "under_review", "status": "stale", "band": "low", "score": 31, "channel": "ats", "track": "Marketing/Data", "location": "İstanbul", "applied": "2026-08-07", "last_contact": "2026-08-07", "deadline": null, "days_silent": 25, "days_to_deadline": null, "next_step": "25 gündür dönüş yok — kapanmış say.", "reminders": ["💤 25 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "", "fit": 4}, {"id": "nielseniq-consumer-insights", "company": "NielsenIQ", "role": "Consumer Insights Lead, Turkiye", "stage": "under_review", "status": "stale", "band": "low", "score": 31, "channel": "ats", "track": "Insights", "location": "İstanbul", "applied": "2026-08-04", "last_contact": "2026-08-04", "deadline": null, "days_silent": 28, "days_to_deadline": null, "next_step": "28 gündür dönüş yok — kapanmış say.", "reminders": ["💤 28 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "", "fit": 4}, {"id": "vml-digital-insight", "company": "VML", "role": "Digital Insight Analyst", "stage": "under_review", "status": "stale", "band": "low", "score": 31, "channel": "linkedin", "track": "Data/Marketing", "location": "İstanbul", "applied": "2026-08-10", "last_contact": "2026-08-10", "deadline": null, "days_silent": 22, "days_to_deadline": null, "next_step": "22 gündür dönüş yok — kapanmış say.", "reminders": ["💤 22 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "", "fit": 4}, {"id": "virtustant-pool", "company": "Virtustant", "role": "Yetenek havuzu", "stage": "talent_pool", "status": "awaiting_response", "band": "low", "score": 28, "channel": "direct", "track": "Remote", "location": "Remote", "applied": "2026-08-25", "last_contact": "2026-08-30", "deadline": null, "days_silent": 2, "days_to_deadline": null, "next_step": "Opsiyonel: kısa tanıtım videosu eklemek eşleşme şansını artırıyor.", "reminders": [], "contact": null, "notes": "Test tamamlandı, havuzda.", "fit": 2}, {"id": "cepres-fintech-analyst", "company": "CEPRES", "role": "FinTech – Junior Data Processing Analyst (Fix Term)", "stage": "under_review", "status": "stale", "band": "low", "score": 27, "channel": "ats", "track": "Data/Fintech", "location": "Remote/EU", "applied": "2026-08-04", "last_contact": "2026-08-04", "deadline": null, "days_silent": 28, "days_to_deadline": null, "next_step": "28 gündür dönüş yok — kapanmış say.", "reminders": ["💤 28 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "", "fit": 3}, {"id": "jobgether-data-analyst", "company": "Jobgether", "role": "Data Analyst", "stage": "under_review", "status": "stale", "band": "low", "score": 27, "channel": "aggregator", "track": "Data", "location": "Remote", "applied": "2026-08-10", "last_contact": "2026-08-10", "deadline": null, "days_silent": 22, "days_to_deadline": null, "next_step": "22 gündür dönüş yok — kapanmış say.", "reminders": ["💤 22 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "", "fit": 3}, {"id": "nielseniq-client-solutions", "company": "NielsenIQ", "role": "Client Solutions Specialist", "stage": "under_review", "status": "stale", "band": "low", "score": 27, "channel": "ats", "track": "Client Services", "location": "İstanbul", "applied": "2026-08-03", "last_contact": "2026-08-03", "deadline": null, "days_silent": 29, "days_to_deadline": null, "next_step": "29 gündür dönüş yok — kapanmış say.", "reminders": ["💤 29 gündür sessiz — kapanmış say, listeden düşür."], "contact": null, "notes": "", "fit": 3}, {"id": "abbvie-financial-analyst", "company": "AbbVie", "role": "Financial Analyst (R00146938)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Finance", "location": "İstanbul", "applied": "2026-08-01", "last_contact": "2026-08-05", "deadline": null, "days_silent": 27, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "akbank-dijital-musteri", "company": "Akbank", "role": "Dijitalden Müşteri Kazanımı ve Yönetimi Yöneticisi", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Banking/Growth", "location": "İstanbul", "applied": "2026-08-01", "last_contact": "2026-08-14", "deadline": null, "days_silent": 18, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "indeed-csm", "company": "Colife / Indeed başvuruları", "role": "Customer Success Manager", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "indeed", "track": "Customer Success", "location": "Remote", "applied": "2026-08-18", "last_contact": "2026-08-30", "deadline": null, "days_silent": 2, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "30 Ağu: Colife başka adaylarla ilerledi.", "fit": 2}, {"id": "elsevier-bd-manager", "company": "Elsevier (RELX)", "role": "Business Development Manager", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Sales/BD", "location": "İstanbul", "applied": "2026-08-26", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "Aynı gün başvuru + red (1 saat arayla).", "fit": 4}, {"id": "hilton-cluster-revenue", "company": "Hilton", "role": "Cluster Revenue Manager RMCC Türkiye (209637)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Revenue Management", "location": "İstanbul", "applied": "2026-08-14", "last_contact": "2026-08-24", "deadline": null, "days_silent": 8, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "hubx-web-cro", "company": "HubX", "role": "Web CRO Manager", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Growth", "location": "İstanbul", "applied": "2026-08-12", "last_contact": "2026-08-21", "deadline": null, "days_silent": 11, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "jpmorgan-client-data", "company": "JPMorganChase", "role": "Client Data Specialist (210770109)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Data/Banking", "location": "İstanbul", "applied": "2026-08-10", "last_contact": "2026-08-21", "deadline": null, "days_silent": 11, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "neonapps-sales-bd", "company": "Neon Apps", "role": "Sales & BD Specialist (RevenueCat Operations)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Sales/BD", "location": "İstanbul", "applied": "2026-08-20", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "Her adaya dönüş yapan şirket — 11 günde sonuç.", "fit": 4}, {"id": "progress-partners-growth-pm", "company": "Progress Partners", "role": "Growth Product Manager (Web Funnel & CRO)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Growth/Product", "location": "Remote", "applied": "2026-08-01", "last_contact": "2026-08-05", "deadline": null, "days_silent": 27, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "Ashby.", "fit": 4}, {"id": "revolut-strategy-ops", "company": "Revolut", "role": "Strategy & Operations Manager (Hiring Sprint)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Strategy", "location": "Remote/EU", "applied": "2026-08-01", "last_contact": "2026-08-25", "deadline": null, "days_silent": 7, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": "darya.razmara@revolut.com / ines.coutinho@revolut.com", "notes": "6 Ağu screen call yapıldı, 7 Ağu olumlu geri bildirim, 25 Ağu olumsuz sonuç. Bu ayın en ileri giden ikinci süreci.", "fit": 5}, {"id": "richemont-commercial-pm", "company": "Richemont", "role": "Commercial Project Manager", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Project Management", "location": "İstanbul", "applied": "2026-08-04", "last_contact": "2026-08-13", "deadline": null, "days_silent": 19, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "", "fit": 3}, {"id": "unilever-demand-planning", "company": "Unilever", "role": "Demand Planning Specialist", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Supply Chain", "location": "İstanbul", "applied": "2026-08-10", "last_contact": "2026-08-26", "deadline": null, "days_silent": 6, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "Pozisyon iptal edildi ('recruitment of this role...'). Yetenek havuzunda kalındı.", "fit": 4}, {"id": "unilever-foods-digital", "company": "Unilever", "role": "Foods Digital Experience Lead", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "linkedin", "track": "Digital", "location": "İstanbul", "applied": "2026-08-05", "last_contact": "2026-08-31", "deadline": null, "days_silent": 1, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "", "fit": 4}, {"id": "bunq-reporting-expert", "company": "bunq", "role": "Reporting Expert", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Data/Fintech", "location": "Remote/EU", "applied": "2026-08-14", "last_contact": "2026-08-17", "deadline": null, "days_silent": 15, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "Ön eleme sorularından sonra 3 günde red.", "fit": 4}, {"id": "sisecam-investment-bd", "company": "Şişecam", "role": "Investment & Business Development Specialist (29528)", "stage": "closed", "status": "rejected", "band": "archive", "score": 0, "channel": "ats", "track": "Strategy/BD", "location": "İstanbul", "applied": "2026-08-14", "last_contact": "2026-08-18", "deadline": null, "days_silent": 14, "days_to_deadline": null, "next_step": "-", "reminders": [], "contact": null, "notes": "4 günde sonuç.", "fit": 4}], "outreach": [{"date": "2026-08-18", "from": "LARUS", "topic": "Explore Career at LARUS", "channel": "LinkedIn InMail", "status": "unanswered"}, {"date": "2026-08-25", "from": "Bilinmeyen", "topic": "Business Development Manager fırsatı", "channel": "LinkedIn InMail", "status": "unanswered"}, {"date": "2026-08-17", "from": "Crossing Hurdles", "topic": "Sports Analyst | Turing x AI Labs", "channel": "E-posta", "status": "unanswered"}, {"date": "2026-08-18", "from": "Crossing Hurdles", "topic": "Management Consultant | $120/hr | micro1 x AI Labs", "channel": "E-posta", "status": "unanswered"}, {"date": "2026-08-22", "from": "Crossing Hurdles", "topic": "Investment Banking Analyst | $100/hr | micro1 x AI Labs", "channel": "E-posta", "status": "unanswered"}, {"date": "2026-08-22", "from": "Crossing Hurdles", "topic": "Management Consultant | $70/hr | micro1 x AI Labs", "channel": "E-posta", "status": "unanswered"}]};
+
+/* ---------- yardımcılar ---------- */
+const TONE = { critical:"critical", good:"good", warning:"warning", archive:"archive" };
+const STAGE_TR = {
+  offer:"Teklif", interview_scheduling:"Mülakat planlama", assessment:"Değerlendirme/test",
+  next_stage:"Sonraki aşama", interviewed:"Mülakat yapıldı", application_incomplete:"Başvuru yarım",
+  in_process:"Süreçte", under_review:"İncelemede", talent_pool:"Yetenek havuzu", closed:"Kapandı"
+};
+const CHANNEL_TR = { ats:"ATS", linkedin:"LinkedIn", direct:"Doğrudan", aggregator:"Agregatör", indeed:"Indeed" };
+const BAND_TR = { critical:"Kritik", high:"Yüksek", normal:"Normal", low:"Düşük", archive:"Olumsuz" };
+const AY = ["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"];
+const fmtDate = s => { if (!s) return "—"; const [y,m,d] = s.split("-"); return `${+d} ${AY[+m-1]}`; };
+const fmtLong = s => { const [y,m,d] = s.split("-"); return `${+d} ${AY[+m-1]} ${y}`; };
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---------- başlık ---------- */
+const gen = new Date(D.generated + "T00:00:00");
+document.getElementById("subtitle").textContent =
+  `${D.meta.owner} · ${D.stats.total} başvuru, ${D.stats.active} aktif süreç`;
+document.getElementById("meta").innerHTML =
+  `<div><b>Tarama:</b> ${fmtDate(D.meta.scan_window.from)} – ${fmtLong(D.meta.scan_window.to)}</div>
+   <div><b>Hesap:</b> ${esc(D.meta.email)}</div>
+   <div><b>Üretim:</b> ${gen.toLocaleDateString("tr-TR",{day:"numeric",month:"long",year:"numeric"})}</div>`;
+
+/* ---------- ölçü şeridi ---------- */
+const actionApps = D.applications.filter(a => a.band === "critical");
+const tiles = [
+  { k:"Toplam başvuru", v:D.stats.total, n:"son 30 gün" },
+  { k:"Bugün aksiyon", v:actionApps.length, n:"deadline'ı yakın/geçmiş", accent:true },
+  { k:"Mülakat aşaması", v:D.stats.interviews, n:`%${D.stats.interview_rate} dönüşüm` },
+  { k:"Aktif süreç", v:D.stats.active, n:"devam ediyor" },
+  { k:"Sessizleşen", v:D.stats.stale, n:"12+ gün yanıtsız" },
+  { k:"Olumsuz", v:D.stats.rejected, n:`%${D.stats.rejection_rate} red oranı` },
+];
+document.getElementById("tiles").innerHTML = tiles.map(t =>
+  `<div class="tile${t.accent ? " accent" : ""}"><div class="k">${t.k}</div>
+   <div class="v mono">${t.v}</div><div class="n">${t.n}</div></div>`).join("");
+
+/* ---------- aksiyon kartları ---------- */
+document.getElementById("actionCount").textContent = `${actionApps.length} iş`;
+document.getElementById("actionCards").innerHTML = actionApps.map(a => {
+  const d = a.days_to_deadline;
+  let chip = `<span class="chip chip-warning">planlanmadı</span>`;
+  let warn = true;
+  if (d !== null && d !== undefined) {
+    if (d < 0)       { chip = `<span class="chip chip-critical">${Math.abs(d)} gün gecikmiş</span>`; warn = false; }
+    else if (d === 0){ chip = `<span class="chip chip-critical">bugün son gün</span>`; warn = false; }
+    else             { chip = `<span class="chip chip-warning">${d} gün kaldı</span>`; }
+  }
+  const rems = (a.reminders || []).map(r => {
+    const i = r.indexOf(" ");
+    return `<div class="rem"><span>${esc(r.slice(0,i))}</span><span>${esc(r.slice(i+1))}</span></div>`;
+  }).join("");
+  return `<article class="card${warn ? " warn" : ""}">
+    <div class="card-top">
+      <div><h3>${esc(a.company)}</h3><div class="role">${esc(a.role)}</div></div>${chip}
+    </div>
+    <p>${esc(a.next_step)}</p>${rems}
+  </article>`;
+}).join("");
+
+/* ---------- haftalık hacim (tek seri, her sütun doğrudan etiketli) ---------- */
+const maxW = Math.max(...D.weekly.map(w => w.value));
+document.getElementById("weekly").innerHTML = D.weekly.map(w =>
+  `<div class="vbar" title="${esc(w.label)}: ${w.value} başvuru">
+     <div class="num">${w.value}</div>
+     <div class="col" style="height:${Math.round(100 * w.value / maxW)}%"></div>
+     <div class="lbl">${esc(w.label)}</div>
+   </div>`).join("");
+
+/* ---------- boru hattı durumu (status paleti + ikon + etiket) ---------- */
+const maxS = Math.max(...D.states.map(s => s.value));
+document.getElementById("states").innerHTML = D.states.map(s =>
+  `<div class="hbar-row" title="${esc(s.label)}: ${s.value}">
+     <div class="hbar-lbl"><span class="dot" style="background:var(--${TONE[s.tone]})"></span>${esc(s.label)}</div>
+     <div class="hbar-val">${s.value}</div>
+     <div class="hbar-track"><div class="hbar-fill" style="width:${Math.round(100 * s.value / maxS)}%;background:var(--${TONE[s.tone]})"></div></div>
+   </div>`).join("");
+
+/* ---------- tablo + filtreler ---------- */
+let filter = "all", query = "";
+const tbody = document.getElementById("tbody");
+const emptyEl = document.getElementById("empty");
+
+function rows() {
+  const q = query.trim().toLocaleLowerCase("tr");
+  return D.applications.filter(a =>
+    (filter === "all" || a.band === filter) &&
+    (!q || (a.company + " " + a.role + " " + (a.track || "")).toLocaleLowerCase("tr").includes(q))
+  );
+}
+
+function render() {
+  const list = rows();
+  document.getElementById("tblCount").textContent =
+    `${list.length} / ${D.applications.length} başvuru`;
+  emptyEl.hidden = list.length > 0;
+  tbody.innerHTML = list.map(a => {
+    const d = a.days_to_deadline;
+    let dl = "—";
+    if (a.deadline) {
+      const cls = d < 0 ? "chip-critical" : d <= 3 ? "chip-warning" : "chip-brand";
+      const txt = d < 0 ? `${fmtDate(a.deadline)} · geçti` : fmtDate(a.deadline);
+      dl = `<span class="chip ${cls}">${txt}</span>`;
+    }
+    const sil = a.days_silent === null || a.days_silent === undefined ? "—" : `${a.days_silent}g`;
+    return `<tr>
+      <td class="sev sev-${a.band}"></td>
+      <td><div class="co">${esc(a.company)}</div><div class="ro">${esc(a.role)}</div></td>
+      <td>${esc(STAGE_TR[a.stage] || a.stage)}</td>
+      <td>${esc(CHANNEL_TR[a.channel] || a.channel)}</td>
+      <td>${dl}</td>
+      <td class="num">${sil}</td>
+      <td class="num">${a.score}</td>
+      <td class="step">${esc(a.next_step)}</td>
+    </tr>`;
+  }).join("");
+}
+
+document.querySelectorAll(".fchip").forEach(btn => {
+  btn.addEventListener("click", () => {
+    filter = btn.dataset.f;
+    document.querySelectorAll(".fchip").forEach(b =>
+      b.setAttribute("aria-pressed", String(b === btn)));
+    render();
+  });
+});
+document.getElementById("search").addEventListener("input", e => { query = e.target.value; render(); });
+render();
+
+/* ---------- recruiter mesajları ---------- */
+document.getElementById("outCount").textContent = `${D.outreach.length} mesaj`;
+document.getElementById("outbody").innerHTML = D.outreach.map(o =>
+  `<tr><td class="num">${fmtDate(o.date)}</td><td class="co">${esc(o.from)}</td>
+   <td>${esc(o.topic)}</td><td>${esc(o.channel)}</td></tr>`).join("");
+
+/* ---------- tema ---------- */
+const btn = document.getElementById("themeBtn");
+btn.addEventListener("click", () => {
+  const cur = document.documentElement.getAttribute("data-theme");
+  const next = cur === "dark" ? "light" : cur === "light" ? "dark"
+    : (matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "dark");
+  document.documentElement.setAttribute("data-theme", next);
+  btn.textContent = next === "dark" ? "Açık tema" : "Koyu tema";
+});
+
+document.getElementById("foot").textContent =
+  `Kaynak: ${D.meta.source} · Veri ${D.meta.scan_window.from} – ${D.meta.scan_window.to} arası Gmail taramasından üretildi · ` +
+  `Puan = aşama ağırlığı + uyum × 4 + deadline aciliyeti − sessizlik cezası.`;
+</script>
