@@ -41,7 +41,8 @@
       "links_actions": [
         {
           "label": "TestGorilla testini aç",
-          "url": "https://app.testgorilla.com/s/4gsyw8tr"
+          "url": "https://app.testgorilla.com/s/4gsyw8tr",
+          "kind": "ext"
         },
         {
           "label": "Takip maili yaz",
