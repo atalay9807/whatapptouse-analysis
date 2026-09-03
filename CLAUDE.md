@@ -69,18 +69,10 @@ Bağlı iki kural:
 
 ## Genel çalışma akışı
 
-Günlük Routine her sabah 09:00'da (TSİ) şu sırayı izler:
-
-1. **Tara** — Gmail'de son 24 saatin iş temalı e-postaları. Gürültü listesi
-   (`config/rules.yaml` → `noise_senders`) yalnızca adet olarak raporlanır.
-2. **Sınıflandır** — ilk eşleşen kazanır:
-   teklif → mülakat daveti → aksiyon gerekli → red → incelemede
-3. **Veriyi güncelle** — `applications.json`'da ilgili kaydın `stage`, `status`,
-   `last_contact`, `deadline`, `next_step` alanları tazelenir; yeni başvuru
-   varsa kayıt eklenir
-4. **Puanla** — aciliyet ve eşleşme ayrı ayrı hesaplanır
-5. **Hatırlat** — eşikler aşağıda
-6. **Raporla** — HTML özet e-posta; pazartesileri geri bildirim soruları eklenir
+Günlük Routine her sabah 09:00'da (TSİ): **tara → sınıflandır → veriyi güncelle
+→ puanla → hatırlat → raporla.** Pazartesileri rapora geri bildirim soruları
+eklenir. Her adımın ayrıntısı `mail-siniflandirma` ve `rapor-formati`
+skill'lerinde.
 
 ## Veri katmanı
 
@@ -129,15 +121,11 @@ aciliyet = aşama_ağırlığı + (uyum × 4) + deadline_aciliyeti − sessizlik
 eşleşme  = rol_ailesi(35) + kıdem(25) + beceri_örtüşmesi(25) + sektör(15) − lokasyon_cezası
 ```
 
-Segmentler: 🟢 Güçlü 78–100 · 🔵 İyi 62–77 · 🟡 Orta 45–61 · 🔴 Zayıf 0–44
+Eşleşme segmentleri: 🟢 Güçlü 78–100 · 🔵 İyi 62–77 · 🟡 Orta 45–61 · 🔴 Zayıf 0–44
 
-Hatırlatma eşikleri: deadline ≤2 gün → bugün kapat · deadline geçti → uzatma
-iste ya da kapat · mülakattan 5+ gün → takip maili · 12+ gün sessizlik → takip
-maili · 21+ gün → kapanmış say
-
-Ağırlıklar iki yerde yaşar: `config/rules.yaml` referans dokümandır, gerçek
-değerler `src/pipeline.py` ve `src/match.py` başındaki sabitlerdedir.
-**İkisi birlikte güncellenir.**
+Rubrikler, eşikler ve hatırlatma kuralları **skill'lerde** (aşağıda). Gerçek
+sabitler `src/pipeline.py` ve `src/match.py` başındadır; `config/rules.yaml`
+referans dokümandır. **Üçü birlikte güncellenir.**
 
 ## Kullanılabilir araçlar
 
@@ -166,17 +154,15 @@ gerekiyorsa kullanıcıdan istenir.
 
 ## Çıktı şablonları
 
-**Günlük rapor e-postası** — konu `📋 Günlük İş Takip Raporu — <tarih>`:
-bugün kapatılacaklar → son 24 saat → öncelik tablosu → hatırlatmalar →
-otomatik bildirim adedi. Kritik gelişme yoksa bunu açıkça yaz, sessiz kalma.
+**Günlük rapor** — konu `📋 Günlük İş Takip Raporu — <tarih>`; sıra: bugün
+kapatılacaklar → son 24 saat → öncelik tablosu → hatırlatmalar → bildirim adedi.
+Kritik gelişme yoksa bunu açıkça yaz, **sessiz kalma.**
 
-**Takip maili** (`links_actions` içinde `mailto:` olarak üretilir): duruma göre
-üç şablon — mülakat sonrası takip · süre uzatımı talebi · durum sorusu.
-İmza: ad, e-posta, telefon.
+**Commit mesajı** — Türkçe, ilk satır ≤72 karakter, gövde *ne yapıldığını değil
+neden yapıldığını* anlatır. Model adı ve oturum kimliği gövdeye yazılmaz.
 
-**Commit mesajı**: Türkçe, ilk satır 72 karakteri geçmez, gövde **ne yapıldığını
-değil neden yapıldığını** anlatır. Model adı, oturum kimliği gibi şeyler
-gövdeye yazılmaz (altbilgi hariç).
+Rapor gövdesinin tam yapısı ve takip maili şablonları `rapor-formati`
+skill'indedir.
 
 ## Kod
 
@@ -200,21 +186,18 @@ ekran görüntülerini yenile → `site/img`'i eşitle.
 
 ## Tasarım sistemi
 
-Üç renk üç ayrı iş yapar, birbirine karışmaz:
+Üç renk üç ayrı iş yapar, birbirine karışmaz: **indigo** marka ve hacim ·
+**mor rampa** (`--m1`…`--m4`, sıralı) yalnızca eşleşme kalitesi ·
+**kırmızı/kehribar/yeşil** boru hattı durumu.
 
-- **İndigo** (`--brand`) — marka, gezinme, hacim grafikleri
-- **Mor rampa** (`--m1`…`--m4`, sıralı) — yalnızca eşleşme kalitesi
-- **Kırmızı / kehribar / yeşil** — boru hattı durumu, ayrılmış semantik renkler
+Tipografi: Newsreader (başlık) + Archivo (gövde) + IBM Plex Mono (veri).
+Logo: iki dairenin kesişimi. İki tema da orta tonda — ne beyaz kâğıt ne siyah
+ekran; yapı gölgeyle değil ince çizgiyle kurulur.
 
-Tipografi: **Newsreader** (başlık) + **Archivo** (gövde) + **IBM Plex Mono**
-(etiket, sayı, veri). Logo: iki dairenin kesişimi — CV ile ilanın örtüşmesi.
-
-Açık ve koyu tema ikisi de orta tonda — ne beyaz kâğıt ne siyah ekran. Yapı
-gölgeyle değil ince çizgiyle kurulur.
-
-**Renk eklerken kontrast ölçülür.** Metin kendi zeminine karşı 4.5:1, grafik
-dolgusu 3:1 geçmeli; her iki temada ayrı ayrı. Rampalar açıklık bakımından
-monotonik olmalı. Ölçüm: `dataviz` skill'indeki `validate_palette.js`.
+**Renk eklerken kontrast ölçülür, göz kararı yapılmaz.** Metin 4.5:1, grafik
+dolgusu 3:1; her iki temada ayrı ayrı. Rampalar açıklık bakımından monotonik.
+Ölçüm: `dataviz` skill'indeki `validate_palette.js`. Palet değerleri
+`docs/TEKNIK.md`'de.
 
 ## Depo
 
@@ -228,6 +211,20 @@ monotonik olmalı. Ölçüm: `dataviz` skill'indeki `validate_palette.js`.
   `gap_skills` şu an elle atanıyor. Projenin en zayıf halkası; ajan işi.
 - ⬜ Kullanıcı başına çoklu profil desteği
 - ⬜ Kalıcı veritabanı ve oturum yönetimi
+
+## Proje skill'leri
+
+`.claude/skills/` altında üç skill var. Her oturumda yüklenmiyorlar — Claude
+işe göre kendisi çekiyor, bu yüzden ayrıntı burada değil onlarda durur.
+
+| Skill | Ne zaman devreye girer |
+|---|---|
+| `eslesme-puanlama` | Bir ilanı CV'ye karşı puanlarken, `match` objesine veya `gap_skills`'e dokunulan her işte. Dört boyutun rubrikleri, segmentler, gerekçe yazımı. |
+| `mail-siniflandirma` | Günlük Gmail taramasında, bir mailin hangi kategoriye girdiğini belirlerken. Sorgular, gürültü listesi, sınıflandırma sırası, kayıt güncelleme. |
+| `rapor-formati` | Rapor üretirken, hatırlatma çıkarırken, takip maili taslarken. Aciliyet ağırlıkları, eşikler, e-posta yapısı, pazartesi geri bildirim bloğu. |
+
+Skill'lerdeki sayısal değerler koddaki sabitlerle **doğrulanmıştır**. Sabiti
+değiştirirsen skill'i de güncelle, yoksa ikisi ayrışır.
 
 ## Referans
 
