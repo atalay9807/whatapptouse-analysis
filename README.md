@@ -1,6 +1,6 @@
 <div align="center">
 
-# Kariyer Pilotu
+# Gauge
 
 **Gmail'i tarayıp iş başvurularını tek yerde toplayan, her ilanı CV'ye göre puanlayan
 ve eksik yetkinlikleri çıkaran otomasyon.**
@@ -12,6 +12,48 @@ ve eksik yetkinlikleri çıkaran otomasyon.**
 </div>
 
 ![Ana sayfa](docs/img/01-ana.png)
+
+---
+
+## Nasıl çalışır — üç adım
+
+Uygulama ilk açıldığında bu üç adımı anlatır; üstteki **"Nasıl çalışır"** düğmesiyle her an tekrar açılabilir.
+
+<table>
+<tr><td width="33%" valign="top">
+
+![Adım 1](docs/img/tour-1.png)
+
+**1 · CV'ni ekle, Gmail'ini bağla**
+
+CV'den kıdem bandın, araç seviyelerin ve bilinen açıkların çıkarılır. Sistemin her ilanı neye göre puanlayacağı bu profille belirlenir.
+
+</td><td width="33%" valign="top">
+
+![Adım 2](docs/img/tour-2.png)
+
+**2 · Gelen kutusu okunur, süreçler segmentlenir**
+
+İş e-postaları taranıp teklif · davet · red · aksiyon diye sınıflandırılır. Her başvuru CV'ye göre 0–100 puanlanır, deadline ve sessizlik için hatırlatma üretilir.
+
+</td><td width="33%" valign="top">
+
+![Adım 3](docs/img/tour-3.png)
+
+**3 · Ortak eksik bulunur, eğitim önerilir**
+
+Olumsuz sonuçlarda hangi yetkinliğin tekrar eksik kaldığı çıkarılır, öncelik sırasına dizilir ve indirimli kurs önerisine bağlanır.
+
+</td></tr>
+</table>
+
+### CV yükleme gerçekten çalışıyor
+
+`Bağlan` sayfasında PDF, TXT veya Markdown yükleyebilirsin; metin okunup yapay zekayla profil çıkarılır — kıdem, beceri seviyeleri ve tespit edilen açıklar. Sonuç yalnızca ekranda gösterilir, kaydedilmez.
+
+![Bağlan sayfası](docs/img/07-baglan.png)
+
+**Gmail bağlantısı bu demoda simülasyondur.** Yayınlanan bir sayfa tarayıcıdan doğrudan Gmail'e bağlanamaz; sunucu tarafında OAuth ve Google onaylı bir uygulama gerekir. Depodaki otomasyon bu işi Gmail MCP sunucusu üzerinden yapıyor — arayüz bu ayrımı açıkça belirtiyor.
 
 ---
 
