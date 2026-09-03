@@ -7,7 +7,7 @@ ve eksik yetkinlikleri çıkaran otomasyon.**
 
 30 günlük gerçek bir iş arama sürecinin verisi üzerine kuruldu — 68 başvuru, 8 rapor, 5 sayfalık arayüz.
 
-[**Canlı demo →**](https://claude.ai/code/artifact/5fdd1d5d-7ec7-40b7-b0b6-6ebeea8e28bc) · [Teknik doküman](docs/TEKNIK.md)
+[**Tanıtım sitesi →**](https://claude.ai/code/artifact/d2716dab-39df-4e8c-b18f-a0d7a01844c3) · [**Canlı demo →**](https://claude.ai/code/artifact/5fdd1d5d-7ec7-40b7-b0b6-6ebeea8e28bc) · [Teknik doküman](docs/TEKNIK.md)
 
 </div>
 
