@@ -1,0 +1,433 @@
+{
+  "_note": "Beceri → öğrenme kaynağı eşlemesi. Hem Eğitim sayfası hem başvuru detayındaki kurs kartı bu tek kaynaktan beslenir. DİKKAT: kurs kayıtları SİMÜLASYON verisidir — başlıklar, puanlar, süreler ve fiyatlar örnek amaçlıdır ve bağlantılar gerçek bir sayfaya gitmez. Gerçek entegrasyonda bu blok bir kurs sağlayıcı API'sinden doldurulur.",
+  "skills": {
+    "sql": {
+      "name": "SQL",
+      "cv_level": 3,
+      "target_level": 5,
+      "why": "Veri/iş analisti ilanlarının neredeyse tamamında çekirdek şart. CV'de 3/5 — Tableau ve Excel 5/5 iken SQL en büyük tek açık.",
+      "effort": "4-6 hafta, haftada ~5 saat",
+      "resources": [
+        {
+          "title": "The Complete SQL Bootcamp for Data Analysts",
+          "provider": "Udemy",
+          "rating": 4.7,
+          "students": 128400,
+          "duration": "22 saat",
+          "cost": "₺549",
+          "level": "Başlangıç → İleri",
+          "note": "Pencere fonksiyonları ve CTE'ler dahil; analist mülakatlarına birebir hazırlık.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "SQL for Business Analytics",
+          "provider": "DataCamp",
+          "rating": 4.6,
+          "students": 54200,
+          "duration": "14 saat",
+          "cost": "₺349/ay",
+          "level": "Orta",
+          "note": "Ticari metrikler üzerinden ilerliyor — kohort ve funnel sorguları var.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "Advanced SQL: Window Functions & Optimization",
+          "provider": "Coursera",
+          "rating": 4.8,
+          "students": 31900,
+          "duration": "18 saat",
+          "cost": "₺429",
+          "level": "İleri",
+          "note": "SQL 3/5'ten 5/5'e geçiş için hedeflenen bölüm.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "SQL Practice: 200 Interview Questions",
+          "provider": "Pluralsight",
+          "rating": 4.5,
+          "students": 19700,
+          "duration": "9 saat",
+          "cost": "₺299",
+          "level": "Orta",
+          "note": "Tekrar ve pekiştirme; kurs değil alıştırma seti.",
+          "url": "#",
+          "simulated": true
+        }
+      ]
+    },
+    "python": {
+      "name": "Python (veri analizi)",
+      "cv_level": 0,
+      "target_level": 3,
+      "why": "Güncel CV'de hiç yok. Data Analyst / Data Scientist ilanlarında pandas beklentisi yaygın; yokluğu bu ailedeki ilanlarda doğrudan eleme sebebi olabiliyor.",
+      "effort": "6-8 hafta, haftada ~5 saat",
+      "resources": [
+        {
+          "title": "Python for Data Analysis: Pandas & NumPy",
+          "provider": "Udemy",
+          "rating": 4.8,
+          "students": 203100,
+          "duration": "28 saat",
+          "cost": "₺599",
+          "level": "Başlangıç → Orta",
+          "note": "Excel'den geçiş yapanlar için tasarlanmış; ilk 8 saat tanıdık gelecek.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "Python Fundamentals for Analysts",
+          "provider": "DataCamp",
+          "rating": 4.6,
+          "students": 88300,
+          "duration": "16 saat",
+          "cost": "₺349/ay",
+          "level": "Başlangıç",
+          "note": "Tarayıcı içi editör; kurulum gerektirmiyor.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "Data Analysis with Python Certificate",
+          "provider": "Coursera",
+          "rating": 4.7,
+          "students": 66500,
+          "duration": "40 saat",
+          "cost": "₺529",
+          "level": "Orta",
+          "note": "CV'ye yazılabilir sertifika.",
+          "url": "#",
+          "simulated": true
+        }
+      ]
+    },
+    "experimentation": {
+      "name": "A/B testi ve deney tasarımı",
+      "cv_level": 2,
+      "target_level": 4,
+      "why": "CV'de A/B test takibi var ama tasarım/istatistiksel anlamlılık tarafı yok. Growth ve CRO ilanlarında bu ayrım açıkça soruluyor.",
+      "effort": "3-4 hafta",
+      "resources": [
+        {
+          "title": "A/B Testing & Experiment Design",
+          "provider": "Udacity",
+          "rating": 4.7,
+          "students": 45800,
+          "duration": "12 saat",
+          "cost": "Ücretsiz",
+          "level": "Orta",
+          "note": "Sektörün fiili giriş kursu; istatistiksel anlamlılık ve güç analizi.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "Statistics for Growth Teams",
+          "provider": "Reforge",
+          "rating": 4.9,
+          "students": 12400,
+          "duration": "8 saat",
+          "cost": "₺1.899",
+          "level": "İleri",
+          "note": "Growth ekipleri için; örnek büyüklüğü ve yanlılık tuzakları.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "Practical Experimentation at Scale",
+          "provider": "Coursera",
+          "rating": 4.5,
+          "students": 23600,
+          "duration": "15 saat",
+          "cost": "₺429",
+          "level": "Orta",
+          "note": "Çok değişkenli test ve sıralı analiz.",
+          "url": "#",
+          "simulated": true
+        }
+      ]
+    },
+    "product_management": {
+      "name": "Ürün yönetimi",
+      "cv_level": 1,
+      "target_level": 3,
+      "why": "Product Manager / Product Owner ilanlarına başvuruluyor ama CV'de ürün sahipliği, roadmap veya backlog deneyimi yok. Analitik güçlü, ürün süreci zayıf.",
+      "effort": "6-8 hafta",
+      "resources": [
+        {
+          "title": "Product Management Fundamentals",
+          "provider": "Coursera",
+          "rating": 4.6,
+          "students": 97200,
+          "duration": "32 saat",
+          "cost": "₺529",
+          "level": "Başlangıç → Orta",
+          "note": "Roadmap, backlog ve önceliklendirme çerçeveleri.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "From Analyst to Product Manager",
+          "provider": "Udemy",
+          "rating": 4.7,
+          "students": 38900,
+          "duration": "18 saat",
+          "cost": "₺549",
+          "level": "Orta",
+          "note": "Analitik geçmişten ürün rolüne geçiş üzerine kurulu.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "Product Discovery & User Research",
+          "provider": "Product School",
+          "rating": 4.5,
+          "students": 15300,
+          "duration": "10 saat",
+          "cost": "₺1.299",
+          "level": "Orta",
+          "note": "Keşif görüşmeleri ve problem tanımlama.",
+          "url": "#",
+          "simulated": true
+        }
+      ]
+    },
+    "people_leadership": {
+      "name": "Ekip yönetimi",
+      "cv_level": 0,
+      "target_level": 2,
+      "why": "Manager / Lead unvanlı ilanlara başvuruluyor ama CV'de doğrudan rapor eden ekip yok. Bu ilanlarda kıdem puanı bu yüzden düşük.",
+      "effort": "4-6 hafta",
+      "resources": [
+        {
+          "title": "Leading Teams: First-Time Manager",
+          "provider": "Coursera",
+          "rating": 4.6,
+          "students": 71400,
+          "duration": "20 saat",
+          "cost": "₺529",
+          "level": "Başlangıç",
+          "note": "Geri bildirim, delegasyon ve birebir görüşmeler.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "Coaching & Mentoring Essentials",
+          "provider": "LinkedIn Learning",
+          "rating": 4.4,
+          "students": 42800,
+          "duration": "6 saat",
+          "cost": "₺199/ay",
+          "level": "Başlangıç",
+          "note": "Mentorluk üstlenmeden önce izlenebilir kısa program.",
+          "url": "#",
+          "simulated": true
+        }
+      ],
+      "caveat": "Kurs, olmayan yönetim deneyiminin yerini tutmaz. Kısa vadede daha etkili yol: mevcut işte proje/stajyer mentorluğu üstlenip bunu CV'ye yazmak."
+    },
+    "powerbi": {
+      "name": "Power BI",
+      "cv_level": 3,
+      "target_level": 5,
+      "why": "CV'de 3/5. Tableau 5/5 olduğu için geçiş kolay; kurumsal ilanların çoğu Power BI istiyor ve bu ucuz bir kazanım.",
+      "effort": "2-3 hafta",
+      "resources": [
+        {
+          "title": "Power BI Masterclass: DAX to Dashboards",
+          "provider": "Udemy",
+          "rating": 4.7,
+          "students": 156700,
+          "duration": "24 saat",
+          "cost": "₺549",
+          "level": "Başlangıç → İleri",
+          "note": "Tableau bilenler için hızlandırılmış bölüm var.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "PL-300 Sertifika Hazırlık",
+          "provider": "Microsoft Learn",
+          "rating": 4.8,
+          "students": 89100,
+          "duration": "30 saat",
+          "cost": "Ücretsiz",
+          "level": "Orta",
+          "note": "Sınav ücretli, hazırlık materyali ücretsiz.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "DAX Deep Dive",
+          "provider": "Pluralsight",
+          "rating": 4.6,
+          "students": 27400,
+          "duration": "11 saat",
+          "cost": "₺299",
+          "level": "İleri",
+          "note": "Ölçü ve hesaplanmış sütun ayrımı.",
+          "url": "#",
+          "simulated": true
+        }
+      ]
+    },
+    "financial_modeling": {
+      "name": "Finansal modelleme",
+      "cv_level": 3,
+      "target_level": 4,
+      "why": "FP&A deneyimi var ama CV'de sertifikalı modelleme yok. Financial Analyst ilanlarında değerleme ve 3-tablo modeli bekleniyor.",
+      "effort": "6-8 hafta",
+      "resources": [
+        {
+          "title": "Financial Modeling & Valuation (FMVA)",
+          "provider": "CFI",
+          "rating": 4.8,
+          "students": 64200,
+          "duration": "120 saat",
+          "cost": "₺4.499",
+          "level": "Orta → İleri",
+          "note": "Sektörde tanınan sertifika; 3-tablo modeli ve DCF.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "Excel Financial Modeling Bootcamp",
+          "provider": "Wall Street Prep",
+          "rating": 4.7,
+          "students": 51800,
+          "duration": "40 saat",
+          "cost": "₺2.799",
+          "level": "Orta",
+          "note": "Yoğun Excel; senaryo ve duyarlılık analizi.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "Budgeting & Forecasting Essentials",
+          "provider": "Udemy",
+          "rating": 4.5,
+          "students": 33600,
+          "duration": "14 saat",
+          "cost": "₺499",
+          "level": "Başlangıç → Orta",
+          "note": "FP&A deneyimini formalize eder.",
+          "url": "#",
+          "simulated": true
+        }
+      ]
+    },
+    "product_analytics": {
+      "name": "Ürün analitiği (funnel, kohort, event)",
+      "cv_level": 3,
+      "target_level": 4,
+      "why": "Mixpanel 3/5 ve kohort deneyimi var; event taksonomisi ve funnel kurgusu tarafı derinleştirilirse ürün veri analisti ilanlarında güçlü olur.",
+      "effort": "2-3 hafta",
+      "resources": [
+        {
+          "title": "Product Analytics: Funnels, Cohorts, Retention",
+          "provider": "Udemy",
+          "rating": 4.6,
+          "students": 42100,
+          "duration": "16 saat",
+          "cost": "₺549",
+          "level": "Orta",
+          "note": "Event taksonomisi kurulumu dahil.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "Mixpanel Certified Analyst",
+          "provider": "Mixpanel Academy",
+          "rating": 4.7,
+          "students": 18900,
+          "duration": "8 saat",
+          "cost": "Ücretsiz",
+          "level": "Orta",
+          "note": "Mixpanel 3/5'i 4/5'e taşır.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "Amplitude for Growth Teams",
+          "provider": "Amplitude Academy",
+          "rating": 4.5,
+          "students": 14200,
+          "duration": "6 saat",
+          "cost": "Ücretsiz",
+          "level": "Başlangıç",
+          "note": "Alternatif araç; kavramlar ortak.",
+          "url": "#",
+          "simulated": true
+        }
+      ]
+    },
+    "supply_chain": {
+      "name": "Tedarik zinciri ve talep planlama",
+      "cv_level": 2,
+      "target_level": 3,
+      "why": "Talep planlama ve tedarik zinciri analisti ilanlarına başvuruluyor; forecast deneyimi transfer oluyor ama alanın kendi terminolojisi CV'de yok.",
+      "effort": "8-10 hafta",
+      "resources": [
+        {
+          "title": "Supply Chain Analytics",
+          "provider": "edX / MITx",
+          "rating": 4.7,
+          "students": 58300,
+          "duration": "60 saat",
+          "cost": "₺1.999",
+          "level": "Orta",
+          "note": "Talep tahmini ve envanter optimizasyonu.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "Demand Planning Fundamentals",
+          "provider": "Coursera",
+          "rating": 4.5,
+          "students": 26700,
+          "duration": "18 saat",
+          "cost": "₺429",
+          "level": "Başlangıç → Orta",
+          "note": "Forecast deneyimini alan diline çevirir.",
+          "url": "#",
+          "simulated": true
+        }
+      ]
+    },
+    "dbt_analytics_eng": {
+      "name": "dbt / analitik mühendisliği",
+      "cv_level": 0,
+      "target_level": 2,
+      "why": "BI Analyst ve veri platformu ilanlarında giderek daha sık isteniyor. SQL sağlamlaştıktan sonraki doğal adım.",
+      "effort": "3-4 hafta",
+      "resources": [
+        {
+          "title": "dbt Fundamentals",
+          "provider": "dbt Labs",
+          "rating": 4.8,
+          "students": 37400,
+          "duration": "10 saat",
+          "cost": "Ücretsiz",
+          "level": "Başlangıç",
+          "note": "Önce SQL'i 4/5 seviyesine getir.",
+          "url": "#",
+          "simulated": true
+        },
+        {
+          "title": "Analytics Engineering with dbt",
+          "provider": "Udemy",
+          "rating": 4.6,
+          "students": 21500,
+          "duration": "15 saat",
+          "cost": "₺549",
+          "level": "Orta",
+          "note": "Modelleme katmanları ve test yazımı.",
+          "url": "#",
+          "simulated": true
+        }
+      ]
+    }
+  },
+  "_simulated": true
+}

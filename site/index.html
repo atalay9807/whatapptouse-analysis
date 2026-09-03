@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kariyer Pilotu — İş başvurusu takip ve CV eşleştirme sistemi</title>
+<meta name="description" content="Gmail'i tarayıp iş başvurularını tek yerde toplayan, her ilanı CV'ye göre puanlayan ve eksik yetkinlikleri çıkaran otomasyon. 68 gerçek başvuru üzerinde kuruldu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ground:#EDEFF3; --ground-2:#E4E8EE; --ground-3:#DBE0E8;
+    --surface:#FBFCFD; --surface-2:#F3F5F8;
+    --ink:#1A1F2B; --ink-2:#4E5768; --ink-3:#77808F;
+    --line:#DDE2E9; --line-2:#C8CFD9;
+    --indigo:#454FA6; --indigo-deep:#39428F; --indigo-soft:#E7E9F5;
+    --brass:#8A6D1A; --brass-soft:#F2EDDC;
+    --good:#2E7D62; --warn:#9A6B10; --crit:#B4442E;
+    --maxw:1120px;
+    color-scheme:light;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:Archivo,ui-sans-serif,system-ui,sans-serif;
+    font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto}}
+  h1,h2,h3,h4{margin:0;text-wrap:balance;font-family:Newsreader,Georgia,serif;font-weight:500;letter-spacing:-.015em;line-height:1.18}
+  h4{line-height:1.3}
+  p{margin:0}
+  a{color:var(--indigo)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+
+  /* --- LoreBary'den alınan yapısal öğe: ince ayraç çizgisi --- */
+  .rule{height:1px;background:linear-gradient(90deg,transparent,var(--line-2) 12%,var(--line-2) 88%,transparent)}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--indigo);display:flex;align-items:center;gap:11px;
+  }
+  .eyebrow::after{content:"";flex:1;height:1px;background:var(--line-2)}
+
+  /* --- üst bar --- */
+  header{position:sticky;top:0;z-index:40;background:rgba(237,239,243,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;gap:20px;min-height:62px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit;margin-right:auto}
+  .brand .mk{
+    width:30px;height:30px;border-radius:4px;flex:none;display:grid;place-items:center;
+    background:var(--indigo);color:#fff;font-family:Newsreader,serif;font-size:16px;font-weight:600;
+  }
+  .brand .tx{font-family:Newsreader,serif;font-size:18px;font-weight:600;letter-spacing:-.01em}
+  .brand .tx small{display:block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;
+    letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);font-weight:400;margin-top:-2px}
+  nav.top{display:flex;gap:4px;flex-wrap:wrap}
+  nav.top a{
+    text-decoration:none;color:var(--ink-2);font-size:14px;font-weight:500;
+    padding:7px 12px;border-radius:4px;transition:color .12s,background .12s;
+  }
+  nav.top a:hover{color:var(--indigo);background:var(--indigo-soft)}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    font-family:Archivo,sans-serif;font-size:14px;font-weight:600;
+    padding:10px 18px;border-radius:5px;border:1px solid var(--line-2);
+    background:var(--surface);color:var(--ink);transition:all .14s;white-space:nowrap;
+  }
+  .btn:hover{border-color:var(--indigo);color:var(--indigo)}
+  .btn.pri{background:var(--indigo);border-color:var(--indigo);color:#fff}
+  .btn.pri:hover{background:var(--indigo-deep);border-color:var(--indigo-deep);color:#fff}
+  .btn svg{width:15px;height:15px;flex:none}
+  .btn:focus-visible,nav.top a:focus-visible,.brand:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
+
+  section{padding:76px 0}
+  section.tight{padding:56px 0}
+  .lead{font-size:17px;color:var(--ink-2);max-width:64ch}
+
+  /* --- hero --- */
+  .hero{padding:84px 0 64px;position:relative;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 760px 420px at 15% -10%, rgba(69,79,166,.09), transparent 65%),
+      radial-gradient(ellipse 620px 380px at 88% 8%, rgba(138,109,26,.06), transparent 62%),
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(26,31,43,.014) 3px, rgba(26,31,43,.014) 4px);
+  }
+  .hero .wrap{position:relative}
+  .hero h1{font-size:clamp(36px,5.4vw,58px);line-height:1.08;margin:20px 0 0;max-width:17ch}
+  .hero h1 em{font-style:italic;color:var(--indigo)}
+  .hero .lead{margin-top:20px;font-size:18px}
+  .hero .cta{display:flex;gap:11px;flex-wrap:wrap;margin-top:30px}
+  .hero .meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+  .hero .meta div{display:flex;flex-direction:column}
+  .hero .meta .n{font-family:Newsreader,serif;font-size:30px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+  .hero .meta .l{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--ink-3);margin-top:3px}
+
+  .shot{border:1px solid var(--line-2);border-radius:7px;overflow:hidden;background:var(--surface);display:block}
+  .shot img{display:block;width:100%;height:auto}
+  .shotcap{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);margin-top:9px;letter-spacing:.02em}
+  .heroshot{margin-top:44px}
+
+  /* --- problem --- */
+  .prob{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .probgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-top:34px}
+  .probcell{background:var(--surface);padding:22px 20px}
+  .probcell .n{font-family:Newsreader,serif;font-size:38px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+  .probcell .n.bad{color:var(--crit)} .probcell .n.warn{color:var(--warn)}
+  .probcell .t{font-size:14px;color:var(--ink-2);margin-top:9px}
+
+  /* --- özellikler --- */
+  .feat{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:52px}
+  .feat.rev>div:first-child{order:2}
+  @media(max-width:860px){.feat,.feat.rev>div:first-child{grid-template-columns:1fr;order:0}.feat{gap:28px}}
+  .feat h3{font-size:25px;margin:14px 0 12px}
+  .feat p{color:var(--ink-2);font-size:15.5px}
+  .feat ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:9px}
+  .feat li{display:flex;gap:10px;font-size:14.5px;color:var(--ink-2);align-items:flex-start}
+  .feat li b{color:var(--ink);font-weight:600}
+  .tick{color:var(--indigo);flex:none;margin-top:5px}
+  .tick svg{width:13px;height:13px;display:block}
+
+  /* --- formül kutusu --- */
+  .formula{
+    background:var(--surface);border:1px solid var(--line-2);border-left:3px solid var(--indigo);
+    border-radius:0 6px 6px 0;padding:18px 22px;margin-top:26px;
+    font-family:"IBM Plex Mono",monospace;font-size:13.5px;color:var(--ink);overflow-x:auto;
+  }
+  .formula .c{color:var(--ink-3)}
+
+  /* --- akış --- */
+  .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:38px}
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px;position:relative}
+  .step .no{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--indigo);letter-spacing:.1em}
+  .step h4{font-size:17px;margin:9px 0 8px}
+  .step p{font-size:13.5px;color:var(--ink-2)}
+
+  /* --- bulgular --- */
+  .find{display:grid;gap:14px;margin-top:36px}
+  .fitem{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px 22px;
+    display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+  @media(max-width:620px){.fitem{grid-template-columns:1fr;gap:10px}}
+  .fnum{font-family:Newsreader,serif;font-size:34px;font-weight:600;line-height:1;color:var(--indigo);
+    font-variant-numeric:tabular-nums;white-space:nowrap}
+  .fnum.bad{color:var(--crit)} .fnum.warn{color:var(--warn)}
+  .fitem h4{font-size:17px;margin-bottom:6px}
+  .fitem p{font-size:14.5px;color:var(--ink-2)}
+
+  /* --- teknik --- */
+  .tech{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:34px}
+  .tcol h4{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink-3);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .tcol ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+  .tcol li{font-size:14px;color:var(--ink-2);display:flex;gap:9px}
+  .tcol li code{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink);
+    background:var(--surface-2);border:1px solid var(--line);border-radius:3px;padding:0 5px}
+
+  /* --- dürüstlük notu --- */
+  .honest{background:var(--brass-soft);border:1px solid var(--brass);border-radius:6px;padding:24px 26px;margin-top:34px}
+  .honest h3{font-size:19px;margin-bottom:12px;color:var(--ink)}
+  .honest ul{margin:0;padding:0;list-style:none;display:grid;gap:11px}
+  .honest li{font-size:14.5px;color:var(--ink-2);display:flex;gap:10px;align-items:flex-start}
+  .honest li b{color:var(--ink)}
+  .honest .mk{color:var(--brass);flex:none;font-family:"IBM Plex Mono",monospace;font-size:13px;margin-top:1px}
+
+  /* --- kapanış --- */
+  .close{background:var(--ink);color:#EDEFF3;border-radius:8px;padding:52px 44px;text-align:center;margin:0 0 8px}
+  .close h2{font-size:clamp(26px,3.6vw,36px);color:#fff;max-width:20ch;margin:0 auto}
+  .close p{color:#AEB6C4;margin:16px auto 0;max-width:56ch;font-size:15.5px}
+  .close .cta{display:flex;gap:11px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+  .close .btn{background:transparent;border-color:#4A5364;color:#EDEFF3}
+  .close .btn:hover{border-color:#fff;color:#fff}
+  .close .btn.pri{background:#fff;border-color:#fff;color:var(--ink)}
+  .close .btn.pri:hover{background:#E4E8EE;border-color:#E4E8EE;color:var(--ink)}
+
+  footer{padding:34px 0 54px;border-top:1px solid var(--line);margin-top:66px}
+  footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);line-height:1.8}
+  footer a{color:var(--ink-2);text-decoration:none} footer a:hover{color:var(--indigo)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="mk">K</span>
+      <span class="tx">Kariyer Pilotu<small>başvuru takip sistemi</small></span>
+    </a>
+    <nav class="top">
+      <a href="#problem">Problem</a>
+      <a href="#nasil">Nasıl çalışır</a>
+      <a href="#ozellikler">Özellikler</a>
+      <a href="#bulgular">Bulgular</a>
+      <a href="#teknik">Teknik</a>
+    </nav>
+    <a class="btn pri" href="app.html">Canlı demo</a>
+  </div>
+</header>
+
+<div id="top"></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Gmail entegre otomasyon · 68 gerçek başvuru</div>
+    <h1>İş başvurusu takibi, <em>tahmin yerine veriyle</em></h1>
+    <p class="lead">
+      Gmail'i her sabah tarar, başvuruları tek yerde toplar, her ilanı CV'ye göre 0–100 arası puanlar
+      ve hangi eksik yetkinliğin kaç süreci etkilediğini çıkarır. 30 günlük gerçek bir iş arama
+      sürecinin verisi üzerine kuruldu.
+    </p>
+    <div class="cta">
+      <a class="btn pri" href="app.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        Uygulamayı aç
+      </a>
+      <a class="btn" href="https://github.com/atalay9807/whatapptouse-analysis" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0C17.7 4.7 18.7 5 18.7 5c.6 1.6.2 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        Kaynak kodu
+      </a>
+    </div>
+    <div class="meta">
+      <div><span class="n mono">68</span><span class="l">başvuru izlendi</span></div>
+      <div><span class="n mono">30</span><span class="l">günlük pencere</span></div>
+      <div><span class="n mono">8</span><span class="l">rapor</span></div>
+      <div><span class="n mono">10</span><span class="l">eksik yetkinlik</span></div>
+      <div><span class="n mono">5</span><span class="l">sayfa</span></div>
+    </div>
+    <figure class="heroshot" style="margin:44px 0 0">
+      <a class="shot" href="app.html"><img src="img/01-ana.png" alt="Kariyer Pilotu ana sayfası: yaşam döngüsü hattı, ölçü şeridi ve bugün kapatılacak işler" loading="lazy"></a>
+      <figcaption class="shotcap">Ana sayfa — kullanıcının hangi aşamada olduğu, bugün ne yapması gerektiği ve odaklanacağı süreçler</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="prob" id="problem">
+  <div class="wrap">
+    <div class="eyebrow">Problem</div>
+    <h2 style="font-size:clamp(26px,3.6vw,34px);margin:18px 0 0;max-width:22ch">Başvuru sayısı arttıkça süreç görünmez oluyor</h2>
+    <p class="lead" style="margin-top:16px">
+      Bir ayda 68 başvuru yapıldığında hangisinin nerede olduğu, hangi testin süresinin dolduğu ve
+      hangi sürecin sessizce öldüğü takip edilemiyor. Aşağıdakiler tahmin değil — taranan Gmail
+      kutusundan çıkan gerçek sayılar.
+    </p>
+    <div class="probgrid">
+      <div class="probcell"><div class="n mono bad">0</div><div class="t">teklif — 68 başvurunun sonunda</div></div>
+      <div class="probcell"><div class="n mono warn">27</div><div class="t">süreç 12+ gündür sessiz</div></div>
+      <div class="probcell"><div class="n mono">42</div><div class="t">başvuru hiç yanıtlanmadı</div></div>
+      <div class="probcell"><div class="n mono warn">3</div><div class="t">kaydedilen ilanın süresi doldu</div></div>
+      <div class="probcell"><div class="n mono bad">15</div><div class="t">red — hiçbiri gerekçe belirtmiyor</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NASIL ÇALIŞIR ============ -->
+<section id="nasil">
+  <div class="wrap">
+    <div class="eyebrow">Nasıl çalışır</div>
+    <h2 style="font-size:clamp(26px,3.6vw,34px);margin:18px 0 0;max-width:24ch">Her sabah 09:00'da çalışan dört adımlı bir hat</h2>
+    <div class="flow">
+      <div class="step">
+        <div class="no">01</div><h4>Tara</h4>
+        <p>Gmail'de son 24 saatin iş temalı e-postaları aranır. LinkedIn ilan bildirimleri, bültenler ve Glassdoor gürültü sayılıp yalnızca adet olarak raporlanır.</p>
+      </div>
+      <div class="step">
+        <div class="no">02</div><h4>Sınıflandır</h4>
+        <p>Her e-posta sırayla etiketlenir: teklif → mülakat daveti → aksiyon gerekli → red → incelemede. İlk eşleşen kazanır.</p>
+      </div>
+      <div class="step">
+        <div class="no">03</div><h4>Puanla</h4>
+        <p>İki ayrı eksen hesaplanır: <b>aciliyet</b> (bugün ne yapmalıyım) ve <b>eşleşme</b> (enerjimi nereye harcamalıyım). İkisi karıştırılmaz.</p>
+      </div>
+      <div class="step">
+        <div class="no">04</div><h4>Raporla</h4>
+        <p>Öncelik tablosu ve hatırlatmalar e-postayla gelir. Pazartesileri dört soru sorulur; yanıt ertesi taramada puanlara işlenir.</p>
+      </div>
+    </div>
+    <div class="formula">
+      <span class="c"># aciliyet</span><br>
+      puan = aşama_ağırlığı + (uyum × 4) + deadline_aciliyeti − sessizlik_cezası<br><br>
+      <span class="c"># CV ↔ ilan eşleşmesi</span><br>
+      eşleşme = rol_ailesi(35) + kıdem(25) + beceri_örtüşmesi(25) + sektör(15) − lokasyon_cezası
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<!-- ============ ÖZELLİKLER ============ -->
+<section id="ozellikler">
+  <div class="wrap">
+    <div class="eyebrow">Özellikler</div>
+
+    <div class="feat">
+      <div>
+        <h3>CV eşleştirme ve segmentasyon</h3>
+        <p>Yüklenen CV'den bir profil türetilir: kıdem bandı, araç seviyeleri, güçlü alanlar ve bilinen açıklar. Her ilan bu profile karşı dört boyutta puanlanır ve dört segmente ayrılır.</p>
+        <ul>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Rol ailesi</b> — ilanın profilin çekirdek iş ailelerine yakınlığı</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Kıdem</b> — Manager/Lead ilanları esneme olarak işaretlenir</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Beceri örtüşmesi</b> — ilanın beklediği araç setiyle CV'nin kesişimi</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Sektör + lokasyon</b> — taşınma ve çalışma izni cezaları dahil</span></li>
+        </ul>
+      </div>
+      <figure style="margin:0">
+        <span class="shot"><img src="img/04-basvurular.png" alt="Başvurular tablosu: her satırda eşleşme puanı, aşama, deadline ve eksik yetkinlik" loading="lazy"></span>
+        <figcaption class="shotcap">Her satırda eşleşme puanı, segment ve eksik yetkinlik</figcaption>
+      </figure>
+    </div>
+
+    <div class="feat rev">
+      <div>
+        <h3>Sekiz rapor</h3>
+        <p>Başvuru hunisi, eksik yetkinlik analizi, haftalık trend, şirketlerin yanıt hızı, rol bazlı başarı, kanal etkinliği, kullanım streak'i ve kaçırılan fırsatlar.</p>
+        <ul>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Huninin ilk adımı <b>alt sınır</b> olarak işaretlenir — LinkedIn görüntülenme verisi vermiyor</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Ölçülemeyen bir şey grafiğe uydurulmaz, açıkça belirtilir</span></li>
+        </ul>
+      </div>
+      <figure style="margin:0">
+        <span class="shot"><img src="img/02-raporlar.png" alt="Raporlar sayfası: başvuru hunisi ve eksik yetkinlik analizi" loading="lazy"></span>
+        <figcaption class="shotcap">Huni ve eksik yetkinlik analizi — koyu tema</figcaption>
+      </figure>
+    </div>
+
+    <div class="feat">
+      <div>
+        <h3>Eksik yetkinlikten eğitim planına</h3>
+        <p>Her ilanın beklediği ama CV'de olmayan yetkinlik kaydedilir. Bunlar toplanıp öncelik sırasına dizilir; en üstteki eksik tek başına 34 başvuruyu etkiliyor.</p>
+        <div class="formula" style="margin-top:18px;font-size:12.5px">
+          öncelik = (redlerde görülme × 3) + (açık süreçlerde × 1) + (seviye farkı × 2)
+        </div>
+        <ul style="margin-top:18px">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Eğitim sayfası ve başvuru detayındaki kurs kartı <b>tek veri kaynağından</b> beslenir</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Bir süreç olumsuz sonuçlandığında detayda o eksiğe özel kurs kartı çıkar</span></li>
+        </ul>
+      </div>
+      <figure style="margin:0">
+        <span class="shot"><img src="img/03-egitim.png" alt="Eğitim sayfası: öncelik sıralı eksik yetkinlikler ve kurs önerileri" loading="lazy"></span>
+        <figcaption class="shotcap">Eğitim sayfası — kurs kayıtları simülasyon olarak işaretli</figcaption>
+      </figure>
+    </div>
+
+    <div class="feat rev">
+      <div>
+        <h3>Kullanıcıyı alışkanlığa taşıyan hat</h3>
+        <p>Kullanıcı, ölçülebilir kriterlerle altı aşamalı bir hattın üzerinde konumlanır: yeni kullanıcı → CV hazır → başvuru yapıyor → takip ediyor → düzenli kullanıyor → alışkanlık.</p>
+        <ul>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Her sayfa aşamaya göre farklı <b>sıradaki adım</b> gösterir</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Eksik şartlar rozet olarak açıkça listelenir</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Gösterilen eylem <b>mevcut</b> aşamanınkidir — kişiyi ileri taşıyan odur</span></li>
+        </ul>
+      </div>
+      <figure style="margin:0">
+        <span class="shot"><img src="img/05-detay.png" alt="Başvuru detay paneli: eşleşme dökümü, süreç bilgileri ve eksik yetkinliğe özel kurs kartı" loading="lazy"></span>
+        <figcaption class="shotcap">Detay paneli — eşleşme dökümü ve eksikliğe özel kurs kartı</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<!-- ============ BULGULAR ============ -->
+<section id="bulgular">
+  <div class="wrap">
+    <div class="eyebrow">Veriden çıkanlar</div>
+    <h2 style="font-size:clamp(26px,3.6vw,34px);margin:18px 0 0;max-width:24ch">Sistem kurulduğunda ortaya çıkan dört şey</h2>
+    <div class="find">
+      <div class="fitem">
+        <div class="fnum mono bad">7 / 15</div>
+        <div><h4>Redlerin çoğunluğu kıdem açığından</h4>
+          <p>SQL en yaygın eksik (34 başvuruda bekleniyor) ama olumsuz sonuçlanan 15 sürecin 7'sinde eksik olan <b>ekip yönetimi</b>. Yani sorun teknik beceri değil, Manager/Lead ilanlarına yapılan başvurular. Bu, kurs alarak değil hedef bandını değiştirerek çözülür.</p></div>
+      </div>
+      <div class="fitem">
+        <div class="fnum mono warn">%25</div>
+        <div><h4>Eforun dörtte biri zayıf eşleşmeye gitmiş</h4>
+          <p>68 başvurunun 17'si orta veya zayıf eşleşme. Güçlü segmentin ileri aşamaya geçme oranı %18,2; zayıf segmentin ilerlemesi ise istatistiksel gürültü. Aynı efor güçlü segmente kaydırılsa mülakat sayısı artar.</p></div>
+      </div>
+      <div class="fitem">
+        <div class="fnum mono bad">88</div>
+        <div><h4>En iyi eşleşme, başvurulmadan süresi doldu</h4>
+          <p>Kaydedilen 16 ilanın 12'sine hiç başvurulmamış. Bunlardan Michael Page'in FP&amp;A Analyst ilanı 88 eşleşme puanıyla listenin en güçlüsüydü ve 20 Ağustos'ta kapandı. Takip edilmeyen şey kaybediliyor.</p></div>
+      </div>
+      <div class="fitem">
+        <div class="fnum mono">10 gün</div>
+        <div><h4>Şirketlerin medyan yanıt süresi</h4>
+          <p>Yanıt veren şirketlerde medyan 10 gün. 42 başvuru ise hiç yanıtlanmadı. Bu iki sayı birlikte, 12 gün sessizlikten sonra takip maili atma kuralının eşiğini belirledi.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<!-- ============ TEKNİK ============ -->
+<section id="teknik">
+  <div class="wrap">
+    <div class="eyebrow">Teknik</div>
+    <h2 style="font-size:clamp(26px,3.6vw,34px);margin:18px 0 0;max-width:26ch">Veri katmanı, saf Python motorlar, bağımlılıksız arayüz</h2>
+    <div class="tech">
+      <div class="tcol">
+        <h4>Veri katmanı</h4>
+        <ul>
+          <li><code>applications.json</code> — başvurular, eşleşme boyutları, eksik yetkinlikler</li>
+          <li><code>profile.json</code> — CV'den türetilmiş profil</li>
+          <li><code>skills_catalog.json</code> — beceri → kaynak eşlemesi</li>
+          <li><code>journey.json</code> — yaşam döngüsü aşamaları</li>
+          <li><code>engagement.json</code> — gerçek kullanım kaydı</li>
+          <li><code>saved_jobs.json</code> — kaydedilip başvurulmayanlar</li>
+        </ul>
+      </div>
+      <div class="tcol">
+        <h4>Motorlar</h4>
+        <ul>
+          <li><code>match.py</code> — CV ↔ ilan eşleşmesi ve segmentasyon</li>
+          <li><code>pipeline.py</code> — önceliklendirme, hatırlatma, rapor</li>
+          <li><code>insights.py</code> — sekiz rapor ve eğitim planı</li>
+          <li><code>build_dashboard.py</code> — şablona veri enjeksiyonu</li>
+          <li>Saf standart kütüphane — harici bağımlılık yok</li>
+        </ul>
+      </div>
+      <div class="tcol">
+        <h4>Arayüz ve otomasyon</h4>
+        <ul>
+          <li>Tek dosya SPA, hash yönlendirme, derin bağlantı</li>
+          <li>Çift tema, mobil uyumlu, çerçeve kullanılmadı</li>
+          <li>Gmail MCP ile e-posta taraması</li>
+          <li>Zamanlanmış görev — her gün 09:00 (TSİ)</li>
+          <li>Markdown / düz metin / CSV / JSON çıktı</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="honest">
+      <h3>Bilinçli sınırlar</h3>
+      <ul>
+        <li><span class="mk">01</span><span><b>Red gerekçeleri ölçülemiyor.</b> Taranan 15 red e-postasının hiçbiri sebep belirtmiyor. Eksik yetkinlikler bu yüzden şirketlerin söylediği değil, ilan ile CV arasındaki farktan <b>çıkarılan</b> tahminlerdir ve arayüzün her yerinde böyle etiketlenir.</span></li>
+        <li><span class="mk">02</span><span><b>Görüntülenen ilan verisi yok.</b> LinkedIn bunu e-postayla bildirmiyor. Huni "kaydedilen ilan"dan başlar, o da yalnızca hatırlatma gönderilenleri kapsar — taralı çubukla alt sınır olarak işaretlenir ve ondan sonraki dönüşüm oranı hesaplanmaz.</span></li>
+        <li><span class="mk">03</span><span><b>Kurs kayıtları simülasyondur.</b> Başlık, puan, süre ve fiyat örnek amaçlıdır; bağlantılar gerçek sayfa açmaz. Eksik yetkinliklerin kendisi ve öncelik sıralaması gerçek veriden hesaplanır.</span></li>
+        <li><span class="mk">04</span><span><b>Eşleşme boyutları elle atanıyor.</b> İlan metninin çekilip beceri çıkarımının otomatikleşmesi açık madde olarak duruyor.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KAPANIŞ ============ -->
+<section class="tight">
+  <div class="wrap">
+    <div class="close">
+      <h2>Uygulamayı canlı deneyin</h2>
+      <p>68 gerçek başvurunun tamamı, sekiz rapor ve eğitim planı yüklü halde açılır. Kurulum gerekmez.</p>
+      <div class="cta">
+        <a class="btn pri" href="app.html">Uygulamayı aç</a>
+        <a class="btn" href="https://github.com/atalay9807/whatapptouse-analysis" target="_blank" rel="noopener">GitHub'da incele</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Kariyer Pilotu — iş başvurusu takip ve CV eşleştirme sistemi<br>
+      Atalay Denizer · <a href="https://linkedin.com/in/atalaydenizer" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://github.com/atalay9807/whatapptouse-analysis" target="_blank" rel="noopener">GitHub</a></div>
+    <div style="text-align:right">Veri penceresi: 1 Ağustos – 1 Eylül 2026<br>Kurs kayıtları simülasyondur</div>
+  </div>
+</footer>
+
+</body>
+</html>

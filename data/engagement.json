@@ -1,0 +1,15 @@
+{
+  "_note": "Gmail taramasından doğrulanmış gerçek kullanım kaydı. 'report_days', kendine gönderilen günlük rapor e-postalarının tarihleridir. 'feedback_replies', bu raporlara yazılan yanıt sayısıdır — tarama sonucu sıfır.",
+  "source": "Gmail: from:atalay.denizer0@gmail.com subject:\"İş Takip Raporu\"",
+  "tracking_started": "2026-08-20",
+  "as_of": "2026-09-01",
+  "report_days": [
+    "2026-08-20","2026-08-21","2026-08-22","2026-08-23",
+    "2026-08-26","2026-08-27","2026-08-28",
+    "2026-08-30","2026-08-31","2026-09-01"
+  ],
+  "missed_days": ["2026-08-24","2026-08-25","2026-08-29"],
+  "feedback_replies": 0,
+  "cv_uploaded": true,
+  "cv_versions": 2
+}

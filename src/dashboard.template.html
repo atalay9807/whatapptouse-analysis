@@ -1,0 +1,1184 @@
+<title>Kariyer Pilotu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+  /* ============================================================
+     Orta-ton palet. İki tema da nötr: ne beyaz kâğıt ne siyah ekran.
+     Açık  = "kemik"   (#E7E4DD zemin)
+     Koyu  = "grafit"  (#22262B zemin)
+     Gölge yok; yapı ince çizgilerle kurulur.
+     ============================================================ */
+  :root {
+    --ground:#E7E4DD; --ground-2:#DEDAD1;
+    --surface:#F1EFEA; --surface-2:#E4E1D9; --surface-3:#D6D2C8;
+    --ink:#262622; --ink-2:#5A594F; --ink-3:#848276;
+    --line:#CBC7BC; --line-2:#B8B3A6; --line-strong:#9E9889;
+
+    --brand:#3F5570; --brand-2:#55708F; --brand-soft:#DCE1E7; --brand-ring:#8A9BAF;
+    --violet:#6B5F8C; --violet-soft:#E2DEE8;
+
+    --m1:#463B6B; --m2:#6B5F8C; --m3:#948AAC; --m4:#BDB6CC;
+    --m1-bg:#E0DCE6; --m2-bg:#E4E1E9; --m3-bg:#E8E6EC; --m4-bg:#ECEAEF;
+    --m1-tx:#463B6B; --m2-tx:#584C79; --m3-tx:#6B5F8C; --m4-tx:#7C7199;
+
+    --critical:#B4442E; --warning:#9A6B10; --good:#2E7D62; --archive:#6E6D66;
+    --chip-critical-bg:#EFDFDA; --chip-warning-bg:#EDE5D2; --chip-good-bg:#DBE7E1; --chip-archive-bg:#E2E0D8;
+
+    --grid:rgba(38,38,34,.038);
+    --r:5px; --r-lg:7px;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#22262B; --ground-2:#1D2126;
+      --surface:#2A2E34; --surface-2:#31363D; --surface-3:#3A4048;
+      --ink:#DCDFE3; --ink-2:#9AA1A9; --ink-3:#787F87;
+      --line:#3A4048; --line-2:#454C55; --line-strong:#565E68;
+
+      --brand:#8FA8C4; --brand-2:#A3B8D0; --brand-soft:#2E3742; --brand-ring:#5C7189;
+      --violet:#A79ACB; --violet-soft:#332E42;
+
+      --m1:#CFC7E4; --m2:#A79ACB; --m3:#7E71A6; --m4:#5C5280;
+      --m1-bg:#39334A; --m2-bg:#332E42; --m3-bg:#2E2A3A; --m4-bg:#2A2733;
+      --m1-tx:#CFC7E4; --m2-tx:#B8ADD9; --m3-tx:#9C90C2; --m4-tx:#8478A8;
+
+      --critical:#E08268; --warning:#D9A648; --good:#62B99A; --archive:#93999F;
+      --chip-critical-bg:#3B2A26; --chip-warning-bg:#38301F; --chip-good-bg:#25342F; --chip-archive-bg:#2F3339;
+
+      --grid:rgba(220,223,227,.035);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#22262B; --ground-2:#1D2126;
+    --surface:#2A2E34; --surface-2:#31363D; --surface-3:#3A4048;
+    --ink:#DCDFE3; --ink-2:#9AA1A9; --ink-3:#787F87;
+    --line:#3A4048; --line-2:#454C55; --line-strong:#565E68;
+    --brand:#8FA8C4; --brand-2:#A3B8D0; --brand-soft:#2E3742; --brand-ring:#5C7189;
+    --violet:#A79ACB; --violet-soft:#332E42;
+    --m1:#CFC7E4; --m2:#A79ACB; --m3:#7E71A6; --m4:#5C5280;
+    --m1-bg:#39334A; --m2-bg:#332E42; --m3-bg:#2E2A3A; --m4-bg:#2A2733;
+    --m1-tx:#CFC7E4; --m2-tx:#B8ADD9; --m3-tx:#9C90C2; --m4-tx:#8478A8;
+    --critical:#E08268; --warning:#D9A648; --good:#62B99A; --archive:#93999F;
+    --chip-critical-bg:#3B2A26; --chip-warning-bg:#38301F; --chip-good-bg:#25342F; --chip-archive-bg:#2F3339;
+    --grid:rgba(220,223,227,.035);
+    color-scheme: dark;
+  }
+
+  *,*::before,*::after { box-sizing:border-box; }
+  body {
+    margin:0; color:var(--ink); background:var(--ground);
+    font-family:"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size:14.5px; line-height:1.6; -webkit-font-smoothing:antialiased;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:64px 64px, 64px 64px;
+    background-attachment:fixed;
+  }
+  h1,h2,h3,h4,h5 { margin:0; text-wrap:balance; font-family:"IBM Plex Sans",sans-serif; }
+  .mono, .m { font-family:"IBM Plex Mono", ui-monospace, monospace; font-variant-numeric:tabular-nums; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 22px 90px; }
+  a { color:var(--brand); }
+
+  /* ---------- navigasyon ---------- */
+  .topbar { position:sticky; top:0; z-index:50; background:var(--ground-2); border-bottom:1px solid var(--line-2); }
+  .topbar-in { max-width:1180px; margin:0 auto; padding:0 22px;
+               display:flex; align-items:stretch; gap:0; min-height:52px; flex-wrap:wrap; }
+  .logo { display:flex; align-items:center; gap:10px; flex:none; text-decoration:none; color:inherit;
+          padding-right:22px; margin-right:6px; border-right:1px solid var(--line-2); }
+  .logo .sq {
+    width:24px; height:24px; border-radius:3px; flex:none; border:1px solid var(--brand);
+    display:grid; place-items:center; color:var(--brand); background:var(--brand-soft);
+    font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:11px;
+  }
+  .logo .nm { font-family:"IBM Plex Mono",monospace; font-weight:500; font-size:13px; letter-spacing:.02em; }
+  nav.tabs { display:flex; flex-wrap:wrap; }
+  nav.tabs a {
+    position:relative; text-decoration:none; color:var(--ink-2);
+    font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.04em;
+    padding:0 14px; display:flex; align-items:center; gap:7px;
+    border-right:1px solid var(--line); transition:color .12s, background .12s;
+  }
+  nav.tabs a:first-child { border-left:1px solid var(--line); }
+  nav.tabs a:hover { color:var(--ink); background:var(--surface-2); }
+  nav.tabs a[aria-current="page"] { color:var(--ink); background:var(--surface); }
+  nav.tabs a[aria-current="page"]::after {
+    content:""; position:absolute; left:0; right:0; top:-1px; height:2px; background:var(--brand);
+  }
+  nav.tabs a .badge {
+    font-family:"IBM Plex Mono",monospace; font-size:10px;
+    border:1px solid var(--critical); color:var(--critical);
+    border-radius:2px; padding:0 4px; line-height:1.5;
+  }
+  nav.tabs a .badge.v { border-color:var(--violet); color:var(--violet); }
+  .topbar .right { margin-left:auto; display:flex; align-items:center; gap:9px; padding-left:14px; }
+  .stagepill {
+    display:flex; align-items:center; gap:7px; font-family:"IBM Plex Mono",monospace;
+    font-size:11px; color:var(--ink-2); border:1px solid var(--line); border-radius:3px; padding:4px 10px;
+  }
+  .stagepill b { color:var(--brand); font-weight:500; }
+  .tbtn {
+    font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.05em;
+    background:transparent; color:var(--ink-2); border:1px solid var(--line);
+    border-radius:3px; padding:5px 10px; cursor:pointer;
+  }
+  .tbtn:hover { border-color:var(--brand); color:var(--brand); }
+
+  .page { display:none; } .page.on { display:block; }
+  .pagehead { padding:34px 0 24px; border-bottom:1px solid var(--line); margin-bottom:26px; }
+  .pagehead h1 { font-size:clamp(23px,3vw,30px); font-weight:600; letter-spacing:-.02em; }
+  .pagehead .sub { color:var(--ink-2); font-size:14px; margin-top:9px; max-width:70ch; }
+
+  /* ---------- kart / panel: gölge yok, çizgi var ---------- */
+  .panel, .tile, .card, .fcard, .lcard, .journey, .tbl-scroll, .idcard {
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  }
+  section { margin-bottom:34px; }
+  .sec-head { display:flex; align-items:baseline; gap:11px; margin-bottom:14px; flex-wrap:wrap; }
+  .sec-head h2 {
+    font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:500;
+    letter-spacing:.06em; text-transform:uppercase; color:var(--ink);
+  }
+  .sec-head .count {
+    font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-3);
+    border:1px solid var(--line); border-radius:2px; padding:1px 7px;
+  }
+  .sec-head .hint { font-size:12.5px; color:var(--ink-3); margin-left:auto; }
+
+  /* ---------- ölçü şeridi ---------- */
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(144px,1fr)); gap:-1px; margin-bottom:32px;
+           border:1px solid var(--line); border-radius:var(--r); overflow:hidden; background:var(--line); gap:1px; }
+  .tile { border:none; border-radius:0; padding:14px 16px 13px; }
+  .tile .k { font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.08em;
+             text-transform:uppercase; color:var(--ink-3); }
+  .tile .v { font-family:"IBM Plex Mono",monospace; font-size:27px; font-weight:500;
+             letter-spacing:-.02em; font-variant-numeric:tabular-nums; line-height:1.2; margin-top:5px; }
+  .tile .n { font-size:11.5px; color:var(--ink-3); margin-top:1px; }
+  .tile.hot .v { color:var(--critical); } .tile.mat .v { color:var(--violet); }
+
+  /* ---------- yaşam döngüsü ---------- */
+  .journey { padding:18px 20px; margin-bottom:26px; }
+  .jtrack { display:flex; gap:3px; margin:15px 0 4px; }
+  .jstep { flex:1; display:flex; flex-direction:column; gap:7px; min-width:0; }
+  .jstep .bar { height:3px; background:var(--surface-3); }
+  .jstep.done .bar { background:var(--brand); }
+  .jstep.now .bar { background:var(--violet); }
+  .jstep .nm { font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--ink-3);
+               white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .jstep.now .nm { color:var(--violet); }
+  .jstep.done .nm { color:var(--ink-2); }
+  .nextstep { display:flex; gap:14px; align-items:flex-start; margin-top:18px; padding-top:16px;
+              border-top:1px solid var(--line); flex-wrap:wrap; }
+  .nextstep .ic { width:30px; height:30px; border-radius:3px; flex:none; display:grid; place-items:center;
+                  border:1px solid var(--violet); color:var(--violet); background:var(--violet-soft); }
+  .nextstep .ic svg { width:15px; height:15px; }
+  .nextstep .bd { flex:1; min-width:230px; }
+  .nextstep .lb { font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.1em;
+                  text-transform:uppercase; color:var(--violet); margin-bottom:4px; }
+  .nextstep h3 { font-size:16px; font-weight:600; }
+  .nextstep p { margin:5px 0 0; font-size:13.5px; color:var(--ink-2); }
+  .blockers { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+  .blocker { font-family:"IBM Plex Mono",monospace; font-size:10.5px;
+             border:1px solid var(--warning); color:var(--warning); border-radius:2px; padding:2px 8px; }
+  .nudge { font-size:13px; color:var(--ink-2); border:1px solid var(--line); border-left:2px solid var(--brand);
+           border-radius:0 var(--r) var(--r) 0; padding:11px 14px; display:flex; gap:9px; align-items:flex-start;
+           background:var(--surface); }
+  .nudge b { color:var(--brand); font-weight:600; }
+  .nudge svg { width:14px; height:14px; flex:none; margin-top:3px; color:var(--brand); }
+
+  /* ---------- rozet / çip ---------- */
+  .chip { display:inline-flex; align-items:center; gap:5px; flex:none;
+          font-family:"IBM Plex Mono",monospace; font-size:10.5px;
+          padding:2px 8px; border-radius:2px; white-space:nowrap; border:1px solid transparent; }
+  .chip-critical{background:var(--chip-critical-bg);color:var(--critical);border-color:var(--critical)}
+  .chip-warning {background:var(--chip-warning-bg); color:var(--warning); border-color:var(--warning)}
+  .chip-good    {background:var(--chip-good-bg);    color:var(--good);    border-color:var(--good)}
+  .chip-archive {background:var(--chip-archive-bg); color:var(--archive); border-color:var(--line-2)}
+  .chip-brand   {background:var(--brand-soft);      color:var(--brand);   border-color:var(--brand-ring)}
+  .chip-strong{background:var(--m1-bg);color:var(--m1-tx);border-color:var(--m1)}
+  .chip-good-m{background:var(--m2-bg);color:var(--m2-tx);border-color:var(--m2)}
+  .chip-fair  {background:var(--m3-bg);color:var(--m3-tx);border-color:var(--m3)}
+  .chip-weak  {background:var(--m4-bg);color:var(--m4-tx);border-color:var(--m4)}
+
+  /* ---------- aksiyon butonları ---------- */
+  .acts { display:flex; flex-wrap:wrap; gap:6px; margin-top:3px; }
+  .act { display:inline-flex; align-items:center; gap:6px; text-decoration:none;
+         font-family:"IBM Plex Mono",monospace; font-size:11.5px;
+         padding:6px 11px; border-radius:3px; border:1px solid var(--line-2);
+         background:transparent; color:var(--ink-2); transition:all .12s; white-space:nowrap; }
+  .act:hover { border-color:var(--brand); color:var(--brand); background:var(--brand-soft); }
+  .act.primary { background:var(--brand); border-color:var(--brand); color:var(--surface); }
+  :root[data-theme="dark"] .act.primary { color:var(--ground); }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .act.primary { color:var(--ground); } }
+  .act.primary:hover { background:var(--brand-2); border-color:var(--brand-2); }
+  .act svg { width:12px; height:12px; flex:none; }
+  .act:focus-visible,.fchip:focus-visible,.search:focus-visible,.tbtn:focus-visible,
+  .row-act:focus-visible,.rlink:focus-visible,tr:focus-visible {
+    outline:2px solid var(--brand); outline-offset:1px; }
+
+  /* ---------- kartlar ---------- */
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr)); gap:13px; }
+  .card { padding:15px 17px; display:flex; flex-direction:column; gap:9px;
+          position:relative; overflow:hidden; transition:border-color .13s; }
+  .card:hover { border-color:var(--line-strong); }
+  .card::before { content:""; position:absolute; inset:0 auto 0 0; width:2px; background:var(--critical); }
+  .card.warn::before { background:var(--warning); }
+  .card-top { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .card h3 { font-size:15px; font-weight:600; letter-spacing:-.01em; }
+  .card .role { font-size:12.5px; color:var(--ink-2); margin-top:2px; }
+  .card p { margin:0; font-size:13px; color:var(--ink-2); }
+  .card .rem { font-size:12.5px; color:var(--ink); display:flex; gap:7px; align-items:flex-start; }
+  .card .rem span:first-child { flex:none; }
+
+  /* ---------- paneller ---------- */
+  .panel { padding:17px 19px 19px; }
+  .panel h3 { font-family:"IBM Plex Mono",monospace; font-size:12.5px; font-weight:500;
+              letter-spacing:.05em; text-transform:uppercase; }
+  .panel .cap { font-size:12.5px; color:var(--ink-3); margin:5px 0 17px; }
+  .charts, .rgrid { display:grid; gap:14px; }
+  .charts { grid-template-columns:1.05fr 1fr 1fr; }
+  .rgrid { grid-template-columns:repeat(auto-fit,minmax(325px,1fr)); }
+  @media (max-width:980px){ .charts{grid-template-columns:1fr 1fr} }
+  @media (max-width:680px){ .charts{grid-template-columns:1fr} }
+
+  .vbars { display:flex; align-items:flex-end; gap:8px; height:140px; }
+  .vbar { flex:1; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; gap:6px; height:100%; }
+  .vbar .col { width:100%; background:var(--brand); border-radius:2px 2px 0 0; min-height:3px; }
+  .vbar:hover .col { background:var(--brand-2); }
+  .vbar .num { font-family:"IBM Plex Mono",monospace; font-size:12.5px; font-variant-numeric:tabular-nums; }
+  .vbar .lbl { font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--ink-3); text-align:center; line-height:1.3; }
+
+  .hbars { display:flex; flex-direction:column; gap:12px; }
+  .hbar-row { display:grid; grid-template-columns:1fr auto; gap:5px 10px; align-items:center; }
+  .hbar-lbl { font-size:12.5px; color:var(--ink-2); display:flex; align-items:center; gap:7px; }
+  .hbar-val { font-family:"IBM Plex Mono",monospace; font-size:12.5px; font-variant-numeric:tabular-nums; }
+  .hbar-track { grid-column:1/-1; height:7px; background:var(--surface-3); border-radius:2px; overflow:hidden; }
+  .hbar-fill { height:100%; border-radius:2px; }
+  .hbar-sub { grid-column:1/-1; font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--ink-3); }
+  .dot { width:8px; height:8px; border-radius:1px; flex:none; }
+
+  /* ---------- odak kartları ---------- */
+  .focus { display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr)); gap:13px; }
+  .fcard { padding:15px 17px; display:flex; flex-direction:column; gap:10px; transition:border-color .13s; }
+  .fcard:hover { border-color:var(--line-strong); }
+  .fcard-top { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .fcard h3 { font-size:15px; font-weight:600; }
+  .fcard .role { font-size:12.5px; color:var(--ink-2); margin-top:1px; }
+  .mscore { font-family:"IBM Plex Mono",monospace; font-size:24px; font-weight:500;
+            color:var(--violet); line-height:1; font-variant-numeric:tabular-nums; flex:none; text-align:right; }
+  .mscore small { display:block; font-size:9px; letter-spacing:.1em; color:var(--ink-3);
+                  margin-top:4px; text-transform:uppercase; }
+  .why { font-size:12.5px; color:var(--ink-2); }
+  .dims { display:flex; flex-direction:column; gap:5px; }
+  .dim { display:grid; grid-template-columns:90px 1fr 32px; gap:8px; align-items:center;
+         font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--ink-3); }
+  .dim-track { height:4px; background:var(--surface-3); border-radius:1px; overflow:hidden; }
+  .dim-fill { height:100%; background:var(--violet); }
+  .dim-val { font-size:10.5px; text-align:right; font-variant-numeric:tabular-nums; }
+
+  /* ---------- filtre / tablo ---------- */
+  .controls { display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-bottom:15px; }
+  .fgroup { display:flex; flex-wrap:wrap; gap:0; align-items:center; }
+  .fgroup > .glabel { font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.1em;
+                      text-transform:uppercase; color:var(--ink-3); margin-right:9px; }
+  .fchip { font-family:"IBM Plex Mono",monospace; font-size:11.5px;
+           background:var(--surface); color:var(--ink-2); border:1px solid var(--line);
+           padding:5px 11px; cursor:pointer; transition:all .12s; margin-left:-1px; }
+  .fgroup .fchip:first-of-type { border-radius:3px 0 0 3px; margin-left:0; }
+  .fgroup .fchip:last-of-type { border-radius:0 3px 3px 0; }
+  .fchip:hover { color:var(--ink); border-color:var(--line-strong); z-index:1; position:relative; }
+  .fchip[aria-pressed="true"] { background:var(--brand); border-color:var(--brand); color:var(--surface); z-index:2; position:relative; }
+  .fchip.v[aria-pressed="true"] { background:var(--violet); border-color:var(--violet); }
+  :root[data-theme="dark"] .fchip[aria-pressed="true"] { color:var(--ground); }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .fchip[aria-pressed="true"]{color:var(--ground)} }
+  .search { flex:1; min-width:170px; max-width:280px; margin-left:auto;
+            font-family:"IBM Plex Mono",monospace; font-size:12.5px;
+            background:var(--surface); color:var(--ink); border:1px solid var(--line);
+            border-radius:3px; padding:6px 12px; }
+  .search::placeholder { color:var(--ink-3); }
+
+  .tbl-scroll { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:13px; min-width:1010px; }
+  thead th { text-align:left; font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:500;
+             letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3);
+             padding:10px 13px; border-bottom:1px solid var(--line-2); background:var(--surface-2);
+             white-space:nowrap; position:sticky; top:0; z-index:1; }
+  tbody td { padding:10px 13px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:hover { background:var(--surface-2); }
+  td.num { font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; }
+  .co { font-weight:600; }
+  .ro { color:var(--ink-2); font-size:12px; }
+  .step { color:var(--ink-2); font-size:12px; max-width:260px; }
+  .sev { width:2px; padding:0 !important; }
+  .sev-critical{background:var(--critical)} .sev-high{background:var(--warning)}
+  .sev-normal{background:var(--brand)} .sev-low{background:var(--line-2)} .sev-archive{background:var(--archive)}
+  .mcell { display:flex; flex-direction:column; gap:4px; min-width:92px; }
+  .mnum { font-family:"IBM Plex Mono",monospace; font-size:13.5px; font-variant-numeric:tabular-nums; }
+  .mbar { height:3px; background:var(--surface-3); border-radius:1px; overflow:hidden; }
+  .mbar i { display:block; height:100%; }
+  .row-acts { display:flex; gap:4px; }
+  .row-act { display:grid; place-items:center; width:25px; height:25px; border-radius:3px;
+             border:1px solid var(--line); background:transparent; color:var(--ink-3);
+             text-decoration:none; transition:all .12s; }
+  .row-act:hover { border-color:var(--brand); color:var(--brand); background:var(--brand-soft); }
+  .row-act svg { width:12px; height:12px; }
+  .empty { padding:26px; text-align:center; color:var(--ink-3); font-size:13px; }
+  tbody tr.clickable { cursor:pointer; }
+
+  /* ---------- huni ---------- */
+  .funnel { display:flex; flex-direction:column; gap:8px; }
+  .frow { display:grid; grid-template-columns:168px 1fr auto; gap:12px; align-items:center; }
+  .frow .fl { font-size:12.5px; color:var(--ink-2); }
+  .frow .fl small { display:block; font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--ink-3); margin-top:2px; }
+  .fbar { height:26px; background:var(--surface-3); border-radius:2px; overflow:hidden; position:relative; }
+  .fbar i { display:block; height:100%; background:var(--brand); }
+  .fbar.partial i { background:repeating-linear-gradient(45deg,var(--brand),var(--brand) 5px,var(--brand-soft) 5px,var(--brand-soft) 10px); }
+  .fbar span { position:absolute; left:9px; top:50%; transform:translateY(-50%);
+               font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--surface); }
+  :root[data-theme="dark"] .fbar span { color:var(--ground); }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .fbar span{color:var(--ground)} }
+  .fbar.thin span { left:auto; right:9px; color:var(--ink-2) !important; }
+  .fconv { font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--ink-3);
+           min-width:52px; text-align:right; font-variant-numeric:tabular-nums; }
+  .caveat { margin-top:14px; font-size:12.5px; color:var(--ink-2);
+            border:1px solid var(--line); border-left:2px solid var(--warning);
+            border-radius:0 var(--r) var(--r) 0; padding:11px 14px; background:var(--surface-2); }
+  .caveat.soft { border-left-color:var(--violet); }
+  .caveat b { color:var(--ink); }
+
+  /* ---------- takvim ---------- */
+  .cal { display:flex; flex-wrap:wrap; gap:3px; margin-top:5px; }
+  .cal i { width:15px; height:15px; border-radius:2px; background:var(--surface-3); display:block;
+           border:1px solid transparent; }
+  .cal i.on { background:var(--brand); }
+  .streakrow { display:flex; gap:24px; flex-wrap:wrap; margin-bottom:15px; }
+  .streakrow div { display:flex; flex-direction:column; }
+  .streakrow .n { font-family:"IBM Plex Mono",monospace; font-size:23px; font-weight:500;
+                  letter-spacing:-.02em; font-variant-numeric:tabular-nums; }
+  .streakrow .l { font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--ink-3);
+                  text-transform:uppercase; letter-spacing:.07em; margin-top:2px; }
+  .streakrow .n.hot { color:var(--brand); } .streakrow .n.warn { color:var(--warning); }
+
+  /* ---------- eğitim ---------- */
+  .simbanner {
+    display:flex; gap:10px; align-items:flex-start; margin:0 0 20px;
+    border:1px solid var(--warning); border-radius:var(--r);
+    background:var(--chip-warning-bg); padding:13px 15px; font-size:13px; color:var(--ink);
+  }
+  .simbanner b { font-family:"IBM Plex Mono",monospace; color:var(--warning); letter-spacing:.04em; }
+  .simbanner svg { width:15px; height:15px; flex:none; margin-top:3px; color:var(--warning); }
+  .lcard { overflow:hidden; margin-bottom:14px; }
+  .lhead { display:flex; gap:14px; padding:16px 18px; align-items:flex-start; flex-wrap:wrap; }
+  .lrank { width:28px; height:28px; border-radius:3px; flex:none; display:grid; place-items:center;
+           font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:13px;
+           border:1px solid var(--violet); color:var(--violet); background:var(--violet-soft); }
+  .lrank.rn { border-color:var(--line-2); color:var(--ink-3); background:var(--surface-2); }
+  .lbody { flex:1; min-width:250px; }
+  .lbody h3 { font-size:16px; font-weight:600; }
+  .lbody .meta { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:8px 0 9px; }
+  .lbody p { margin:0; font-size:13px; color:var(--ink-2); }
+  .lvl { display:flex; align-items:center; gap:3px; }
+  .lvl i { width:9px; height:9px; border-radius:1px; background:var(--surface-3); display:block; }
+  .lvl i.f { background:var(--violet); }
+  .lvl i.t { background:transparent; border:1px dashed var(--violet); }
+  .res { border-top:1px solid var(--line); background:var(--surface-2); padding:13px 18px; }
+  .res-t { font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.1em;
+           text-transform:uppercase; color:var(--ink-3); margin-bottom:10px;
+           display:flex; align-items:center; gap:8px; }
+  .res-t .simtag { border:1px solid var(--warning); color:var(--warning); border-radius:2px;
+                   padding:0 5px; letter-spacing:.06em; }
+  .rlist { display:grid; gap:7px; }
+  .rlink { display:flex; gap:11px; align-items:flex-start; text-decoration:none; color:inherit;
+           background:var(--surface); border:1px solid var(--line); border-radius:3px; padding:11px 13px;
+           transition:border-color .12s; cursor:pointer; }
+  .rlink:hover { border-color:var(--brand); }
+  .rlink .ri { color:var(--violet); flex:none; margin-top:2px; }
+  .rlink .ri svg { width:13px; height:13px; }
+  .rlink .rb { flex:1; min-width:0; }
+  .rlink .rt { font-weight:600; font-size:13px; }
+  .rlink .rp { font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--ink-3); margin-top:3px;
+               display:flex; flex-wrap:wrap; gap:9px; }
+  .rlink .rn2 { font-size:12px; color:var(--ink-2); margin-top:5px; }
+  .stars { color:var(--warning); }
+  .affected { border-top:1px solid var(--line); padding:11px 18px; font-size:12.5px; color:var(--ink-2); }
+  .affected a { text-decoration:none; }
+
+  /* ---------- detay paneli ---------- */
+  .scrim { position:fixed; inset:0; background:rgba(20,22,26,.5); z-index:60;
+           opacity:0; pointer-events:none; transition:opacity .18s; }
+  .scrim.on { opacity:1; pointer-events:auto; }
+  .drawer { position:fixed; top:0; right:0; bottom:0; width:min(560px,100%); z-index:61;
+            background:var(--surface); border-left:1px solid var(--line-2);
+            transform:translateX(100%); transition:transform .22s cubic-bezier(.4,0,.2,1); overflow-y:auto; }
+  .drawer.on { transform:none; }
+  .dhead { position:sticky; top:0; background:var(--surface); border-bottom:1px solid var(--line-2);
+           padding:17px 20px; display:flex; justify-content:space-between; gap:12px; align-items:flex-start; z-index:2; }
+  .dhead h2 { font-size:18px; font-weight:600; letter-spacing:-.015em; }
+  .dhead .role { font-size:13px; color:var(--ink-2); margin-top:3px; }
+  .dclose { width:28px; height:28px; border-radius:3px; flex:none; cursor:pointer;
+            border:1px solid var(--line); background:transparent; color:var(--ink-2);
+            display:grid; place-items:center; }
+  .dclose:hover { border-color:var(--brand); color:var(--brand); }
+  .dclose svg { width:14px; height:14px; }
+  .dbody { padding:20px; display:flex; flex-direction:column; gap:22px; }
+  .dsec > h4 { font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.1em;
+               text-transform:uppercase; color:var(--ink-3); margin:0 0 11px;
+               padding-bottom:7px; border-bottom:1px solid var(--line); }
+  .kv { display:grid; grid-template-columns:104px 1fr; gap:7px 12px; font-size:13px; }
+  .kv dt { font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--ink-3); }
+  .kv dd { margin:0; color:var(--ink); }
+  .gapcard { border:1px solid var(--line); border-left:2px solid var(--violet);
+             background:var(--surface-2); border-radius:0 var(--r) var(--r) 0; padding:14px 15px; }
+  .gapcard h5 { margin:0 0 5px; font-size:14px; font-weight:600; }
+  .gapcard p { margin:0 0 11px; font-size:12.5px; color:var(--ink-2); }
+  .gapcard .rlist { gap:6px; }
+  .basis { font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--ink-3);
+           margin-top:9px; display:flex; gap:6px; align-items:flex-start; }
+  .basis svg { width:12px; height:12px; flex:none; margin-top:1px; }
+
+  /* ---------- profil ---------- */
+  .skillbars { display:grid; gap:10px; }
+  .sk { display:grid; grid-template-columns:165px 1fr 42px; gap:11px; align-items:center; font-size:13px; }
+  .sk-t { height:6px; background:var(--surface-3); border-radius:1px; overflow:hidden; position:relative; }
+  .sk-f { height:100%; background:var(--brand); }
+  .sk-g { position:absolute; top:0; bottom:0;
+          background:repeating-linear-gradient(45deg,var(--violet),var(--violet) 2px,transparent 2px,transparent 5px); }
+  .sk-v { font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--ink-2); text-align:right; }
+  .gaplist { display:grid; gap:7px; }
+  .gapitem { display:flex; gap:10px; align-items:flex-start; font-size:13px; color:var(--ink-2);
+             border:1px solid var(--line); border-radius:3px; padding:10px 12px; background:var(--surface-2); }
+  .gapitem .n { font-family:"IBM Plex Mono",monospace; color:var(--warning); flex:none; }
+  .tagrow { display:flex; flex-wrap:wrap; gap:5px; }
+
+  /* ---------- geri bildirim ---------- */
+  .feedback { border:1px solid var(--line); border-radius:var(--r); padding:20px 22px; background:var(--surface); }
+  .feedback h2 { font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:500;
+                 letter-spacing:.06em; text-transform:uppercase; margin-bottom:8px; }
+  .feedback p { margin:0 0 15px; font-size:13px; color:var(--ink-2); max-width:64ch; }
+  .qs { display:grid; gap:8px; margin:0; padding:0; list-style:none; counter-reset:q; }
+  .qs li { display:flex; gap:11px; align-items:flex-start; font-size:13.5px;
+           border:1px solid var(--line); border-radius:3px; padding:11px 13px; background:var(--surface-2); }
+  .qs li::before { counter-increment:q; content:counter(q,decimal-leading-zero); flex:none;
+                   font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--brand); margin-top:1px; }
+  .note { margin-top:15px; font-size:12.5px; color:var(--ink-2);
+          border:1px solid var(--line); border-left:2px solid var(--violet);
+          border-radius:0 var(--r) var(--r) 0; padding:11px 14px; background:var(--surface-2); }
+
+  /* ---------- toast ---------- */
+  .toast {
+    position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(14px);
+    background:var(--ink); color:var(--surface); font-family:"IBM Plex Mono",monospace; font-size:12px;
+    padding:10px 16px; border-radius:4px; z-index:80; opacity:0; pointer-events:none;
+    transition:opacity .18s, transform .18s;
+  }
+  .toast.on { opacity:1; transform:translateX(-50%); }
+
+  footer { margin-top:44px; padding-top:18px; border-top:1px solid var(--line);
+           font-family:"IBM Plex Mono",monospace; font-size:11px; line-height:1.7; color:var(--ink-3); }
+  @media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
+</style>
+
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="logo" href="#/ana"><span class="sq">in</span><span class="nm">Kariyer Pilotu</span></a>
+    <nav class="tabs" id="tabs" aria-label="Ana gezinme">
+      <a href="#/ana" data-p="ana">Ana Sayfa</a>
+      <a href="#/basvurular" data-p="basvurular">Başvurularım <span class="badge" id="nbApps"></span></a>
+      <a href="#/raporlar" data-p="raporlar">Raporlar</a>
+      <a href="#/egitim" data-p="egitim">Eğitim <span class="badge v" id="nbEdu"></span></a>
+      <a href="#/profil" data-p="profil">Profil</a>
+    </nav>
+    <div class="right">
+      <span class="stagepill" id="stagePill"></span>
+      <button class="tbtn" id="themeBtn" type="button">Tema</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ ANA SAYFA ============ -->
+  <section class="page" id="p-ana">
+    <div class="pagehead">
+      <h1>Ana Sayfa</h1>
+      <p class="sub" id="anaSub"></p>
+    </div>
+    <div class="journey" id="journeyBox"></div>
+    <div class="tiles" id="tiles"></div>
+    <section>
+      <div class="sec-head">
+        <h2>Bugün kapatılacaklar</h2>
+        <span class="count" id="actionCount"></span>
+        <span class="hint">Deadline'ı geçmiş ya da 3 gün içinde dolan işler</span>
+      </div>
+      <div class="cards" id="actionCards"></div>
+    </section>
+    <section>
+      <div class="sec-head">
+        <h2>Odak listesi</h2>
+        <span class="count" id="focusCount"></span>
+        <span class="hint">Açık süreçler içinde CV'ye en çok uyanlar</span>
+      </div>
+      <div class="focus" id="focusCards"></div>
+    </section>
+  </section>
+
+  <!-- ============ BAŞVURULARIM ============ -->
+  <section class="page" id="p-basvurular">
+    <div class="pagehead">
+      <h1>Başvurularım</h1>
+      <p class="sub">Her satır tıklanabilir — detayda eşleşme dökümü, eksik yetkinlik ve önerilen kaynak var.</p>
+    </div>
+    <div class="nudge" id="nudgeApps"></div>
+    <section style="margin-top:22px">
+      <div class="controls">
+        <div class="fgroup" id="bandGroup">
+          <span class="glabel">Aciliyet</span>
+          <button class="fchip" data-b="all" aria-pressed="true" type="button">Tümü</button>
+          <button class="fchip" data-b="critical" aria-pressed="false" type="button">Kritik</button>
+          <button class="fchip" data-b="high" aria-pressed="false" type="button">Yüksek</button>
+          <button class="fchip" data-b="normal" aria-pressed="false" type="button">Normal</button>
+          <button class="fchip" data-b="archive" aria-pressed="false" type="button">Olumsuz</button>
+        </div>
+        <div class="fgroup" id="segGroup">
+          <span class="glabel">Eşleşme</span>
+          <button class="fchip v" data-s="all" aria-pressed="true" type="button">Tümü</button>
+          <button class="fchip v" data-s="strong" aria-pressed="false" type="button">Güçlü</button>
+          <button class="fchip v" data-s="good" aria-pressed="false" type="button">İyi</button>
+          <button class="fchip v" data-s="fair" aria-pressed="false" type="button">Orta</button>
+          <button class="fchip v" data-s="weak" aria-pressed="false" type="button">Zayıf</button>
+        </div>
+        <input class="search" id="search" type="search" placeholder="Şirket veya pozisyon ara…" aria-label="Şirket veya pozisyon ara">
+      </div>
+      <div class="sec-head"><span class="count" id="tblCount"></span></div>
+      <div class="tbl-scroll">
+        <table>
+          <thead><tr>
+            <th class="sev" scope="col"></th>
+            <th scope="col">Şirket / Pozisyon</th>
+            <th scope="col">Eşleşme</th>
+            <th scope="col">Aşama</th>
+            <th scope="col">Deadline</th>
+            <th scope="col">Sessiz</th>
+            <th scope="col">Eksik yetkinlik</th>
+            <th scope="col">Aksiyon</th>
+          </tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+        <div class="empty" id="empty" hidden>Bu filtreye uyan başvuru yok.</div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ============ RAPORLAR ============ -->
+  <section class="page" id="p-raporlar">
+    <div class="pagehead">
+      <h1>Raporlar</h1>
+      <p class="sub">Sekiz rapor: nerede kaybettiğin, hangi eksiğin pahalıya mal olduğu ve ritminin ne durumda olduğu.</p>
+    </div>
+    <div class="nudge" id="nudgeRep"></div>
+
+    <section style="margin-top:22px">
+      <div class="sec-head"><h2>1 · Başvuru hunisi</h2>
+        <span class="hint">Her adımda ne kadarı elendi</span></div>
+      <div class="panel"><div class="funnel" id="funnelBox"></div><div class="caveat" id="funnelCaveat"></div></div>
+    </section>
+
+    <section>
+      <div class="sec-head"><h2>2 · Eksik yetkinlik analizi</h2>
+        <span class="count" id="gapCount"></span>
+        <span class="hint">Çıkarımsal — red e-postaları gerekçe belirtmiyor</span></div>
+      <div class="panel"><div class="hbars" id="gapBars"></div>
+        <div class="caveat soft" id="gapBasis"></div></div>
+    </section>
+
+    <div class="rgrid">
+      <div class="panel">
+        <h3>3 · Haftalık trend</h3>
+        <p class="cap">Başvuru hacmi ve o hafta ileri aşamaya geçenler</p>
+        <div class="vbars" id="trendBars"></div>
+      </div>
+      <div class="panel">
+        <h3>4 · Şirketlerin yanıt hızı</h3>
+        <p class="cap" id="speedCap"></p>
+        <div class="hbars" id="speedBars"></div>
+      </div>
+    </div>
+
+    <section>
+      <div class="sec-head"><h2>5 · Rol/sektör bazlı başarı</h2>
+        <span class="hint">En az 2 başvuru yapılan alanlar</span></div>
+      <div class="tbl-scroll">
+        <table style="min-width:720px">
+          <thead><tr><th scope="col">Alan</th><th scope="col">Başvuru</th><th scope="col">İleri aşama</th>
+            <th scope="col">İlerleme oranı</th><th scope="col">Red oranı</th><th scope="col">Ort. eşleşme</th></tr></thead>
+          <tbody id="trackBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="rgrid">
+      <div class="panel">
+        <h3>6 · Kanal etkinliği</h3>
+        <p class="cap">Hangi kanaldan yapılan başvuru ilerliyor</p>
+        <div class="hbars" id="chanBars"></div>
+      </div>
+      <div class="panel">
+        <h3>7 · Kullanım ve streak</h3>
+        <p class="cap" id="streakCap"></p>
+        <div class="streakrow" id="streakRow"></div>
+        <div class="cal" id="calBox"></div>
+        <div class="caveat" id="streakNote" style="margin-top:14px"></div>
+      </div>
+    </div>
+
+    <section>
+      <div class="sec-head"><h2>8 · Kaçırılan fırsatlar</h2>
+        <span class="count" id="missedCount"></span>
+        <span class="hint">Kaydedilip başvurulmayan ilanlar</span></div>
+      <div class="tbl-scroll">
+        <table style="min-width:760px">
+          <thead><tr><th scope="col">Şirket</th><th scope="col">Pozisyon</th><th scope="col">Tahmini eşleşme</th>
+            <th scope="col">Durum</th><th scope="col">Not</th></tr></thead>
+          <tbody id="missedBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="feedback">
+      <h2>Senden beklenen geri bildirim</h2>
+      <p id="fbLead"></p>
+      <ol class="qs">
+        <li>Bu hafta hangi <strong>3 role</strong> odaklanmak istiyorsun?</li>
+        <li>12+ gündür sessiz olan süreçlerden hangilerini <strong>kapatalım</strong>?</li>
+        <li>Hedef sektör, rol ya da lokasyon tercihin değişti mi?</li>
+        <li>Maaş beklentin güncellenmeli mi?</li>
+      </ol>
+      <p class="note" id="matchnote"></p>
+    </section>
+  </section>
+
+  <!-- ============ EĞİTİM ============ -->
+  <section class="page" id="p-egitim">
+    <div class="pagehead">
+      <h1>Eğitim</h1>
+      <p class="sub" id="eduSub"></p>
+    </div>
+    <div class="nudge" id="nudgeEdu"></div>
+    <div class="simbanner" id="simBanner" style="margin-top:18px"></div>
+    <div class="caveat soft" id="eduBasis" style="margin:0 0 22px"></div>
+    <div id="eduList"></div>
+  </section>
+
+  <!-- ============ PROFİL ============ -->
+  <section class="page" id="p-profil">
+    <div class="pagehead">
+      <h1>Profil</h1>
+      <p class="sub" id="profSub"></p>
+    </div>
+    <div class="nudge" id="nudgeProf"></div>
+    <div class="rgrid" style="margin-top:22px">
+      <div class="panel">
+        <h3>Beceri seviyeleri</h3>
+        <p class="cap">Dolu kısım CV'deki seviye, taralı kısım hedef</p>
+        <div class="skillbars" id="skillBars"></div>
+      </div>
+      <div class="panel">
+        <h3>Bilinen açıklar</h3>
+        <p class="cap">Eşleşme puanını düşüren yapısal farklar</p>
+        <div class="gaplist" id="gapList"></div>
+      </div>
+    </div>
+    <div class="rgrid" style="margin-top:16px">
+      <div class="panel">
+        <h3>Deneyim</h3>
+        <p class="cap" id="expCap"></p>
+        <div id="expList"></div>
+      </div>
+      <div class="panel">
+        <h3>Hedef alanlar</h3>
+        <p class="cap">Eşleşme motorunun "güçlü" saydığı rol ve sektörler</p>
+        <div id="domList"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" tabindex="-1">
+  <div class="dhead">
+    <div><h2 id="dTitle"></h2><div class="role" id="dRole"></div></div>
+    <button class="dclose" id="dClose" type="button" aria-label="Kapat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="dbody" id="dBody"></div>
+</aside>
+<script>
+const D = /*__DATA__*/null;
+const IN = D.insights, LC = IN.lifecycle, CAT = D.catalog.skills;
+
+/* ---------------- yardımcılar ---------------- */
+const I = {
+  ext:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>',
+  mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>',
+  inbox:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>',
+  flag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>',
+  book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>'
+};
+const ico = k => k === "mailto" ? I.mail : k === "gmail" ? I.inbox : I.ext;
+const STAGE_TR = { offer:"Teklif", interview_scheduling:"Mülakat planlama", assessment:"Değerlendirme/test",
+  next_stage:"Sonraki aşama", interviewed:"Mülakat yapıldı", application_incomplete:"Başvuru yarım",
+  in_process:"Süreçte", under_review:"İncelemede", talent_pool:"Yetenek havuzu", closed:"Kapandı" };
+const CHANNEL_TR = { ats:"ATS", linkedin:"LinkedIn", direct:"Doğrudan", aggregator:"Agregatör", indeed:"Indeed" };
+const SEG_CHIP = { strong:"chip-strong", good:"chip-good-m", fair:"chip-fair", weak:"chip-weak" };
+const SEG_VAR  = { strong:"--m1", good:"--m2", fair:"--m3", weak:"--m4" };
+const SEG_SHORT= { strong:"Güçlü", good:"İyi", fair:"Orta", weak:"Zayıf" };
+const TONE = { critical:"critical", good:"good", warning:"warning", archive:"archive" };
+const AY = ["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"];
+const fmtDate = s => { if(!s) return "—"; const [y,m,d]=s.split("-"); return `${+d} ${AY[+m-1]}`; };
+const fmtLong = s => { const [y,m,d]=s.split("-"); return `${+d} ${AY[+m-1]} ${y}`; };
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const attr = s => String(s ?? "").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+const $ = id => document.getElementById(id);
+const byId = {}; D.applications.forEach(a => byId[a.id] = a);
+
+/* ---------------- yönlendirme ---------------- */
+const PAGES = ["ana","basvurular","raporlar","egitim","profil"];
+function route() {
+  const h = (location.hash || "#/ana").replace(/^#\//, "");
+  const [page, id] = h.split("/");
+  const p = PAGES.includes(page) ? page : "ana";
+  PAGES.forEach(x => $("p-" + x).classList.toggle("on", x === p));
+  document.querySelectorAll("#tabs a").forEach(a =>
+    a.dataset.p === p ? a.setAttribute("aria-current","page") : a.removeAttribute("aria-current"));
+  if (p === "basvurular" && id && byId[id]) openDrawer(id); else closeDrawer(false);
+  window.scrollTo(0, 0);
+}
+addEventListener("hashchange", route);
+
+/* ---------------- yaşam döngüsü ---------------- */
+const cur = LC.current, nxt = LC.next;
+$("stagePill").innerHTML = `<span class="dot" style="background:var(--brand)"></span>Aşama: <b>${esc(cur.label)}</b>`;
+$("anaSub").textContent =
+  `${D.meta.owner} · ${D.stats.total} başvuru, ${D.stats.active} aktif süreç · ` +
+  `${IN.engagement.reports_sent} günlük rapor, ${IN.engagement.current_streak} günlük streak.`;
+
+$("journeyBox").innerHTML = `
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap">
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700">Nerede duruyorsun</h2>
+    <span style="font-size:12.5px;color:var(--ink-3)">${esc(cur.desc)}</span>
+  </div>
+  <div class="jtrack">${LC.all.map(s => {
+    const cls = s.order < cur.order ? "done" : s.order === cur.order ? "now" : "";
+    return `<div class="jstep ${cls}"><div class="bar"></div><div class="nm">${esc(s.label)}</div></div>`;
+  }).join("")}</div>
+  <div class="nextstep">
+    <div class="ic">${I.flag}</div>
+    <div class="bd">
+      <div class="lb">${nxt ? `Sıradaki adım — ${esc(nxt.label)} aşamasına geçmek için` : "Sıradaki adım"}</div>
+      <h3>${esc(cur.primary_cta.label)}</h3>
+      <p>${esc(cur.primary_cta.why)}</p>
+      ${LC.blockers.length ? `<div class="blockers">${LC.blockers.map(b=>`<span class="blocker">${esc(b)}</span>`).join("")}</div>` : ""}
+    </div>
+    <a class="act primary" href="#/${esc(cur.primary_cta.page)}">${esc(cur.primary_cta.label)}</a>
+  </div>`;
+
+const TOP_GAP = IN.learning_plan[0] || {};
+const NUDGE_VARS = {
+  top_gap_name: TOP_GAP.name || "—",
+  top_gap_count: TOP_GAP.affects_total ?? 0,
+  streak: IN.engagement.current_streak ?? 0,
+};
+function nudge(el, page) {
+  const raw = (LC.nudges[page] || {})[cur.key];
+  if (!raw) { el.style.display = "none"; return; }
+  const t = raw.replace(/\{(\w+)\}/g, (m, k) => k in NUDGE_VARS ? NUDGE_VARS[k] : m);
+  el.innerHTML = `<span>${I.flag}</span><span><b>Sıradaki adım:</b> ${esc(t)}</span>`;
+}
+nudge($("nudgeApps"), "basvurular"); nudge($("nudgeRep"), "raporlar");
+nudge($("nudgeEdu"), "egitim");      nudge($("nudgeProf"), "profil");
+
+/* ---------------- ana sayfa ---------------- */
+const actionApps = D.applications.filter(a => a.band === "critical");
+const strongOpen = D.applications.filter(a => a.status !== "rejected" && a.match_segment_key === "strong");
+const weakSpend  = D.applications.filter(a => ["fair","weak"].includes(a.match_segment_key));
+$("nbApps").textContent = actionApps.length;
+$("nbEdu").textContent = IN.learning_plan.length;
+[
+  { k:"Toplam başvuru", v:D.stats.total, n:"son 30 gün" },
+  { k:"Bugün aksiyon", v:actionApps.length, n:"deadline yakın/geçmiş", cls:"hot" },
+  { k:"Güçlü eşleşme", v:strongOpen.length, n:"açık ve CV'ye uygun", cls:"mat" },
+  { k:"Mülakat aşaması", v:D.stats.interviews, n:`%${D.stats.interview_rate} dönüşüm` },
+  { k:"Sessizleşen", v:D.stats.stale, n:"12+ gün yanıtsız" },
+  { k:"Boşa giden", v:weakSpend.length, n:"orta/zayıf eşleşme" },
+].forEach(t => $("tiles").insertAdjacentHTML("beforeend",
+  `<div class="tile ${t.cls||""}"><div class="k">${t.k}</div><div class="v">${t.v}</div><div class="n">${t.n}</div></div>`));
+
+function actionsHTML(a, primaryFirst) {
+  const links = a.links_actions || [];
+  if (!links.length) return "";
+  return `<div class="acts">` + links.map((l,i) =>
+    `<a class="act${primaryFirst && i===0 ? " primary" : ""}" href="${attr(l.url)}" target="_blank" rel="noopener">
+       ${ico(l.kind)}${esc(l.label)}</a>`).join("") + `</div>`;
+}
+
+$("actionCount").textContent = `${actionApps.length} iş`;
+$("actionCards").innerHTML = actionApps.map(a => {
+  const d = a.days_to_deadline;
+  let chip = `<span class="chip chip-warning">planlanmadı</span>`, warn = true;
+  if (d !== null && d !== undefined) {
+    if (d < 0)        { chip = `<span class="chip chip-critical">${Math.abs(d)} gün gecikmiş</span>`; warn = false; }
+    else if (d === 0) { chip = `<span class="chip chip-critical">bugün son gün</span>`; warn = false; }
+    else              { chip = `<span class="chip chip-warning">${d} gün kaldı</span>`; }
+  }
+  const rems = (a.reminders||[]).map(r => { const i = r.indexOf(" ");
+    return `<div class="rem"><span>${esc(r.slice(0,i))}</span><span>${esc(r.slice(i+1))}</span></div>`; }).join("");
+  const mseg = a.match_segment_key ? `<span class="chip ${SEG_CHIP[a.match_segment_key]}">eşleşme ${a.match_score}</span>` : "";
+  return `<article class="card${warn?" warn":""}">
+    <div class="card-top"><div><h3>${esc(a.company)}</h3><div class="role">${esc(a.role)}</div></div>
+      <div style="display:flex;flex-direction:column;gap:5px;align-items:flex-end">${chip}${mseg}</div></div>
+    <p>${esc(a.next_step)}</p>${rems}${actionsHTML(a, true)}</article>`;
+}).join("");
+
+const focus = D.applications.filter(a => a.status !== "rejected" && ["strong","good"].includes(a.match_segment_key))
+  .sort((a,b) => b.match_score - a.match_score).slice(0, 6);
+$("focusCount").textContent = `en güçlü ${focus.length}`;
+$("focusCards").innerHTML = focus.map(a => {
+  const dims = (a.match_breakdown||[]).map(d =>
+    `<div class="dim"><span>${esc(d.label)}</span><div class="dim-track"><div class="dim-fill" style="width:${d.pct}%"></div></div>
+       <span class="dim-val">${d.value}/${d.max}</span></div>`).join("");
+  return `<article class="fcard">
+    <div class="fcard-top"><div><h3>${esc(a.company)}</h3><div class="role">${esc(a.role)}</div></div>
+      <div class="mscore">${a.match_score}<small>eşleşme</small></div></div>
+    <div class="dims">${dims}</div><p class="why">${esc(a.match_rationale)}</p>
+    <div class="acts"><a class="act" href="#/basvurular/${esc(a.id)}">${I.ext}Detayı aç</a></div></article>`;
+}).join("");
+
+/* ---------------- başvurular tablosu ---------------- */
+let band = "all", seg = "all", query = "";
+function gapChips(a, max) {
+  const g = a.gap_skills || [];
+  if (!g.length) return `<span style="color:var(--ink-3);font-size:12px">—</span>`;
+  const show = max ? g.slice(0, max) : g;
+  return show.map(s => `<span class="chip chip-fair">${esc((CAT[s]||{}).name || s)}</span>`).join(" ")
+       + (g.length > show.length ? ` <span style="font-size:11px;color:var(--ink-3)">+${g.length-show.length}</span>` : "");
+}
+function renderTable() {
+  const q = query.trim().toLocaleLowerCase("tr");
+  const list = D.applications.filter(a =>
+    (band === "all" || a.band === band) && (seg === "all" || a.match_segment_key === seg) &&
+    (!q || (a.company+" "+a.role+" "+(a.track||"")).toLocaleLowerCase("tr").includes(q)));
+  $("tblCount").textContent = `${list.length} / ${D.applications.length} başvuru`;
+  $("empty").hidden = list.length > 0;
+  $("tbody").innerHTML = list.map(a => {
+    const d = a.days_to_deadline;
+    let dl = "—";
+    if (a.deadline) {
+      const cls = d < 0 ? "chip-critical" : d <= 3 ? "chip-warning" : "chip-brand";
+      dl = `<span class="chip ${cls}">${d < 0 ? fmtDate(a.deadline)+" · geçti" : fmtDate(a.deadline)}</span>`;
+    }
+    const k = a.match_segment_key;
+    const mcell = k ? `<div class="mcell"><span class="mnum" style="color:var(${SEG_VAR[k]})">${a.match_score}
+        <span style="font-size:10px;color:var(--ink-3);font-weight:400">${SEG_SHORT[k]}</span></span>
+        <div class="mbar"><i style="width:${a.match_score}%;background:var(${SEG_VAR[k]})"></i></div></div>` : "—";
+    const acts = (a.links_actions||[]).map(l =>
+      `<a class="row-act" href="${attr(l.url)}" target="_blank" rel="noopener" title="${attr(l.label)}"
+          aria-label="${attr(l.label)}" onclick="event.stopPropagation()">${ico(l.kind)}</a>`).join("");
+    return `<tr class="clickable" data-id="${esc(a.id)}" tabindex="0">
+      <td class="sev sev-${a.band}"></td>
+      <td><div class="co">${esc(a.company)}</div><div class="ro">${esc(a.role)}</div></td>
+      <td>${mcell}</td><td>${esc(STAGE_TR[a.stage]||a.stage)}</td><td>${dl}</td>
+      <td class="num">${a.days_silent == null ? "—" : a.days_silent+"g"}</td>
+      <td>${gapChips(a, 2)}</td><td><div class="row-acts">${acts}</div></td></tr>`;
+  }).join("");
+  $("tbody").querySelectorAll("tr").forEach(tr => {
+    const go = () => location.hash = "#/basvurular/" + tr.dataset.id;
+    tr.addEventListener("click", go);
+    tr.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+  });
+}
+document.querySelectorAll("#bandGroup .fchip").forEach(b => b.addEventListener("click", () => {
+  band = b.dataset.b;
+  document.querySelectorAll("#bandGroup .fchip").forEach(x => x.setAttribute("aria-pressed", String(x===b)));
+  renderTable();
+}));
+document.querySelectorAll("#segGroup .fchip").forEach(b => b.addEventListener("click", () => {
+  seg = b.dataset.s;
+  document.querySelectorAll("#segGroup .fchip").forEach(x => x.setAttribute("aria-pressed", String(x===b)));
+  renderTable();
+}));
+$("search").addEventListener("input", e => { query = e.target.value; renderTable(); });
+renderTable();
+
+/* ---------------- detay paneli ---------------- */
+const stars = n => "★".repeat(Math.round(n)) + "☆".repeat(5 - Math.round(n));
+const nfmt = n => n >= 1000 ? (n/1000).toFixed(n >= 10000 ? 0 : 1).replace(".",",") + "b" : String(n);
+function resourceList(skill, limit) {
+  const m = CAT[skill]; if (!m) return "";
+  return `<div class="rlist">` + m.resources.slice(0, limit || 3).map(r =>
+    `<a class="rlink" href="${attr(r.url)}" data-sim="1" role="button">
+       <span class="ri">${I.book}</span>
+       <span class="rb"><span class="rt">${esc(r.title)}</span>
+         <span class="rp">
+           <span>${esc(r.provider)}</span>
+           ${r.rating ? `<span><span class="stars">${stars(r.rating)}</span> ${String(r.rating).replace(".",",")}</span>` : ""}
+           ${r.students ? `<span>${nfmt(r.students)} kayıt</span>` : ""}
+           ${r.duration ? `<span>${esc(r.duration)}</span>` : ""}
+           ${r.cost ? `<span>${esc(r.cost)}</span>` : ""}
+           <span>${esc(r.level)}</span>
+         </span>
+         ${r.note ? `<span class="rn2">${esc(r.note)}</span>` : ""}</span>
+     </a>`).join("") + `</div>`;
+}
+
+/* Simüle kurs bağlantıları gerçek bir sayfaya gitmez; tıklayınca bunu söyle. */
+let toastT = null;
+function toast(msg) {
+  const el = $("toast"); el.textContent = msg; el.classList.add("on");
+  clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove("on"), 2600);
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[data-sim="1"]');
+  if (!a) return;
+  e.preventDefault();
+  toast("Simülasyon verisi — bu kurs bağlantısı gerçek değil.");
+});
+let lastFocus = null;
+function openDrawer(id) {
+  const a = byId[id]; if (!a) return;
+  lastFocus = document.activeElement;
+  $("dTitle").textContent = a.company; $("dRole").textContent = a.role;
+  const k = a.match_segment_key;
+  const dims = (a.match_breakdown||[]).map(d =>
+    `<div class="dim"><span>${esc(d.label)}</span><div class="dim-track"><div class="dim-fill" style="width:${d.pct}%"></div></div>
+       <span class="dim-val">${d.value}/${d.max}</span></div>`).join("");
+  const gaps = (a.gap_skills||[]).map(s => {
+    const m = CAT[s]; if (!m) return "";
+    const rejected = a.status === "rejected";
+    return `<div class="gapcard">
+      <h5>${esc(m.name)}</h5>
+      <p>${rejected
+        ? `Bu ilan ${esc(m.name)} bekliyordu, CV'nde bu seviye yok. Süreç olumsuz sonuçlandı — şirket gerekçe belirtmedi, bu bir çıkarım.`
+        : `Bu ilan ${esc(m.name)} bekliyor, CV'nde ${m.cv_level === 0 ? "hiç yok" : m.cv_level + "/5 seviyesinde"}.`}</p>
+      ${resourceList(s, 2)}
+      <div class="basis"><span>${I.flag}</span><span>Kurs kayıtları simülasyondur. Aynı öneri Eğitim sayfasında ${esc(m.name)} başlığı altında da var.</span></div>
+    </div>`;
+  }).join("");
+  $("dBody").innerHTML = `
+    <div class="dsec">
+      <h4>Eşleşme</h4>
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px">
+        <div class="mscore" style="font-size:34px">${a.match_score}<small>/ 100</small></div>
+        <span class="chip ${SEG_CHIP[k]}" style="font-size:12px">${esc(SEG_SHORT[k])} eşleşme</span>
+      </div>
+      <div class="dims">${dims}</div>
+      <p style="font-size:13.5px;color:var(--ink-2);margin:11px 0 0">${esc(a.match_rationale)}</p>
+    </div>
+    <div class="dsec"><h4>Süreç</h4><dl class="kv">
+      <dt>Aşama</dt><dd>${esc(STAGE_TR[a.stage]||a.stage)}</dd>
+      <dt>Kanal</dt><dd>${esc(CHANNEL_TR[a.channel]||a.channel)}</dd>
+      <dt>Başvuru</dt><dd>${fmtLong(a.applied)}</dd>
+      <dt>Son temas</dt><dd>${fmtLong(a.last_contact)}${a.days_silent!=null?` · ${a.days_silent} gün sessiz`:""}</dd>
+      ${a.deadline?`<dt>Deadline</dt><dd>${fmtLong(a.deadline)}${a.days_to_deadline<0?" · geçti":""}</dd>`:""}
+      ${a.location?`<dt>Lokasyon</dt><dd>${esc(a.location)}</dd>`:""}
+      ${a.contact?`<dt>İletişim</dt><dd>${esc(a.contact)}</dd>`:""}
+    </dl></div>
+    <div class="dsec"><h4>Sonraki adım</h4>
+      <p style="font-size:14px;margin:0 0 12px">${esc(a.next_step)}</p>
+      ${(a.reminders||[]).map(r=>`<div class="rem" style="margin-bottom:6px">${esc(r)}</div>`).join("")}
+      ${actionsHTML(a, true)}</div>
+    ${gaps ? `<div class="dsec"><h4>Eksik yetkinlik ve önerilen kaynak</h4>
+       <div style="display:flex;flex-direction:column;gap:12px">${gaps}</div></div>` : ""}
+    ${a.notes ? `<div class="dsec"><h4>Not</h4><p style="font-size:13.5px;color:var(--ink-2);margin:0">${esc(a.notes)}</p></div>` : ""}`;
+  $("drawer").classList.add("on"); $("scrim").classList.add("on");
+  $("drawer").focus();
+}
+function closeDrawer(nav) {
+  $("drawer").classList.remove("on"); $("scrim").classList.remove("on");
+  if (nav && location.hash.startsWith("#/basvurular/")) location.hash = "#/basvurular";
+  if (nav && lastFocus) lastFocus.focus();
+}
+$("dClose").addEventListener("click", () => closeDrawer(true));
+$("scrim").addEventListener("click", () => closeDrawer(true));
+addEventListener("keydown", e => { if (e.key === "Escape" && $("drawer").classList.contains("on")) closeDrawer(true); });
+
+/* ---------------- raporlar ---------------- */
+const F = IN.funnel, fmax = Math.max(...F.steps.map(s => s.value));
+$("funnelBox").innerHTML = F.steps.map(s => {
+  // Taralı (alt sınır) çubukta sayı desenin üstünde okunmuyor — etiketi dışarı al.
+  const w = Math.round(100 * s.value / fmax), thin = w < 18 || s.partial;
+  return `<div class="frow">
+    <div class="fl">${esc(s.label)}<small>${esc(s.note)}</small></div>
+    <div class="fbar ${s.partial?"partial":""} ${thin?"thin":""}">
+      <i style="width:${Math.max(w,2)}%"></i><span>${s.value}</span></div>
+    <div class="fconv">${s.conv_from_prev != null ? "%"+s.conv_from_prev : "—"}</div></div>`;
+}).join("");
+$("funnelCaveat").innerHTML = `<b>Dikkat:</b> ${esc(F.caveat)} Taralı çubuk, sayının alt sınır olduğunu gösterir.`;
+
+const GAPS = IN.skill_gaps.rows, gmax = Math.max(...GAPS.map(g => g.total));
+$("gapCount").textContent = `${GAPS.length} yetkinlik`;
+$("gapBars").innerHTML = GAPS.map(g =>
+  `<div class="hbar-row" title="${esc(g.name)}: ${g.total} başvuru">
+     <div class="hbar-lbl"><span class="dot" style="background:var(--violet)"></span>${esc(g.name)}</div>
+     <div class="hbar-val">${g.total}</div>
+     <div class="hbar-track"><div class="hbar-fill" style="width:${Math.round(100*g.total/gmax)}%;background:var(--violet)"></div></div>
+     <div class="hbar-sub">${g.rejected} olumsuz sonuçlanan başvuruda · ${g.open} açık süreçte</div></div>`).join("");
+$("gapBasis").innerHTML = `<b>Bu veri nereden geliyor:</b> ${esc(IN.skill_gaps.basis)}`;
+
+const T = IN.trend, tmax = Math.max(...T.map(t => t.applied));
+$("trendBars").innerHTML = T.map(t =>
+  `<div class="vbar" title="${esc(t.label)}: ${t.applied} başvuru, ${t.advanced} ileri aşama">
+     <div class="num">${t.applied}</div>
+     <div class="col" style="height:${Math.round(100*t.applied/tmax)}%"></div>
+     <div class="lbl">${esc(t.label)}<br><span style="color:var(--good)">${t.advanced} ilerledi</span></div></div>`).join("");
+
+const SP = IN.response_speed, spmax = Math.max(...SP.buckets.map(b => b.value), 1);
+$("speedCap").textContent = `${SP.responded} başvuruya dönüş geldi, medyan ${SP.median_days} gün · ${SP.silent} başvuru hiç yanıtlanmadı`;
+$("speedBars").innerHTML = SP.buckets.map(b =>
+  `<div class="hbar-row"><div class="hbar-lbl"><span class="dot" style="background:var(--brand)"></span>${esc(b.label)}</div>
+     <div class="hbar-val">${b.value}</div>
+     <div class="hbar-track"><div class="hbar-fill" style="width:${Math.round(100*b.value/spmax)}%;background:var(--brand)"></div></div></div>`).join("");
+
+$("trackBody").innerHTML = IN.track_success.map(t =>
+  `<tr><td class="co">${esc(t.name)}</td><td class="num">${t.count}</td><td class="num">${t.advanced}</td>
+     <td class="num" style="color:${t.advance_rate>0?"var(--good)":"var(--ink-3)"}">%${t.advance_rate}</td>
+     <td class="num">%${t.reject_rate}</td><td class="num">${t.avg_match ?? "—"}</td></tr>`).join("");
+
+const CH = IN.channel_success, chmax = Math.max(...CH.map(c => c.count));
+$("chanBars").innerHTML = CH.map(c =>
+  `<div class="hbar-row" title="${esc(CHANNEL_TR[c.name]||c.name)}"><div class="hbar-lbl">
+     <span class="dot" style="background:var(--brand)"></span>${esc(CHANNEL_TR[c.name]||c.name)}</div>
+     <div class="hbar-val">${c.count}</div>
+     <div class="hbar-track"><div class="hbar-fill" style="width:${Math.round(100*c.count/chmax)}%;background:var(--brand)"></div></div>
+     <div class="hbar-sub">ileri aşama %${c.advance_rate} · red %${c.reject_rate}</div></div>`).join("");
+
+const E = IN.engagement;
+$("streakCap").textContent = `${fmtLong(E.tracking_started)} tarihinden bu yana ${E.days_tracked} gün`;
+$("streakRow").innerHTML = `
+  <div><span class="n hot">${E.current_streak}</span><span class="l">güncel streak</span></div>
+  <div><span class="n">${E.longest_streak}</span><span class="l">en uzun</span></div>
+  <div><span class="n">${E.reports_sent}/${E.days_tracked}</span><span class="l">rapor günü</span></div>
+  <div><span class="n">%${E.coverage}</span><span class="l">kapsama</span></div>
+  <div><span class="n ${E.feedback_replies?"":"warn"}">${E.feedback_replies}</span><span class="l">geri bildirim</span></div>`;
+$("calBox").innerHTML = E.calendar.map(c =>
+  `<i class="${c.active?"on":""}" title="${fmtLong(c.date)} — ${c.active?"rapor gönderildi":"rapor yok"}"></i>`).join("");
+$("streakNote").innerHTML = E.feedback_replies === 0
+  ? `<b>Alışkanlığa giden tek eksik:</b> ${E.reports_sent} rapor gönderildi ama hiçbirine yanıt yazılmadı. Döngü tek yönlü kaldığı için sistem senin tercihlerini öğrenemiyor. Bir rapora cevap yazmak, "${esc(nxt ? nxt.label : "Alışkanlık")}" aşamasının iki şartından birini karşılar.`
+  : `Streak ${E.current_streak} gün. 7 güne ulaşınca haftalık trend anlamlı hale gelir.`;
+
+const M = IN.missed;
+$("missedCount").textContent = `${M.not_applied} / ${M.saved_total}`;
+$("missedBody").innerHTML = [...M.strong_missed, ...M.all_open.filter(j => j.match_estimate < 75), ...M.expired.filter(j => j.match_estimate < 75)]
+  .filter((j,i,arr) => arr.findIndex(x => x.company===j.company && x.role===j.role) === i)
+  .map(j => `<tr><td class="co">${esc(j.company)}</td><td class="ro">${esc(j.role)}</td>
+     <td class="num" style="color:var(--violet);font-weight:600">${j.match_estimate}</td>
+     <td>${j.expired ? `<span class="chip chip-critical">süresi doldu</span>` : `<span class="chip chip-warning">hâlâ açık</span>`}</td>
+     <td class="step">${esc(j.note)}</td></tr>`).join("");
+
+$("fbLead").textContent = LC.blockers.length
+  ? "Bu dört yanıt hem eşleşme puanlarını yeniden ayarlar hem de seni Alışkanlık aşamasına taşıyan iki şarttan birini karşılar."
+  : "Bu dört yanıt bir sonraki taramanın önceliklerini ve eşleşme puanlarını yeniden ayarlar.";
+const pct = Math.round(100 * weakSpend.length / D.stats.total);
+$("matchnote").innerHTML =
+  `<strong>Eşleşme verisi ne söylüyor:</strong> başvuruların ${weakSpend.length}'i (%${pct}) orta veya zayıf eşleşmeye gitmiş. ` +
+  `Güçlü eşleşmelerin ileri aşamaya geçme oranı %${D.segments.strong.advance_rate}, zayıflarınki %${D.segments.weak.advance_rate}.`;
+
+/* ---------------- eğitim ---------------- */
+const LP = IN.learning_plan;
+$("eduSub").textContent =
+  `${LP.length} eksik yetkinlik, etkilediği başvuru sayısına ve redlerde görülme sıklığına göre sıralandı. ` +
+  `En üstteki tek başına ${LP[0].affects_total} başvuruyu etkiliyor.`;
+$("simBanner").innerHTML = `${I.flag}<span><b>SİMÜLASYON VERİSİ.</b> Aşağıdaki kurs kayıtları örnek amaçlıdır — ` +
+  `başlıklar, puanlar, kayıt sayıları, süreler ve fiyatlar uydurmadır ve bağlantılar gerçek bir sayfaya gitmez. ` +
+  `Eksik yetkinliklerin kendisi ve öncelik sıralaması ise gerçek başvuru verisinden hesaplanmıştır. ` +
+  `Canlı sürümde bu blok bir kurs sağlayıcı API'sinden doldurulur.</span>`;
+$("eduBasis").innerHTML = `<b>Öncelik nasıl hesaplandı:</b> ${esc(IN.skill_gaps.basis)} ` +
+  `Öncelik = (redlerde görülme × 3) + (açık süreçlerde görülme × 1) + (seviye farkı × 2).`;
+$("eduList").innerHTML = LP.map(g => {
+  const lv = n => `<span class="lvl">${[1,2,3,4,5].map(i =>
+    `<i class="${i<=g.cv_level?"f":i<=g.target_level?"t":""}"></i>`).join("")}</span>`;
+  return `<article class="lcard">
+    <div class="lhead">
+      <div class="lrank ${g.rank===1?"":g.rank===2?"r2":g.rank===3?"r3":"rn"}">${g.rank}</div>
+      <div class="lbody">
+        <h3>${esc(g.name)}</h3>
+        <div class="meta">
+          <span class="chip chip-brand">${g.affects_total} başvuruda bekleniyordu</span>
+          ${g.seen_in_rejections ? `<span class="chip chip-critical">${g.seen_in_rejections} olumsuz sonuçta</span>` : ""}
+          ${g.affects_open ? `<span class="chip chip-good">${g.affects_open} açık süreçte</span>` : ""}
+          ${g.effort ? `<span class="chip chip-archive">${esc(g.effort)}</span>` : ""}
+          ${lv()}
+          <span style="font-size:11.5px;color:var(--ink-3)">CV ${g.cv_level}/5 → hedef ${g.target_level}/5</span>
+        </div>
+        <p>${esc(g.why)}</p>
+        ${g.caveat ? `<p style="margin-top:8px;color:var(--warning);font-size:13px"><b>Not:</b> ${esc(g.caveat)}</p>` : ""}
+      </div>
+    </div>
+    <div class="res"><div class="res-t">Önerilen kaynaklar <span class="simtag">simülasyon</span></div>${resourceList(g.skill, 4)}</div>
+    ${g.applications.length ? `<div class="affected">Etkilediği başvurular: ` +
+      g.applications.map(x => `<a href="#/basvurular/${esc(x.id)}" style="color:var(--brand);text-decoration:none"><b>${esc(x.company)}</b></a>`).join(" · ") +
+      `</div>` : ""}
+  </article>`;
+}).join("");
+
+/* ---------------- profil ---------------- */
+const P = D.profile;
+$("profSub").textContent = `${esc(P.headline)} · CV sürümü: ${esc(P.cv_version)} · eşleşme puanlarının tamamı bu profile göre hesaplanıyor.`;
+const skillNames = Object.keys(P.skills);
+$("skillBars").innerHTML = skillNames.map(n => {
+  const v = P.skills[n];
+  const cat = Object.values(CAT).find(c => c.name.toLowerCase().startsWith(n.toLowerCase().split(" ")[0]));
+  const target = cat ? cat.target_level : v;
+  return `<div class="sk"><span>${esc(n)}</span>
+    <div class="sk-t"><div class="sk-f" style="width:${v*20}%"></div>
+      ${target>v?`<div class="sk-g" style="left:${v*20}%;width:${(target-v)*20}%"></div>`:""}</div>
+    <span class="sk-v">${v}/5</span></div>`;
+}).join("") + Object.entries(CAT).filter(([k,c]) => c.cv_level === 0).map(([k,c]) =>
+  `<div class="sk"><span style="color:var(--ink-3)">${esc(c.name)}</span>
+    <div class="sk-t"><div class="sk-g" style="left:0;width:${c.target_level*20}%"></div></div>
+    <span class="sk-v" style="color:var(--warning)">yok</span></div>`).join("");
+$("gapList").innerHTML = P.gaps.map((g,i) =>
+  `<div class="gapitem"><span class="n">${i+1}</span><span>${esc(g)}</span></div>`).join("");
+$("expCap").textContent = `${P.seniority.years_professional} yıl profesyonel deneyim · ${esc(P.seniority.current_title)}`;
+$("expList").innerHTML = P.experience.map(e =>
+  `<div style="padding:11px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+       <b style="font-family:'Plus Jakarta Sans',sans-serif;font-size:14px">${esc(e.title)}</b>
+       <span class="mono" style="font-size:11.5px;color:var(--ink-3)">${esc(e.from)} → ${esc(e.to || "devam")}</span></div>
+     <div style="font-size:12.5px;color:var(--ink-2);margin-top:2px">${esc(e.company)}</div>
+     ${e.highlights.length ? `<ul style="margin:7px 0 0;padding-left:17px;font-size:12.5px;color:var(--ink-2)">`
+        + e.highlights.map(h=>`<li>${esc(h)}</li>`).join("") + `</ul>` : ""}
+   </div>`).join("");
+$("domList").innerHTML =
+  `<div class="res-t" style="margin-bottom:8px">Güçlü alanlar</div>
+   <div class="tagrow">${P.domains_strong.map(d=>`<span class="chip chip-good">${esc(d)}</span>`).join("")}</div>
+   <div class="res-t" style="margin:16px 0 8px">Güçlü sektörler</div>
+   <div class="tagrow">${P.industries_strong.map(d=>`<span class="chip chip-brand">${esc(d)}</span>`).join("")}</div>
+   <div class="res-t" style="margin:16px 0 8px">Transfer edilebilir sektörler</div>
+   <div class="tagrow">${P.industries_transferable.map(d=>`<span class="chip chip-archive">${esc(d)}</span>`).join("")}</div>`;
+
+/* ---------------- tema + altbilgi ---------------- */
+const btn = $("themeBtn");
+function isDark(){ const c = document.documentElement.getAttribute("data-theme");
+  return c === "dark" || (!c && matchMedia("(prefers-color-scheme: dark)").matches); }
+function label(){ btn.textContent = isDark() ? "Açık" : "Koyu"; }
+btn.addEventListener("click", () => {
+  document.documentElement.setAttribute("data-theme", isDark() ? "light" : "dark"); label(); });
+label();
+
+$("foot").innerHTML =
+  `Kaynak: ${esc(D.meta.source)} · Tarama ${fmtDate(D.meta.scan_window.from)} – ${fmtLong(D.meta.scan_window.to)} · ` +
+  `Eşleşme = rol ailesi (35) + kıdem (25) + beceri örtüşmesi (25) + sektör (15) − lokasyon cezası. ` +
+  `Eksik yetkinlikler çıkarımsaldır — red e-postaları gerekçe içermiyor. ` +
+  `Kurs kayıtları simülasyondur; bağlantılar gerçek sayfa açmaz.`;
+
+route();
+</script>
