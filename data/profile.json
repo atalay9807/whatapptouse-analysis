@@ -1,8 +1,8 @@
 {
-  "name": "Atalay Denizer",
-  "cv_version": "2026-09 (AtalayDenizer.CV.pdf)",
+  "name": "Kerem Aydın",
+  "cv_version": "2026-09 (KeremAydin.CV.pdf)",
   "location": "İstanbul",
-  "headline": "Growth ve finansal analitik uzmanı — Getir'de 2 yıl",
+  "headline": "Growth ve finansal analitik uzmanı — Anka Express'de 2 yıl",
   "summary": "FP&A ile lifecycle growth analitiğini birleştiriyor: milyonlarca kullanıcılı aktif tabanda churn azaltma, çok milyonlu TL retention bütçesi yönetimi, C-level raporlama. Mühendislik altyapısından staj ve FP&A rolleriyle ticari analitiğe geçti.",
 
   "seniority": {
@@ -17,16 +17,16 @@
   },
 
   "experience": [
-    { "title": "Growth Strategy Specialist", "company": "Getir", "from": "2025-12", "to": null,
-      "highlights": ["GetirFood + GetirLocals growth planlama, kullanıcı kazanımı ve 1-5 sipariş alışkanlık oluşturma",
+    { "title": "Growth Strategy Specialist", "company": "Anka Express", "from": "2025-12", "to": null,
+      "highlights": ["Anka Express Food + Anka Express Locals growth planlama, kullanıcı kazanımı ve 1-5 sipariş alışkanlık oluşturma",
                      "90 günlük churn -4.8pp, 60 günlük churn -5.1pp (5 ay)",
                      "Aylık 10M TL newcomer + 15M TL churn bütçesi sahipliği, aktif müşteride %17 artış",
                      "CAC, LTV, kohort retention, conversion rate için Tableau/Excel panoları; A/B test takibi"] },
-    { "title": "Financial Planning & Analysis Specialist", "company": "Getir", "from": "2025-03", "to": "2025-12",
+    { "title": "Financial Planning & Analysis Specialist", "company": "Anka Express", "from": "2025-03", "to": "2025-12",
       "highlights": ["Çok senaryolu bütçe modelleri, aylık forecast döngüleri",
                      "Restoran bazlı ve depo bazlı P&L analizleri; yapısal olarak kârsız lokasyonların tespiti",
                      "Controlling, muhasebe ve hazine ile aylık kapanış mutabakatı"] },
-    { "title": "Commercial Strategy Intern", "company": "Getir", "from": "2024-09", "to": "2025-02",
+    { "title": "Commercial Strategy Intern", "company": "Anka Express", "from": "2024-09", "to": "2025-02",
       "highlights": ["Kategori/alt kategori hedef planlama, 1 yıllık gelir tahminleri, tedarikçi destek programları",
                      "Rakip kampanya ve fiyat izleme panoları; talep ve esneklik sinyalleriyle fiyat stratejisi"] },
     { "title": "Content Moderator", "company": "Conectys Turkey", "from": "2020-09", "to": "2021-10", "highlights": [] }
