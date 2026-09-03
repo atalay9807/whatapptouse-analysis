@@ -12,11 +12,11 @@
   :root{
     --ground:#EDEFF3; --ground-2:#E4E8EE; --ground-3:#DBE0E8;
     --surface:#FBFCFD; --surface-2:#F3F5F8;
-    --ink:#1A1F2B; --ink-2:#4E5768; --ink-3:#77808F;
+    --ink:#1A1F2B; --ink-2:#4E5768; --ink-3:#5E6672;
     --line:#DDE2E9; --line-2:#C8CFD9;
     --indigo:#454FA6; --indigo-deep:#39428F; --indigo-soft:#E7E9F5;
-    --brass:#8A6D1A; --brass-soft:#F2EDDC;
-    --good:#2E7D62; --warn:#9A6B10; --crit:#B4442E;
+    --brass:#715913; --brass-soft:#F2EDDC;
+    --good:#266953; --warn:#7F5809; --crit:#B4442E;
     --maxw:1120px;
     color-scheme:light;
   }
@@ -180,6 +180,32 @@
   footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
     font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);line-height:1.8}
   footer a{color:var(--ink-2);text-decoration:none} footer a:hover{color:var(--indigo)}
+
+  :root{--surface-3:#DBE0E8;--line-2:#C8CFD9;--violet:#7A4B9E;--brand:#454FA6;--ink-2:#4E5768;--ink-3:#5E6672;
+        --good:#266953;--warning:#7F5809;--critical:#B4442E;--surface-2:#F3F5F8}
+  /* ---------- tanıtım turu ---------- */
+  .tourwrap{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:22px;
+            background:rgba(16,20,26,.62)}
+  .tourwrap.on{display:flex}
+  .tour{background:var(--surface);border:1px solid var(--line-2);border-radius:8px;max-width:820px;width:100%;
+        max-height:92vh;overflow:auto;display:flex;flex-direction:column}
+  .tour-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px;
+            border-bottom:1px solid var(--line)}
+  .tour-step{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;
+             text-transform:uppercase;color:var(--brand)}
+  .tour-skip{background:none;border:none;color:var(--ink-3);font-family:"IBM Plex Mono",monospace;
+             font-size:11.5px;cursor:pointer;padding:4px 6px}
+  .tour-skip:hover{color:var(--ink)}
+  .tour-body{padding:26px 30px 8px;text-align:center}
+  .tour-body h2{font-size:26px;font-weight:600;margin-bottom:10px}
+  .tour-body p{font-size:14.5px;color:var(--ink-2);max-width:58ch;margin:0 auto}
+  .tour-art{margin:22px auto 6px;max-width:660px}
+  .tour-art svg{width:100%;height:auto;display:block}
+  .tour-bot{display:flex;align-items:center;gap:14px;padding:16px 22px;border-top:1px solid var(--line);margin-top:18px}
+  .tour-dots{display:flex;gap:6px;margin-right:auto}
+  .tour-dots i{width:7px;height:7px;border-radius:50%;background:var(--line-2);display:block;cursor:pointer}
+  .tour-dots i.on{background:var(--brand);width:20px;border-radius:4px}
+
 </style>
 </head>
 <body>
@@ -197,6 +223,7 @@
       <a href="#bulgular">Bulgular</a>
       <a href="#teknik">Teknik</a>
     </nav>
+    <button class="btn" id="tourBtn" type="button" style="cursor:pointer">Nasıl çalışır</button>
     <a class="btn pri" href="app.html">Canlı demo</a>
   </div>
 </header>
@@ -472,5 +499,157 @@
   </div>
 </footer>
 
+<div class="tourwrap" id="tourWrap" role="dialog" aria-modal="true" aria-labelledby="tourTitle">
+  <div class="tour">
+    <div class="tour-top">
+      <span class="tour-step" id="tourStep"></span>
+      <button class="tour-skip" id="tourSkip" type="button">Atla ✕</button>
+    </div>
+    <div class="tour-body">
+      <div class="tour-art" id="tourArt"></div>
+      <h2 id="tourTitle"></h2>
+      <p id="tourText"></p>
+    </div>
+    <div class="tour-bot">
+      <div class="tour-dots" id="tourDots"></div>
+      <button class="act" id="tourPrev" type="button">Geri</button>
+      <button class="act primary" id="tourNext" type="button">İleri</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const I = { flag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>' };
+/* ================= TANITIM TURU ================= */
+/* Üç adımlı anlatım. Görseller, mekanizmayı gösteren satır içi SVG —
+   ekran görüntüsü değil, akışın kendisi. */
+const A = { bg:"var(--surface-2)", ln:"var(--line-2)", br:"var(--brand)", vi:"var(--violet)",
+            ink:"var(--ink)", ink2:"var(--ink-2)", ink3:"var(--ink-3)", ok:"var(--good)",
+            wa:"var(--warning)", cr:"var(--critical)", sf:"var(--surface)" };
+
+const ART1 = `<svg viewBox="0 0 660 200" role="img" aria-label="CV ve Gmail girdileri profil çıkarımına akıyor">
+  <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+    <path d="M0 1 L7 4 L0 7 z" fill="${A.ink3}"/></marker></defs>
+  <g>
+    <rect x="14" y="26" width="132" height="66" rx="5" fill="${A.sf}" stroke="${A.ln}"/>
+    <path d="M32 44h64M32 56h84M32 68h52" stroke="${A.ink3}" stroke-width="3" stroke-linecap="round"/>
+    <text x="80" y="110" text-anchor="middle" font-size="12" fill="${A.ink2}" font-family="IBM Plex Mono,monospace">CV</text>
+  </g>
+  <g>
+    <rect x="14" y="122" width="132" height="52" rx="5" fill="${A.sf}" stroke="${A.ln}"/>
+    <rect x="32" y="136" width="96" height="24" rx="3" fill="none" stroke="${A.br}" stroke-width="1.6"/>
+    <path d="M32 138l48 16 48-16" fill="none" stroke="${A.br}" stroke-width="1.6"/>
+    <text x="80" y="190" text-anchor="middle" font-size="12" fill="${A.ink2}" font-family="IBM Plex Mono,monospace">Gmail</text>
+  </g>
+  <path d="M152 60 H236" stroke="${A.ink3}" stroke-width="1.6" marker-end="url(#ar)"/>
+  <path d="M152 146 H236" stroke="${A.ink3}" stroke-width="1.6" marker-end="url(#ar)"/>
+  <rect x="244" y="52" width="140" height="102" rx="5" fill="${A.bg}" stroke="${A.br}" stroke-width="1.6"/>
+  <text x="314" y="80" text-anchor="middle" font-size="12.5" fill="${A.ink}" font-family="Archivo,sans-serif" font-weight="600">Profil çıkarımı</text>
+  <text x="314" y="99" text-anchor="middle" font-size="10.5" fill="${A.ink3}" font-family="IBM Plex Mono,monospace">kıdem · beceri · açık</text>
+  <rect x="268" y="112" width="92" height="5" rx="2.5" fill="${A.br}"/>
+  <rect x="268" y="124" width="66" height="5" rx="2.5" fill="${A.br}"/>
+  <rect x="268" y="136" width="40" height="5" rx="2.5" fill="${A.vi}"/>
+  <path d="M392 103 H468" stroke="${A.ink3}" stroke-width="1.6" marker-end="url(#ar)"/>
+  <rect x="476" y="46" width="170" height="114" rx="5" fill="${A.sf}" stroke="${A.ln}"/>
+  <text x="561" y="72" text-anchor="middle" font-size="12.5" fill="${A.ink}" font-family="Archivo,sans-serif" font-weight="600">Hazır profil</text>
+  <g font-family="IBM Plex Mono,monospace" font-size="10" fill="${A.ink2}">
+    <text x="496" y="95">Excel · Tableau</text><text x="638" y="95" text-anchor="end" fill="${A.ok}">5/5</text>
+    <text x="496" y="116">SQL</text><text x="638" y="116" text-anchor="end" fill="${A.wa}">3/5</text>
+    <text x="496" y="137">Python</text><text x="638" y="137" text-anchor="end" fill="${A.cr}">yok</text>
+  </g>
+</svg>`;
+
+const ART2 = `<svg viewBox="0 0 660 210" role="img" aria-label="Gelen e-postalar sınıflandırılıp puanlanıyor ve hatırlatma üretiliyor">
+  <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+    <path d="M0 1 L7 4 L0 7 z" fill="${A.ink3}"/></marker></defs>
+  <text x="72" y="20" text-anchor="middle" font-size="10.5" fill="${A.ink3}" font-family="IBM Plex Mono,monospace">GELEN KUTUSU</text>
+  ${[0,1,2,3].map((i)=>`<g><rect x="14" y="${32+i*42}" width="116" height="32" rx="4" fill="${A.sf}" stroke="${A.ln}"/>
+    <path d="M28 ${44+i*42}h50M28 ${54+i*42}h74" stroke="${A.ink3}" stroke-width="2.4" stroke-linecap="round"/></g>`).join("")}
+  <path d="M138 108 H206" stroke="${A.ink3}" stroke-width="1.6" marker-end="url(#ar2)"/>
+  <rect x="214" y="66" width="126" height="84" rx="5" fill="${A.bg}" stroke="${A.br}" stroke-width="1.6"/>
+  <text x="277" y="92" text-anchor="middle" font-size="12" fill="${A.ink}" font-family="Archivo,sans-serif" font-weight="600">Sınıflandır</text>
+  <text x="277" y="110" text-anchor="middle" font-size="9.5" fill="${A.ink3}" font-family="IBM Plex Mono,monospace">teklif · davet · red</text>
+  <text x="277" y="126" text-anchor="middle" font-size="9.5" fill="${A.ink3}" font-family="IBM Plex Mono,monospace">aksiyon · inceleme</text>
+  <path d="M348 108 H414" stroke="${A.ink3}" stroke-width="1.6" marker-end="url(#ar2)"/>
+  <text x="536" y="20" text-anchor="middle" font-size="10.5" fill="${A.ink3}" font-family="IBM Plex Mono,monospace">SEGMENTLENMİŞ + PUANLI</text>
+  ${[["Güçlü eşleşme","96",A.vi],["İyi eşleşme","74",A.vi],["Zayıf eşleşme","32",A.ink3]].map((r,i)=>
+    `<g><rect x="422" y="${32+i*40}" width="224" height="30" rx="4" fill="${A.sf}" stroke="${A.ln}"/>
+     <circle cx="440" cy="${47+i*40}" r="4" fill="${r[2]}"/>
+     <text x="454" y="${51+i*40}" font-size="11" fill="${A.ink2}" font-family="Archivo,sans-serif">${r[0]}</text>
+     <text x="632" y="${51+i*40}" text-anchor="end" font-size="12" fill="${r[2]}" font-family="IBM Plex Mono,monospace" font-weight="600">${r[1]}</text></g>`).join("")}
+  <g><rect x="422" y="152" width="224" height="42" rx="4" fill="${A.bg}" stroke="${A.wa}" stroke-width="1.4"/>
+    <path d="M441 168a6 6 0 0 1 12 0c0 5 2 6 2 6h-16s2-1 2-6z" fill="none" stroke="${A.wa}" stroke-width="1.5"/>
+    <path d="M445 178h4" stroke="${A.wa}" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="466" y="170" font-size="11" fill="${A.ink}" font-family="Archivo,sans-serif" font-weight="600">Hatırlatma</text>
+    <text x="466" y="184" font-size="9.5" fill="${A.ink2}" font-family="IBM Plex Mono,monospace">deadline 2 gün · 12 gün sessiz</text></g>
+</svg>`;
+
+const ART3 = `<svg viewBox="0 0 660 200" role="img" aria-label="Redlerden eksik yetkinlik çıkarılıp indirimli eğitim öneriliyor">
+  <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+    <path d="M0 1 L7 4 L0 7 z" fill="${A.ink3}"/></marker></defs>
+  <text x="70" y="20" text-anchor="middle" font-size="10.5" fill="${A.ink3}" font-family="IBM Plex Mono,monospace">OLUMSUZ SONUÇLAR</text>
+  ${[0,1,2].map(i=>`<g><rect x="14" y="${32+i*46}" width="112" height="34" rx="4" fill="${A.sf}" stroke="${A.cr}" stroke-width="1.2"/>
+    <path d="M30 ${45+i*46}l8 8M38 ${45+i*46}l-8 8" stroke="${A.cr}" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M50 ${46+i*46}h56M50 ${55+i*46}h38" stroke="${A.ink3}" stroke-width="2.4" stroke-linecap="round"/></g>`).join("")}
+  <path d="M134 100 H196" stroke="${A.ink3}" stroke-width="1.6" marker-end="url(#ar3)"/>
+  <rect x="204" y="46" width="140" height="108" rx="5" fill="${A.bg}" stroke="${A.vi}" stroke-width="1.6"/>
+  <text x="274" y="70" text-anchor="middle" font-size="12" fill="${A.ink}" font-family="Archivo,sans-serif" font-weight="600">Ortak eksik</text>
+  <g font-family="IBM Plex Mono,monospace" font-size="9.5">
+    <text x="222" y="94" fill="${A.ink2}">Ekip yönetimi</text><rect x="222" y="100" width="100" height="5" rx="2.5" fill="${A.vi}"/>
+    <text x="222" y="122" fill="${A.ink2}">SQL</text><rect x="222" y="128" width="58" height="5" rx="2.5" fill="${A.vi}" opacity=".65"/>
+    <text x="222" y="146" fill="${A.ink3}">A/B testi</text>
+  </g>
+  <path d="M352 100 H414" stroke="${A.ink3}" stroke-width="1.6" marker-end="url(#ar3)"/>
+  <text x="536" y="20" text-anchor="middle" font-size="10.5" fill="${A.ink3}" font-family="IBM Plex Mono,monospace">ÖNERİLEN EĞİTİM</text>
+  ${[["Leading Teams","₺1.450","₺429","%70"],["SQL Bootcamp","₺1.830","₺549","%70"]].map((c,i)=>
+   `<g><rect x="422" y="${32+i*62}" width="224" height="52" rx="4" fill="${A.sf}" stroke="${A.ln}"/>
+    <rect x="436" y="${46+i*62}" width="22" height="24" rx="3" fill="none" stroke="${A.vi}" stroke-width="1.4"/>
+    <text x="468" y="${58+i*62}" font-size="11" fill="${A.ink}" font-family="Archivo,sans-serif" font-weight="600">${c[0]}</text>
+    <text x="468" y="${73+i*62}" font-size="10" fill="${A.ink3}" font-family="IBM Plex Mono,monospace" text-decoration="line-through">${c[1]}</text>
+    <text x="510" y="${73+i*62}" font-size="11" fill="${A.ink}" font-family="IBM Plex Mono,monospace" font-weight="600">${c[2]}</text>
+    <rect x="596" y="${62+i*62}" width="36" height="14" rx="2" fill="none" stroke="${A.cr}"/>
+    <text x="614" y="${72+i*62}" text-anchor="middle" font-size="9" fill="${A.cr}" font-family="IBM Plex Mono,monospace">${c[3]}</text></g>`).join("")}
+</svg>`;
+
+const TOUR = [
+  { art:ART1, t:"CV'ni ekle, Gmail'ini bağla",
+    d:"CV'den kıdem bandın, araç seviyelerin ve bilinen açıkların çıkarılır. Gmail yalnızca okuma izniyle bağlanır — sistemin her ilanı neye göre puanlayacağı bu profille belirlenir." },
+  { art:ART2, t:"Gelen kutusu okunur, süreçler segmentlenir",
+    d:"Günlük ve geçmiş iş e-postaları taranır, teklif · mülakat daveti · red · aksiyon gerekli diye sınıflandırılır. Her başvuru CV'ne göre 0–100 puanlanır; deadline'ı yaklaşan ve sessizleşen süreçler için hatırlatma üretilir." },
+  { art:ART3, t:"Redlerdeki ortak eksik bulunur, eğitim önerilir",
+    d:"Olumsuz sonuçlanan süreçlerde hangi yetkinliğin tekrar tekrar eksik kaldığı çıkarılır ve öncelik sırasına dizilir. En üstteki eksik için indirimli kurs önerileri sunulur." },
+];
+
+let ti = 0;
+const tw = $("tourWrap");
+function drawTour(){
+  const c = TOUR[ti];
+  $("tourArt").innerHTML = c.art;
+  $("tourTitle").textContent = c.t;
+  $("tourText").textContent = c.d;
+  $("tourStep").textContent = `Adım ${ti+1} / ${TOUR.length}`;
+  $("tourDots").innerHTML = TOUR.map((_,i)=>`<i class="${i===ti?"on":""}" data-i="${i}"></i>`).join("");
+  $("tourDots").querySelectorAll("i").forEach(d=>d.addEventListener("click",()=>{ti=+d.dataset.i;drawTour();}));
+  $("tourPrev").style.visibility = ti ? "visible" : "hidden";
+  $("tourNext").textContent = ti === TOUR.length-1 ? "Başla" : "İleri";
+}
+function openTour(){ ti=0; drawTour(); tw.classList.add("on"); }
+function closeTour(){ tw.classList.remove("on"); try{localStorage.setItem("kp_tour","1")}catch(e){} }
+$("tourBtn").addEventListener("click", openTour);
+$("tourSkip").addEventListener("click", closeTour);
+$("tourPrev").addEventListener("click", ()=>{ if(ti>0){ti--;drawTour();} });
+$("tourNext").addEventListener("click", ()=>{ if(ti<TOUR.length-1){ti++;drawTour();} else closeTour(); });
+tw.addEventListener("click", e=>{ if(e.target===tw) closeTour(); });
+addEventListener("keydown", e=>{ if(!tw.classList.contains("on")) return;
+  if(e.key==="Escape") closeTour();
+  if(e.key==="ArrowRight"&&ti<TOUR.length-1){ti++;drawTour();}
+  if(e.key==="ArrowLeft"&&ti>0){ti--;drawTour();} });
+let seen=null; try{ seen=localStorage.getItem("kp_tour"); }catch(e){}
+if(!seen) setTimeout(openTour, 500);
+
+</script>
 </body>
 </html>

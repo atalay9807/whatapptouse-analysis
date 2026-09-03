@@ -18,7 +18,10 @@
           "level": "Başlangıç → İleri",
           "note": "Pencere fonksiyonları ve CTE'ler dahil; analist mülakatlarına birebir hazırlık.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺549",
+          "price_was": "₺1.830",
+          "discount_pct": 70
         },
         {
           "title": "SQL for Business Analytics",
@@ -30,7 +33,10 @@
           "level": "Orta",
           "note": "Ticari metrikler üzerinden ilerliyor — kohort ve funnel sorguları var.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺349/ay",
+          "price_was": "₺1.000/ay",
+          "discount_pct": 65
         },
         {
           "title": "Advanced SQL: Window Functions & Optimization",
@@ -42,7 +48,10 @@
           "level": "İleri",
           "note": "SQL 3/5'ten 5/5'e geçiş için hedeflenen bölüm.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺429",
+          "price_was": "₺1.720",
+          "discount_pct": 75
         },
         {
           "title": "SQL Practice: 200 Interview Questions",
@@ -54,7 +63,10 @@
           "level": "Orta",
           "note": "Tekrar ve pekiştirme; kurs değil alıştırma seti.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺299",
+          "price_was": "₺1.990",
+          "discount_pct": 85
         }
       ]
     },
@@ -75,7 +87,10 @@
           "level": "Başlangıç → Orta",
           "note": "Excel'den geçiş yapanlar için tasarlanmış; ilk 8 saat tanıdık gelecek.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺599",
+          "price_was": "₺1.500",
+          "discount_pct": 60
         },
         {
           "title": "Python Fundamentals for Analysts",
@@ -87,7 +102,10 @@
           "level": "Başlangıç",
           "note": "Tarayıcı içi editör; kurulum gerektirmiyor.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺349/ay",
+          "price_was": "₺870/ay",
+          "discount_pct": 60
         },
         {
           "title": "Data Analysis with Python Certificate",
@@ -99,7 +117,10 @@
           "level": "Orta",
           "note": "CV'ye yazılabilir sertifika.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺529",
+          "price_was": "₺2.650",
+          "discount_pct": 80
         }
       ]
     },
@@ -120,7 +141,8 @@
           "level": "Orta",
           "note": "Sektörün fiili giriş kursu; istatistiksel anlamlılık ve güç analizi.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "Ücretsiz"
         },
         {
           "title": "Statistics for Growth Teams",
@@ -132,7 +154,10 @@
           "level": "İleri",
           "note": "Growth ekipleri için; örnek büyüklüğü ve yanlılık tuzakları.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺1.899",
+          "price_was": "₺4.750",
+          "discount_pct": 60
         },
         {
           "title": "Practical Experimentation at Scale",
@@ -144,7 +169,10 @@
           "level": "Orta",
           "note": "Çok değişkenli test ve sıralı analiz.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺429",
+          "price_was": "₺1.430",
+          "discount_pct": 70
         }
       ]
     },
@@ -165,7 +193,10 @@
           "level": "Başlangıç → Orta",
           "note": "Roadmap, backlog ve önceliklendirme çerçeveleri.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺529",
+          "price_was": "₺2.650",
+          "discount_pct": 80
         },
         {
           "title": "From Analyst to Product Manager",
@@ -177,7 +208,10 @@
           "level": "Orta",
           "note": "Analitik geçmişten ürün rolüne geçiş üzerine kurulu.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺549",
+          "price_was": "₺1.370",
+          "discount_pct": 60
         },
         {
           "title": "Product Discovery & User Research",
@@ -189,7 +223,10 @@
           "level": "Orta",
           "note": "Keşif görüşmeleri ve problem tanımlama.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺1.299",
+          "price_was": "₺6.500",
+          "discount_pct": 80
         }
       ]
     },
@@ -210,7 +247,10 @@
           "level": "Başlangıç",
           "note": "Geri bildirim, delegasyon ve birebir görüşmeler.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺529",
+          "price_was": "₺1.510",
+          "discount_pct": 65
         },
         {
           "title": "Coaching & Mentoring Essentials",
@@ -222,7 +262,10 @@
           "level": "Başlangıç",
           "note": "Mentorluk üstlenmeden önce izlenebilir kısa program.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺199/ay",
+          "price_was": "₺500/ay",
+          "discount_pct": 60
         }
       ],
       "caveat": "Kurs, olmayan yönetim deneyiminin yerini tutmaz. Kısa vadede daha etkili yol: mevcut işte proje/stajyer mentorluğu üstlenip bunu CV'ye yazmak."
@@ -244,7 +287,10 @@
           "level": "Başlangıç → İleri",
           "note": "Tableau bilenler için hızlandırılmış bölüm var.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺549",
+          "price_was": "₺1.370",
+          "discount_pct": 60
         },
         {
           "title": "PL-300 Sertifika Hazırlık",
@@ -256,7 +302,8 @@
           "level": "Orta",
           "note": "Sınav ücretli, hazırlık materyali ücretsiz.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "Ücretsiz"
         },
         {
           "title": "DAX Deep Dive",
@@ -268,7 +315,10 @@
           "level": "İleri",
           "note": "Ölçü ve hesaplanmış sütun ayrımı.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺299",
+          "price_was": "₺1.200",
+          "discount_pct": 75
         }
       ]
     },
@@ -289,7 +339,10 @@
           "level": "Orta → İleri",
           "note": "Sektörde tanınan sertifika; 3-tablo modeli ve DCF.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺4.499",
+          "price_was": "₺18.000",
+          "discount_pct": 75
         },
         {
           "title": "Excel Financial Modeling Bootcamp",
@@ -301,7 +354,10 @@
           "level": "Orta",
           "note": "Yoğun Excel; senaryo ve duyarlılık analizi.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺2.799",
+          "price_was": "₺7.000",
+          "discount_pct": 60
         },
         {
           "title": "Budgeting & Forecasting Essentials",
@@ -313,7 +369,10 @@
           "level": "Başlangıç → Orta",
           "note": "FP&A deneyimini formalize eder.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺499",
+          "price_was": "₺1.430",
+          "discount_pct": 65
         }
       ]
     },
@@ -334,7 +393,10 @@
           "level": "Orta",
           "note": "Event taksonomisi kurulumu dahil.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺549",
+          "price_was": "₺1.370",
+          "discount_pct": 60
         },
         {
           "title": "Mixpanel Certified Analyst",
@@ -346,7 +408,8 @@
           "level": "Orta",
           "note": "Mixpanel 3/5'i 4/5'e taşır.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "Ücretsiz"
         },
         {
           "title": "Amplitude for Growth Teams",
@@ -358,7 +421,8 @@
           "level": "Başlangıç",
           "note": "Alternatif araç; kavramlar ortak.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "Ücretsiz"
         }
       ]
     },
@@ -379,7 +443,10 @@
           "level": "Orta",
           "note": "Talep tahmini ve envanter optimizasyonu.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺1.999",
+          "price_was": "₺10.000",
+          "discount_pct": 80
         },
         {
           "title": "Demand Planning Fundamentals",
@@ -391,7 +458,10 @@
           "level": "Başlangıç → Orta",
           "note": "Forecast deneyimini alan diline çevirir.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺429",
+          "price_was": "₺1.720",
+          "discount_pct": 75
         }
       ]
     },
@@ -412,7 +482,8 @@
           "level": "Başlangıç",
           "note": "Önce SQL'i 4/5 seviyesine getir.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "Ücretsiz"
         },
         {
           "title": "Analytics Engineering with dbt",
@@ -424,7 +495,10 @@
           "level": "Orta",
           "note": "Modelleme katmanları ve test yazımı.",
           "url": "#",
-          "simulated": true
+          "simulated": true,
+          "price_now": "₺549",
+          "price_was": "₺1.370",
+          "discount_pct": 60
         }
       ]
     }
