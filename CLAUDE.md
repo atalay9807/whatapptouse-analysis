@@ -209,6 +209,15 @@ dolgusu 3:1; her iki temada ayrı ayrı. Rampalar açıklık bakımından monoto
 
 - ⬜ **İlan metninin otomatik çekilip beceri çıkarımı** — `match` boyutları ve
   `gap_skills` şu an elle atanıyor. Projenin en zayıf halkası; ajan işi.
+- ⬜ **Geçmiş 68 kaydın match puanları e-postadan doğrulanamaz** — `ilan-cozumleyici`
+  + `eslestirici` ajanları Sipay ilanıyla test edildi (2026-09-03): LinkedIn'in
+  kaydedilen-ilan ve iş-ilanı-uyarısı mailleri hiçbir zaman ilan açıklaması
+  taşımıyor, yalnızca başlık/şirket/lokasyon (bazen tek bir gizli önizleme
+  cümlesi). Ajanlar bu ince girdiyle Sipay'ı 44 puana (🔴 Zayıf) çıkardı; elle
+  atanmış kayıt 90 (🟢 Güçlü). Aradaki fark ajan hatası değil — elle puanlama
+  o sırada tarayıcıda görülen ilan sayfasına dayanıyordu, mailde hiç yoktu.
+  Yani mevcut 68 kaydın çoğu için `match` boyutları geriye dönük doğrulanamaz;
+  yalnızca ilan metni elde tutulan veya not alınan kayıtlar güvenilir.
 - ⬜ Kullanıcı başına çoklu profil desteği
 - ⬜ Kalıcı veritabanı ve oturum yönetimi
 
