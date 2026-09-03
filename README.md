@@ -1,270 +1,161 @@
-# İş Başvurusu Takip Otomasyonu
+<div align="center">
 
-Atalay Denizer'in LinkedIn ve ATS üzerinden yaptığı iş başvurularını Gmail
-(`atalay.denizer0@gmail.com`) ile entegre biçimde takip eden otomasyon ve
-raporlama sistemi.
+# Kariyer Pilotu
 
-Sistem üç parçadan oluşur:
+**Gmail'i tarayıp iş başvurularını tek yerde toplayan, her ilanı CV'ye göre puanlayan
+ve eksik yetkinlikleri çıkaran otomasyon.**
 
-| Parça | Ne yapar | Nerede çalışır |
-|---|---|---|
-| **Günlük Routine** | Her sabah 09:00 (TSİ) Gmail'i tarar, panoyu günceller, özet e-posta atar | Claude Routine (`trig_01UdkGdW5SJxvPVB2X3ZSgYJ`) |
-| **Veri katmanı** | Tüm başvuruların tek doğruluk kaynağı | `data/applications.json` |
-| **Eşleşme motoru** | CV ↔ ilan uyumunu puanlar ve segmentler | `src/match.py`, `data/profile.json` |
-| **Rapor motoru** | Huni, eksik yetkinlik, trend, streak, kaçırılanlar | `src/insights.py` |
-| **Arayüz** | 5 sayfalık SPA — navigasyon, detay paneli, eğitim | `src/dashboard.template.html` |
-| **Raporlama** | Önceliklendirme, hatırlatma ve tablo üretimi | `src/pipeline.py`, `src/build_dashboard.py` |
+30 günlük gerçek bir iş arama sürecinin verisi üzerine kuruldu — 68 başvuru, 8 rapor, 5 sayfalık arayüz.
 
-## Hızlı kullanım
+[**Canlı demo →**](https://claude.ai/code/artifact/5fdd1d5d-7ec7-40b7-b0b6-6ebeea8e28bc) · [Teknik doküman](docs/TEKNIK.md)
 
-```bash
-# Bugünün raporu (Markdown)
-python3 src/pipeline.py
+</div>
 
-# E-postaya uygun kısa düz metin
-python3 src/pipeline.py --format text
+![Ana sayfa](docs/img/01-ana.png)
 
-# Excel/Sheets'e aktarılabilir tablo
-python3 src/pipeline.py --format csv --out reports/tablo.csv
+---
 
-# Haftalık özet + geri bildirim soruları
-python3 src/pipeline.py --weekly
+## Ne yapıyor
 
-# HTML kontrol panosu
-python3 src/build_dashboard.py
+Bir ayda 68 başvuru yapıldığında hangisinin nerede olduğu, hangi testin süresinin dolduğu
+ve hangi sürecin sessizce öldüğü takip edilemiyor. Bu sistem üç soruyu yanıtlıyor:
 
-# CV eşleşme özeti (segmentler + en iyi/en zayıf eşleşmeler)
-python3 src/match.py
+| Soru | Nasıl yanıtlıyor |
+|---|---|
+| **Bugün ne yapmalıyım?** | Deadline'ı geçmiş/yaklaşan işleri, sessizleşen süreçleri ve mülakat sonrası takipleri kural tabanlı çıkarır |
+| **Enerjimi nereye harcamalıyım?** | Her ilanı CV'ye karşı 0–100 puanlar, dört segmente ayırır ve segmentlerin gerçek ilerleme oranını gösterir |
+| **Neyi öğrenmem gerekiyor?** | İlanların beklediği ama CV'de olmayan yetkinlikleri toplar, öncelik sırasına dizer ve eğitim planına çevirir |
+
+**Aciliyet ve eşleşme ayrı iki eksendir.** Zayıf eşleşmeli bir ilanın deadline'ı da acil olabilir;
+sistem ikisini ayrı kolonlarda gösterir ve kararı kullanıcıya bırakır.
+
+---
+
+## Veriden çıkan dört bulgu
+
+Sistem kurulduğunda ortaya çıkanlar — hepsi taranan Gmail kutusundan gelen gerçek sayılar:
+
+<table>
+<tr><td width="120"><h3>7 / 15</h3></td><td>
+<b>Redlerin çoğunluğu kıdem açığından.</b> SQL en yaygın eksik (34 başvuruda bekleniyor), ama
+olumsuz sonuçlanan 15 sürecin 7'sinde eksik olan <b>ekip yönetimi</b>. Sorun teknik beceri değil,
+Manager/Lead ilanlarına yapılan başvurular — kurs alarak değil hedef bandını değiştirerek çözülür.
+</td></tr>
+<tr><td><h3>%25</h3></td><td>
+<b>Eforun dörtte biri zayıf eşleşmeye gitmiş.</b> 68 başvurunun 17'si orta veya zayıf eşleşme.
+Güçlü segmentin ileri aşamaya geçme oranı %18,2.
+</td></tr>
+<tr><td><h3>88</h3></td><td>
+<b>En iyi eşleşme, başvurulmadan süresi doldu.</b> Kaydedilen 16 ilanın 12'sine hiç başvurulmamış.
+Michael Page'in FP&A Analyst ilanı 88 puanla listenin en güçlüsüydü ve 20 Ağustos'ta kapandı.
+</td></tr>
+<tr><td><h3>10 gün</h3></td><td>
+<b>Şirketlerin medyan yanıt süresi.</b> 42 başvuru ise hiç yanıtlanmadı. Bu iki sayı,
+"12 gün sessizlikten sonra takip maili at" kuralının eşiğini belirledi.
+</td></tr>
+</table>
+
+---
+
+## Nasıl çalışıyor
+
+```
+Gmail taraması  →  sınıflandırma  →  puanlama  →  rapor + hatırlatma
+   (her sabah        (teklif/davet/    (aciliyet     (e-posta + pano)
+    09:00 TSİ)        red/inceleme)     + eşleşme)
 ```
 
-Tarihi sabitlemek için (test): `--today 2026-09-05`.
-
-## Önceliklendirme nasıl çalışır
-
-Her başvuru 0–140 arası bir puan alır:
+**Aciliyet puanı** — bugün neyin kapatılması gerektiği:
 
 ```
 puan = aşama_ağırlığı + (uyum × 4) + deadline_aciliyeti − sessizlik_cezası
 ```
 
-- **Aşama ağırlığı** — teklif 100, mülakat planlama 88, değerlendirme/test 85,
-  sonraki aşama 82, mülakat yapıldı 78, başvuru yarım 70, incelemede 35.
-- **Uyum (`fit`, 1–5)** — rolün hedef profile yakınlığı, elle atanır.
-- **Deadline aciliyeti** — geçmiş deadline +40, bugün/yarın +35, 2-3 gün +25,
-  4-7 gün +15, 8-14 gün +8.
-- **Sessizlik cezası** — 12+ gün sessiz −8, 21+ gün sessiz −20.
-
-Puan ve deadline birlikte bir öncelik bandına eşlenir:
-🔴 Kritik · 🟠 Yüksek · 🟡 Normal · ⚪ Düşük · ⚫ Kapandı.
-
-## CV eşleşme motoru
-
-`data/profile.json`, CV'den türetilmiş profildir: kıdem bandı, güçlü alanlar,
-araç seviyeleri ve bilinen açıklar. Her ilan bu profile karşı **0–100** arası
-puanlanır:
+**Eşleşme puanı** — CV ile ilanın uyumu:
 
 ```
 eşleşme = rol_ailesi(35) + kıdem(25) + beceri_örtüşmesi(25) + sektör(15) − lokasyon_cezası
 ```
 
-| Boyut | Neyi ölçer |
-|---|---|
-| **Rol ailesi (35)** | Rolün growth analitiği / FP&A / ticari strateji / iş-veri analizi çekirdeğine yakınlığı |
-| **Kıdem (25)** | İlanın bandı ile 2 yıllık Specialist seviyesinin uyumu. Manager/Lead ilanları esneme sayılır |
-| **Beceri örtüşmesi (25)** | İlanın beklediği araç seti ile CV'nin örtüşmesi (Excel/Tableau güçlü, SQL orta, Python yok) |
-| **Sektör (15)** | q-commerce / e-ticaret / teslimat deneyimine yakınlık |
-| **Lokasyon cezası** | Uzaktan EU −8, taşınma zorunluluğu −12, dil engeli −20 |
+Sonuç dört segmente ayrılır: 🟢 Güçlü (78–100) · 🔵 İyi (62–77) · 🟡 Orta (45–61) · 🔴 Zayıf (0–44).
 
-Segmentler:
+---
 
-| Segment | Aralık | Ne yapmalı |
-|---|---|---|
-| 🟢 Güçlü | 78–100 | Öncelikli kovala, takip maili at, hazırlık yap |
-| 🔵 İyi | 62–77 | Sağlam aday, süreci canlı tut |
-| 🟡 Orta | 45–61 | Kısmi uyum, zaman kalırsa ilerlet |
-| 🔴 Zayıf | 0–44 | Düşük getiri, kapatmayı değerlendir |
+## Arayüz
 
-Her başvurunun `match.rationale` alanı puanın **neden** o değerde olduğunu tek
-cümleyle açıklar; pano bu gerekçeyi ve dört boyutun dökümünü gösterir.
+Beş sayfa, hash yönlendirme, çift tema, çerçeve kullanılmadı — tek HTML dosyası.
 
-**Aciliyet ve eşleşme iki ayrı eksendir.** Aciliyet "bugün ne yapmalıyım"ı,
-eşleşme "enerjimi nereye harcamalıyım"ı yanıtlar. Zayıf eşleşmeli bir ilanın
-deadline'ı da acil olabilir — pano ikisini ayrı kolonlarda gösterir ki karar
-sende kalsın.
+| | |
+|:--|:--|
+| ![Raporlar](docs/img/02-raporlar.png)<br>**Raporlar** — huni, eksik yetkinlik, trend, yanıt hızı, streak | ![Eğitim](docs/img/03-egitim.png)<br>**Eğitim** — öncelik sıralı eksikler ve kurs önerileri |
+| ![Başvurular](docs/img/04-basvurular.png)<br>**Başvurular** — eşleşme, aşama, deadline, aksiyon linkleri | ![Detay](docs/img/05-detay.png)<br>**Detay** — eşleşme dökümü ve eksikliğe özel kurs kartı |
 
-## Aksiyon linkleri
+Kullanıcı ölçülebilir kriterlerle altı aşamalı bir hattın üzerinde konumlanır
+(yeni kullanıcı → CV hazır → başvuru yapıyor → takip ediyor → düzenli kullanıyor → alışkanlık),
+ve her sayfa aşamaya göre farklı bir "sıradaki adım" gösterir.
 
-Her başvuru kaydı `links_actions` dizisi taşır. Üç tür link üretilir:
+---
 
-- **Gerçek aksiyon URL'i** — yalnızca e-postada doğrulanmış bağlantılar
-  (ör. Nebil Project'in TestGorilla test linki). Uydurulmaz.
-- **Hazır takip maili** — `contact` alanında e-posta varsa, duruma göre
-  (mülakat sonrası / süre uzatımı / durum sorusu) konusu ve gövdesi doldurulmuş
-  bir `mailto:` bağlantısı.
-- **Gmail'de yazışmayı aç** — şirket adına göre Gmail araması açan derin bağlantı.
-  Her kayıt için üretilir; şirketin kendi portal linkine oradan ulaşılır.
+## Çalıştırma
 
-## Sayfalar ve yaşam döngüsü
+Harici bağımlılık yok — yalnızca Python 3.11+ standart kütüphanesi.
 
-Arayüz beş sayfalı tek sayfa uygulaması (`#/ana`, `#/basvurular`, `#/raporlar`,
-`#/egitim`, `#/profil`). Başvuru detayı derin bağlantı alır:
-`#/basvurular/obilet-strategy-analyst`.
-
-Kullanıcı, ölçülebilir kriterlerle altı aşamalı bir hattın üzerinde konumlanır:
-
-| Aşama | Kriter |
-|---|---|
-| `newcomer` | CV yok |
-| `activated` | CV var, 0 başvuru |
-| `applying` | 1–9 başvuru |
-| `tracking` | 10+ başvuru, en az 1 rapor |
-| `engaged` | Son 7 günde 4+ rapor |
-| `habit` | 7 gün kesintisiz streak **ve** en az 1 geri bildirim |
-
-Her sayfa, kullanıcının aşamasına göre farklı bir "sıradaki adım" gösterir
-(`data/journey.json` → `page_nudges`). Metinlerdeki `{top_gap_name}`,
-`{top_gap_count}`, `{streak}` değişkenleri render sırasında gerçek veriyle
-doldurulur — sabit sayı yazılmaz.
-
-Gösterilen ana eylem, **mevcut** aşamanın `primary_cta` alanıdır: bir aşamanın
-CTA'sı, o aşamadayken kişiyi bir sonrakine taşıyan eylemdir.
-
-## Raporlar
-
-`src/insights.py` sekiz rapor üretir:
-
-1. **Başvuru hunisi** — kaydedilen → başvurulan → yanıt → ileri aşama → mülakat → teklif
-2. **Eksik yetkinlik analizi** — çıkarımsal, öncelik sıralı
-3. **Haftalık trend** — hacim ve o hafta ilerleyenler
-4. **Yanıt hızı** — şirketlerin dönüş süresi dağılımı ve medyanı
-5. **Rol/sektör bazlı başarı** — en az 2 başvuru yapılan alanlar
-6. **Kanal etkinliği** — ATS / LinkedIn / doğrudan / agregatör
-7. **Kullanım ve streak** — gün gün takvim, kapsama, geri bildirim sayısı
-8. **Kaçırılan fırsatlar** — kaydedilip başvurulmayan ve süresi dolan ilanlar
-
-### Huni verisinin sınırı
-
-"Görüntülenen ilan" verisi **yok** — LinkedIn bunu e-postayla bildirmiyor.
-Huninin ilk adımı "kaydedilen ilan"dır ve yalnızca LinkedIn'in hatırlatma
-gönderdiği ilanları kapsar, yani gerçek sayının **alt sınırıdır**. Arayüzde bu
-çubuk taralı gösterilir ve ondan sonraki adıma dönüşüm oranı hesaplanmaz.
-
-## Eksik yetkinlik ve eğitim
-
-**Kritik uyarı:** Taranan 15 red e-postasının hiçbiri gerekçe belirtmiyor —
-hepsi standart kalıp metin. Bu yüzden "eksik yetkinlik" şirketlerin söylediği
-bir şey değil, **ilanın rol ailesi ile CV arasındaki farktan çıkarılan bir
-tahmindir**. Arayüz bunu her yerde açıkça etiketler.
-
-Her başvuru `gap_skills` alanı taşır. `data/skills_catalog.json` beceri → kaynak
-eşlemesinin **tek kaynağıdır**: hem Eğitim sayfası hem de başvuru detayındaki
-kurs kartı buradan beslenir, dolayısıyla ikisi asla ayrışmaz.
-
-Öncelik formülü:
-
-```
-öncelik = (redlerde görülme × 3) + (açık süreçlerde görülme × 1) + (seviye farkı × 2)
+```bash
+python3 src/pipeline.py                 # bugünün raporu (Markdown)
+python3 src/pipeline.py --format csv    # Sheets'e aktarılabilir tablo
+python3 src/match.py                    # CV eşleşme özeti ve segmentler
+python3 src/insights.py                 # sekiz raporun tamamı
+python3 src/build_dashboard.py          # HTML arayüzü üret → reports/pano.html
 ```
 
-### Kurs verisi simülasyondur
+---
 
-`skills_catalog.json` içindeki kurs kayıtları — başlık, sağlayıcı, puan, kayıt
-sayısı, süre, fiyat — **uydurmadır** ve bağlantılar (`url: "#"`) gerçek bir
-sayfaya gitmez. Arayüz bunu üç yerde açıkça söyler: Eğitim sayfasının başındaki
-uyarı bandı, her kaynak listesinin başlığındaki `simülasyon` etiketi ve
-tıklandığında çıkan bildirim.
-
-Simüle olan yalnızca kaynaklardır. **Eksik yetkinliklerin kendisi ve öncelik
-sıralaması gerçek başvuru verisinden hesaplanır.** Canlı sürümde bu blok bir
-kurs sağlayıcı API'sinden doldurulur; `resources` dizisinin şeması aynı kalır.
-
-## Tasarım
-
-İki tema da **orta tondadır** — ne beyaz kâğıt ne siyah ekran:
-
-| | Zemin | Yüzey | Metin |
-|---|---|---|---|
-| Açık ("kemik") | `#E7E4DD` | `#F1EFEA` | `#262622` |
-| Koyu ("grafit") | `#22262B` | `#2A2E34` | `#DCDFE3` |
-
-Yapı gölgeyle değil **ince çizgiyle** kurulur; köşeler 5px, tipografi
-IBM Plex Mono (başlık, etiket, sayı) + IBM Plex Sans (gövde).
-
-Üç renk sistemi üç ayrı iş yapar ve birbirine karışmaz:
-
-- **Çelik mavi** — marka, gezinme, hacim grafikleri
-- **Mor rampa** (4 adım, sıralı) — eşleşme kalitesi
-- **Kırmızı / kehribar / yeşil** — boru hattı durumu, ayrılmış semantik renkler
-
-Orta-ton zeminler kontrast payını daralttığı için status renkleri **her tema
-için ayrı adımlandı** ve ikisi de kendi zemininde 3:1 üzerinde doğrulandı
-(kemik: 4.08–4.80, grafit: 4.74–6.17). Mor rampa her iki temada açıklık
-bakımından monotoniktir.
-
-## Hatırlatma kuralları
-
-`config/rules.yaml` içindeki `reminders` bölümünde tanımlı:
-
-- Deadline'a 2 gün veya daha az kaldıysa → "bugün kapat"
-- Deadline geçtiyse → "uzatma iste ya da kapat"
-- Mülakattan 5+ gün geçtiyse → "nazik takip maili at"
-- 12+ gün sessizlik → "takip maili zamanı"
-- 21+ gün sessizlik → "kapanmış say"
-
-## Geri bildirim döngüsü
-
-Sistem tek yönlü rapor üretmez; haftalık olarak dört soru sorar
-(`--weekly` çıktısında ve panonun altında):
-
-1. Bu hafta hangi 3 role odaklanmak istiyorsun?
-2. Sessizleşen süreçlerden hangilerini kapatalım?
-3. Hedef sektör/rol/lokasyon tercihin değişti mi?
-4. Maaş beklentin güncellenmeli mi?
-
-Yanıtlar günlük rapor e-postasına cevap olarak yazılır ve bir sonraki taramada
-`fit` puanlarına ve kapatılacak süreçlere yansıtılır.
-
-## Dosya düzeni
+## Mimari
 
 ```
-data/applications.json          Tek doğruluk kaynağı — başvurular, eşleşme boyutları, gap_skills
-data/profile.json               CV'den türetilmiş profil (eşleşmenin referansı)
-data/skills_catalog.json        Beceri → öğrenme kaynağı eşlemesi (eğitim önerilerinin tek kaynağı)
-data/journey.json               Yaşam döngüsü aşamaları, kriterler, sayfa bazlı yönlendirmeler
-data/engagement.json            Gerçek rapor gönderim günleri (streak hesabı)
-data/saved_jobs.json            Kaydedilip başvurulmayan ilanlar (huninin üstü)
-config/rules.yaml               Gmail sorguları, sınıflandırma, puanlama, hatırlatmalar
-src/match.py                    CV ↔ ilan eşleşme motoru ve segmentasyon
-src/insights.py                 Sekiz raporun ve eğitim planının üreticisi
-src/pipeline.py                 Önceliklendirme + rapor üretimi (md/text/csv/json)
-src/build_dashboard.py          HTML pano üreticisi
-src/dashboard.template.html     Pano şablonu (veri enjekte edilir)
-reports/                        Üretilen raporlar ve pano
-docs/otomasyon.md               Routine'in ayrıntılı işleyişi ve bakımı
+data/                          Tek doğruluk kaynağı (JSON)
+├── applications.json          68 başvuru + eşleşme boyutları + eksik yetkinlikler
+├── profile.json               CV'den türetilmiş profil — eşleşmenin referansı
+├── skills_catalog.json        Beceri → kaynak eşlemesi (eğitim önerilerinin tek kaynağı)
+├── journey.json               Yaşam döngüsü aşamaları ve sayfa yönlendirmeleri
+├── engagement.json            Gerçek kullanım kaydı (streak hesabı)
+└── saved_jobs.json            Kaydedilip başvurulmayan ilanlar
+
+src/
+├── match.py                   CV ↔ ilan eşleşme motoru ve segmentasyon
+├── pipeline.py                Önceliklendirme, hatırlatma, rapor (md/text/csv/json)
+├── insights.py                Sekiz rapor ve eğitim planı üreticisi
+├── build_dashboard.py         Şablona veri enjeksiyonu
+└── dashboard.template.html    Arayüz şablonu
+
+site/                          Tanıtım sitesi (GitHub Pages)
+config/rules.yaml              Gmail sorguları, sınıflandırma, puanlama, hatırlatmalar
 ```
 
-## Kapsam
+Detaylı formüller, bakım notları ve tasarım kararları: **[docs/TEKNIK.md](docs/TEKNIK.md)**
 
-İlk tarama **1 Ağustos – 1 Eylül 2026** penceresini kapsar: 68 başvuru,
-6 yanıtlanmamış recruiter mesajı. LinkedIn iş ilanı bildirimleri, Glassdoor ve
-bülten e-postaları gürültü sayılır ve yalnızca adet olarak raporlanır.
+---
 
-Eşleşme dağılımı: 22 güçlü, 29 iyi, 13 orta, 4 zayıf. Başvuruların %25'i
-orta/zayıf eşleşmeye gitmiş; güçlü segmentin ileri aşamaya geçme oranı %18,2.
+## Bilinçli sınırlar
 
-## Sonraki adım: uygulama
+Bu bölüm projenin ne yapmadığını da söylediği için burada duruyor.
 
-Bu repo, planlanan uygulamanın veri ve mantık katmanıdır. Uygulama yazılmadan
-önce burada olgunlaştırılan parçalar:
+**Red gerekçeleri ölçülemiyor.** Taranan 15 red e-postasının hiçbiri sebep belirtmiyor —
+hepsi standart kalıp metin. Eksik yetkinlikler bu yüzden şirketlerin söylediği değil,
+ilan ile CV arasındaki farktan **çıkarılan** tahminlerdir ve arayüzün her yerinde böyle etiketlenir.
 
-- ✅ Tek doğruluk kaynağı şeması (`applications.json` + `profile.json`)
-- ✅ Önceliklendirme ve hatırlatma kuralları
-- ✅ CV tabanlı eşleşme puanlaması ve segmentasyon
-- ✅ Aksiyon linki üretimi
-- ✅ Arayüz prototipi (`reports/pano.html`) — 5 sayfa, navigasyon, detay paneli
-- ✅ Yaşam döngüsü hattı ve aşamaya duyarlı yönlendirme
-- ✅ Sekiz rapor ve eğitim planı üretimi
-- ⬜ Kullanıcı başına çoklu profil desteği
-- ⬜ İlan metninin otomatik çekilip beceri çıkarımı yapılması
-  (şu an `match` boyutları elle atanıyor)
-- ⬜ Kalıcı veritabanı ve oturum yönetimi
+**Görüntülenen ilan verisi yok.** LinkedIn bunu e-postayla bildirmiyor. Huni "kaydedilen ilan"dan
+başlar ve yalnızca hatırlatma gönderilenleri kapsar; taralı çubukla alt sınır olarak işaretlenir
+ve ondan sonraki dönüşüm oranı hesaplanmaz.
+
+**Kurs kayıtları simülasyondur.** Başlık, puan, süre ve fiyat örnek amaçlıdır; bağlantılar gerçek
+sayfa açmaz. Eksik yetkinliklerin kendisi ve öncelik sıralaması gerçek veriden hesaplanır.
+
+**Eşleşme boyutları elle atanıyor.** İlan metninin çekilip beceri çıkarımının otomatikleşmesi
+açık madde olarak duruyor.
+
+---
+
+<div align="center">
+<sub>Atalay Denizer · <a href="https://linkedin.com/in/atalaydenizer">LinkedIn</a> · Veri penceresi: 1 Ağustos – 1 Eylül 2026</sub>
+</div>
