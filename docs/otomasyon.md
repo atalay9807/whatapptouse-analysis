@@ -16,7 +16,7 @@ Her sabah şu adımları izler:
 3. **Güncelle** — `data/applications.json` içindeki ilgili kaydın `stage`,
    `status`, `last_contact`, `deadline` ve `next_step` alanlarını tazeler;
    yeni başvuru varsa kayıt ekler.
-4. **Raporla** — `atalay.denizer0@gmail.com` adresine kısa HTML özet gönderir.
+4. **Raporla** — `kerem.aydin@example.com` adresine kısa HTML özet gönderir.
    Konu: `📋 Günlük İş Takip Raporu — <tarih>`.
 5. **Hatırlat** — deadline'ı yaklaşan/geçen ve sessizleşen süreçler için
    `reminders` kurallarını uygular.

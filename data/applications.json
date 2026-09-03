@@ -1,7 +1,7 @@
 {
   "meta": {
-    "owner": "Atalay Denizer",
-    "email": "atalay.denizer0@gmail.com",
+    "owner": "Kerem Aydın",
+    "email": "kerem.aydin@example.com",
     "scan_window": {
       "from": "2026-08-01",
       "to": "2026-09-01"
@@ -22,7 +22,7 @@
       "status": "action_required",
       "track": "Finance/Strategy",
       "location": "Maslak, İstanbul (ofis, 5 gün)",
-      "contact": "Aleyna Nur Alagöz — aleyna.alagoz@nebil.com",
+      "contact": "İK Sorumlusu — ik@nebil.example",
       "deadline": "2026-08-31",
       "next_step": "TestGorilla testi + 3 soruya mail yanıtı (maaş / lokasyon / 7 Eyl başlangıç). Yüz yüze mülakatlar 1-2 Eylül, hedef başlangıç 7 Eylül.",
       "links": [
@@ -45,7 +45,7 @@
         },
         {
           "label": "Takip maili yaz",
-          "url": "mailto:aleyna.alagoz@nebil.com?subject=CFO%20Office%20Executive%20ba%C5%9Fvurusu%20%E2%80%94%20s%C3%BCre%20uzat%C4%B1m%C4%B1%20talebi&body=Merhaba%2C%0A%0ANebil%20Project%20b%C3%BCnyesindeki%20CFO%20Office%20Executive%20pozisyonu%20i%C3%A7in%20payla%C5%9Ft%C4%B1%C4%9F%C4%B1n%C4%B1z%20de%C4%9Ferlendirme%20ad%C4%B1m%C4%B1n%C4%B1%20belirtilen%20tarihte%20tamamlayamad%C4%B1m.%20S%C3%BCre%C3%A7%20h%C3%A2l%C3%A2%20a%C3%A7%C4%B1ksa%20k%C4%B1sa%20bir%20ek%20s%C3%BCre%20tan%C4%B1man%C4%B1z%20m%C3%BCmk%C3%BCn%20m%C3%BCd%C3%BCr%3F%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AAtalay%20Denizer%0Aatalay.denizer0%40gmail.com%20%7C%20%2B90%20544%20543%2003%2031",
+          "url": "mailto:ik@nebil.example?subject=CFO%20Office%20Executive%20ba%C5%9Fvurusu%20%E2%80%94%20s%C3%BCre%20uzat%C4%B1m%C4%B1%20talebi&body=Merhaba%2C%0A%0ANebil%20Project%20b%C3%BCnyesindeki%20CFO%20Office%20Executive%20pozisyonu%20i%C3%A7in%20payla%C5%9Ft%C4%B1%C4%9F%C4%B1n%C4%B1z%20de%C4%9Ferlendirme%20ad%C4%B1m%C4%B1n%C4%B1%20belirtilen%20tarihte%20tamamlayamad%C4%B1m.%20S%C3%BCre%C3%A7%20h%C3%A2l%C3%A2%20a%C3%A7%C4%B1ksa%20k%C4%B1sa%20bir%20ek%20s%C3%BCre%20tan%C4%B1man%C4%B1z%20m%C3%BCmk%C3%BCn%20m%C3%BCd%C3%BCr%3F%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AKerem%20Ayd%C4%B1n%0Akerem.aydin%40example.com%20%7C%20%2B90%205XX%20XXX%20XX%20XX",
           "kind": "mailto"
         },
         {
@@ -138,7 +138,7 @@
       "status": "action_required",
       "track": "Data",
       "location": "Dubai",
-      "contact": "Shreya K. — shreya.k@puffy.com",
+      "contact": "Talent Acquisition — ta@puffy.example",
       "deadline": "2026-08-22",
       "next_step": "Faz-1 yetenek değerlendirmesi (~30 dk, proctored/kameralı; başlayınca 4 saat içinde bitmeli).",
       "fit": 4,
@@ -154,7 +154,7 @@
       "links_actions": [
         {
           "label": "Takip maili yaz",
-          "url": "mailto:shreya.k@puffy.com?subject=Data%20Analyst%20%28Dubai%2C%20on-site%29%20ba%C5%9Fvurusu%20%E2%80%94%20s%C3%BCre%20uzat%C4%B1m%C4%B1%20talebi&body=Merhaba%2C%0A%0APuffy%20b%C3%BCnyesindeki%20Data%20Analyst%20%28Dubai%2C%20on-site%29%20pozisyonu%20i%C3%A7in%20payla%C5%9Ft%C4%B1%C4%9F%C4%B1n%C4%B1z%20de%C4%9Ferlendirme%20ad%C4%B1m%C4%B1n%C4%B1%20belirtilen%20tarihte%20tamamlayamad%C4%B1m.%20S%C3%BCre%C3%A7%20h%C3%A2l%C3%A2%20a%C3%A7%C4%B1ksa%20k%C4%B1sa%20bir%20ek%20s%C3%BCre%20tan%C4%B1man%C4%B1z%20m%C3%BCmk%C3%BCn%20m%C3%BCd%C3%BCr%3F%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AAtalay%20Denizer%0Aatalay.denizer0%40gmail.com%20%7C%20%2B90%20544%20543%2003%2031",
+          "url": "mailto:ta@puffy.example?subject=Data%20Analyst%20%28Dubai%2C%20on-site%29%20ba%C5%9Fvurusu%20%E2%80%94%20s%C3%BCre%20uzat%C4%B1m%C4%B1%20talebi&body=Merhaba%2C%0A%0APuffy%20b%C3%BCnyesindeki%20Data%20Analyst%20%28Dubai%2C%20on-site%29%20pozisyonu%20i%C3%A7in%20payla%C5%9Ft%C4%B1%C4%9F%C4%B1n%C4%B1z%20de%C4%9Ferlendirme%20ad%C4%B1m%C4%B1n%C4%B1%20belirtilen%20tarihte%20tamamlayamad%C4%B1m.%20S%C3%BCre%C3%A7%20h%C3%A2l%C3%A2%20a%C3%A7%C4%B1ksa%20k%C4%B1sa%20bir%20ek%20s%C3%BCre%20tan%C4%B1man%C4%B1z%20m%C3%BCmk%C3%BCn%20m%C3%BCd%C3%BCr%3F%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AKerem%20Ayd%C4%B1n%0Akerem.aydin%40example.com%20%7C%20%2B90%205XX%20XXX%20XX%20XX",
           "kind": "mailto"
         },
         {
@@ -349,7 +349,7 @@
       "status": "awaiting_response",
       "track": "Business Analysis",
       "location": "İstanbul",
-      "contact": "Raşit Okman / Barış Türkan (İK Müdürü)",
+      "contact": "İK Müdürü — ik@peksglobal.example",
       "deadline": null,
       "next_step": "28 Ağu 12:00 Teams görüşmesi yapıldı — geri dönüş bekleniyor. 5+ iş günü geçtiyse takip maili at.",
       "fit": 4,
@@ -363,6 +363,11 @@
         "rationale": "Ticari analist = ticari strateji + P&L + fiyatlandırma deneyiminin tam karşılığı."
       },
       "links_actions": [
+        {
+          "label": "Takip maili yaz",
+          "url": "mailto:ik@peksglobal.example?subject=Ticari%20Analist%20pozisyonu%20%E2%80%94%20g%C3%B6r%C3%BC%C5%9Fme%20sonras%C4%B1%20takip&body=Merhaba%2C%0A%0APeks%20Global%20A.%C5%9E.%20b%C3%BCnyesindeki%20Ticari%20Analist%20pozisyonu%20i%C3%A7in%20ger%C3%A7ekle%C5%9Ftirdi%C4%9Fimiz%20g%C3%B6r%C3%BC%C5%9Fme%20i%C3%A7in%20tekrar%20te%C5%9Fekk%C3%BCr%20ederim.%20S%C3%BCrecin%20bir%20sonraki%20ad%C4%B1m%C4%B1%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AKerem%20Ayd%C4%B1n%0Akerem.aydin%40example.com%20%7C%20%2B90%205XX%20XXX%20XX%20XX",
+          "kind": "mailto"
+        },
         {
           "label": "İlgili maili aç",
           "url": "https://mail.google.com/mail/u/0/#search/Peks%20Global%20A.%C5%9E.",
@@ -394,7 +399,7 @@
         "skills": 20,
         "domain": 15,
         "location_mod": 0,
-        "rationale": "Sektör birebir (q-commerce/teslimat) — Getir deneyimi doğrudan transfer olur. Rol belirsiz."
+        "rationale": "Sektör birebir (q-commerce/teslimat) — Anka Express deneyimi doğrudan transfer olur. Rol belirsiz."
       },
       "links_actions": [
         {
@@ -418,7 +423,7 @@
       "status": "awaiting_response",
       "track": "Data",
       "location": "İstanbul",
-      "contact": "kaan.dursun@joinshift.ai",
+      "contact": "program@shift.example",
       "deadline": null,
       "next_step": "Program süreç akışı paylaşıldı — sonraki adım bildirimi bekleniyor.",
       "fit": 4,
@@ -434,7 +439,7 @@
       "links_actions": [
         {
           "label": "Takip maili yaz",
-          "url": "mailto:kaan.dursun@joinshift.ai?subject=Data%20Operations%20Fellow%20ba%C5%9Fvurusu%20%E2%80%94%20durum%20sorusu&body=Merhaba%2C%0A%0Ashift%20%28joinshift.ai%29%20b%C3%BCnyesindeki%20Data%20Operations%20Fellow%20pozisyonuna%20yapt%C4%B1%C4%9F%C4%B1m%20ba%C5%9Fvurunun%20mevcut%20durumu%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%20S%C3%BCre%C3%A7le%20ilgilenmeye%20devam%20ediyorum.%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AAtalay%20Denizer%0Aatalay.denizer0%40gmail.com%20%7C%20%2B90%20544%20543%2003%2031",
+          "url": "mailto:program@shift.example?subject=Data%20Operations%20Fellow%20ba%C5%9Fvurusu%20%E2%80%94%20durum%20sorusu&body=Merhaba%2C%0A%0Ashift%20%28joinshift.ai%29%20b%C3%BCnyesindeki%20Data%20Operations%20Fellow%20pozisyonuna%20yapt%C4%B1%C4%9F%C4%B1m%20ba%C5%9Fvurunun%20mevcut%20durumu%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%20S%C3%BCre%C3%A7le%20ilgilenmeye%20devam%20ediyorum.%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AKerem%20Ayd%C4%B1n%0Akerem.aydin%40example.com%20%7C%20%2B90%205XX%20XXX%20XX%20XX",
           "kind": "mailto"
         },
         {
@@ -1554,7 +1559,7 @@
       "status": "stale",
       "track": "Product",
       "location": "İstanbul",
-      "contact": "sinem.ozkan@teamblueticimax",
+      "contact": "ik@teamblueticimax.example",
       "deadline": null,
       "next_step": "16 gündür dönüş yok.",
       "fit": 4,
@@ -1570,7 +1575,7 @@
       "links_actions": [
         {
           "label": "Takip maili yaz",
-          "url": "mailto:sinem.ozkan@teamblueticimax?subject=Product%20Manager%20ba%C5%9Fvurusu%20%E2%80%94%20durum%20sorusu&body=Merhaba%2C%0A%0ATeam%20Blue%20Ticimax%20b%C3%BCnyesindeki%20Product%20Manager%20pozisyonuna%20yapt%C4%B1%C4%9F%C4%B1m%20ba%C5%9Fvurunun%20mevcut%20durumu%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%20S%C3%BCre%C3%A7le%20ilgilenmeye%20devam%20ediyorum.%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AAtalay%20Denizer%0Aatalay.denizer0%40gmail.com%20%7C%20%2B90%20544%20543%2003%2031",
+          "url": "mailto:ik@teamblueticimax.example?subject=Product%20Manager%20ba%C5%9Fvurusu%20%E2%80%94%20durum%20sorusu&body=Merhaba%2C%0A%0ATeam%20Blue%20Ticimax%20b%C3%BCnyesindeki%20Product%20Manager%20pozisyonuna%20yapt%C4%B1%C4%9F%C4%B1m%20ba%C5%9Fvurunun%20mevcut%20durumu%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%20S%C3%BCre%C3%A7le%20ilgilenmeye%20devam%20ediyorum.%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AKerem%20Ayd%C4%B1n%0Akerem.aydin%40example.com%20%7C%20%2B90%205XX%20XXX%20XX%20XX",
           "kind": "mailto"
         },
         {
@@ -2039,7 +2044,7 @@
       "status": "rejected",
       "track": "Strategy",
       "location": "Remote/EU",
-      "contact": "darya.razmara@revolut.com / ines.coutinho@revolut.com",
+      "contact": "İşe alım ekibi — hiring@revolut.example",
       "deadline": null,
       "next_step": "-",
       "fit": 5,
@@ -2055,7 +2060,7 @@
       "links_actions": [
         {
           "label": "Takip maili yaz",
-          "url": "mailto:darya.razmara@revolut.com?subject=Strategy%20%26%20Operations%20Manager%20%28Hiring%20Sprint%29%20ba%C5%9Fvurusu%20%E2%80%94%20durum%20sorusu&body=Merhaba%2C%0A%0ARevolut%20b%C3%BCnyesindeki%20Strategy%20%26%20Operations%20Manager%20%28Hiring%20Sprint%29%20pozisyonuna%20yapt%C4%B1%C4%9F%C4%B1m%20ba%C5%9Fvurunun%20mevcut%20durumu%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%20S%C3%BCre%C3%A7le%20ilgilenmeye%20devam%20ediyorum.%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AAtalay%20Denizer%0Aatalay.denizer0%40gmail.com%20%7C%20%2B90%20544%20543%2003%2031",
+          "url": "mailto:hiring@revolut.example?subject=Strategy%20%26%20Operations%20Manager%20%28Hiring%20Sprint%29%20ba%C5%9Fvurusu%20%E2%80%94%20durum%20sorusu&body=Merhaba%2C%0A%0ARevolut%20b%C3%BCnyesindeki%20Strategy%20%26%20Operations%20Manager%20%28Hiring%20Sprint%29%20pozisyonuna%20yapt%C4%B1%C4%9F%C4%B1m%20ba%C5%9Fvurunun%20mevcut%20durumu%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%20S%C3%BCre%C3%A7le%20ilgilenmeye%20devam%20ediyorum.%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AKerem%20Ayd%C4%B1n%0Akerem.aydin%40example.com%20%7C%20%2B90%205XX%20XXX%20XX%20XX",
           "kind": "mailto"
         },
         {

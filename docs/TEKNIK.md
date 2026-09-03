@@ -2,8 +2,8 @@
 
 > Genel bakış için [README](../README.md). Bu belge formülleri, bakım notlarını ve tasarım kararlarını içerir.
 
-Atalay Denizer'in LinkedIn ve ATS üzerinden yaptığı iş başvurularını Gmail
-(`atalay.denizer0@gmail.com`) ile entegre biçimde takip eden otomasyon ve
+Kerem Aydın'in LinkedIn ve ATS üzerinden yaptığı iş başvurularını Gmail
+(`kerem.aydin@example.com`) ile entegre biçimde takip eden otomasyon ve
 raporlama sistemi.
 
 Sistem üç parçadan oluşur:

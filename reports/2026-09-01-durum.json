@@ -22,7 +22,7 @@
       "status": "action_required",
       "track": "Finance/Strategy",
       "location": "Maslak, İstanbul (ofis, 5 gün)",
-      "contact": "Aleyna Nur Alagöz — aleyna.alagoz@nebil.com",
+      "contact": "İK Sorumlusu — ik@nebil.example",
       "deadline": "2026-08-31",
       "next_step": "TestGorilla testi + 3 soruya mail yanıtı (maaş / lokasyon / 7 Eyl başlangıç). Yüz yüze mülakatlar 1-2 Eylül, hedef başlangıç 7 Eylül.",
       "links": [
@@ -30,13 +30,85 @@
       ],
       "fit": 5,
       "notes": "Sürecin en ileri aşamadaki adayı. Deadline 31 Ağu'da doldu — tamamlanmadıysa acil kapatılmalı.",
+      "match": {
+        "role_family": 33,
+        "seniority": 20,
+        "skills": 23,
+        "domain": 11,
+        "location_mod": 0,
+        "rationale": "CFO ofisi = FP&A + yönetim raporlaması; bütçe/forecast deneyimi birebir. Executive unvanı hafif esneme."
+      },
+      "links_actions": [
+        {
+          "label": "TestGorilla testini aç",
+          "url": "https://app.testgorilla.com/s/4gsyw8tr"
+        },
+        {
+          "label": "Takip maili yaz",
+          "url": "mailto:ik@nebil.example?subject=CFO%20Office%20Executive%20ba%C5%9Fvurusu%20%E2%80%94%20s%C3%BCre%20uzat%C4%B1m%C4%B1%20talebi&body=Merhaba%2C%0A%0ANebil%20Project%20b%C3%BCnyesindeki%20CFO%20Office%20Executive%20pozisyonu%20i%C3%A7in%20payla%C5%9Ft%C4%B1%C4%9F%C4%B1n%C4%B1z%20de%C4%9Ferlendirme%20ad%C4%B1m%C4%B1n%C4%B1%20belirtilen%20tarihte%20tamamlayamad%C4%B1m.%20S%C3%BCre%C3%A7%20h%C3%A2l%C3%A2%20a%C3%A7%C4%B1ksa%20k%C4%B1sa%20bir%20ek%20s%C3%BCre%20tan%C4%B1man%C4%B1z%20m%C3%BCmk%C3%BCn%20m%C3%BCd%C3%BCr%3F%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AKerem%20Ayd%C4%B1n%0Akerem.aydin%40example.com%20%7C%20%2B90%205XX%20XXX%20XX%20XX",
+          "kind": "mailto"
+        },
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Nebil%20Project",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "financial_modeling"
+      ],
+      "match_result": {
+        "score": 87,
+        "raw": 87,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 33,
+            "max": 35,
+            "pct": 94
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 23,
+            "max": 25,
+            "pct": 92
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 11,
+            "max": 15,
+            "pct": 73
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "CFO ofisi = FP&A + yönetim raporlaması; bütçe/forecast deneyimi birebir. Executive unvanı hafif esneme."
+      },
       "score": 145,
       "band": "critical",
       "reminders": [
         "⏳ Deadline 1 gün önce doldu (2026-08-31) — uzatma iste ya da kapat."
       ],
       "days_silent": 7,
-      "days_to_deadline": -1
+      "days_to_deadline": -1,
+      "match_score": 87,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "CFO ofisi = FP&A + yönetim raporlaması; bütçe/forecast deneyimi birebir. Executive unvanı hafif esneme.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "puffy-data-analyst",
@@ -49,18 +121,87 @@
       "status": "action_required",
       "track": "Data",
       "location": "Dubai",
-      "contact": "Shreya K. — shreya.k@puffy.com",
+      "contact": "Talent Acquisition — ta@puffy.example",
       "deadline": "2026-08-22",
       "next_step": "Faz-1 yetenek değerlendirmesi (~30 dk, proctored/kameralı; başlayınca 4 saat içinde bitmeli).",
       "fit": 4,
       "notes": "Deadline 22 Ağu'da doldu. Tamamlanmadıysa uzatma talebi için İK'ya yaz.",
+      "match": {
+        "role_family": 33,
+        "seniority": 25,
+        "skills": 22,
+        "domain": 12,
+        "location_mod": -12,
+        "rationale": "Data Analyst + DTC e-ticaret birebir; tek engel Dubai'ye taşınma zorunluluğu."
+      },
+      "links_actions": [
+        {
+          "label": "Takip maili yaz",
+          "url": "mailto:ta@puffy.example?subject=Data%20Analyst%20%28Dubai%2C%20on-site%29%20ba%C5%9Fvurusu%20%E2%80%94%20s%C3%BCre%20uzat%C4%B1m%C4%B1%20talebi&body=Merhaba%2C%0A%0APuffy%20b%C3%BCnyesindeki%20Data%20Analyst%20%28Dubai%2C%20on-site%29%20pozisyonu%20i%C3%A7in%20payla%C5%9Ft%C4%B1%C4%9F%C4%B1n%C4%B1z%20de%C4%9Ferlendirme%20ad%C4%B1m%C4%B1n%C4%B1%20belirtilen%20tarihte%20tamamlayamad%C4%B1m.%20S%C3%BCre%C3%A7%20h%C3%A2l%C3%A2%20a%C3%A7%C4%B1ksa%20k%C4%B1sa%20bir%20ek%20s%C3%BCre%20tan%C4%B1man%C4%B1z%20m%C3%BCmk%C3%BCn%20m%C3%BCd%C3%BCr%3F%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AKerem%20Ayd%C4%B1n%0Akerem.aydin%40example.com%20%7C%20%2B90%205XX%20XXX%20XX%20XX",
+          "kind": "mailto"
+        },
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Puffy",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "python"
+      ],
+      "match_result": {
+        "score": 80,
+        "raw": 92,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": -12,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 33,
+            "max": 35,
+            "pct": 94
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 12,
+            "max": 15,
+            "pct": 80
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Data Analyst + DTC e-ticaret birebir; tek engel Dubai'ye taşınma zorunluluğu."
+      },
       "score": 141,
       "band": "critical",
       "reminders": [
         "⏳ Deadline 10 gün önce doldu (2026-08-22) — uzatma iste ya da kapat."
       ],
       "days_silent": 12,
-      "days_to_deadline": -10
+      "days_to_deadline": -10,
+      "match_score": 80,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Data Analyst + DTC e-ticaret birebir; tek engel Dubai'ye taşınma zorunluluğu.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "eoai-lab-founding",
@@ -77,13 +218,77 @@
       "next_step": "Online mülakat için müsaitlik bildirimi — pencere 4 Eylül'de kapanıyor.",
       "fit": 4,
       "notes": "Müsaitlik iletilmezse süreç otomatik düşer.",
+      "match": {
+        "role_family": 24,
+        "seniority": 22,
+        "skills": 16,
+        "domain": 8,
+        "location_mod": 0,
+        "rationale": "Kurucu ekipte analitik sahiplenme mümkün ama AI startup teknik derinlik bekleyebilir."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/EOAI%20Lab",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "python",
+        "sql"
+      ],
+      "match_result": {
+        "score": 70,
+        "raw": 70,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 24,
+            "max": 35,
+            "pct": 69
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 16,
+            "max": 25,
+            "pct": 64
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 8,
+            "max": 15,
+            "pct": 53
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Kurucu ekipte analitik sahiplenme mümkün ama AI startup teknik derinlik bekleyebilir."
+      },
       "score": 129,
       "band": "critical",
       "reminders": [
         "📅 Deadline 3 gün sonra (2026-09-04)."
       ],
       "days_silent": 3,
-      "days_to_deadline": 3
+      "days_to_deadline": 3,
+      "match_score": 70,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Kurucu ekipte analitik sahiplenme mümkün ama AI startup teknik derinlik bekleyebilir.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "theflex-base360",
@@ -100,13 +305,76 @@
       "next_step": "Bir sonraki aşama görevi (adayların ~%10'u geçti).",
       "fit": 4,
       "notes": "Ashby üzerinden ilerliyor.",
+      "match": {
+        "role_family": 30,
+        "seniority": 25,
+        "skills": 20,
+        "domain": 10,
+        "location_mod": -8,
+        "rationale": "Growth marketing birebir; kampanya/CRO tarafı güçlü, uzaktan EU çalışma izni belirsiz."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/The%20Flex%20%26%20Base360",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "experimentation"
+      ],
+      "match_result": {
+        "score": 77,
+        "raw": 85,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 30,
+            "max": 35,
+            "pct": 86
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 10,
+            "max": 15,
+            "pct": 67
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Growth marketing birebir; kampanya/CRO tarafı güçlü, uzaktan EU çalışma izni belirsiz."
+      },
       "score": 98,
       "band": "high",
       "reminders": [
         "✉️ 12 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 12,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 77,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Growth marketing birebir; kampanya/CRO tarafı güçlü, uzaktan EU çalışma izni belirsiz.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "peks-global-ticari-analist",
@@ -119,16 +387,84 @@
       "status": "awaiting_response",
       "track": "Business Analysis",
       "location": "İstanbul",
-      "contact": "Raşit Okman / Barış Türkan (İK Müdürü)",
+      "contact": "İK Müdürü — ik@peksglobal.example",
       "deadline": null,
       "next_step": "28 Ağu 12:00 Teams görüşmesi yapıldı — geri dönüş bekleniyor. 5+ iş günü geçtiyse takip maili at.",
       "fit": 4,
       "notes": "Aktif mülakat süreci.",
+      "match": {
+        "role_family": 34,
+        "seniority": 25,
+        "skills": 23,
+        "domain": 9,
+        "location_mod": 0,
+        "rationale": "Ticari analist = ticari strateji + P&L + fiyatlandırma deneyiminin tam karşılığı."
+      },
+      "links_actions": [
+        {
+          "label": "Takip maili yaz",
+          "url": "mailto:ik@peksglobal.example?subject=Ticari%20Analist%20pozisyonu%20%E2%80%94%20g%C3%B6r%C3%BC%C5%9Fme%20sonras%C4%B1%20takip&body=Merhaba%2C%0A%0APeks%20Global%20A.%C5%9E.%20b%C3%BCnyesindeki%20Ticari%20Analist%20pozisyonu%20i%C3%A7in%20ger%C3%A7ekle%C5%9Ftirdi%C4%9Fimiz%20g%C3%B6r%C3%BC%C5%9Fme%20i%C3%A7in%20tekrar%20te%C5%9Fekk%C3%BCr%20ederim.%20S%C3%BCrecin%20bir%20sonraki%20ad%C4%B1m%C4%B1%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AKerem%20Ayd%C4%B1n%0Akerem.aydin%40example.com%20%7C%20%2B90%205XX%20XXX%20XX%20XX",
+          "kind": "mailto"
+        },
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Peks%20Global%20A.%C5%9E.",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql"
+      ],
+      "match_result": {
+        "score": 91,
+        "raw": 91,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 34,
+            "max": 35,
+            "pct": 97
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 23,
+            "max": 25,
+            "pct": 92
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 9,
+            "max": 15,
+            "pct": 60
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Ticari analist = ticari strateji + P&L + fiyatlandırma deneyiminin tam karşılığı."
+      },
       "score": 94,
       "band": "high",
       "reminders": [],
       "days_silent": 4,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 91,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Ticari analist = ticari strateji + P&L + fiyatlandırma deneyiminin tam karşılığı.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "micro1-data-analyst",
@@ -145,11 +481,75 @@
       "next_step": "~30 dk konuşma tabanlı AI mülakatı tamamlanmalı.",
       "fit": 2,
       "notes": "3 Ağu–22 Ağu arası 8 hatırlatma geldi. Düşük öncelik ama tek adımda kapanır.",
+      "match": {
+        "role_family": 14,
+        "seniority": 25,
+        "skills": 16,
+        "domain": 5,
+        "location_mod": 0,
+        "rationale": "Kariyer rolü değil, saatlik AI eğitim gig'i; CV'ye katkısı sınırlı."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/micro1",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "python",
+        "sql"
+      ],
+      "match_result": {
+        "score": 60,
+        "raw": 60,
+        "segment": "🟡 Orta eşleşme",
+        "segment_key": "fair",
+        "advice": "Kısmi uyum — zaman kalırsa ilerlet.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 14,
+            "max": 35,
+            "pct": 40
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 16,
+            "max": 25,
+            "pct": 64
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 5,
+            "max": 15,
+            "pct": 33
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Kariyer rolü değil, saatlik AI eğitim gig'i; CV'ye katkısı sınırlı."
+      },
       "score": 93,
       "band": "critical",
       "reminders": [],
       "days_silent": 10,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 60,
+      "match_segment": "🟡 Orta eşleşme",
+      "match_segment_key": "fair",
+      "match_rationale": "Kariyer rolü değil, saatlik AI eğitim gig'i; CV'ye katkısı sınırlı.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "drbombay-deel",
@@ -166,11 +566,72 @@
       "next_step": "60-90 sn tanıtım videosu gönder.",
       "fit": 1,
       "notes": "Düşük öncelik / eğlence amaçlı.",
+      "match": {
+        "role_family": 2,
+        "seniority": 25,
+        "skills": 3,
+        "domain": 2,
+        "location_mod": 0,
+        "rationale": "Profille hiçbir kesişim yok — eğlence amaçlı başvuru."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Dr.%20Bombay%20%28Snoop%20Dogg%29%20/%20Deel",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [],
+      "match_result": {
+        "score": 32,
+        "raw": 32,
+        "segment": "🔴 Zayıf eşleşme",
+        "segment_key": "weak",
+        "advice": "Düşük getiri; kapatmayı değerlendir.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 2,
+            "max": 35,
+            "pct": 6
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 3,
+            "max": 25,
+            "pct": 12
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 2,
+            "max": 15,
+            "pct": 13
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "Profille hiçbir kesişim yok — eğlence amaçlı başvuru."
+      },
       "score": 86,
       "band": "high",
       "reminders": [],
       "days_silent": 1,
-      "days_to_deadline": 16
+      "days_to_deadline": 16,
+      "match_score": 32,
+      "match_segment": "🔴 Zayıf eşleşme",
+      "match_segment_key": "weak",
+      "match_rationale": "Profille hiçbir kesişim yok — eğlence amaçlı başvuru.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "trendyolgo",
@@ -187,13 +648,76 @@
       "next_step": "Mülakat tamamlandı, deneyim anketi geldi — sonuç bekleniyor.",
       "fit": 4,
       "notes": "Anket maili genelde sürecin sonuna yakın gelir.",
+      "match": {
+        "role_family": 24,
+        "seniority": 22,
+        "skills": 20,
+        "domain": 15,
+        "location_mod": 0,
+        "rationale": "Sektör birebir (q-commerce/teslimat) — Anka Express deneyimi doğrudan transfer olur. Rol belirsiz."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/TrendyolGo",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql"
+      ],
+      "match_result": {
+        "score": 81,
+        "raw": 81,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 24,
+            "max": 35,
+            "pct": 69
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 15,
+            "max": 15,
+            "pct": 100
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "Sektör birebir (q-commerce/teslimat) — Anka Express deneyimi doğrudan transfer olur. Rol belirsiz."
+      },
       "score": 86,
       "band": "high",
       "reminders": [
         "✉️ Mülakattan 14 gün geçti — nazik takip maili at."
       ],
       "days_silent": 14,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 81,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Sektör birebir (q-commerce/teslimat) — Anka Express deneyimi doğrudan transfer olur. Rol belirsiz.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "yapikredi-peoplise",
@@ -210,11 +734,74 @@
       "next_step": "E-posta doğrulama linkine tıkla + CV bilgilerini doldur (spam kutusunu kontrol et).",
       "fit": 4,
       "notes": "21 Ağu'da da aynı doğrulama maili gelmiş; adım hâlâ tamamlanmamış görünüyor.",
+      "match": {
+        "role_family": 18,
+        "seniority": 22,
+        "skills": 18,
+        "domain": 11,
+        "location_mod": 0,
+        "rationale": "Rol belirsiz; bankacılıkta FP&A/CRM analitiği açılırsa uyum yükselir."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Yap%C4%B1%20Kredi",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql"
+      ],
+      "match_result": {
+        "score": 69,
+        "raw": 69,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 18,
+            "max": 35,
+            "pct": 51
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 18,
+            "max": 25,
+            "pct": 72
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 11,
+            "max": 15,
+            "pct": 73
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "Rol belirsiz; bankacılıkta FP&A/CRM analitiği açılırsa uyum yükselir."
+      },
       "score": 86,
       "band": "critical",
       "reminders": [],
       "days_silent": 0,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 69,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Rol belirsiz; bankacılıkta FP&A/CRM analitiği açılırsa uyum yükselir.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "eren-perakende-flowq",
@@ -231,11 +818,74 @@
       "next_step": "FlowQ çevrimiçi yetenek/beceri uygulaması.",
       "fit": 3,
       "notes": "6 Ağu'dan beri bekliyor — muhtemelen süresi doldu, kontrol et.",
+      "match": {
+        "role_family": 18,
+        "seniority": 22,
+        "skills": 18,
+        "domain": 10,
+        "location_mod": 0,
+        "rationale": "Rol belirsiz; perakende sektörü yakın."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Eren%20Perakende",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "powerbi"
+      ],
+      "match_result": {
+        "score": 68,
+        "raw": 68,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 18,
+            "max": 35,
+            "pct": 51
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 18,
+            "max": 25,
+            "pct": 72
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 10,
+            "max": 15,
+            "pct": 67
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "Rol belirsiz; perakende sektörü yakın."
+      },
       "score": 77,
       "band": "critical",
       "reminders": [],
       "days_silent": 26,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 68,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Rol belirsiz; perakende sektörü yakın.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "shift-data-ops-fellow",
@@ -248,16 +898,85 @@
       "status": "awaiting_response",
       "track": "Data",
       "location": "İstanbul",
-      "contact": "kaan.dursun@joinshift.ai",
+      "contact": "program@shift.example",
       "deadline": null,
       "next_step": "Program süreç akışı paylaşıldı — sonraki adım bildirimi bekleniyor.",
       "fit": 4,
       "notes": "Klasik staj değil, fellowship programı.",
+      "match": {
+        "role_family": 26,
+        "seniority": 20,
+        "skills": 20,
+        "domain": 8,
+        "location_mod": 0,
+        "rationale": "Data ops analitiği uygun ama fellowship 2 yıllık deneyimin bir tık altında."
+      },
+      "links_actions": [
+        {
+          "label": "Takip maili yaz",
+          "url": "mailto:program@shift.example?subject=Data%20Operations%20Fellow%20ba%C5%9Fvurusu%20%E2%80%94%20durum%20sorusu&body=Merhaba%2C%0A%0Ashift%20%28joinshift.ai%29%20b%C3%BCnyesindeki%20Data%20Operations%20Fellow%20pozisyonuna%20yapt%C4%B1%C4%9F%C4%B1m%20ba%C5%9Fvurunun%20mevcut%20durumu%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%20S%C3%BCre%C3%A7le%20ilgilenmeye%20devam%20ediyorum.%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AKerem%20Ayd%C4%B1n%0Akerem.aydin%40example.com%20%7C%20%2B90%205XX%20XXX%20XX%20XX",
+          "kind": "mailto"
+        },
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/shift%20%28joinshift.ai%29",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "python"
+      ],
+      "match_result": {
+        "score": 74,
+        "raw": 74,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 26,
+            "max": 35,
+            "pct": 74
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 8,
+            "max": 15,
+            "pct": 53
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Data ops analitiği uygun ama fellowship 2 yıllık deneyimin bir tık altında."
+      },
       "score": 76,
       "band": "high",
       "reminders": [],
       "days_silent": 6,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 74,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Data ops analitiği uygun ama fellowship 2 yıllık deneyimin bir tık altında.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "omtera-join",
@@ -274,11 +993,75 @@
       "next_step": "join.com üzerinden giriş yapıp başvuruyu tamamla (link 60 dk geçerliydi — yeniden tetikle).",
       "fit": 3,
       "notes": "Başvuru hiç tamamlanmadı.",
+      "match": {
+        "role_family": 24,
+        "seniority": 22,
+        "skills": 19,
+        "domain": 9,
+        "location_mod": 0,
+        "rationale": "Veri danışmanlığı; rol belirsiz ama analitik odaklı olması muhtemel."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Omtera",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "python"
+      ],
+      "match_result": {
+        "score": 74,
+        "raw": 74,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 24,
+            "max": 35,
+            "pct": 69
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 19,
+            "max": 25,
+            "pct": 76
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 9,
+            "max": 15,
+            "pct": 60
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Veri danışmanlığı; rol belirsiz ama analitik odaklı olması muhtemel."
+      },
       "score": 74,
       "band": "critical",
       "reminders": [],
       "days_silent": 17,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 74,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Veri danışmanlığı; rol belirsiz ama analitik odaklı olması muhtemel.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "dataroid",
@@ -295,11 +1078,75 @@
       "next_step": "İnceleme aşamasında.",
       "fit": 5,
       "notes": "Lever.",
+      "match": {
+        "role_family": 29,
+        "seniority": 22,
+        "skills": 20,
+        "domain": 11,
+        "location_mod": 0,
+        "rationale": "Dijital analitik ürünü; Mixpanel/kohort deneyimi doğrudan konuşuluyor."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Dataroid",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "product_analytics"
+      ],
+      "match_result": {
+        "score": 82,
+        "raw": 82,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 29,
+            "max": 35,
+            "pct": 83
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 11,
+            "max": 15,
+            "pct": 73
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Dijital analitik ürünü; Mixpanel/kohort deneyimi doğrudan konuşuluyor."
+      },
       "score": 55,
       "band": "normal",
       "reminders": [],
       "days_silent": 4,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 82,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Dijital analitik ürünü; Mixpanel/kohort deneyimi doğrudan konuşuluyor.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "obilet-strategy-analyst",
@@ -316,11 +1163,74 @@
       "next_step": "İnceleme aşamasında.",
       "fit": 5,
       "notes": "Obilet'e ikinci başvuru.",
+      "match": {
+        "role_family": 34,
+        "seniority": 25,
+        "skills": 22,
+        "domain": 13,
+        "location_mod": 0,
+        "rationale": "Strategy Analyst + online seyahat marketplace — rol ve sektör birlikte çok güçlü."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Obilet",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql"
+      ],
+      "match_result": {
+        "score": 94,
+        "raw": 94,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 34,
+            "max": 35,
+            "pct": 97
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 13,
+            "max": 15,
+            "pct": 87
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Strategy Analyst + online seyahat marketplace — rol ve sektör birlikte çok güçlü."
+      },
       "score": 55,
       "band": "normal",
       "reminders": [],
       "days_silent": 2,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 94,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Strategy Analyst + online seyahat marketplace — rol ve sektör birlikte çok güçlü.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "sanction-scanner-founders",
@@ -337,11 +1247,74 @@
       "next_step": "Nitelikler inceleniyor.",
       "fit": 5,
       "notes": "Founder's Associate rolü profile çok uygun.",
+      "match": {
+        "role_family": 33,
+        "seniority": 25,
+        "skills": 22,
+        "domain": 12,
+        "location_mod": 0,
+        "rationale": "Founder's Associate = çapraz fonksiyonlu analitik/strateji; regtech fintech yakın."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Sanction%20Scanner",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql"
+      ],
+      "match_result": {
+        "score": 92,
+        "raw": 92,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 33,
+            "max": 35,
+            "pct": 94
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 12,
+            "max": 15,
+            "pct": 80
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Founder's Associate = çapraz fonksiyonlu analitik/strateji; regtech fintech yakın."
+      },
       "score": 55,
       "band": "normal",
       "reminders": [],
       "days_silent": 1,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 92,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Founder's Associate = çapraz fonksiyonlu analitik/strateji; regtech fintech yakın.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "amazon-content-acq",
@@ -358,13 +1331,76 @@
       "next_step": "12 gündür dönüş yok — amazon.jobs portalından durum kontrol edilebilir.",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 12,
+        "seniority": 13,
+        "skills": 10,
+        "domain": 7,
+        "location_mod": 0,
+        "rationale": "İçerik lisanslama ve müzakere işi; ne rol ne kıdem uyuyor."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Amazon",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "people_leadership"
+      ],
+      "match_result": {
+        "score": 42,
+        "raw": 42,
+        "segment": "🔴 Zayıf eşleşme",
+        "segment_key": "weak",
+        "advice": "Düşük getiri; kapatmayı değerlendir.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 12,
+            "max": 35,
+            "pct": 34
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 13,
+            "max": 25,
+            "pct": 52
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 10,
+            "max": 25,
+            "pct": 40
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 7,
+            "max": 15,
+            "pct": 47
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "İçerik lisanslama ve müzakere işi; ne rol ne kıdem uyuyor."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [
         "✉️ 12 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 12,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 42,
+      "match_segment": "🔴 Zayıf eşleşme",
+      "match_segment_key": "weak",
+      "match_rationale": "İçerik lisanslama ve müzakere işi; ne rol ne kıdem uyuyor.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "assistant-app-growth-pm",
@@ -381,13 +1417,77 @@
       "next_step": "12 gündür dönüş yok.",
       "fit": 4,
       "notes": "hrpanda.",
+      "match": {
+        "role_family": 28,
+        "seniority": 15,
+        "skills": 18,
+        "domain": 10,
+        "location_mod": 0,
+        "rationale": "Growth PM analitik tarafı uygun; PM kıdemi ve ürün sahipliği deneyimi eksik."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Assistant%20App%20A.%C5%9E.",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "product_management",
+        "experimentation"
+      ],
+      "match_result": {
+        "score": 71,
+        "raw": 71,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 28,
+            "max": 35,
+            "pct": 80
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 15,
+            "max": 25,
+            "pct": 60
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 18,
+            "max": 25,
+            "pct": 72
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 10,
+            "max": 15,
+            "pct": 67
+          }
+        ],
+        "weakest": "Kıdem",
+        "rationale": "Growth PM analitik tarafı uygun; PM kıdemi ve ürün sahipliği deneyimi eksik."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [
         "✉️ 12 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 12,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 71,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Growth PM analitik tarafı uygun; PM kıdemi ve ürün sahipliği deneyimi eksik.",
+      "match_weakest": "Kıdem"
     },
     {
       "id": "baytek-ba-ai",
@@ -404,11 +1504,75 @@
       "next_step": "CV işverene iletildi.",
       "fit": 4,
       "notes": "resreader.com üzerinden.",
+      "match": {
+        "role_family": 33,
+        "seniority": 25,
+        "skills": 20,
+        "domain": 9,
+        "location_mod": 0,
+        "rationale": "Business Analyst + ürün analitiği birebir; AI kısmı öğrenilebilir."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Baytek",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "product_analytics"
+      ],
+      "match_result": {
+        "score": 87,
+        "raw": 87,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 33,
+            "max": 35,
+            "pct": 94
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 9,
+            "max": 15,
+            "pct": 60
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Business Analyst + ürün analitiği birebir; AI kısmı öğrenilebilir."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [],
       "days_silent": 0,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 87,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Business Analyst + ürün analitiği birebir; AI kısmı öğrenilebilir.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "ceva-logistics-bpe",
@@ -425,11 +1589,74 @@
       "next_step": "İnceleme aşamasında.",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 27,
+        "seniority": 22,
+        "skills": 19,
+        "domain": 8,
+        "location_mod": 0,
+        "rationale": "Süreç mükemmelliği analitik/proje işi; lojistik sektörü orta yakınlık."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/CEVA%20Logistics",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "supply_chain"
+      ],
+      "match_result": {
+        "score": 76,
+        "raw": 76,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 27,
+            "max": 35,
+            "pct": 77
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 19,
+            "max": 25,
+            "pct": 76
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 8,
+            "max": 15,
+            "pct": 53
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Süreç mükemmelliği analitik/proje işi; lojistik sektörü orta yakınlık."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [],
       "days_silent": 1,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 76,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Süreç mükemmelliği analitik/proje işi; lojistik sektörü orta yakınlık.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "cricut-ecom-ops-lead",
@@ -446,13 +1673,76 @@
       "next_step": "12 gündür dönüş yok.",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 22,
+        "seniority": 8,
+        "skills": 16,
+        "domain": 12,
+        "location_mod": 0,
+        "rationale": "E-ticaret operasyonu yakın ama 'Regional Lead' kıdem olarak çok üstte."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Cricut",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "people_leadership"
+      ],
+      "match_result": {
+        "score": 58,
+        "raw": 58,
+        "segment": "🟡 Orta eşleşme",
+        "segment_key": "fair",
+        "advice": "Kısmi uyum — zaman kalırsa ilerlet.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 22,
+            "max": 35,
+            "pct": 63
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 8,
+            "max": 25,
+            "pct": 32
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 16,
+            "max": 25,
+            "pct": 64
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 12,
+            "max": 15,
+            "pct": 80
+          }
+        ],
+        "weakest": "Kıdem",
+        "rationale": "E-ticaret operasyonu yakın ama 'Regional Lead' kıdem olarak çok üstte."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [
         "✉️ 12 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 12,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 58,
+      "match_segment": "🟡 Orta eşleşme",
+      "match_segment_key": "fair",
+      "match_rationale": "E-ticaret operasyonu yakın ama 'Regional Lead' kıdem olarak çok üstte.",
+      "match_weakest": "Kıdem"
     },
     {
       "id": "firefly-biz-ops",
@@ -469,13 +1759,76 @@
       "next_step": "12 gündür dönüş yok.",
       "fit": 4,
       "notes": "Lever.",
+      "match": {
+        "role_family": 30,
+        "seniority": 25,
+        "skills": 21,
+        "domain": 8,
+        "location_mod": -8,
+        "rationale": "Business Operations = analitik + süreç; profile çok uygun."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Firefly",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql"
+      ],
+      "match_result": {
+        "score": 76,
+        "raw": 84,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 30,
+            "max": 35,
+            "pct": 86
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 21,
+            "max": 25,
+            "pct": 84
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 8,
+            "max": 15,
+            "pct": 53
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Business Operations = analitik + süreç; profile çok uygun."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [
         "✉️ 12 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 12,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 76,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Business Operations = analitik + süreç; profile çok uygun.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "goodjobgames-product-specialist",
@@ -492,11 +1845,75 @@
       "next_step": "İnceleme aşamasında.",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 24,
+        "seniority": 25,
+        "skills": 18,
+        "domain": 9,
+        "location_mod": 0,
+        "rationale": "Oyun ürün analitiği; kohort/retention bilgisi transfer olur, oyun metrikleri yeni."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Good%20Job%20Games",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "product_analytics",
+        "sql"
+      ],
+      "match_result": {
+        "score": 76,
+        "raw": 76,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 24,
+            "max": 35,
+            "pct": 69
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 18,
+            "max": 25,
+            "pct": 72
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 9,
+            "max": 15,
+            "pct": 60
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Oyun ürün analitiği; kohort/retention bilgisi transfer olur, oyun metrikleri yeni."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [],
       "days_silent": 6,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 76,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Oyun ürün analitiği; kohort/retention bilgisi transfer olur, oyun metrikleri yeni.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "hyundai-product-senior",
@@ -513,11 +1930,74 @@
       "next_step": "İnceleme aşamasında.",
       "fit": 4,
       "notes": "SuccessFactors.",
+      "match": {
+        "role_family": 33,
+        "seniority": 20,
+        "skills": 22,
+        "domain": 9,
+        "location_mod": 0,
+        "rationale": "Pricing + finans birleşimi CV'nin merkezinde; Senior Specialist hafif esneme."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Hyundai%20Motor%20T%C3%BCrkiye",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "financial_modeling"
+      ],
+      "match_result": {
+        "score": 84,
+        "raw": 84,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 33,
+            "max": 35,
+            "pct": 94
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 9,
+            "max": 15,
+            "pct": 60
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Pricing + finans birleşimi CV'nin merkezinde; Senior Specialist hafif esneme."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [],
       "days_silent": 0,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 84,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Pricing + finans birleşimi CV'nin merkezinde; Senior Specialist hafif esneme.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "midas-lever",
@@ -534,11 +2014,74 @@
       "next_step": "İnceleme aşamasında.",
       "fit": 4,
       "notes": "Lever.",
+      "match": {
+        "role_family": 22,
+        "seniority": 22,
+        "skills": 20,
+        "domain": 12,
+        "location_mod": 0,
+        "rationale": "Fintech/yatırım platformu sektörü uygun; rol belirsiz."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Midas",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql"
+      ],
+      "match_result": {
+        "score": 76,
+        "raw": 76,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 22,
+            "max": 35,
+            "pct": 63
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 12,
+            "max": 15,
+            "pct": 80
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "Fintech/yatırım platformu sektörü uygun; rol belirsiz."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [],
       "days_silent": 1,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 76,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Fintech/yatırım platformu sektörü uygun; rol belirsiz.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "miniclip-data-analyst",
@@ -555,11 +2098,75 @@
       "next_step": "8 gündür dönüş yok.",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 30,
+        "seniority": 25,
+        "skills": 17,
+        "domain": 9,
+        "location_mod": -8,
+        "rationale": "Data Analyst uygun ama oyun analitiğinde SQL/Python beklentisi CV'nin üstünde."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Miniclip",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "python"
+      ],
+      "match_result": {
+        "score": 73,
+        "raw": 81,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 30,
+            "max": 35,
+            "pct": 86
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 17,
+            "max": 25,
+            "pct": 68
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 9,
+            "max": 15,
+            "pct": 60
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Data Analyst uygun ama oyun analitiğinde SQL/Python beklentisi CV'nin üstünde."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [],
       "days_silent": 8,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 73,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Data Analyst uygun ama oyun analitiğinde SQL/Python beklentisi CV'nin üstünde.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "nlr-bi-analyst",
@@ -576,11 +2183,76 @@
       "next_step": "Workday bildirimi geldi — Workday Inbox'ı kontrol et.",
       "fit": 4,
       "notes": "1 Eyl Workday digest'inde bildirim var, içeriği okunmalı.",
+      "match": {
+        "role_family": 31,
+        "seniority": 25,
+        "skills": 20,
+        "domain": 7,
+        "location_mod": -8,
+        "rationale": "BI Analyst = Tableau/Power BI güçlü yanı; SQL 3/5 sınırda."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/NLR",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "powerbi",
+        "dbt_analytics_eng"
+      ],
+      "match_result": {
+        "score": 75,
+        "raw": 83,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 31,
+            "max": 35,
+            "pct": 89
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 7,
+            "max": 15,
+            "pct": 47
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "BI Analyst = Tableau/Power BI güçlü yanı; SQL 3/5 sınırda."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [],
       "days_silent": 0,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 75,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "BI Analyst = Tableau/Power BI güçlü yanı; SQL 3/5 sınırda.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "pernod-ricard-fpa",
@@ -597,11 +2269,74 @@
       "next_step": "İnceleme aşamasında.",
       "fit": 4,
       "notes": "Workday.",
+      "match": {
+        "role_family": 34,
+        "seniority": 23,
+        "skills": 23,
+        "domain": 9,
+        "location_mod": 0,
+        "rationale": "FP&A birebir; Management Trainee 2 yıllık deneyimin biraz altında ama marka değeri yüksek."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Pernod%20Ricard",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "financial_modeling"
+      ],
+      "match_result": {
+        "score": 89,
+        "raw": 89,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 34,
+            "max": 35,
+            "pct": 97
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 23,
+            "max": 25,
+            "pct": 92
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 23,
+            "max": 25,
+            "pct": 92
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 9,
+            "max": 15,
+            "pct": 60
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "FP&A birebir; Management Trainee 2 yıllık deneyimin biraz altında ama marka değeri yüksek."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [],
       "days_silent": 1,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 89,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "FP&A birebir; Management Trainee 2 yıllık deneyimin biraz altında ama marka değeri yüksek.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "pfizer-data-ops",
@@ -618,11 +2353,75 @@
       "next_step": "Değerlendirme sürüyor — karar bekleniyor.",
       "fit": 4,
       "notes": "3 kez 'öne çıkan aday' hatırlatması geldi (3, 5, 7 Ağu), 21 Ağu'da hâlâ inceleme.",
+      "match": {
+        "role_family": 26,
+        "seniority": 25,
+        "skills": 19,
+        "domain": 7,
+        "location_mod": 0,
+        "rationale": "Veri operasyonları uygun; ilaç sektörü yeni ama analitik iş temelde aynı."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Pfizer",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "powerbi"
+      ],
+      "match_result": {
+        "score": 77,
+        "raw": 77,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 26,
+            "max": 35,
+            "pct": 74
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 19,
+            "max": 25,
+            "pct": 76
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 7,
+            "max": 15,
+            "pct": 47
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Veri operasyonları uygun; ilaç sektörü yeni ama analitik iş temelde aynı."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [],
       "days_silent": 11,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 77,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Veri operasyonları uygun; ilaç sektörü yeni ama analitik iş temelde aynı.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "revolut-product-owner",
@@ -639,11 +2438,75 @@
       "next_step": "Başvuru onaylandı — inceleme aşamasında.",
       "fit": 4,
       "notes": "Revolut'ta ikinci deneme (S&O Manager 25 Ağu'da olumsuz sonuçlandı).",
+      "match": {
+        "role_family": 18,
+        "seniority": 20,
+        "skills": 14,
+        "domain": 12,
+        "location_mod": -8,
+        "rationale": "'Technical' Product Owner mühendislik altyapısı istiyor; fintech yakın ama teknik açık var."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Revolut",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "product_management",
+        "sql"
+      ],
+      "match_result": {
+        "score": 56,
+        "raw": 64,
+        "segment": "🟡 Orta eşleşme",
+        "segment_key": "fair",
+        "advice": "Kısmi uyum — zaman kalırsa ilerlet.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 18,
+            "max": 35,
+            "pct": 51
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 14,
+            "max": 25,
+            "pct": 56
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 12,
+            "max": 15,
+            "pct": 80
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "'Technical' Product Owner mühendislik altyapısı istiyor; fintech yakın ama teknik açık var."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [],
       "days_silent": 0,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 56,
+      "match_segment": "🟡 Orta eşleşme",
+      "match_segment_key": "fair",
+      "match_rationale": "'Technical' Product Owner mühendislik altyapısı istiyor; fintech yakın ama teknik açık var.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "socgen-coverage-support",
@@ -660,11 +2523,74 @@
       "next_step": "İnceleme aşamasında.",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 26,
+        "seniority": 25,
+        "skills": 18,
+        "domain": 11,
+        "location_mod": -8,
+        "rationale": "Bankacılık analiz desteği; finans temeli uygun, uzaktan EU izni belirsiz."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Societe%20Generale",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "financial_modeling"
+      ],
+      "match_result": {
+        "score": 72,
+        "raw": 80,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 26,
+            "max": 35,
+            "pct": 74
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 18,
+            "max": 25,
+            "pct": 72
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 11,
+            "max": 15,
+            "pct": 73
+          }
+        ],
+        "weakest": "Beceri örtüşmesi",
+        "rationale": "Bankacılık analiz desteği; finans temeli uygun, uzaktan EU izni belirsiz."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [],
       "days_silent": 5,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 72,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Bankacılık analiz desteği; finans temeli uygun, uzaktan EU izni belirsiz.",
+      "match_weakest": "Beceri örtüşmesi"
     },
     {
       "id": "tripcom-bd-manager",
@@ -681,13 +2607,76 @@
       "next_step": "12 gündür dönüş yok.",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 14,
+        "seniority": 13,
+        "skills": 12,
+        "domain": 11,
+        "location_mod": 0,
+        "rationale": "Satış odaklı Manager rolü; hem rol ailesi hem kıdem uyumsuz."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Trip.com%20Group",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "people_leadership"
+      ],
+      "match_result": {
+        "score": 50,
+        "raw": 50,
+        "segment": "🟡 Orta eşleşme",
+        "segment_key": "fair",
+        "advice": "Kısmi uyum — zaman kalırsa ilerlet.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 14,
+            "max": 35,
+            "pct": 40
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 13,
+            "max": 25,
+            "pct": 52
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 12,
+            "max": 25,
+            "pct": 48
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 11,
+            "max": 15,
+            "pct": 73
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "Satış odaklı Manager rolü; hem rol ailesi hem kıdem uyumsuz."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [
         "✉️ 12 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 12,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 50,
+      "match_segment": "🟡 Orta eşleşme",
+      "match_segment_key": "fair",
+      "match_rationale": "Satış odaklı Manager rolü; hem rol ailesi hem kıdem uyumsuz.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "vizio-ai-saas-growth",
@@ -704,11 +2693,75 @@
       "next_step": "İnceleme aşamasında.",
       "fit": 4,
       "notes": "hrpanda.",
+      "match": {
+        "role_family": 31,
+        "seniority": 22,
+        "skills": 19,
+        "domain": 9,
+        "location_mod": 0,
+        "rationale": "SaaS growth stratejisi; funnel/retention deneyimi doğrudan geçerli."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/VIZIO%20AI",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "experimentation",
+        "product_analytics"
+      ],
+      "match_result": {
+        "score": 81,
+        "raw": 81,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 31,
+            "max": 35,
+            "pct": 89
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 19,
+            "max": 25,
+            "pct": 76
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 9,
+            "max": 15,
+            "pct": 60
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "SaaS growth stratejisi; funnel/retention deneyimi doğrudan geçerli."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [],
       "days_silent": 5,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 81,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "SaaS growth stratejisi; funnel/retention deneyimi doğrudan geçerli.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "vodafone",
@@ -725,11 +2778,75 @@
       "next_step": "İşe alım ekibi inceliyor.",
       "fit": 4,
       "notes": "20 ve 26 Ağu'da iki takip maili.",
+      "match": {
+        "role_family": 20,
+        "seniority": 22,
+        "skills": 18,
+        "domain": 9,
+        "location_mod": 0,
+        "rationale": "Rol belirsiz; telco'da CRM/growth analitiği açılırsa uyum yükselir."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Vodafone",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "powerbi"
+      ],
+      "match_result": {
+        "score": 69,
+        "raw": 69,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 20,
+            "max": 35,
+            "pct": 57
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 18,
+            "max": 25,
+            "pct": 72
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 9,
+            "max": 15,
+            "pct": 60
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "Rol belirsiz; telco'da CRM/growth analitiği açılırsa uyum yükselir."
+      },
       "score": 51,
       "band": "normal",
       "reminders": [],
       "days_silent": 6,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 69,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Rol belirsiz; telco'da CRM/growth analitiği açılırsa uyum yükselir.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "flalingo-influencer",
@@ -746,13 +2863,74 @@
       "next_step": "12 gündür dönüş yok.",
       "fit": 3,
       "notes": "hrpanda.",
+      "match": {
+        "role_family": 12,
+        "seniority": 25,
+        "skills": 10,
+        "domain": 8,
+        "location_mod": 0,
+        "rationale": "Influencer/partnership içerik-ilişki işi; analitik profille örtüşmüyor."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Flalingo",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [],
+      "match_result": {
+        "score": 55,
+        "raw": 55,
+        "segment": "🟡 Orta eşleşme",
+        "segment_key": "fair",
+        "advice": "Kısmi uyum — zaman kalırsa ilerlet.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 12,
+            "max": 35,
+            "pct": 34
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 10,
+            "max": 25,
+            "pct": 40
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 8,
+            "max": 15,
+            "pct": 53
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "Influencer/partnership içerik-ilişki işi; analitik profille örtüşmüyor."
+      },
       "score": 47,
       "band": "normal",
       "reminders": [
         "✉️ 12 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 12,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 55,
+      "match_segment": "🟡 Orta eşleşme",
+      "match_segment_key": "fair",
+      "match_rationale": "Influencer/partnership içerik-ilişki işi; analitik profille örtüşmüyor.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "ingram-micro-bde-hpe",
@@ -769,13 +2947,74 @@
       "next_step": "12 gündür dönüş yok.",
       "fit": 3,
       "notes": "Workday.",
+      "match": {
+        "role_family": 14,
+        "seniority": 25,
+        "skills": 12,
+        "domain": 7,
+        "location_mod": 0,
+        "rationale": "Saf satış/iş geliştirme — analitik profille zayıf kesişim."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Ingram%20Micro",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [],
+      "match_result": {
+        "score": 58,
+        "raw": 58,
+        "segment": "🟡 Orta eşleşme",
+        "segment_key": "fair",
+        "advice": "Kısmi uyum — zaman kalırsa ilerlet.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 14,
+            "max": 35,
+            "pct": 40
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 12,
+            "max": 25,
+            "pct": 48
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 7,
+            "max": 15,
+            "pct": 47
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "Saf satış/iş geliştirme — analitik profille zayıf kesişim."
+      },
       "score": 47,
       "band": "normal",
       "reminders": [
         "✉️ 12 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 12,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 58,
+      "match_segment": "🟡 Orta eşleşme",
+      "match_segment_key": "fair",
+      "match_rationale": "Saf satış/iş geliştirme — analitik profille zayıf kesişim.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "jobgether-supply-chain",
@@ -792,11 +3031,75 @@
       "next_step": "Eşleşme skoru inceleniyor.",
       "fit": 3,
       "notes": "Jobgether = agregatör; dönüş oranı düşük.",
+      "match": {
+        "role_family": 26,
+        "seniority": 25,
+        "skills": 19,
+        "domain": 10,
+        "location_mod": -8,
+        "rationale": "Tedarik zinciri analitiği FP&A/forecast ile örtüşüyor; agregatör kanalı zayıf."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Jobgether",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "supply_chain",
+        "sql"
+      ],
+      "match_result": {
+        "score": 72,
+        "raw": 80,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 26,
+            "max": 35,
+            "pct": 74
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 19,
+            "max": 25,
+            "pct": 76
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 10,
+            "max": 15,
+            "pct": 67
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Tedarik zinciri analitiği FP&A/forecast ile örtüşüyor; agregatör kanalı zayıf."
+      },
       "score": 47,
       "band": "normal",
       "reminders": [],
       "days_silent": 0,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 72,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Tedarik zinciri analitiği FP&A/forecast ile örtüşüyor; agregatör kanalı zayıf.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "jobgether-ba-vdi",
@@ -813,11 +3116,74 @@
       "next_step": "İnceleme aşamasında.",
       "fit": 3,
       "notes": "",
+      "match": {
+        "role_family": 20,
+        "seniority": 25,
+        "skills": 12,
+        "domain": 5,
+        "location_mod": -8,
+        "rationale": "BT altyapı/VDI migrasyonu — ticari analitikle kesişimi yok."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Jobgether",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql"
+      ],
+      "match_result": {
+        "score": 54,
+        "raw": 62,
+        "segment": "🟡 Orta eşleşme",
+        "segment_key": "fair",
+        "advice": "Kısmi uyum — zaman kalırsa ilerlet.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 20,
+            "max": 35,
+            "pct": 57
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 12,
+            "max": 25,
+            "pct": 48
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 5,
+            "max": 15,
+            "pct": 33
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "BT altyapı/VDI migrasyonu — ticari analitikle kesişimi yok."
+      },
       "score": 47,
       "band": "normal",
       "reminders": [],
       "days_silent": 5,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 54,
+      "match_segment": "🟡 Orta eşleşme",
+      "match_segment_key": "fair",
+      "match_rationale": "BT altyapı/VDI migrasyonu — ticari analitikle kesişimi yok.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "obilet-strategic-finance",
@@ -834,13 +3200,77 @@
       "next_step": "13 gündür dönüş yok — takip maili düşünülebilir.",
       "fit": 5,
       "notes": "",
+      "match": {
+        "role_family": 35,
+        "seniority": 25,
+        "skills": 23,
+        "domain": 13,
+        "location_mod": 0,
+        "rationale": "Strategic Finance + Analytics = FP&A ve growth analitiğinin tam kesişimi. Listedeki en iyi eşleşme."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Obilet",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "financial_modeling"
+      ],
+      "match_result": {
+        "score": 96,
+        "raw": 96,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 35,
+            "max": 35,
+            "pct": 100
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 23,
+            "max": 25,
+            "pct": 92
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 13,
+            "max": 15,
+            "pct": 87
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Strategic Finance + Analytics = FP&A ve growth analitiğinin tam kesişimi. Listedeki en iyi eşleşme."
+      },
       "score": 47,
       "band": "normal",
       "reminders": [
         "✉️ 13 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 13,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 96,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Strategic Finance + Analytics = FP&A ve growth analitiğinin tam kesişimi. Listedeki en iyi eşleşme.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "cypher-games-growth",
@@ -857,13 +3287,77 @@
       "next_step": "20 gündür dönüş yok.",
       "fit": 4,
       "notes": "Lever.",
+      "match": {
+        "role_family": 31,
+        "seniority": 13,
+        "skills": 20,
+        "domain": 9,
+        "location_mod": 0,
+        "rationale": "Growth işi birebir ama 'Manager/Senior Manager' kıdemi 2 yılın üstünde."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Cypher%20Games",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "people_leadership",
+        "experimentation"
+      ],
+      "match_result": {
+        "score": 73,
+        "raw": 73,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 31,
+            "max": 35,
+            "pct": 89
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 13,
+            "max": 25,
+            "pct": 52
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 9,
+            "max": 15,
+            "pct": 60
+          }
+        ],
+        "weakest": "Kıdem",
+        "rationale": "Growth işi birebir ama 'Manager/Senior Manager' kıdemi 2 yılın üstünde."
+      },
       "score": 43,
       "band": "low",
       "reminders": [
         "✉️ 20 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 20,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 73,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Growth işi birebir ama 'Manager/Senior Manager' kıdemi 2 yılın üstünde.",
+      "match_weakest": "Kıdem"
     },
     {
       "id": "eaton-pricing-ci",
@@ -880,13 +3374,76 @@
       "next_step": "19 gündür dönüş yok.",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 32,
+        "seniority": 25,
+        "skills": 21,
+        "domain": 7,
+        "location_mod": 0,
+        "rationale": "Fiyatlandırma + sürekli iyileştirme = ticari strateji ve esneklik analizi deneyimi birebir."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Eaton",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "powerbi"
+      ],
+      "match_result": {
+        "score": 85,
+        "raw": 85,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 32,
+            "max": 35,
+            "pct": 91
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 21,
+            "max": 25,
+            "pct": 84
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 7,
+            "max": 15,
+            "pct": 47
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Fiyatlandırma + sürekli iyileştirme = ticari strateji ve esneklik analizi deneyimi birebir."
+      },
       "score": 43,
       "band": "low",
       "reminders": [
         "✉️ 19 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 19,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 85,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Fiyatlandırma + sürekli iyileştirme = ticari strateji ve esneklik analizi deneyimi birebir.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "teamblue-ticimax-pm",
@@ -899,18 +3456,86 @@
       "status": "stale",
       "track": "Product",
       "location": "İstanbul",
-      "contact": "sinem.ozkan@teamblueticimax",
+      "contact": "ik@teamblueticimax.example",
       "deadline": null,
       "next_step": "16 gündür dönüş yok.",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 24,
+        "seniority": 20,
+        "skills": 18,
+        "domain": 11,
+        "location_mod": 0,
+        "rationale": "E-ticaret SaaS ürün yönetimi; sektör yakın, PM deneyimi yok."
+      },
+      "links_actions": [
+        {
+          "label": "Takip maili yaz",
+          "url": "mailto:ik@teamblueticimax.example?subject=Product%20Manager%20ba%C5%9Fvurusu%20%E2%80%94%20durum%20sorusu&body=Merhaba%2C%0A%0ATeam%20Blue%20Ticimax%20b%C3%BCnyesindeki%20Product%20Manager%20pozisyonuna%20yapt%C4%B1%C4%9F%C4%B1m%20ba%C5%9Fvurunun%20mevcut%20durumu%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%20S%C3%BCre%C3%A7le%20ilgilenmeye%20devam%20ediyorum.%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AKerem%20Ayd%C4%B1n%0Akerem.aydin%40example.com%20%7C%20%2B90%205XX%20XXX%20XX%20XX",
+          "kind": "mailto"
+        },
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Team%20Blue%20Ticimax",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "product_management"
+      ],
+      "match_result": {
+        "score": 73,
+        "raw": 73,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 24,
+            "max": 35,
+            "pct": 69
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 18,
+            "max": 25,
+            "pct": 72
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 11,
+            "max": 15,
+            "pct": 73
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "E-ticaret SaaS ürün yönetimi; sektör yakın, PM deneyimi yok."
+      },
       "score": 43,
       "band": "low",
       "reminders": [
         "✉️ 16 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 16,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 73,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "E-ticaret SaaS ürün yönetimi; sektör yakın, PM deneyimi yok.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "jobgether-games-data",
@@ -927,13 +3552,78 @@
       "next_step": "15 gündür dönüş yok.",
       "fit": 3,
       "notes": "",
+      "match": {
+        "role_family": 30,
+        "seniority": 20,
+        "skills": 17,
+        "domain": 9,
+        "location_mod": -8,
+        "rationale": "Senior Games Data Analyst — rol uygun, 'Senior' ve oyun domaini esneme."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Jobgether",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "python",
+        "product_analytics"
+      ],
+      "match_result": {
+        "score": 68,
+        "raw": 76,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 30,
+            "max": 35,
+            "pct": 86
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 17,
+            "max": 25,
+            "pct": 68
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 9,
+            "max": 15,
+            "pct": 60
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Senior Games Data Analyst — rol uygun, 'Senior' ve oyun domaini esneme."
+      },
       "score": 39,
       "band": "low",
       "reminders": [
         "✉️ 15 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 15,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 68,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Senior Games Data Analyst — rol uygun, 'Senior' ve oyun domaini esneme.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "jobgether-pm-data-activation",
@@ -950,13 +3640,77 @@
       "next_step": "16 gündür dönüş yok.",
       "fit": 3,
       "notes": "",
+      "match": {
+        "role_family": 26,
+        "seniority": 18,
+        "skills": 17,
+        "domain": 8,
+        "location_mod": -8,
+        "rationale": "Veri aktivasyonu PM'i; analitik yakın ama ürün yönetimi kıdemi eksik."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Jobgether",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "product_management",
+        "sql"
+      ],
+      "match_result": {
+        "score": 61,
+        "raw": 69,
+        "segment": "🟡 Orta eşleşme",
+        "segment_key": "fair",
+        "advice": "Kısmi uyum — zaman kalırsa ilerlet.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 26,
+            "max": 35,
+            "pct": 74
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 18,
+            "max": 25,
+            "pct": 72
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 17,
+            "max": 25,
+            "pct": 68
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 8,
+            "max": 15,
+            "pct": 53
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Veri aktivasyonu PM'i; analitik yakın ama ürün yönetimi kıdemi eksik."
+      },
       "score": 39,
       "band": "low",
       "reminders": [
         "✉️ 16 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 16,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 61,
+      "match_segment": "🟡 Orta eşleşme",
+      "match_segment_key": "fair",
+      "match_rationale": "Veri aktivasyonu PM'i; analitik yakın ama ürün yönetimi kıdemi eksik.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "versuni-perfect-store",
@@ -973,13 +3727,74 @@
       "next_step": "16 gündür dönüş yok.",
       "fit": 3,
       "notes": "",
+      "match": {
+        "role_family": 20,
+        "seniority": 25,
+        "skills": 16,
+        "domain": 9,
+        "location_mod": 0,
+        "rationale": "Trade marketing saha odaklı; analitik kısmı sınırlı."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Versuni",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [],
+      "match_result": {
+        "score": 70,
+        "raw": 70,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 20,
+            "max": 35,
+            "pct": 57
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 16,
+            "max": 25,
+            "pct": 64
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 9,
+            "max": 15,
+            "pct": 60
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "Trade marketing saha odaklı; analitik kısmı sınırlı."
+      },
       "score": 39,
       "band": "low",
       "reminders": [
         "✉️ 16 gündür sessiz — takip maili zamanı."
       ],
       "days_silent": 16,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 70,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Trade marketing saha odaklı; analitik kısmı sınırlı.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "sipay-product-data-analyst",
@@ -996,13 +3811,77 @@
       "next_step": "29 gündür dönüş yok — kapanmış say.",
       "fit": 5,
       "notes": "",
+      "match": {
+        "role_family": 32,
+        "seniority": 25,
+        "skills": 21,
+        "domain": 12,
+        "location_mod": 0,
+        "rationale": "Ürün veri analisti + fintech; funnel/kohort deneyimi doğrudan aranıyor."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Sipay",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "product_analytics"
+      ],
+      "match_result": {
+        "score": 90,
+        "raw": 90,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 32,
+            "max": 35,
+            "pct": 91
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 21,
+            "max": 25,
+            "pct": 84
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 12,
+            "max": 15,
+            "pct": 80
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Ürün veri analisti + fintech; funnel/kohort deneyimi doğrudan aranıyor."
+      },
       "score": 35,
       "band": "low",
       "reminders": [
         "💤 29 gündür sessiz — kapanmış say, listeden düşür."
       ],
       "days_silent": 29,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 90,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Ürün veri analisti + fintech; funnel/kohort deneyimi doğrudan aranıyor.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "bosch-cx-analyst",
@@ -1019,13 +3898,77 @@
       "next_step": "25 gündür dönüş yok — kapanmış say.",
       "fit": 4,
       "notes": "SmartRecruiters.",
+      "match": {
+        "role_family": 29,
+        "seniority": 25,
+        "skills": 20,
+        "domain": 8,
+        "location_mod": 0,
+        "rationale": "Müşteri deneyimi analitiği; segmentasyon ve funnel bilgisi transfer olur."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Bosch",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "powerbi"
+      ],
+      "match_result": {
+        "score": 82,
+        "raw": 82,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 29,
+            "max": 35,
+            "pct": 83
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 8,
+            "max": 15,
+            "pct": 53
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Müşteri deneyimi analitiği; segmentasyon ve funnel bilgisi transfer olur."
+      },
       "score": 31,
       "band": "low",
       "reminders": [
         "💤 25 gündür sessiz — kapanmış say, listeden düşür."
       ],
       "days_silent": 25,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 82,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Müşteri deneyimi analitiği; segmentasyon ve funnel bilgisi transfer olur.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "metro-analytical-marketing",
@@ -1042,13 +3985,77 @@
       "next_step": "25 gündür dönüş yok — kapanmış say.",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 31,
+        "seniority": 20,
+        "skills": 21,
+        "domain": 11,
+        "location_mod": 0,
+        "rationale": "Analitik pazarlama + perakende; CRM/kampanya ölçümleme birebir."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/METRO%20/%20MAKRO",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "powerbi"
+      ],
+      "match_result": {
+        "score": 83,
+        "raw": 83,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 31,
+            "max": 35,
+            "pct": 89
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 21,
+            "max": 25,
+            "pct": 84
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 11,
+            "max": 15,
+            "pct": 73
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Analitik pazarlama + perakende; CRM/kampanya ölçümleme birebir."
+      },
       "score": 31,
       "band": "low",
       "reminders": [
         "💤 25 gündür sessiz — kapanmış say, listeden düşür."
       ],
       "days_silent": 25,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 83,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Analitik pazarlama + perakende; CRM/kampanya ölçümleme birebir.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "nielseniq-consumer-insights",
@@ -1065,13 +4072,76 @@
       "next_step": "28 gündür dönüş yok — kapanmış say.",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 24,
+        "seniority": 8,
+        "skills": 17,
+        "domain": 10,
+        "location_mod": 0,
+        "rationale": "'Lead' unvanı kıdem olarak çok üstte; içgörü metodolojisi de yeni alan."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/NielsenIQ",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "people_leadership"
+      ],
+      "match_result": {
+        "score": 59,
+        "raw": 59,
+        "segment": "🟡 Orta eşleşme",
+        "segment_key": "fair",
+        "advice": "Kısmi uyum — zaman kalırsa ilerlet.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 24,
+            "max": 35,
+            "pct": 69
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 8,
+            "max": 25,
+            "pct": 32
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 17,
+            "max": 25,
+            "pct": 68
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 10,
+            "max": 15,
+            "pct": 67
+          }
+        ],
+        "weakest": "Kıdem",
+        "rationale": "'Lead' unvanı kıdem olarak çok üstte; içgörü metodolojisi de yeni alan."
+      },
       "score": 31,
       "band": "low",
       "reminders": [
         "💤 28 gündür sessiz — kapanmış say, listeden düşür."
       ],
       "days_silent": 28,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 59,
+      "match_segment": "🟡 Orta eşleşme",
+      "match_segment_key": "fair",
+      "match_rationale": "'Lead' unvanı kıdem olarak çok üstte; içgörü metodolojisi de yeni alan.",
+      "match_weakest": "Kıdem"
     },
     {
       "id": "vml-digital-insight",
@@ -1088,13 +4158,77 @@
       "next_step": "22 gündür dönüş yok — kapanmış say.",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 29,
+        "seniority": 25,
+        "skills": 19,
+        "domain": 8,
+        "location_mod": 0,
+        "rationale": "Dijital içgörü analisti; Tableau/kampanya ölçümleme deneyimi doğrudan geçerli."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/VML",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "product_analytics"
+      ],
+      "match_result": {
+        "score": 81,
+        "raw": 81,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 29,
+            "max": 35,
+            "pct": 83
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 19,
+            "max": 25,
+            "pct": 76
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 8,
+            "max": 15,
+            "pct": 53
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Dijital içgörü analisti; Tableau/kampanya ölçümleme deneyimi doğrudan geçerli."
+      },
       "score": 31,
       "band": "low",
       "reminders": [
         "💤 22 gündür sessiz — kapanmış say, listeden düşür."
       ],
       "days_silent": 22,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 81,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Dijital içgörü analisti; Tableau/kampanya ölçümleme deneyimi doğrudan geçerli.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "virtustant-pool",
@@ -1111,11 +4245,72 @@
       "next_step": "Opsiyonel: kısa tanıtım videosu eklemek eşleşme şansını artırıyor.",
       "fit": 2,
       "notes": "Test tamamlandı, havuzda.",
+      "match": {
+        "role_family": 12,
+        "seniority": 22,
+        "skills": 14,
+        "domain": 5,
+        "location_mod": -8,
+        "rationale": "Belirli bir rol yok, genel yetenek havuzu — dönüşüm olasılığı düşük."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Virtustant",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [],
+      "match_result": {
+        "score": 45,
+        "raw": 53,
+        "segment": "🟡 Orta eşleşme",
+        "segment_key": "fair",
+        "advice": "Kısmi uyum — zaman kalırsa ilerlet.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 12,
+            "max": 35,
+            "pct": 34
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 14,
+            "max": 25,
+            "pct": 56
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 5,
+            "max": 15,
+            "pct": 33
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Belirli bir rol yok, genel yetenek havuzu — dönüşüm olasılığı düşük."
+      },
       "score": 28,
       "band": "low",
       "reminders": [],
       "days_silent": 2,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 45,
+      "match_segment": "🟡 Orta eşleşme",
+      "match_segment_key": "fair",
+      "match_rationale": "Belirli bir rol yok, genel yetenek havuzu — dönüşüm olasılığı düşük.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "cepres-fintech-analyst",
@@ -1132,13 +4327,77 @@
       "next_step": "28 gündür dönüş yok — kapanmış say.",
       "fit": 3,
       "notes": "",
+      "match": {
+        "role_family": 26,
+        "seniority": 25,
+        "skills": 18,
+        "domain": 11,
+        "location_mod": -8,
+        "rationale": "Junior veri işleme analisti; fintech yakın ama rol CV'nin bir tık altında."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/CEPRES",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "python"
+      ],
+      "match_result": {
+        "score": 72,
+        "raw": 80,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 26,
+            "max": 35,
+            "pct": 74
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 18,
+            "max": 25,
+            "pct": 72
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 11,
+            "max": 15,
+            "pct": 73
+          }
+        ],
+        "weakest": "Beceri örtüşmesi",
+        "rationale": "Junior veri işleme analisti; fintech yakın ama rol CV'nin bir tık altında."
+      },
       "score": 27,
       "band": "low",
       "reminders": [
         "💤 28 gündür sessiz — kapanmış say, listeden düşür."
       ],
       "days_silent": 28,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 72,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Junior veri işleme analisti; fintech yakın ama rol CV'nin bir tık altında.",
+      "match_weakest": "Beceri örtüşmesi"
     },
     {
       "id": "jobgether-data-analyst",
@@ -1155,13 +4414,77 @@
       "next_step": "22 gündür dönüş yok — kapanmış say.",
       "fit": 3,
       "notes": "",
+      "match": {
+        "role_family": 31,
+        "seniority": 25,
+        "skills": 20,
+        "domain": 7,
+        "location_mod": -8,
+        "rationale": "Data Analyst birebir; agregatör kanalı dönüşümü düşürüyor."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Jobgether",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "python"
+      ],
+      "match_result": {
+        "score": 75,
+        "raw": 83,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 31,
+            "max": 35,
+            "pct": 89
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 7,
+            "max": 15,
+            "pct": 47
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Data Analyst birebir; agregatör kanalı dönüşümü düşürüyor."
+      },
       "score": 27,
       "band": "low",
       "reminders": [
         "💤 22 gündür sessiz — kapanmış say, listeden düşür."
       ],
       "days_silent": 22,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 75,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Data Analyst birebir; agregatör kanalı dönüşümü düşürüyor.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "nielseniq-client-solutions",
@@ -1178,13 +4501,74 @@
       "next_step": "29 gündür dönüş yok — kapanmış say.",
       "fit": 3,
       "notes": "",
+      "match": {
+        "role_family": 18,
+        "seniority": 25,
+        "skills": 15,
+        "domain": 10,
+        "location_mod": 0,
+        "rationale": "Müşteri çözümleri daha çok danışmanlık/ilişki; analitik ikincil."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/NielsenIQ",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [],
+      "match_result": {
+        "score": 68,
+        "raw": 68,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 18,
+            "max": 35,
+            "pct": 51
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 15,
+            "max": 25,
+            "pct": 60
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 10,
+            "max": 15,
+            "pct": 67
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "Müşteri çözümleri daha çok danışmanlık/ilişki; analitik ikincil."
+      },
       "score": 27,
       "band": "low",
       "reminders": [
         "💤 29 gündür sessiz — kapanmış say, listeden düşür."
       ],
       "days_silent": 29,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 68,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Müşteri çözümleri daha çok danışmanlık/ilişki; analitik ikincil.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "abbvie-financial-analyst",
@@ -1201,11 +4585,74 @@
       "next_step": "-",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 33,
+        "seniority": 25,
+        "skills": 22,
+        "domain": 7,
+        "location_mod": 0,
+        "rationale": "Financial Analyst = FP&A deneyiminin doğrudan karşılığı; ilaç sektörü yeni."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/AbbVie",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "financial_modeling"
+      ],
+      "match_result": {
+        "score": 87,
+        "raw": 87,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 33,
+            "max": 35,
+            "pct": 94
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 7,
+            "max": 15,
+            "pct": 47
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Financial Analyst = FP&A deneyiminin doğrudan karşılığı; ilaç sektörü yeni."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 27,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 87,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Financial Analyst = FP&A deneyiminin doğrudan karşılığı; ilaç sektörü yeni.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "akbank-dijital-musteri",
@@ -1222,11 +4669,75 @@
       "next_step": "-",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 32,
+        "seniority": 13,
+        "skills": 22,
+        "domain": 11,
+        "location_mod": 0,
+        "rationale": "Dijitalden müşteri kazanımı = growth işinin birebir karşılığı; 'Yönetici' kıdemi esneme."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Akbank",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "people_leadership",
+        "experimentation"
+      ],
+      "match_result": {
+        "score": 78,
+        "raw": 78,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 32,
+            "max": 35,
+            "pct": 91
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 13,
+            "max": 25,
+            "pct": 52
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 11,
+            "max": 15,
+            "pct": 73
+          }
+        ],
+        "weakest": "Kıdem",
+        "rationale": "Dijitalden müşteri kazanımı = growth işinin birebir karşılığı; 'Yönetici' kıdemi esneme."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 18,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 78,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Dijitalden müşteri kazanımı = growth işinin birebir karşılığı; 'Yönetici' kıdemi esneme.",
+      "match_weakest": "Kıdem"
     },
     {
       "id": "indeed-csm",
@@ -1243,11 +4754,72 @@
       "next_step": "-",
       "fit": 2,
       "notes": "30 Ağu: Colife başka adaylarla ilerledi.",
+      "match": {
+        "role_family": 12,
+        "seniority": 20,
+        "skills": 11,
+        "domain": 6,
+        "location_mod": -8,
+        "rationale": "Müşteri başarısı ilişki yönetimi; analitik derinlik aranmıyor."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Colife%20/%20Indeed%20ba%C5%9Fvurular%C4%B1",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [],
+      "match_result": {
+        "score": 41,
+        "raw": 49,
+        "segment": "🔴 Zayıf eşleşme",
+        "segment_key": "weak",
+        "advice": "Düşük getiri; kapatmayı değerlendir.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 12,
+            "max": 35,
+            "pct": 34
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 11,
+            "max": 25,
+            "pct": 44
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 6,
+            "max": 15,
+            "pct": 40
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "Müşteri başarısı ilişki yönetimi; analitik derinlik aranmıyor."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 2,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 41,
+      "match_segment": "🔴 Zayıf eşleşme",
+      "match_segment_key": "weak",
+      "match_rationale": "Müşteri başarısı ilişki yönetimi; analitik derinlik aranmıyor.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "elsevier-bd-manager",
@@ -1264,11 +4836,74 @@
       "next_step": "-",
       "fit": 4,
       "notes": "Aynı gün başvuru + red (1 saat arayla).",
+      "match": {
+        "role_family": 14,
+        "seniority": 13,
+        "skills": 11,
+        "domain": 6,
+        "location_mod": 0,
+        "rationale": "Akademik yayıncılıkta satış müdürlüğü; rol ve kıdem birlikte uyumsuz."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Elsevier%20%28RELX%29",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "people_leadership"
+      ],
+      "match_result": {
+        "score": 44,
+        "raw": 44,
+        "segment": "🔴 Zayıf eşleşme",
+        "segment_key": "weak",
+        "advice": "Düşük getiri; kapatmayı değerlendir.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 14,
+            "max": 35,
+            "pct": 40
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 13,
+            "max": 25,
+            "pct": 52
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 11,
+            "max": 25,
+            "pct": 44
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 6,
+            "max": 15,
+            "pct": 40
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "Akademik yayıncılıkta satış müdürlüğü; rol ve kıdem birlikte uyumsuz."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 6,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 44,
+      "match_segment": "🔴 Zayıf eşleşme",
+      "match_segment_key": "weak",
+      "match_rationale": "Akademik yayıncılıkta satış müdürlüğü; rol ve kıdem birlikte uyumsuz.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "hilton-cluster-revenue",
@@ -1285,11 +4920,74 @@
       "next_step": "-",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 26,
+        "seniority": 13,
+        "skills": 18,
+        "domain": 6,
+        "location_mod": 0,
+        "rationale": "Revenue management fiyatlandırma analitiğine yakın; otelcilik ve Manager kıdemi uzak."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Hilton",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "people_leadership"
+      ],
+      "match_result": {
+        "score": 63,
+        "raw": 63,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 26,
+            "max": 35,
+            "pct": 74
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 13,
+            "max": 25,
+            "pct": 52
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 18,
+            "max": 25,
+            "pct": 72
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 6,
+            "max": 15,
+            "pct": 40
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Revenue management fiyatlandırma analitiğine yakın; otelcilik ve Manager kıdemi uzak."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 8,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 63,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Revenue management fiyatlandırma analitiğine yakın; otelcilik ve Manager kıdemi uzak.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "hubx-web-cro",
@@ -1306,11 +5004,75 @@
       "next_step": "-",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 28,
+        "seniority": 13,
+        "skills": 17,
+        "domain": 10,
+        "location_mod": 0,
+        "rationale": "CRO = funnel optimizasyonu, growth işine yakın; Manager kıdemi esneme."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/HubX",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "experimentation",
+        "people_leadership"
+      ],
+      "match_result": {
+        "score": 68,
+        "raw": 68,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 28,
+            "max": 35,
+            "pct": 80
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 13,
+            "max": 25,
+            "pct": 52
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 17,
+            "max": 25,
+            "pct": 68
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 10,
+            "max": 15,
+            "pct": 67
+          }
+        ],
+        "weakest": "Kıdem",
+        "rationale": "CRO = funnel optimizasyonu, growth işine yakın; Manager kıdemi esneme."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 11,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 68,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "CRO = funnel optimizasyonu, growth işine yakın; Manager kıdemi esneme.",
+      "match_weakest": "Kıdem"
     },
     {
       "id": "jpmorgan-client-data",
@@ -1327,11 +5089,74 @@
       "next_step": "-",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 24,
+        "seniority": 25,
+        "skills": 16,
+        "domain": 11,
+        "location_mod": 0,
+        "rationale": "Müşteri veri uzmanlığı operasyonel; bankacılık yakın, analitik derinlik sınırlı."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/JPMorganChase",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql"
+      ],
+      "match_result": {
+        "score": 76,
+        "raw": 76,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 24,
+            "max": 35,
+            "pct": 69
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 16,
+            "max": 25,
+            "pct": 64
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 11,
+            "max": 15,
+            "pct": 73
+          }
+        ],
+        "weakest": "Beceri örtüşmesi",
+        "rationale": "Müşteri veri uzmanlığı operasyonel; bankacılık yakın, analitik derinlik sınırlı."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 11,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 76,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Müşteri veri uzmanlığı operasyonel; bankacılık yakın, analitik derinlik sınırlı.",
+      "match_weakest": "Beceri örtüşmesi"
     },
     {
       "id": "neonapps-sales-bd",
@@ -1348,11 +5173,72 @@
       "next_step": "-",
       "fit": 4,
       "notes": "Her adaya dönüş yapan şirket — 11 günde sonuç.",
+      "match": {
+        "role_family": 14,
+        "seniority": 25,
+        "skills": 12,
+        "domain": 9,
+        "location_mod": 0,
+        "rationale": "Satış/BD odaklı; RevenueCat operasyonu teknik, analitik kesişim zayıf."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Neon%20Apps",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [],
+      "match_result": {
+        "score": 60,
+        "raw": 60,
+        "segment": "🟡 Orta eşleşme",
+        "segment_key": "fair",
+        "advice": "Kısmi uyum — zaman kalırsa ilerlet.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 14,
+            "max": 35,
+            "pct": 40
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 12,
+            "max": 25,
+            "pct": 48
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 9,
+            "max": 15,
+            "pct": 60
+          }
+        ],
+        "weakest": "Rol ailesi",
+        "rationale": "Satış/BD odaklı; RevenueCat operasyonu teknik, analitik kesişim zayıf."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 1,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 60,
+      "match_segment": "🟡 Orta eşleşme",
+      "match_segment_key": "fair",
+      "match_rationale": "Satış/BD odaklı; RevenueCat operasyonu teknik, analitik kesişim zayıf.",
+      "match_weakest": "Rol ailesi"
     },
     {
       "id": "progress-partners-growth-pm",
@@ -1369,11 +5255,75 @@
       "next_step": "-",
       "fit": 4,
       "notes": "Ashby.",
+      "match": {
+        "role_family": 29,
+        "seniority": 15,
+        "skills": 19,
+        "domain": 8,
+        "location_mod": -8,
+        "rationale": "Growth PM + CRO; analitik uygun, ürün yönetimi kıdemi ve uzaktan izin engel."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Progress%20Partners",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "product_management",
+        "experimentation"
+      ],
+      "match_result": {
+        "score": 63,
+        "raw": 71,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 29,
+            "max": 35,
+            "pct": 83
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 15,
+            "max": 25,
+            "pct": 60
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 19,
+            "max": 25,
+            "pct": 76
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 8,
+            "max": 15,
+            "pct": 53
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Growth PM + CRO; analitik uygun, ürün yönetimi kıdemi ve uzaktan izin engel."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 27,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 63,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Growth PM + CRO; analitik uygun, ürün yönetimi kıdemi ve uzaktan izin engel.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "revolut-strategy-ops",
@@ -1386,16 +5336,85 @@
       "status": "rejected",
       "track": "Strategy",
       "location": "Remote/EU",
-      "contact": "darya.razmara@revolut.com / ines.coutinho@revolut.com",
+      "contact": "İşe alım ekibi — hiring@revolut.example",
       "deadline": null,
       "next_step": "-",
       "fit": 5,
       "notes": "6 Ağu screen call yapıldı, 7 Ağu olumlu geri bildirim, 25 Ağu olumsuz sonuç. Bu ayın en ileri giden ikinci süreci.",
+      "match": {
+        "role_family": 33,
+        "seniority": 13,
+        "skills": 21,
+        "domain": 12,
+        "location_mod": -8,
+        "rationale": "Strateji & operasyon içeriği birebir — ama 'Manager' kıdemi ve EU çalışma izni engel oldu."
+      },
+      "links_actions": [
+        {
+          "label": "Takip maili yaz",
+          "url": "mailto:hiring@revolut.example?subject=Strategy%20%26%20Operations%20Manager%20%28Hiring%20Sprint%29%20ba%C5%9Fvurusu%20%E2%80%94%20durum%20sorusu&body=Merhaba%2C%0A%0ARevolut%20b%C3%BCnyesindeki%20Strategy%20%26%20Operations%20Manager%20%28Hiring%20Sprint%29%20pozisyonuna%20yapt%C4%B1%C4%9F%C4%B1m%20ba%C5%9Fvurunun%20mevcut%20durumu%20hakk%C4%B1nda%20bilgi%20alabilir%20miyim%3F%20S%C3%BCre%C3%A7le%20ilgilenmeye%20devam%20ediyorum.%0A%0A%C4%B0lginiz%20i%C3%A7in%20te%C5%9Fekk%C3%BCrler.%0A%0ASayg%C4%B1lar%C4%B1mla%2C%0AKerem%20Ayd%C4%B1n%0Akerem.aydin%40example.com%20%7C%20%2B90%205XX%20XXX%20XX%20XX",
+          "kind": "mailto"
+        },
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Revolut",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "people_leadership",
+        "sql"
+      ],
+      "match_result": {
+        "score": 71,
+        "raw": 79,
+        "segment": "🔵 İyi eşleşme",
+        "segment_key": "good",
+        "advice": "Sağlam aday; süreci canlı tut.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 33,
+            "max": 35,
+            "pct": 94
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 13,
+            "max": 25,
+            "pct": 52
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 21,
+            "max": 25,
+            "pct": 84
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 12,
+            "max": 15,
+            "pct": 80
+          }
+        ],
+        "weakest": "Kıdem",
+        "rationale": "Strateji & operasyon içeriği birebir — ama 'Manager' kıdemi ve EU çalışma izni engel oldu."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 7,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 71,
+      "match_segment": "🔵 İyi eşleşme",
+      "match_segment_key": "good",
+      "match_rationale": "Strateji & operasyon içeriği birebir — ama 'Manager' kıdemi ve EU çalışma izni engel oldu.",
+      "match_weakest": "Kıdem"
     },
     {
       "id": "richemont-commercial-pm",
@@ -1412,11 +5431,75 @@
       "next_step": "-",
       "fit": 3,
       "notes": "",
+      "match": {
+        "role_family": 22,
+        "seniority": 13,
+        "skills": 16,
+        "domain": 7,
+        "location_mod": 0,
+        "rationale": "Ticari proje yönetimi; lüks perakende ve Manager kıdemi uzak."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Richemont",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "people_leadership",
+        "product_management"
+      ],
+      "match_result": {
+        "score": 58,
+        "raw": 58,
+        "segment": "🟡 Orta eşleşme",
+        "segment_key": "fair",
+        "advice": "Kısmi uyum — zaman kalırsa ilerlet.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 22,
+            "max": 35,
+            "pct": 63
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 13,
+            "max": 25,
+            "pct": 52
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 16,
+            "max": 25,
+            "pct": 64
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 7,
+            "max": 15,
+            "pct": 47
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Ticari proje yönetimi; lüks perakende ve Manager kıdemi uzak."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 19,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 58,
+      "match_segment": "🟡 Orta eşleşme",
+      "match_segment_key": "fair",
+      "match_rationale": "Ticari proje yönetimi; lüks perakende ve Manager kıdemi uzak.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "unilever-demand-planning",
@@ -1433,11 +5516,74 @@
       "next_step": "-",
       "fit": 4,
       "notes": "Pozisyon iptal edildi ('recruitment of this role...'). Yetenek havuzunda kalındı.",
+      "match": {
+        "role_family": 26,
+        "seniority": 25,
+        "skills": 19,
+        "domain": 10,
+        "location_mod": 0,
+        "rationale": "Talep planlama forecast deneyimiyle örtüşüyor; FMCG tedarik zinciri yeni."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Unilever",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "supply_chain"
+      ],
+      "match_result": {
+        "score": 80,
+        "raw": 80,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 26,
+            "max": 35,
+            "pct": 74
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 19,
+            "max": 25,
+            "pct": 76
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 10,
+            "max": 15,
+            "pct": 67
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Talep planlama forecast deneyimiyle örtüşüyor; FMCG tedarik zinciri yeni."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 6,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 80,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Talep planlama forecast deneyimiyle örtüşüyor; FMCG tedarik zinciri yeni.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "unilever-foods-digital",
@@ -1454,11 +5600,75 @@
       "next_step": "-",
       "fit": 4,
       "notes": "",
+      "match": {
+        "role_family": 22,
+        "seniority": 8,
+        "skills": 16,
+        "domain": 10,
+        "location_mod": 0,
+        "rationale": "'Lead' kıdemi çok üstte; dijital deneyim tasarımı da farklı bir alan."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/Unilever",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "people_leadership",
+        "product_management"
+      ],
+      "match_result": {
+        "score": 56,
+        "raw": 56,
+        "segment": "🟡 Orta eşleşme",
+        "segment_key": "fair",
+        "advice": "Kısmi uyum — zaman kalırsa ilerlet.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 22,
+            "max": 35,
+            "pct": 63
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 8,
+            "max": 25,
+            "pct": 32
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 16,
+            "max": 25,
+            "pct": 64
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 10,
+            "max": 15,
+            "pct": 67
+          }
+        ],
+        "weakest": "Kıdem",
+        "rationale": "'Lead' kıdemi çok üstte; dijital deneyim tasarımı da farklı bir alan."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 1,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 56,
+      "match_segment": "🟡 Orta eşleşme",
+      "match_segment_key": "fair",
+      "match_rationale": "'Lead' kıdemi çok üstte; dijital deneyim tasarımı da farklı bir alan.",
+      "match_weakest": "Kıdem"
     },
     {
       "id": "bunq-reporting-expert",
@@ -1475,11 +5685,75 @@
       "next_step": "-",
       "fit": 4,
       "notes": "Ön eleme sorularından sonra 3 günde red.",
+      "match": {
+        "role_family": 31,
+        "seniority": 22,
+        "skills": 21,
+        "domain": 12,
+        "location_mod": -8,
+        "rationale": "Raporlama uzmanlığı = Tableau/Excel gücü; fintech yakın, EU uzaktan engel."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/bunq",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "sql",
+        "dbt_analytics_eng"
+      ],
+      "match_result": {
+        "score": 78,
+        "raw": 86,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": -8,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 31,
+            "max": 35,
+            "pct": 89
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 22,
+            "max": 25,
+            "pct": 88
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 21,
+            "max": 25,
+            "pct": 84
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 12,
+            "max": 15,
+            "pct": 80
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Raporlama uzmanlığı = Tableau/Excel gücü; fintech yakın, EU uzaktan engel."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 15,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 78,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Raporlama uzmanlığı = Tableau/Excel gücü; fintech yakın, EU uzaktan engel.",
+      "match_weakest": "Sektör yakınlığı"
     },
     {
       "id": "sisecam-investment-bd",
@@ -1496,11 +5770,74 @@
       "next_step": "-",
       "fit": 4,
       "notes": "4 günde sonuç.",
+      "match": {
+        "role_family": 28,
+        "seniority": 25,
+        "skills": 20,
+        "domain": 7,
+        "location_mod": 0,
+        "rationale": "Yatırım analizi + iş geliştirme; finansal modelleme deneyimi geçerli."
+      },
+      "links_actions": [
+        {
+          "label": "İlgili maili aç",
+          "url": "https://mail.google.com/mail/u/0/#search/%C5%9Ei%C5%9Fecam",
+          "kind": "gmail"
+        }
+      ],
+      "gap_skills": [
+        "financial_modeling"
+      ],
+      "match_result": {
+        "score": 80,
+        "raw": 80,
+        "segment": "🟢 Güçlü eşleşme",
+        "segment_key": "strong",
+        "advice": "Öncelikli kovala — takip maili at, hazırlık yap.",
+        "location_mod": 0,
+        "breakdown": [
+          {
+            "dim": "role_family",
+            "label": "Rol ailesi",
+            "value": 28,
+            "max": 35,
+            "pct": 80
+          },
+          {
+            "dim": "seniority",
+            "label": "Kıdem",
+            "value": 25,
+            "max": 25,
+            "pct": 100
+          },
+          {
+            "dim": "skills",
+            "label": "Beceri örtüşmesi",
+            "value": 20,
+            "max": 25,
+            "pct": 80
+          },
+          {
+            "dim": "domain",
+            "label": "Sektör yakınlığı",
+            "value": 7,
+            "max": 15,
+            "pct": 47
+          }
+        ],
+        "weakest": "Sektör yakınlığı",
+        "rationale": "Yatırım analizi + iş geliştirme; finansal modelleme deneyimi geçerli."
+      },
       "score": 0,
       "band": "archive",
       "reminders": [],
       "days_silent": 14,
-      "days_to_deadline": null
+      "days_to_deadline": null,
+      "match_score": 80,
+      "match_segment": "🟢 Güçlü eşleşme",
+      "match_segment_key": "strong",
+      "match_rationale": "Yatırım analizi + iş geliştirme; finansal modelleme deneyimi geçerli.",
+      "match_weakest": "Sektör yakınlığı"
     }
   ]
 }

@@ -157,5 +157,5 @@ açık madde olarak duruyor.
 ---
 
 <div align="center">
-<sub>Atalay Denizer · <a href="https://linkedin.com/in/atalaydenizer">LinkedIn</a> · Veri penceresi: 1 Ağustos – 1 Eylül 2026</sub>
+<sub>Kerem Aydın · <a href="https://linkedin.com/in/kerem-aydin-demo">LinkedIn</a> · Veri penceresi: 1 Ağustos – 1 Eylül 2026</sub>
 </div>
