@@ -80,10 +80,8 @@
   .topbar-in{max-width:1180px;margin:0 auto;padding:0 22px;display:flex;align-items:stretch;min-height:54px;flex-wrap:wrap}
   .logo{display:flex;align-items:center;gap:10px;flex:none;text-decoration:none;color:inherit;
         padding-right:20px;margin-right:6px;border-right:1px solid var(--line-2)}
-  .logo .sq{width:26px;height:26px;border-radius:4px;flex:none;display:grid;place-items:center;
-            background:var(--brand);color:var(--surface);font-family:Newsreader,serif;font-size:14px;font-weight:600}
-  :root[data-theme="dark"] .logo .sq{color:var(--ground)}
-  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo .sq{color:var(--ground)}}
+  .logo .sq{width:26px;height:26px;flex:none;display:grid;place-items:center;color:var(--brand)}
+  .logo .sq svg{width:24px;height:24px;display:block}
   .logo .nm{font-family:Newsreader,serif;font-weight:600;font-size:16px;letter-spacing:-.01em}
   nav.tabs{display:flex;flex-wrap:wrap}
   nav.tabs a{position:relative;text-decoration:none;color:var(--ink-2);font-size:13.5px;font-weight:500;
@@ -475,7 +473,7 @@
 
 <header class="topbar">
   <div class="topbar-in">
-    <a class="logo" href="#/ana"><span class="sq">in</span><span class="nm">Kariyer Pilotu</span></a>
+    <a class="logo" href="#/ana"><span class="sq"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="12" r="6.4" fill="none" stroke="currentColor" stroke-width="1.7" opacity=".55"/><circle cx="15" cy="12" r="6.4" fill="none" stroke="currentColor" stroke-width="1.7" opacity=".55"/><path d="M12 5.72A6.4 6.4 0 0 0 12 18.28A6.4 6.4 0 0 0 12 5.72Z" fill="currentColor"/></svg></span><span class="nm">Kariyer Pilotu</span></a>
     <nav class="tabs" id="tabs" aria-label="Ana gezinme">
       <a href="#/ana" data-p="ana">Ana Sayfa</a>
       <a href="#/basvurular" data-p="basvurular">Başvurularım <span class="badge" id="nbApps"></span></a>
