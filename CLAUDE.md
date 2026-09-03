@@ -226,6 +226,27 @@ işe göre kendisi çekiyor, bu yüzden ayrıntı burada değil onlarda durur.
 Skill'lerdeki sayısal değerler koddaki sabitlerle **doğrulanmıştır**. Sabiti
 değiştirirsen skill'i de güncelle, yoksa ikisi ayrışır.
 
+## Proje ajanları
+
+`.claude/agents/` altında iki ajan var. Alt ajanlar skill'lerden farklı
+çalışır: **ayrı bağlamda** başlarlar, işi bitirip rapor dönerler. Bu yüzden
+her biri tek iş yapar — ana oturumun bağlamını doldurmadan kendi işini
+görsün diye.
+
+| Ajan | İşi | Yapmadığı |
+|---|---|---|
+| `ilan-cozumleyici` | İlan metnini yapılandırılmış gereksinime çevirir: rol ailesi, kıdem bandı, araçlar, lokasyon, belirsizlikler | Puanlama yapmaz, CV'ye bakmaz |
+| `eslestirici` | Çözümleyicinin çıktısını profille karşılaştırıp `match` objesi, segment ve `gap_skills` üretir | `data/` altına yazmaz — objeyi döndürür, kaydı ana oturum yazar |
+
+**İkisi neden ayrı:** bir ilanı hem yorumlayıp hem puanlayan tek ajan, ilanı
+kendi vereceği puana göre okumaya başlıyor. Ayrık tutulunca çözümleyici
+tarafsız veri üretiyor, puanlayıcı da o veriyle çalışıyor.
+
+**Neden yalnızca iki tane:** izlenen kursta 20 ajanlı bir sistem gösteriliyor
+ama Gauge'un 20 ayrı uzmanlık gerektiren işi yok. Tarama, sınıflandırma ve
+rapor üretimi kurallı iş — `pipeline.py` ve `insights.py` bunları ajansız ve
+daha ucuza yapıyor. Ajan yalnızca yargı gerektiren yerde kullanılır.
+
 ## Referans
 
 - `docs/TEKNIK.md` — formüller, bakım notları, tasarım kararları
