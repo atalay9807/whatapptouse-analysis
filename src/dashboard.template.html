@@ -1,6 +1,7 @@
 <title>Kariyer Pilotu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
   /* ============================================================
@@ -11,21 +12,20 @@
   :root{
     --ground:#EDEFF3; --ground-2:#E4E8EE; --ground-3:#DBE0E8;
     --surface:#FBFCFD; --surface-2:#F3F5F8; --surface-3:#E7EBF1;
-    --ink:#1A1F2B; --ink-2:#4E5768; --ink-3:#77808F;
+    --ink:#1A1F2B; --ink-2:#4E5768; --ink-3:#5E6672;
     --line:#DDE2E9; --line-2:#C8CFD9; --line-strong:#AEB7C4;
 
     --brand:#454FA6; --brand-2:#39428F; --brand-soft:#E7E9F5; --brand-ring:#9AA2D4;
     --violet:#7A4B9E; --violet-soft:#EFE8F4;
-    --brass:#8A6D1A; --brass-soft:#F2EDDC;
+    --brass:#715913; --brass-soft:#F2EDDC;
 
     --m1:#52307A; --m2:#7A4B9E; --m3:#A583C0; --m4:#CBB7DA;
     --m1-bg:#EAE4F0; --m2-bg:#EFE8F4; --m3-bg:#F4EFF7; --m4-bg:#F7F4FA;
-    --m1-tx:#52307A; --m2-tx:#653D85; --m3-tx:#7A4B9E; --m4-tx:#8C61AC;
+    --m1-tx:#52307A; --m2-tx:#653D85; --m3-tx:#7A4B9E; --m4-tx:#7E509E;
 
-    --critical:#B4442E; --warning:#9A6B10; --good:#2E7D62; --archive:#6E7787;
+    --critical:#B4442E; --warning:#7F5809; --good:#266953; --archive:#5E6672;
     --chip-critical-bg:#F7E5E1; --chip-warning-bg:#F4EEDF; --chip-good-bg:#E0EDE8; --chip-archive-bg:#EAEDF2;
 
-    --grid:rgba(26,31,43,.03);
     --r:5px; --r-lg:7px;
     color-scheme:light;
   }
@@ -33,7 +33,7 @@
     :root:not([data-theme="light"]){
       --ground:#14181F; --ground-2:#10141A; --ground-3:#0C1015;
       --surface:#1C212A; --surface-2:#232935; --surface-3:#2C3340;
-      --ink:#E4E8EF; --ink-2:#9AA4B5; --ink-3:#6F7A8C;
+      --ink:#E4E8EF; --ink-2:#9AA4B5; --ink-3:#949EAD;
       --line:#2B323E; --line-2:#38414F; --line-strong:#4A5464;
 
       --brand:#8FA0E8; --brand-2:#A6B4EE; --brand-soft:#232A42; --brand-ring:#5A67A8;
@@ -41,28 +41,26 @@
 
       --m1:#D9C9E8; --m2:#B79ACF; --m3:#8F6FAE; --m4:#6B5182;
       --m1-bg:#332944; --m2-bg:#2C2438; --m3-bg:#272031; --m4-bg:#231D2B;
-      --m1-tx:#D9C9E8; --m2-tx:#C4ABD8; --m3-tx:#A98CC3; --m4-tx:#9070AE;
+      --m1-tx:#D9C9E8; --m2-tx:#C4ABD8; --m3-tx:#A98CC3; --m4-tx:#A78BC4;
 
       --critical:#E08268; --warning:#D9A648; --good:#62B99A; --archive:#8E99AB;
       --chip-critical-bg:#33231E; --chip-warning-bg:#332B18; --chip-good-bg:#1B2E29; --chip-archive-bg:#242A34;
 
-      --grid:rgba(228,232,239,.028);
       color-scheme:dark;
     }
   }
   :root[data-theme="dark"]{
     --ground:#14181F; --ground-2:#10141A; --ground-3:#0C1015;
     --surface:#1C212A; --surface-2:#232935; --surface-3:#2C3340;
-    --ink:#E4E8EF; --ink-2:#9AA4B5; --ink-3:#6F7A8C;
+    --ink:#E4E8EF; --ink-2:#9AA4B5; --ink-3:#949EAD;
     --line:#2B323E; --line-2:#38414F; --line-strong:#4A5464;
     --brand:#8FA0E8; --brand-2:#A6B4EE; --brand-soft:#232A42; --brand-ring:#5A67A8;
     --violet:#B79ACF; --violet-soft:#2A2338; --brass:#D9A648; --brass-soft:#332B18;
     --m1:#D9C9E8; --m2:#B79ACF; --m3:#8F6FAE; --m4:#6B5182;
     --m1-bg:#332944; --m2-bg:#2C2438; --m3-bg:#272031; --m4-bg:#231D2B;
-    --m1-tx:#D9C9E8; --m2-tx:#C4ABD8; --m3-tx:#A98CC3; --m4-tx:#9070AE;
+    --m1-tx:#D9C9E8; --m2-tx:#C4ABD8; --m3-tx:#A98CC3; --m4-tx:#A78BC4;
     --critical:#E08268; --warning:#D9A648; --good:#62B99A; --archive:#8E99AB;
     --chip-critical-bg:#33231E; --chip-warning-bg:#332B18; --chip-good-bg:#1B2E29; --chip-archive-bg:#242A34;
-    --grid:rgba(228,232,239,.028);
     color-scheme:dark;
   }
 
@@ -71,9 +69,6 @@
     margin:0; color:var(--ink); background:var(--ground);
     font-family:Archivo,ui-sans-serif,system-ui,sans-serif;
     font-size:14.5px; line-height:1.6; -webkit-font-smoothing:antialiased;
-    background-image:linear-gradient(var(--grid) 1px,transparent 1px),
-                     linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-    background-size:64px 64px,64px 64px; background-attachment:fixed;
   }
   h1,h2,h3,h4,h5{margin:0;text-wrap:balance;font-family:Newsreader,Georgia,serif;font-weight:500;line-height:1.2;letter-spacing:-.012em}
   .mono,.m{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
@@ -86,7 +81,9 @@
   .logo{display:flex;align-items:center;gap:10px;flex:none;text-decoration:none;color:inherit;
         padding-right:20px;margin-right:6px;border-right:1px solid var(--line-2)}
   .logo .sq{width:26px;height:26px;border-radius:4px;flex:none;display:grid;place-items:center;
-            background:var(--brand);color:#fff;font-family:Newsreader,serif;font-size:14px;font-weight:600}
+            background:var(--brand);color:var(--surface);font-family:Newsreader,serif;font-size:14px;font-weight:600}
+  :root[data-theme="dark"] .logo .sq{color:var(--ground)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo .sq{color:var(--ground)}}
   .logo .nm{font-family:Newsreader,serif;font-weight:600;font-size:16px;letter-spacing:-.01em}
   nav.tabs{display:flex;flex-wrap:wrap}
   nav.tabs a{position:relative;text-decoration:none;color:var(--ink-2);font-size:13.5px;font-weight:500;
@@ -406,6 +403,71 @@
 
   footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);
          font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.75;color:var(--ink-3)}
+
+  /* ---------- tanıtım turu ---------- */
+  .tourwrap{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:22px;
+            background:rgba(16,20,26,.62)}
+  .tourwrap.on{display:flex}
+  .tour{background:var(--surface);border:1px solid var(--line-2);border-radius:8px;max-width:820px;width:100%;
+        max-height:92vh;overflow:auto;display:flex;flex-direction:column}
+  .tour-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px;
+            border-bottom:1px solid var(--line)}
+  .tour-step{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;
+             text-transform:uppercase;color:var(--brand)}
+  .tour-skip{background:none;border:none;color:var(--ink-3);font-family:"IBM Plex Mono",monospace;
+             font-size:11.5px;cursor:pointer;padding:4px 6px}
+  .tour-skip:hover{color:var(--ink)}
+  .tour-body{padding:26px 30px 8px;text-align:center}
+  .tour-body h2{font-size:26px;font-weight:600;margin-bottom:10px}
+  .tour-body p{font-size:14.5px;color:var(--ink-2);max-width:58ch;margin:0 auto}
+  .tour-art{margin:22px auto 6px;max-width:660px}
+  .tour-art svg{width:100%;height:auto;display:block}
+  .tour-bot{display:flex;align-items:center;gap:14px;padding:16px 22px;border-top:1px solid var(--line);margin-top:18px}
+  .tour-dots{display:flex;gap:6px;margin-right:auto}
+  .tour-dots i{width:7px;height:7px;border-radius:50%;background:var(--line-2);display:block;cursor:pointer}
+  .tour-dots i.on{background:var(--brand);width:20px;border-radius:4px}
+
+  /* ---------- bağlanma sayfası ---------- */
+  .conn{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:820px){.conn{grid-template-columns:1fr}}
+  .cbox{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;
+        display:flex;flex-direction:column;gap:14px}
+  .cbox h3{font-size:19px;font-weight:600}
+  .cbox .lead{font-size:13.5px;color:var(--ink-2)}
+  .cstat{display:inline-flex;align-items:center;gap:7px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+         letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:2px;border:1px solid;width:fit-content}
+  .cstat.live{color:var(--good);border-color:var(--good);background:var(--chip-good-bg)}
+  .cstat.demo{color:var(--brass);border-color:var(--brass);background:var(--brass-soft)}
+  .drop{border:1.5px dashed var(--line-2);border-radius:6px;padding:26px 20px;text-align:center;
+        background:var(--surface-2);transition:border-color .14s,background .14s;cursor:pointer}
+  .drop:hover,.drop.over{border-color:var(--brand);background:var(--brand-soft)}
+  .drop svg{width:26px;height:26px;color:var(--brand);margin-bottom:9px}
+  .drop .t{font-size:14px;font-weight:600}
+  .drop .h{font-size:12.5px;color:var(--ink-3);margin-top:4px}
+  .cvout{border:1px solid var(--line);border-radius:6px;background:var(--surface-2);padding:16px 18px;display:none}
+  .cvout.on{display:block}
+  .cvout h4{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+            color:var(--brand);margin-bottom:11px}
+  .cvrow{display:grid;grid-template-columns:112px 1fr;gap:6px 12px;font-size:13px;margin-bottom:5px}
+  .cvrow dt{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3)}
+  .cvrow dd{margin:0}
+  .spin{display:inline-block;width:13px;height:13px;border:2px solid var(--line-2);border-top-color:var(--brand);
+        border-radius:50%;animation:sp .7s linear infinite;vertical-align:-2px;margin-right:7px}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .cerr{font-size:12.5px;color:var(--critical);border:1px solid var(--critical);border-radius:4px;
+        padding:9px 12px;background:var(--chip-critical-bg);display:none}
+  .cerr.on{display:block}
+  .steplist{display:grid;gap:9px;margin:0;padding:0;list-style:none}
+  .steplist li{display:flex;gap:10px;font-size:13px;color:var(--ink-2);align-items:flex-start}
+  .steplist .n{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--brand);flex:none;margin-top:2px}
+
+  /* ---------- kurs fiyatı ---------- */
+  .price{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+  .price .was{text-decoration:line-through;color:var(--ink-3);font-size:10.5px}
+  .price .now{color:var(--ink);font-weight:600}
+  .price .off{font-size:9.5px;letter-spacing:.06em;color:var(--critical);border:1px solid var(--critical);
+              border-radius:2px;padding:0 4px;background:var(--chip-critical-bg)}
+  .price .free{color:var(--good);font-weight:600}
   @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -420,9 +482,11 @@
       <a href="#/raporlar" data-p="raporlar">Raporlar</a>
       <a href="#/egitim" data-p="egitim">Eğitim <span class="badge v" id="nbEdu"></span></a>
       <a href="#/profil" data-p="profil">Profil</a>
+      <a href="#/baglan" data-p="baglan">Bağlan</a>
     </nav>
     <div class="right">
       <span class="stagepill" id="stagePill"></span>
+      <button class="tbtn" id="tourBtn" type="button">Nasıl çalışır</button>
       <button class="tbtn" id="themeBtn" type="button">Tema</button>
     </div>
   </div>
@@ -636,9 +700,72 @@
     </div>
   </section>
 
+
+  <!-- ============ BAĞLAN ============ -->
+  <section class="page" id="p-baglan">
+    <div class="pagehead">
+      <h1>Bağlan</h1>
+      <p class="sub">CV'ni yükle, sistem profilini çıkarsın. Gmail bağlantısı bu demoda simülasyondur — altta gerçek entegrasyonun ne gerektirdiği yazıyor.</p>
+    </div>
+    <div class="conn">
+      <div class="cbox">
+        <span class="cstat live" id="cvStat">● Canlı — yapay zeka ile analiz</span>
+        <h3>CV yükle</h3>
+        <p class="lead">PDF, TXT veya Markdown. Dosya tarayıcından çıkmaz; metni okunup analiz için gönderilir, saklanmaz.</p>
+        <div class="drop" id="drop" role="button" tabindex="0" aria-label="CV dosyası seç">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5-5 5 5"/><path d="M12 5v12"/></svg>
+          <div class="t">Dosyayı sürükle ya da seçmek için tıkla</div>
+          <div class="h">.pdf · .txt · .md — en fazla 2 MB</div>
+        </div>
+        <input type="file" id="cvFile" accept=".pdf,.txt,.md,text/plain" hidden>
+        <div class="cerr" id="cvErr"></div>
+        <div class="cvout" id="cvOut"></div>
+      </div>
+
+      <div class="cbox">
+        <span class="cstat demo">● Simülasyon — gerçek bağlantı değil</span>
+        <h3>Gmail bağla</h3>
+        <p class="lead">Gerçek sürümde sistem her sabah gelen kutusunu tarar. Bu demoda bağlantı kurulmaz; aşağıdaki adımlar gerçek entegrasyonun ne yaptığını anlatır.</p>
+        <ol class="steplist">
+          <li><span class="n">01</span><span>Google hesabıyla yalnızca <b>okuma</b> izni istenir; e-posta gönderme veya silme izni alınmaz.</span></li>
+          <li><span class="n">02</span><span>Son 30 gün taranır, iş temalı e-postalar ayrılır; bülten ve ilan bildirimleri gürültü sayılır.</span></li>
+          <li><span class="n">03</span><span>Her e-posta sınıflandırılır: teklif, mülakat daveti, aksiyon gerekli, red, incelemede.</span></li>
+          <li><span class="n">04</span><span>Başvurular CV'ye göre puanlanır ve her sabah 09:00'da özet e-posta gönderilir.</span></li>
+        </ol>
+        <button class="act" id="gmailBtn" type="button" style="width:fit-content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          Gmail'i bağla
+        </button>
+        <p class="lead" style="font-size:12.5px;color:var(--ink-3)">
+          Yayınlanan bu sayfa, tarayıcıdan doğrudan Gmail'e bağlanamaz — bunun için sunucu tarafında OAuth akışı
+          ve Google tarafından doğrulanmış bir uygulama gerekir. Depodaki otomasyon bu işi Gmail MCP sunucusu üzerinden yapıyor.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <footer id="foot"></footer>
 </div>
 
+
+<div class="tourwrap" id="tourWrap" role="dialog" aria-modal="true" aria-labelledby="tourTitle">
+  <div class="tour">
+    <div class="tour-top">
+      <span class="tour-step" id="tourStep"></span>
+      <button class="tour-skip" id="tourSkip" type="button">Atla ✕</button>
+    </div>
+    <div class="tour-body">
+      <div class="tour-art" id="tourArt"></div>
+      <h2 id="tourTitle"></h2>
+      <p id="tourText"></p>
+    </div>
+    <div class="tour-bot">
+      <div class="tour-dots" id="tourDots"></div>
+      <button class="act" id="tourPrev" type="button">Geri</button>
+      <button class="act primary" id="tourNext" type="button">İleri</button>
+    </div>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" tabindex="-1">
@@ -669,6 +796,7 @@ const STAGE_TR = { offer:"Teklif", interview_scheduling:"Mülakat planlama", ass
 const CHANNEL_TR = { ats:"ATS", linkedin:"LinkedIn", direct:"Doğrudan", aggregator:"Agregatör", indeed:"Indeed" };
 const SEG_CHIP = { strong:"chip-strong", good:"chip-good-m", fair:"chip-fair", weak:"chip-weak" };
 const SEG_VAR  = { strong:"--m1", good:"--m2", fair:"--m3", weak:"--m4" };
+const SEG_TX   = { strong:"--m1-tx", good:"--m2-tx", fair:"--m3-tx", weak:"--m4-tx" };
 const SEG_SHORT= { strong:"Güçlü", good:"İyi", fair:"Orta", weak:"Zayıf" };
 const TONE = { critical:"critical", good:"good", warning:"warning", archive:"archive" };
 const AY = ["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"];
@@ -680,7 +808,7 @@ const $ = id => document.getElementById(id);
 const byId = {}; D.applications.forEach(a => byId[a.id] = a);
 
 /* ---------------- yönlendirme ---------------- */
-const PAGES = ["ana","basvurular","raporlar","egitim","profil"];
+const PAGES = ["ana","basvurular","raporlar","egitim","profil","baglan"];
 function route() {
   const h = (location.hash || "#/ana").replace(/^#\//, "");
   const [page, id] = h.split("/");
@@ -815,7 +943,7 @@ function renderTable() {
       dl = `<span class="chip ${cls}">${d < 0 ? fmtDate(a.deadline)+" · geçti" : fmtDate(a.deadline)}</span>`;
     }
     const k = a.match_segment_key;
-    const mcell = k ? `<div class="mcell"><span class="mnum" style="color:var(${SEG_VAR[k]})">${a.match_score}
+    const mcell = k ? `<div class="mcell"><span class="mnum" style="color:var(${SEG_TX[k]})">${a.match_score}
         <span style="font-size:10px;color:var(--ink-3);font-weight:400">${SEG_SHORT[k]}</span></span>
         <div class="mbar"><i style="width:${a.match_score}%;background:var(${SEG_VAR[k]})"></i></div></div>` : "—";
     const acts = (a.links_actions||[]).map(l =>
@@ -861,7 +989,11 @@ function resourceList(skill, limit) {
            ${r.rating ? `<span><span class="stars">${stars(r.rating)}</span> ${String(r.rating).replace(".",",")}</span>` : ""}
            ${r.students ? `<span>${nfmt(r.students)} kayıt</span>` : ""}
            ${r.duration ? `<span>${esc(r.duration)}</span>` : ""}
-           ${r.cost ? `<span>${esc(r.cost)}</span>` : ""}
+           ${r.price_now ? `<span class="price">
+             ${r.price_was ? `<span class="was">${esc(r.price_was)}</span>` : ""}
+             <span class="${r.price_now==="Ücretsiz"?"free":"now"}">${esc(r.price_now)}</span>
+             ${r.discount_pct ? `<span class="off">%${r.discount_pct} indirim</span>` : ""}
+           </span>` : ""}
            <span>${esc(r.level)}</span>
          </span>
          ${r.note ? `<span class="rn2">${esc(r.note)}</span>` : ""}</span>
@@ -1108,6 +1240,209 @@ $("foot").innerHTML =
   `Eşleşme = rol ailesi (35) + kıdem (25) + beceri örtüşmesi (25) + sektör (15) − lokasyon cezası. ` +
   `Eksik yetkinlikler çıkarımsaldır — red e-postaları gerekçe içermiyor. ` +
   `Kurs kayıtları simülasyondur; bağlantılar gerçek sayfa açmaz.`;
+
+
+/* ================= TANITIM TURU ================= */
+/* Üç adımlı anlatım. Görseller, mekanizmayı gösteren satır içi SVG —
+   ekran görüntüsü değil, akışın kendisi. */
+const A = { bg:"var(--surface-2)", ln:"var(--line-2)", br:"var(--brand)", vi:"var(--violet)",
+            ink:"var(--ink)", ink2:"var(--ink-2)", ink3:"var(--ink-3)", ok:"var(--good)",
+            wa:"var(--warning)", cr:"var(--critical)", sf:"var(--surface)" };
+
+const ART1 = `<svg viewBox="0 0 660 200" role="img" aria-label="CV ve Gmail girdileri profil çıkarımına akıyor">
+  <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+    <path d="M0 1 L7 4 L0 7 z" fill="${A.ink3}"/></marker></defs>
+  <g>
+    <rect x="14" y="26" width="132" height="66" rx="5" fill="${A.sf}" stroke="${A.ln}"/>
+    <path d="M32 44h64M32 56h84M32 68h52" stroke="${A.ink3}" stroke-width="3" stroke-linecap="round"/>
+    <text x="80" y="110" text-anchor="middle" font-size="12" fill="${A.ink2}" font-family="IBM Plex Mono,monospace">CV</text>
+  </g>
+  <g>
+    <rect x="14" y="122" width="132" height="52" rx="5" fill="${A.sf}" stroke="${A.ln}"/>
+    <rect x="32" y="136" width="96" height="24" rx="3" fill="none" stroke="${A.br}" stroke-width="1.6"/>
+    <path d="M32 138l48 16 48-16" fill="none" stroke="${A.br}" stroke-width="1.6"/>
+    <text x="80" y="190" text-anchor="middle" font-size="12" fill="${A.ink2}" font-family="IBM Plex Mono,monospace">Gmail</text>
+  </g>
+  <path d="M152 60 H236" stroke="${A.ink3}" stroke-width="1.6" marker-end="url(#ar)"/>
+  <path d="M152 146 H236" stroke="${A.ink3}" stroke-width="1.6" marker-end="url(#ar)"/>
+  <rect x="244" y="52" width="140" height="102" rx="5" fill="${A.bg}" stroke="${A.br}" stroke-width="1.6"/>
+  <text x="314" y="80" text-anchor="middle" font-size="12.5" fill="${A.ink}" font-family="Archivo,sans-serif" font-weight="600">Profil çıkarımı</text>
+  <text x="314" y="99" text-anchor="middle" font-size="10.5" fill="${A.ink3}" font-family="IBM Plex Mono,monospace">kıdem · beceri · açık</text>
+  <rect x="268" y="112" width="92" height="5" rx="2.5" fill="${A.br}"/>
+  <rect x="268" y="124" width="66" height="5" rx="2.5" fill="${A.br}"/>
+  <rect x="268" y="136" width="40" height="5" rx="2.5" fill="${A.vi}"/>
+  <path d="M392 103 H468" stroke="${A.ink3}" stroke-width="1.6" marker-end="url(#ar)"/>
+  <rect x="476" y="46" width="170" height="114" rx="5" fill="${A.sf}" stroke="${A.ln}"/>
+  <text x="561" y="72" text-anchor="middle" font-size="12.5" fill="${A.ink}" font-family="Archivo,sans-serif" font-weight="600">Hazır profil</text>
+  <g font-family="IBM Plex Mono,monospace" font-size="10" fill="${A.ink2}">
+    <text x="496" y="95">Excel · Tableau</text><text x="638" y="95" text-anchor="end" fill="${A.ok}">5/5</text>
+    <text x="496" y="116">SQL</text><text x="638" y="116" text-anchor="end" fill="${A.wa}">3/5</text>
+    <text x="496" y="137">Python</text><text x="638" y="137" text-anchor="end" fill="${A.cr}">yok</text>
+  </g>
+</svg>`;
+
+const ART2 = `<svg viewBox="0 0 660 210" role="img" aria-label="Gelen e-postalar sınıflandırılıp puanlanıyor ve hatırlatma üretiliyor">
+  <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+    <path d="M0 1 L7 4 L0 7 z" fill="${A.ink3}"/></marker></defs>
+  <text x="72" y="20" text-anchor="middle" font-size="10.5" fill="${A.ink3}" font-family="IBM Plex Mono,monospace">GELEN KUTUSU</text>
+  ${[0,1,2,3].map((i)=>`<g><rect x="14" y="${32+i*42}" width="116" height="32" rx="4" fill="${A.sf}" stroke="${A.ln}"/>
+    <path d="M28 ${44+i*42}h50M28 ${54+i*42}h74" stroke="${A.ink3}" stroke-width="2.4" stroke-linecap="round"/></g>`).join("")}
+  <path d="M138 108 H206" stroke="${A.ink3}" stroke-width="1.6" marker-end="url(#ar2)"/>
+  <rect x="214" y="66" width="126" height="84" rx="5" fill="${A.bg}" stroke="${A.br}" stroke-width="1.6"/>
+  <text x="277" y="92" text-anchor="middle" font-size="12" fill="${A.ink}" font-family="Archivo,sans-serif" font-weight="600">Sınıflandır</text>
+  <text x="277" y="110" text-anchor="middle" font-size="9.5" fill="${A.ink3}" font-family="IBM Plex Mono,monospace">teklif · davet · red</text>
+  <text x="277" y="126" text-anchor="middle" font-size="9.5" fill="${A.ink3}" font-family="IBM Plex Mono,monospace">aksiyon · inceleme</text>
+  <path d="M348 108 H414" stroke="${A.ink3}" stroke-width="1.6" marker-end="url(#ar2)"/>
+  <text x="536" y="20" text-anchor="middle" font-size="10.5" fill="${A.ink3}" font-family="IBM Plex Mono,monospace">SEGMENTLENMİŞ + PUANLI</text>
+  ${[["Güçlü eşleşme","96",A.vi],["İyi eşleşme","74",A.vi],["Zayıf eşleşme","32",A.ink3]].map((r,i)=>
+    `<g><rect x="422" y="${32+i*40}" width="224" height="30" rx="4" fill="${A.sf}" stroke="${A.ln}"/>
+     <circle cx="440" cy="${47+i*40}" r="4" fill="${r[2]}"/>
+     <text x="454" y="${51+i*40}" font-size="11" fill="${A.ink2}" font-family="Archivo,sans-serif">${r[0]}</text>
+     <text x="632" y="${51+i*40}" text-anchor="end" font-size="12" fill="${r[2]}" font-family="IBM Plex Mono,monospace" font-weight="600">${r[1]}</text></g>`).join("")}
+  <g><rect x="422" y="152" width="224" height="42" rx="4" fill="${A.bg}" stroke="${A.wa}" stroke-width="1.4"/>
+    <path d="M441 168a6 6 0 0 1 12 0c0 5 2 6 2 6h-16s2-1 2-6z" fill="none" stroke="${A.wa}" stroke-width="1.5"/>
+    <path d="M445 178h4" stroke="${A.wa}" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="466" y="170" font-size="11" fill="${A.ink}" font-family="Archivo,sans-serif" font-weight="600">Hatırlatma</text>
+    <text x="466" y="184" font-size="9.5" fill="${A.ink2}" font-family="IBM Plex Mono,monospace">deadline 2 gün · 12 gün sessiz</text></g>
+</svg>`;
+
+const ART3 = `<svg viewBox="0 0 660 200" role="img" aria-label="Redlerden eksik yetkinlik çıkarılıp indirimli eğitim öneriliyor">
+  <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+    <path d="M0 1 L7 4 L0 7 z" fill="${A.ink3}"/></marker></defs>
+  <text x="70" y="20" text-anchor="middle" font-size="10.5" fill="${A.ink3}" font-family="IBM Plex Mono,monospace">OLUMSUZ SONUÇLAR</text>
+  ${[0,1,2].map(i=>`<g><rect x="14" y="${32+i*46}" width="112" height="34" rx="4" fill="${A.sf}" stroke="${A.cr}" stroke-width="1.2"/>
+    <path d="M30 ${45+i*46}l8 8M38 ${45+i*46}l-8 8" stroke="${A.cr}" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M50 ${46+i*46}h56M50 ${55+i*46}h38" stroke="${A.ink3}" stroke-width="2.4" stroke-linecap="round"/></g>`).join("")}
+  <path d="M134 100 H196" stroke="${A.ink3}" stroke-width="1.6" marker-end="url(#ar3)"/>
+  <rect x="204" y="46" width="140" height="108" rx="5" fill="${A.bg}" stroke="${A.vi}" stroke-width="1.6"/>
+  <text x="274" y="70" text-anchor="middle" font-size="12" fill="${A.ink}" font-family="Archivo,sans-serif" font-weight="600">Ortak eksik</text>
+  <g font-family="IBM Plex Mono,monospace" font-size="9.5">
+    <text x="222" y="94" fill="${A.ink2}">Ekip yönetimi</text><rect x="222" y="100" width="100" height="5" rx="2.5" fill="${A.vi}"/>
+    <text x="222" y="122" fill="${A.ink2}">SQL</text><rect x="222" y="128" width="58" height="5" rx="2.5" fill="${A.vi}" opacity=".65"/>
+    <text x="222" y="146" fill="${A.ink3}">A/B testi</text>
+  </g>
+  <path d="M352 100 H414" stroke="${A.ink3}" stroke-width="1.6" marker-end="url(#ar3)"/>
+  <text x="536" y="20" text-anchor="middle" font-size="10.5" fill="${A.ink3}" font-family="IBM Plex Mono,monospace">ÖNERİLEN EĞİTİM</text>
+  ${[["Leading Teams","₺1.450","₺429","%70"],["SQL Bootcamp","₺1.830","₺549","%70"]].map((c,i)=>
+   `<g><rect x="422" y="${32+i*62}" width="224" height="52" rx="4" fill="${A.sf}" stroke="${A.ln}"/>
+    <rect x="436" y="${46+i*62}" width="22" height="24" rx="3" fill="none" stroke="${A.vi}" stroke-width="1.4"/>
+    <text x="468" y="${58+i*62}" font-size="11" fill="${A.ink}" font-family="Archivo,sans-serif" font-weight="600">${c[0]}</text>
+    <text x="468" y="${73+i*62}" font-size="10" fill="${A.ink3}" font-family="IBM Plex Mono,monospace" text-decoration="line-through">${c[1]}</text>
+    <text x="510" y="${73+i*62}" font-size="11" fill="${A.ink}" font-family="IBM Plex Mono,monospace" font-weight="600">${c[2]}</text>
+    <rect x="596" y="${62+i*62}" width="36" height="14" rx="2" fill="none" stroke="${A.cr}"/>
+    <text x="614" y="${72+i*62}" text-anchor="middle" font-size="9" fill="${A.cr}" font-family="IBM Plex Mono,monospace">${c[3]}</text></g>`).join("")}
+</svg>`;
+
+const TOUR = [
+  { art:ART1, t:"CV'ni ekle, Gmail'ini bağla",
+    d:"CV'den kıdem bandın, araç seviyelerin ve bilinen açıkların çıkarılır. Gmail yalnızca okuma izniyle bağlanır — sistemin her ilanı neye göre puanlayacağı bu profille belirlenir." },
+  { art:ART2, t:"Gelen kutusu okunur, süreçler segmentlenir",
+    d:"Günlük ve geçmiş iş e-postaları taranır, teklif · mülakat daveti · red · aksiyon gerekli diye sınıflandırılır. Her başvuru CV'ne göre 0–100 puanlanır; deadline'ı yaklaşan ve sessizleşen süreçler için hatırlatma üretilir." },
+  { art:ART3, t:"Redlerdeki ortak eksik bulunur, eğitim önerilir",
+    d:"Olumsuz sonuçlanan süreçlerde hangi yetkinliğin tekrar tekrar eksik kaldığı çıkarılır ve öncelik sırasına dizilir. En üstteki eksik için indirimli kurs önerileri sunulur." },
+];
+
+let ti = 0;
+const tw = $("tourWrap");
+function drawTour(){
+  const c = TOUR[ti];
+  $("tourArt").innerHTML = c.art;
+  $("tourTitle").textContent = c.t;
+  $("tourText").textContent = c.d;
+  $("tourStep").textContent = `Adım ${ti+1} / ${TOUR.length}`;
+  $("tourDots").innerHTML = TOUR.map((_,i)=>`<i class="${i===ti?"on":""}" data-i="${i}"></i>`).join("");
+  $("tourDots").querySelectorAll("i").forEach(d=>d.addEventListener("click",()=>{ti=+d.dataset.i;drawTour();}));
+  $("tourPrev").style.visibility = ti ? "visible" : "hidden";
+  $("tourNext").textContent = ti === TOUR.length-1 ? "Başla" : "İleri";
+}
+function openTour(){ ti=0; drawTour(); tw.classList.add("on"); }
+function closeTour(){ tw.classList.remove("on"); try{localStorage.setItem("kp_tour","1")}catch(e){} }
+$("tourBtn").addEventListener("click", openTour);
+$("tourSkip").addEventListener("click", closeTour);
+$("tourPrev").addEventListener("click", ()=>{ if(ti>0){ti--;drawTour();} });
+$("tourNext").addEventListener("click", ()=>{ if(ti<TOUR.length-1){ti++;drawTour();} else closeTour(); });
+tw.addEventListener("click", e=>{ if(e.target===tw) closeTour(); });
+addEventListener("keydown", e=>{ if(!tw.classList.contains("on")) return;
+  if(e.key==="Escape") closeTour();
+  if(e.key==="ArrowRight"&&ti<TOUR.length-1){ti++;drawTour();}
+  if(e.key==="ArrowLeft"&&ti>0){ti--;drawTour();} });
+let seen=null; try{ seen=localStorage.getItem("kp_tour"); }catch(e){}
+if(!seen) setTimeout(openTour, 500);
+
+/* ================= CV YÜKLEME (gerçek — sample yeteneği) ================= */
+const drop=$("drop"), cvFile=$("cvFile"), cvOut=$("cvOut"), cvErr=$("cvErr");
+function cvError(m){ cvErr.textContent=m; cvErr.classList.add("on"); }
+function cvClear(){ cvErr.classList.remove("on"); }
+
+async function readFileText(f){
+  if(f.type==="application/pdf" || /\.pdf$/i.test(f.name)){
+    if(window.pdfjsLib) window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+    if(!window.pdfjsLib) throw new Error("PDF okuyucu yüklenemedi. Metni .txt olarak yükleyebilirsin.");
+    const buf = await f.arrayBuffer();
+    const pdf = await window.pdfjsLib.getDocument({data:buf}).promise;
+    let out="";
+    for(let i=1;i<=Math.min(pdf.numPages,6);i++){
+      const pg=await pdf.getPage(i);
+      out += (await pg.getTextContent()).items.map(x=>x.str).join(" ")+"\n";
+    }
+    return out;
+  }
+  return await f.text();
+}
+
+async function handleCV(f){
+  cvClear(); cvOut.classList.remove("on");
+  if(!f) return;
+  if(f.size > 2*1024*1024) return cvError("Dosya 2 MB'den büyük.");
+  const sample = await claude.use("sample");
+  if(!sample) return cvError("Yapay zeka analizi bu görünümde kullanılamıyor. CV yükleme yalnızca yayınlanmış sayfada, izin verildiğinde çalışır.");
+  cvOut.classList.add("on");
+  cvOut.innerHTML = `<h4>Analiz</h4><p style="font-size:13px;color:var(--ink-2);margin:0"><span class="spin"></span>CV okunuyor…</p>`;
+  let text;
+  try { text = await readFileText(f); }
+  catch(e){ cvOut.classList.remove("on"); return cvError(e.message || "Dosya okunamadı."); }
+  if(!text || text.trim().length < 80){ cvOut.classList.remove("on"); return cvError("Dosyadan yeterli metin çıkarılamadı."); }
+  cvOut.innerHTML = `<h4>Analiz</h4><p style="font-size:13px;color:var(--ink-2);margin:0"><span class="spin"></span>Profil çıkarılıyor…</p>`;
+  try{
+    const r = await sample.json(
+      `Aşağıdaki CV metninden bir aday profili çıkar. YALNIZCA şu şemada JSON döndür, başka metin yazma:
+{"ad":string,"unvan":string,"kidem":"stajyer|junior|uzman|kidemli uzman|yonetici","yil":number,
+"guclu_alanlar":string[],"beceriler":[{"ad":string,"seviye":number}],"aciklar":string[],"sektorler":string[]}
+Beceri seviyesi 1-5 arası tam sayı. "aciklar" alanına, hedeflenen analist/uzman rolleri için CV'de eksik görünen yetkinlikleri yaz.
+Tüm metinler Türkçe olsun.
+
+CV:
+${text.slice(0,14000)}`, { modelTier:"default" });
+    const sk=(r.beceriler||[]).slice(0,8).map(b=>
+      `<div class="sk" style="grid-template-columns:130px 1fr 38px"><span>${esc(b.ad)}</span>
+        <div class="sk-t"><div class="sk-f" style="width:${Math.max(0,Math.min(5,+b.seviye||0))*20}%"></div></div>
+        <span class="sk-v">${+b.seviye||0}/5</span></div>`).join("");
+    cvOut.innerHTML = `<h4>Çıkarılan profil</h4>
+      <dl class="cvrow"><dt>Ad</dt><dd>${esc(r.ad||"—")}</dd></dl>
+      <dl class="cvrow"><dt>Unvan</dt><dd>${esc(r.unvan||"—")}</dd></dl>
+      <dl class="cvrow"><dt>Kıdem</dt><dd>${esc(r.kidem||"—")}${r.yil?` · ${esc(String(r.yil))} yıl`:""}</dd></dl>
+      <dl class="cvrow"><dt>Güçlü</dt><dd>${(r.guclu_alanlar||[]).map(x=>`<span class="chip chip-good">${esc(x)}</span>`).join(" ")||"—"}</dd></dl>
+      <dl class="cvrow"><dt>Sektör</dt><dd>${(r.sektorler||[]).map(x=>`<span class="chip chip-brand">${esc(x)}</span>`).join(" ")||"—"}</dd></dl>
+      ${sk?`<div style="margin:14px 0 10px"><h4>Beceriler</h4><div class="skillbars">${sk}</div></div>`:""}
+      ${(r.aciklar||[]).length?`<h4 style="margin-top:14px">Tespit edilen açıklar</h4>
+        <div class="gaplist">${r.aciklar.map((g,i)=>`<div class="gapitem"><span class="n">${i+1}</span><span>${esc(g)}</span></div>`).join("")}</div>`:""}
+      <p class="basis" style="margin-top:14px">${I.flag}<span>Bu çıkarım yalnızca ekranda gösterilir; kaydedilmez ve mevcut demo verisini değiştirmez.</span></p>`;
+  }catch(e){
+    cvOut.classList.remove("on");
+    cvError(e && e.code==="not_granted" ? "Analiz için izin verilmedi."
+      : e && e.code==="rate_limited" ? "Çok fazla istek — biraz sonra tekrar dene."
+      : "Analiz tamamlanamadı: " + ((e&&e.message)||"bilinmeyen hata"));
+  }
+}
+drop.addEventListener("click", ()=>cvFile.click());
+drop.addEventListener("keydown", e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();cvFile.click();} });
+cvFile.addEventListener("change", e=>handleCV(e.target.files[0]));
+["dragenter","dragover"].forEach(ev=>drop.addEventListener(ev, e=>{e.preventDefault();drop.classList.add("over");}));
+["dragleave","drop"].forEach(ev=>drop.addEventListener(ev, e=>{e.preventDefault();drop.classList.remove("over");}));
+drop.addEventListener("drop", e=>handleCV(e.dataTransfer.files[0]));
+$("gmailBtn").addEventListener("click", ()=>
+  toast("Simülasyon — bu demoda gerçek Gmail bağlantısı kurulmaz."));
 
 route();
 </script>
