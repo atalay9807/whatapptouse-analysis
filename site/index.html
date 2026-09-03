@@ -47,10 +47,8 @@
   header{position:sticky;top:0;z-index:40;background:rgba(237,239,243,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   header .wrap{display:flex;align-items:center;gap:20px;min-height:62px;flex-wrap:wrap}
   .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit;margin-right:auto}
-  .brand .mk{
-    width:30px;height:30px;border-radius:4px;flex:none;display:grid;place-items:center;
-    background:var(--indigo);color:#fff;font-family:Newsreader,serif;font-size:16px;font-weight:600;
-  }
+  .brand .mk{width:30px;height:30px;flex:none;display:grid;place-items:center;color:var(--indigo)}
+  .brand .mk svg{width:28px;height:28px;display:block}
   .brand .tx{font-family:Newsreader,serif;font-size:18px;font-weight:600;letter-spacing:-.01em}
   .brand .tx small{display:block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;
     letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);font-weight:400;margin-top:-2px}
@@ -213,7 +211,7 @@
 <header>
   <div class="wrap">
     <a class="brand" href="#top">
-      <span class="mk">K</span>
+      <span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="12" r="6.4" fill="none" stroke="currentColor" stroke-width="1.7" opacity=".55"/><circle cx="15" cy="12" r="6.4" fill="none" stroke="currentColor" stroke-width="1.7" opacity=".55"/><path d="M12 5.72A6.4 6.4 0 0 0 12 18.28A6.4 6.4 0 0 0 12 5.72Z" fill="currentColor"/></svg></span>
       <span class="tx">Kariyer Pilotu<small>başvuru takip sistemi</small></span>
     </a>
     <nav class="top">
