@@ -223,7 +223,7 @@ dolgusu 3:1; her iki temada ayrı ayrı. Rampalar açıklık bakımından monoto
 
 ## Proje skill'leri
 
-`.claude/skills/` altında dört skill var. Her oturumda yüklenmiyorlar — Claude
+`.claude/skills/` altında beş skill var. Her oturumda yüklenmiyorlar — Claude
 işe göre kendisi çekiyor, bu yüzden ayrıntı burada değil onlarda durur.
 
 | Skill | Ne zaman devreye girer |
@@ -232,13 +232,14 @@ işe göre kendisi çekiyor, bu yüzden ayrıntı burada değil onlarda durur.
 | `mail-siniflandirma` | Günlük Gmail taramasında, bir mailin hangi kategoriye girdiğini belirlerken. Sorgular, gürültü listesi, sınıflandırma sırası, kayıt güncelleme. |
 | `rapor-formati` | Rapor üretirken, hatırlatma çıkarırken, takip maili taslarken. Aciliyet ağırlıkları, eşikler, e-posta yapısı, pazartesi geri bildirim bloğu. |
 | `yeni-basvuru-ekleme` | `data/applications.json`'a yeni kayıt açarken. `id`/`channel`/`track`/`fit`/`location`/`contact` biçimleri, dedup kuralı. |
+| `egitim-onerisi` | `data/skills_catalog.json`'a yeni kaynak eklerken veya eğitim sayfası/kurs kartı değiştirilirken. Kaynak şeması, öncelik formülü, üç yerde zorunlu simülasyon etiketi. |
 
 Skill'lerdeki sayısal değerler koddaki sabitlerle **doğrulanmıştır**. Sabiti
 değiştirirsen skill'i de güncelle, yoksa ikisi ayrışır.
 
 ## Proje ajanları
 
-`.claude/agents/` altında üç ajan var. Alt ajanlar skill'lerden farklı
+`.claude/agents/` altında dört ajan var. Alt ajanlar skill'lerden farklı
 çalışır: **ayrı bağlamda** başlarlar, işi bitirip rapor dönerler. Bu yüzden
 her biri tek iş yapar — ana oturumun bağlamını doldurmadan kendi işini
 görsün diye.
@@ -248,6 +249,7 @@ görsün diye.
 | `ilan-cozumleyici` | İlan metnini yapılandırılmış gereksinime çevirir: rol ailesi, kıdem bandı, araçlar, lokasyon, belirsizlikler | Puanlama yapmaz, CV'ye bakmaz |
 | `eslestirici` | Çözümleyicinin çıktısını profille karşılaştırıp `match` objesi, segment ve `gap_skills` üretir | `data/` altına yazmaz — objeyi döndürür, kaydı ana oturum yazar |
 | `mulakat-hazirlik` | Bir başvuru mülakat/değerlendirme aşamasına girdiğinde hazırlık notu üretir: muhtemel sorular, CV'nin zayıf kalacağı noktalar, karşı tarafa sorulacak sorular | Puanlama yapmaz, mülakat sonucu tahmin etmez, `data/` altına yazmaz |
+| `veri-denetleyici` | `data/applications.json`'ı şemaya ve iç tutarlılığa karşı denetler — tanınmayan `stage`, `match` sapması, `links_actions`'ta unutulan `kind`, sızmış üçüncü kişi bilgisi | Hiçbir dosyaya yazmaz/düzeltmez — yalnızca rapor döner; yanlış pozitifi gerçekten ayırt eder, uydurmaz |
 
 **İlk ikisi neden ayrı:** bir ilanı hem yorumlayıp hem puanlayan tek ajan,
 ilanı kendi vereceği puana göre okumaya başlıyor. Ayrık tutulunca çözümleyici
@@ -259,6 +261,9 @@ rapor üretimi kurallı iş — `pipeline.py` ve `insights.py` bunları ajansız
 daha ucuza yapıyor. Ajan yalnızca yargı gerektiren yerde kullanılır.
 `mulakat-hazirlik` bu yüzden eklendi — "bu role ne sorulur" mekanik bir
 kural değil, kurstaki "toplantı briefingi hazırlayan" ajanın karşılığı.
+`veri-denetleyici` de aynı mantıkla — kurstaki "kendi işini eleştiren, test
+koşturup raporlayan" ajanın karşılığı; hangi sapmanın gerçek hata, hangisinin
+bilinçli `null` olduğunu ayırt etmek yargı ister, kural değildir.
 
 ## Referans
 
