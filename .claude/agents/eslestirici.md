@@ -2,7 +2,7 @@
 name: eslestirici
 description: İlan çözümleyicinin yapılandırılmış çıktısını Gauge'un CV profiliyle karşılaştırıp dört boyutlu eşleşme puanı, segment, gerekçe ve gap_skills üretir. data/applications.json'a yazılmaya hazır bir match objesi döndürür. Bir başvurunun match alanı doldurulacağında, mevcut puanlar gözden geçirilirken veya toplu yeniden puanlama gerektiğinde kullan.
 tools: Read, Grep, Glob, Bash
-model: sonnet
+model: opus
 ---
 
 # Eşleştirici

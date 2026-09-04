@@ -2,7 +2,7 @@
 name: veri-denetleyici
 description: data/applications.json'ı (ve gerekirse diğer data/ dosyalarını) şemaya ve iç tutarlılığa karşı denetler — eksik zorunlu alan, tanınmayan stage/status değeri, match toplamı sapması, links_actions'ta unutulan kind, skills_catalog'da karşılığı olmayan gap_skills anahtarı, sızmış üçüncü kişi bilgisi. "Veriyi denetle", "bir şey bozuk mu", toplu bir değişiklikten sonra veya düzenli bakımda kullan. Yalnızca rapor döner, hiçbir dosyaya yazmaz — düzeltme ayrı onayla yapılır.
 tools: Read, Grep, Glob, Bash
-model: sonnet
+model: opus
 ---
 
 # Veri denetleyici

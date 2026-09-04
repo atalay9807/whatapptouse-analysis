@@ -2,7 +2,7 @@
 name: mulakat-hazirlik
 description: Bir başvuru mülakat/değerlendirme aşamasına geçtiğinde (stage: interview_scheduling, assessment, next_stage) hazırlık notu üretir — muhtemel sorular, CV'nin zayıf kalacağı noktalar, karşı tarafa sorulacak sorular. "Mülakata hazırlan", "bu görüşme için ne bekleyeyim", "hangi soruları sorayım" dendiğinde kullan. Puanlama yapmaz, data/'ya yazmaz — yalnızca hazırlık notu döner.
 tools: Read, Grep, Glob, WebFetch
-model: sonnet
+model: opus
 ---
 
 # Mülakat hazırlık

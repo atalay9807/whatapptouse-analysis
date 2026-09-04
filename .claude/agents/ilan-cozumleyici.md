@@ -2,7 +2,7 @@
 name: ilan-cozumleyici
 description: Bir iş ilanının metnini okuyup yapılandırılmış gereksinim çıkarır — rol ailesi, kıdem bandı, beklenen araçlar, sektör, lokasyon ve çalışma düzeni. Puanlama YAPMAZ, yalnızca ilanda ne yazdığını raporlar. Yeni bir başvuru eklenirken ilan metni elde varsa, mevcut bir kaydın match boyutları gözden geçirilirken veya "bu ilan ne istiyor" diye sorulduğunda kullan.
 tools: Read, Grep, Glob, WebFetch
-model: sonnet
+model: opus
 ---
 
 # İlan çözümleyici
