@@ -1,21 +1,24 @@
-<title>Gauge</title>
+<title>Trace</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
   /* ============================================================
      Tanıtım sitesiyle aynı tasarım dili:
-     Newsreader (başlık) + Archivo (gövde) + IBM Plex Mono (veri),
-     indigo birincil, mor rampa eşleşme ekseni, ince çizgi yapı.
+     Plus Jakarta Sans (başlık) + Archivo (gövde) + IBM Plex Mono (veri).
+     Üç renk üç iş: mavi aile = marka, mor rampa = eşleşme kalitesi,
+     kırmızı/kehribar/yeşil = boru hattı durumu. Kontrastlar ölçüldü.
      ============================================================ */
   :root{
-    --ground:#EDEFF3; --ground-2:#E4E8EE; --ground-3:#DBE0E8;
-    --surface:#FBFCFD; --surface-2:#F3F5F8; --surface-3:#E7EBF1;
-    --ink:#1A1F2B; --ink-2:#4E5768; --ink-3:#5E6672;
-    --line:#DDE2E9; --line-2:#C8CFD9; --line-strong:#AEB7C4;
+    --ground:#EEF1FA; --ground-2:#E5EAF7; --ground-3:#DBE2F2;
+    --surface:#FFFFFF; --surface-2:#F5F7FD; --surface-3:#E8EDF8;
+    --ink:#111A33; --ink-2:#454F6B; --ink-3:#5A6480;
+    --line:#DCE2F0; --line-2:#C6CFE4; --line-strong:#A8B3CE;
 
-    --brand:#454FA6; --brand-2:#39428F; --brand-soft:#E7E9F5; --brand-ring:#9AA2D4;
+    --nav:#151C4A; --nav-ink:#FFFFFF; --nav-ink-2:#B9C1E6; --nav-line:#2C3465;
+    --azure:#0B6FBF; --azure-2:#1478C8; --azure-soft:#E3F0FB;
+    --brand:#2340C8; --brand-2:#1B34A8; --brand-soft:#E4E8FB; --brand-ring:#93A2EA;
     --violet:#7A4B9E; --violet-soft:#EFE8F4;
     --brass:#715913; --brass-soft:#F2EDDC;
 
@@ -26,17 +29,19 @@
     --critical:#B4442E; --warning:#7F5809; --good:#266953; --archive:#5E6672;
     --chip-critical-bg:#F7E5E1; --chip-warning-bg:#F4EEDF; --chip-good-bg:#E0EDE8; --chip-archive-bg:#EAEDF2;
 
-    --r:5px; --r-lg:7px;
+    --r:8px; --r-lg:14px; --r-pill:999px;
     color-scheme:light;
   }
   @media (prefers-color-scheme:dark){
     :root:not([data-theme="light"]){
-      --ground:#14181F; --ground-2:#10141A; --ground-3:#0C1015;
-      --surface:#1C212A; --surface-2:#232935; --surface-3:#2C3340;
-      --ink:#E4E8EF; --ink-2:#9AA4B5; --ink-3:#949EAD;
-      --line:#2B323E; --line-2:#38414F; --line-strong:#4A5464;
+      --ground:#0F131C; --ground-2:#0B0F17; --ground-3:#080B12;
+      --surface:#181D29; --surface-2:#1F2534; --surface-3:#28303F;
+      --ink:#E6EAF4; --ink-2:#A3ADC2; --ink-3:#8E99B0;
+      --line:#2A3142; --line-2:#374052; --line-strong:#495267;
 
-      --brand:#8FA0E8; --brand-2:#A6B4EE; --brand-soft:#232A42; --brand-ring:#5A67A8;
+      --nav:#0B1030; --nav-ink:#FFFFFF; --nav-ink-2:#9FA9D8; --nav-line:#1E2650;
+      --azure:#4FB0F0; --azure-2:#3EA0E4; --azure-soft:#132433;
+      --brand:#8AA4FF; --brand-2:#A2B7FF; --brand-soft:#1B2340; --brand-ring:#4E5C9E;
       --violet:#B79ACF; --violet-soft:#2A2338; --brass:#D9A648; --brass-soft:#332B18;
 
       --m1:#D9C9E8; --m2:#B79ACF; --m3:#8F6FAE; --m4:#6B5182;
@@ -50,11 +55,13 @@
     }
   }
   :root[data-theme="dark"]{
-    --ground:#14181F; --ground-2:#10141A; --ground-3:#0C1015;
-    --surface:#1C212A; --surface-2:#232935; --surface-3:#2C3340;
-    --ink:#E4E8EF; --ink-2:#9AA4B5; --ink-3:#949EAD;
-    --line:#2B323E; --line-2:#38414F; --line-strong:#4A5464;
-    --brand:#8FA0E8; --brand-2:#A6B4EE; --brand-soft:#232A42; --brand-ring:#5A67A8;
+    --ground:#0F131C; --ground-2:#0B0F17; --ground-3:#080B12;
+    --surface:#181D29; --surface-2:#1F2534; --surface-3:#28303F;
+    --ink:#E6EAF4; --ink-2:#A3ADC2; --ink-3:#8E99B0;
+    --line:#2A3142; --line-2:#374052; --line-strong:#495267;
+    --nav:#0B1030; --nav-ink:#FFFFFF; --nav-ink-2:#9FA9D8; --nav-line:#1E2650;
+    --azure:#4FB0F0; --azure-2:#3EA0E4; --azure-soft:#132433;
+    --brand:#8AA4FF; --brand-2:#A2B7FF; --brand-soft:#1B2340; --brand-ring:#4E5C9E;
     --violet:#B79ACF; --violet-soft:#2A2338; --brass:#D9A648; --brass-soft:#332B18;
     --m1:#D9C9E8; --m2:#B79ACF; --m3:#8F6FAE; --m4:#6B5182;
     --m1-bg:#332944; --m2-bg:#2C2438; --m3-bg:#272031; --m4-bg:#231D2B;
@@ -70,43 +77,46 @@
     font-family:Archivo,ui-sans-serif,system-ui,sans-serif;
     font-size:14.5px; line-height:1.6; -webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3,h4,h5{margin:0;text-wrap:balance;font-family:Newsreader,Georgia,serif;font-weight:500;line-height:1.2;letter-spacing:-.012em}
+  h1,h2,h3,h4,h5{margin:0;text-wrap:balance;font-family:'Plus Jakarta Sans',Archivo,system-ui,sans-serif;font-weight:800;line-height:1.15;letter-spacing:-.022em}
   .mono,.m{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
   .wrap{max-width:1180px;margin:0 auto;padding:0 22px 90px}
   a{color:var(--brand)}
 
   /* ---------- navigasyon ---------- */
-  .topbar{position:sticky;top:0;z-index:50;background:var(--ground-2);border-bottom:1px solid var(--line-2)}
+  .topbar{position:sticky;top:0;z-index:50;background:var(--nav);border-bottom:1px solid var(--nav)}
   .topbar-in{max-width:1180px;margin:0 auto;padding:0 22px;display:flex;align-items:stretch;min-height:54px;flex-wrap:wrap}
   .logo{display:flex;align-items:center;gap:10px;flex:none;text-decoration:none;color:inherit;
-        padding-right:20px;margin-right:6px;border-right:1px solid var(--line-2)}
-  .logo .sq{width:26px;height:26px;flex:none;display:grid;place-items:center;color:var(--brand)}
+        padding-right:14px;margin-right:2px;border-right:1px solid var(--nav-line)}
+  .logo .sq{width:26px;height:26px;flex:none;display:grid;place-items:center;color:var(--nav-ink)}
   .logo .sq svg{width:24px;height:24px;display:block}
-  .logo .nm{font-family:Newsreader,serif;font-weight:600;font-size:16px;letter-spacing:-.01em;line-height:1.15}
+  .logo .nm{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.02em;line-height:1.15;color:var(--nav-ink)}
   .logo .nm small{display:block;font-family:"IBM Plex Mono",monospace;font-size:8.5px;
-    letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:400;margin-top:-1px}
+    letter-spacing:.14em;text-transform:uppercase;color:var(--nav-ink-2);font-weight:400;margin-top:-1px}
   nav.tabs{display:flex;flex-wrap:wrap}
-  nav.tabs a{position:relative;text-decoration:none;color:var(--ink-2);font-size:13.5px;font-weight:500;
-             padding:0 14px;display:flex;align-items:center;gap:7px;border-right:1px solid var(--line);
+  nav.tabs a{position:relative;text-decoration:none;color:var(--nav-ink-2);font-size:13px;font-weight:600;
+             padding:0 11px;display:flex;align-items:center;gap:6px;white-space:nowrap;
              transition:color .12s,background .12s}
-  nav.tabs a:first-child{border-left:1px solid var(--line)}
-  nav.tabs a:hover{color:var(--brand);background:var(--surface-2)}
-  nav.tabs a[aria-current="page"]{color:var(--brand);background:var(--surface)}
-  nav.tabs a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--brand)}
-  nav.tabs a .badge{font-family:"IBM Plex Mono",monospace;font-size:10px;border:1px solid var(--critical);
-                    color:var(--critical);border-radius:2px;padding:0 4px;line-height:1.5}
-  nav.tabs a .badge.v{border-color:var(--violet);color:var(--violet)}
-  .topbar .right{margin-left:auto;display:flex;align-items:center;gap:9px;padding-left:14px}
+  nav.tabs a:hover{color:var(--nav-ink);background:rgba(255,255,255,.07)}
+  nav.tabs a[aria-current="page"]{color:var(--nav-ink);background:rgba(255,255,255,.10)}
+  nav.tabs a[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:0;height:3px;
+    border-radius:3px 3px 0 0;background:var(--nav-ink)}
+  nav.tabs a .badge{font-family:"IBM Plex Mono",monospace;font-size:10px;background:#E8624A;
+                    color:#fff;border:none;border-radius:var(--r-pill);padding:1px 6px;line-height:1.5;font-weight:500}
+  nav.tabs a .badge.v{background:#B79ACF;color:#241634}
+  .topbar .right{margin-left:auto;display:flex;align-items:center;gap:7px;padding-left:10px}
   .stagepill{display:flex;align-items:center;gap:7px;font-family:"IBM Plex Mono",monospace;font-size:11px;
-             color:var(--ink-2);border:1px solid var(--line);border-radius:3px;padding:4px 10px}
-  .stagepill b{color:var(--brand);font-weight:500}
-  .tbtn{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;background:transparent;
-        color:var(--ink-2);border:1px solid var(--line);border-radius:3px;padding:5px 10px;cursor:pointer}
-  .tbtn:hover{border-color:var(--brand);color:var(--brand)}
+             color:var(--nav-ink-2);border:1px solid var(--nav-line);border-radius:var(--r-pill);padding:3px 10px;white-space:nowrap}
+  .stagepill b{color:var(--nav-ink);font-weight:500}
+  .tbtn{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+        background:transparent;color:var(--nav-ink-2);border:1px solid var(--nav-line);
+        border-radius:var(--r-pill);padding:5px 11px;cursor:pointer;white-space:nowrap}
+  .tbtn:hover{border-color:var(--nav-ink);color:var(--nav-ink)}
 
   .page{display:none} .page.on{display:block}
-  .pagehead{padding:34px 0 24px;border-bottom:1px solid var(--line);margin-bottom:26px}
-  .pagehead h1{font-size:clamp(26px,3.4vw,36px);font-weight:500}
+  .pagehead{position:relative;padding:38px 0 28px;margin-bottom:26px}
+  .pagehead::before{content:"";position:absolute;inset:0 -50vw;z-index:-1;
+    background:linear-gradient(180deg,var(--ground-3) 0%,var(--ground) 100%)}
+  .pagehead h1{font-size:clamp(27px,3.6vw,38px);font-weight:800}
   .pagehead .sub{color:var(--ink-2);font-size:14.5px;margin-top:10px;max-width:70ch}
 
   .panel,.tile,.card,.fcard,.lcard,.journey,.tbl-scroll,.idcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
@@ -122,13 +132,13 @@
          border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--line)}
   .tile{border:none;border-radius:0;padding:15px 17px 14px}
   .tile .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
-  .tile .v{font-family:Newsreader,serif;font-size:31px;font-weight:600;letter-spacing:-.02em;
+  .tile .v{font-family:'Plus Jakarta Sans',sans-serif;font-size:30px;font-weight:800;letter-spacing:-.03em;
            font-variant-numeric:tabular-nums;line-height:1.1;margin-top:6px}
   .tile .n{font-size:11.5px;color:var(--ink-3);margin-top:2px}
   .tile.hot .v{color:var(--critical)} .tile.mat .v{color:var(--violet)}
 
   .journey{padding:18px 20px;margin-bottom:26px}
-  .journey h2{font-family:Newsreader,serif;font-size:18px;font-weight:600}
+  .journey h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;letter-spacing:-.02em}
   .jtrack{display:flex;gap:3px;margin:15px 0 4px}
   .jstep{flex:1;display:flex;flex-direction:column;gap:7px;min-width:0}
   .jstep .bar{height:3px;background:var(--surface-3)}
@@ -221,7 +231,7 @@
   .fcard-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
   .fcard h3{font-size:17px;font-weight:600}
   .fcard .role{font-size:12.5px;color:var(--ink-2);margin-top:2px}
-  .mscore{font-family:Newsreader,serif;font-size:28px;font-weight:600;color:var(--violet);line-height:1;
+  .mscore{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:800;color:var(--violet);line-height:1;
           font-variant-numeric:tabular-nums;flex:none;text-align:right}
   .mscore small{display:block;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.12em;
                 color:var(--ink-3);margin-top:4px;text-transform:uppercase}
@@ -302,7 +312,7 @@
   .cal i.on{background:var(--brand)}
   .streakrow{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:15px}
   .streakrow div{display:flex;flex-direction:column}
-  .streakrow .n{font-family:Newsreader,serif;font-size:26px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .streakrow .n{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
   .streakrow .l{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--ink-3);
                 text-transform:uppercase;letter-spacing:.09em;margin-top:3px}
   .streakrow .n.hot{color:var(--brand)} .streakrow .n.warn{color:var(--warning)}
@@ -475,7 +485,7 @@
 
 <header class="topbar">
   <div class="topbar-in">
-    <a class="logo" href="#/ana"><span class="sq"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="12" r="6.4" fill="none" stroke="currentColor" stroke-width="1.7" opacity=".55"/><circle cx="15" cy="12" r="6.4" fill="none" stroke="currentColor" stroke-width="1.7" opacity=".55"/><path d="M12 5.72A6.4 6.4 0 0 0 12 18.28A6.4 6.4 0 0 0 12 5.72Z" fill="currentColor"/></svg></span><span class="nm">Gauge<small>başvuru ölçüm sistemi</small></span></a>
+    <a class="logo" href="#/ana"><span class="sq"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="12" r="6.4" fill="none" stroke="currentColor" stroke-width="1.7" opacity=".55"/><circle cx="15" cy="12" r="6.4" fill="none" stroke="currentColor" stroke-width="1.7" opacity=".55"/><path d="M12 5.72A6.4 6.4 0 0 0 12 18.28A6.4 6.4 0 0 0 12 5.72Z" fill="currentColor"/></svg></span><span class="nm">Trace<small>başvuru takip sistemi</small></span></a>
     <nav class="tabs" id="tabs" aria-label="Ana gezinme">
       <a href="#/ana" data-p="ana">Ana Sayfa</a>
       <a href="#/basvurular" data-p="basvurular">Başvurularım <span class="badge" id="nbApps"></span></a>
