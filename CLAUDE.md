@@ -239,7 +239,7 @@ değiştirirsen skill'i de güncelle, yoksa ikisi ayrışır.
 
 ## Proje ajanları
 
-`.claude/agents/` altında dört ajan var. Alt ajanlar skill'lerden farklı
+`.claude/agents/` altında beş ajan var. Alt ajanlar skill'lerden farklı
 çalışır: **ayrı bağlamda** başlarlar, işi bitirip rapor dönerler. Bu yüzden
 her biri tek iş yapar — ana oturumun bağlamını doldurmadan kendi işini
 görsün diye.
@@ -250,6 +250,7 @@ görsün diye.
 | `eslestirici` | Çözümleyicinin çıktısını profille karşılaştırıp `match` objesi, segment ve `gap_skills` üretir | `data/` altına yazmaz — objeyi döndürür, kaydı ana oturum yazar |
 | `mulakat-hazirlik` | Bir başvuru mülakat/değerlendirme aşamasına girdiğinde hazırlık notu üretir: muhtemel sorular, CV'nin zayıf kalacağı noktalar, karşı tarafa sorulacak sorular | Puanlama yapmaz, mülakat sonucu tahmin etmez, `data/` altına yazmaz |
 | `veri-denetleyici` | `data/applications.json`'ı şemaya ve iç tutarlılığa karşı denetler — tanınmayan `stage`, `match` sapması, `links_actions`'ta unutulan `kind`, sızmış üçüncü kişi bilgisi | Hiçbir dosyaya yazmaz/düzeltmez — yalnızca rapor döner; yanlış pozitifi gerçekten ayırt eder, uydurmaz |
+| `kariyer-danismani` | 68 başvurunun tamamı + CV'ye birden bakıp konumlandırma çıkarır: gerçekçi rol/kıdem hedefi, İK ekranında CV'nin nerede elendiği, enerjinin nerede israf olduğu | Tek ilan puanlamaz, mülakat hazırlamaz, kurs önermez; **maaş/piyasa verisi uydurmaz** — elimizde yok |
 
 **İlk ikisi neden ayrı:** bir ilanı hem yorumlayıp hem puanlayan tek ajan,
 ilanı kendi vereceği puana göre okumaya başlıyor. Ayrık tutulunca çözümleyici
@@ -264,6 +265,9 @@ kural değil, kurstaki "toplantı briefingi hazırlayan" ajanın karşılığı.
 `veri-denetleyici` de aynı mantıkla — kurstaki "kendi işini eleştiren, test
 koşturup raporlayan" ajanın karşılığı; hangi sapmanın gerçek hata, hangisinin
 bilinçli `null` olduğunu ayırt etmek yargı ister, kural değildir.
+`kariyer-danismani` ise `insights.py`'nin hesapladığı oranların **ne anlama
+geldiğini** söyler: oranı kod üretir, "tek başvurulu bir track'in %100'ü
+gürültüdür, buna göre karar verme" demek yargıdır.
 
 ## Referans
 
