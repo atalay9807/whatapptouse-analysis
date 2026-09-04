@@ -35,12 +35,20 @@ application_incomplete, in_process, under_review, talent_pool, closed`.
 Geçerli `status` kümesi: `action_required, in_progress, awaiting_response,
 stale, rejected`.
 
-**3. `match` toplamı sapması.** Göz kararı yapma — çalıştır:
-```bash
-python3 src/match.py
-```
-Bir kaydın dört boyutunun toplamı + `location_mod`, script'in hesapladığı
-skorla veya segmentle uyuşmuyorsa bunu bildir. "Muhtemelen doğrudur" deme.
+**3. `match` objesinin iç tutarlılığı.** Kayıtlarda **saklanmış bir skor
+alanı yok** — `src/match.py` skoru her seferinde dört boyuttan yeniden
+hesaplıyor. Yani "kayıtlı skor ile hesaplanan skor uyuşmuyor" diye bir
+sapma sınıfı yapısal olarak mümkün değil; onu arama. Kontrol edeceğin
+şey boyutların kendisi:
+
+- `role_family` ≤ 35, `seniority` ≤ 25, `skills` ≤ 25, `domain` ≤ 15,
+  hepsi ≥ 0 (tavanlar `src/match.py` → `MAX`)
+- `location_mod` ≤ 0 — pozitif bir lokasyon "cezası" bir yazım hatasıdır
+- `rationale` var ve boş değil — gerekçesiz bir `match` objesi, puanın
+  neden o değerde olduğunu kimsenin bilemeyeceği anlamına gelir
+
+Sonra `python3 src/match.py` çalıştır: hata vermeden 68 kaydı da
+puanlıyorsa boyutlar okunabilir demektir. Göz kararı yapma, çalıştır.
 
 **4. `links_actions` şeması.** Her girişte `label`, `url`, `kind` (`mailto |
 gmail | ext`) üçü de olmalı. Geçmişte tam bu — bir `ext` linkinde `kind`
