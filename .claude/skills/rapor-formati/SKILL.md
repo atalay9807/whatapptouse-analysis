@@ -1,11 +1,11 @@
 ---
 name: rapor-formati
-description: Gauge'un günlük ve haftalık raporlarını üretir: aciliyet puanlaması, hatırlatma eşikleri, e-posta gövdesinin yapısı ve pazartesi geri bildirim bloğu. Günlük rapor yazılırken, "raporu üret", "bugün ne yapmalıyım", "hatırlatmaları çıkar" dendiğinde, Routine'in prompt'u düzenlenirken ve takip maili taslağı hazırlanırken bu skill'i kullan. Eşikleri ve tablo kolonlarını ezberden yazma — burada. Rapor sessiz kalmamalı; kritik gelişme yoksa bunu da açıkça söylemeli.
+description: Trace'in günlük ve haftalık raporlarını üretir: aciliyet puanlaması, hatırlatma eşikleri, e-posta gövdesinin yapısı ve pazartesi geri bildirim bloğu. Günlük rapor yazılırken, "raporu üret", "bugün ne yapmalıyım", "hatırlatmaları çıkar" dendiğinde, Routine'in prompt'u düzenlenirken ve takip maili taslağı hazırlanırken bu skill'i kullan. Eşikleri ve tablo kolonlarını ezberden yazma — burada. Rapor sessiz kalmamalı; kritik gelişme yoksa bunu da açıkça söylemeli.
 ---
 
 # Rapor formatı
 
-Gauge'un çıktı katmanı. İki şeyi ayrı tutar: **aciliyet** ("bugün ne
+Trace'in çıktı katmanı. İki şeyi ayrı tutar: **aciliyet** ("bugün ne
 yapmalıyım") ve **eşleşme** ("enerjimi nereye harcamalıyım"). Rapor ikisini
 ayrı kolonda gösterir ve kararı kullanıcıya bırakır — birleştirilmiş tek bir
 "öncelik" puanı üretmez, çünkü zayıf eşleşmeli bir ilanın deadline'ı da acil

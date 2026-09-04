@@ -5,7 +5,7 @@ description: data/skills_catalog.json'a yeni bir beceri/kaynak eklerken veya Eğ
 
 # Eğitim önerisi
 
-Gauge'un üçüncü sorusuna ("neyi öğrenmem gerekiyor?") cevap veren blok.
+Trace'in üçüncü sorusuna ("neyi öğrenmem gerekiyor?") cevap veren blok.
 `data/skills_catalog.json` tek doğruluk kaynağı — Eğitim sayfası ve
 başvuru detayındaki red-anı kurs kartı **aynı veriyi** okur, ikisi asla
 ayrışmaz. Biri değişirse öteki otomatik değişir çünkü ikisi de

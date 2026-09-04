@@ -1,11 +1,11 @@
 ---
 name: eslesme-puanlama
-description: Bir iş ilanını Gauge'un CV profiline karşı dört boyutta puanlar (rol ailesi 35 + kıdem 25 + beceri örtüşmesi 25 + sektör 15 − lokasyon cezası) ve dört segmentten birine yerleştirir. Yeni bir başvuru eklenirken, mevcut bir başvurunun match alanı doldurulurken veya güncellenirken, "bu ilan bana uyar mı", "kaç puan verir", "hangi segmentte" türünden sorularda, ilan metni değerlendirilirken ve gap_skills atanırken bu skill'i kullan. Puanları elle uydurma — rubrik burada. data/applications.json içindeki match objesine dokunulan her işte gerekli.
+description: Bir iş ilanını Trace'in CV profiline karşı dört boyutta puanlar (rol ailesi 35 + kıdem 25 + beceri örtüşmesi 25 + sektör 15 − lokasyon cezası) ve dört segmentten birine yerleştirir. Yeni bir başvuru eklenirken, mevcut bir başvurunun match alanı doldurulurken veya güncellenirken, "bu ilan bana uyar mı", "kaç puan verir", "hangi segmentte" türünden sorularda, ilan metni değerlendirilirken ve gap_skills atanırken bu skill'i kullan. Puanları elle uydurma — rubrik burada. data/applications.json içindeki match objesine dokunulan her işte gerekli.
 ---
 
 # Eşleşme puanlama
 
-Gauge'un iki ekseninden biri: **eşleşme**, "enerjimi nereye harcamalıyım"
+Trace'in iki ekseninden biri: **eşleşme**, "enerjimi nereye harcamalıyım"
 sorusunu yanıtlar. Aciliyet ekseniyle karıştırılmaz — zayıf eşleşmeli bir
 ilanın deadline'ı da acil olabilir.
 

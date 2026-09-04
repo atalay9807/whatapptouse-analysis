@@ -1,6 +1,6 @@
 <div align="center">
 
-# Gauge
+# Trace
 
 **Gmail'i tarayıp iş başvurularını tek yerde toplayan, her ilanı CV'ye göre puanlayan
 ve eksik yetkinlikleri çıkaran otomasyon.**

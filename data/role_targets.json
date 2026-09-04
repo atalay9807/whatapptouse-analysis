@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "uretim_tarihi": null,
+    "profil_surumu": null,
+    "basvuru_sayisi": null,
+    "_note": "rol-onerici-profil ve rol-onerici-gecmis ajanları henüz çalıştırılmadı. Şema rol-hedefleme skill'inde tanımlı; liste boşken arayüz 'henüz üretilmedi' der, uydurma hedef göstermez."
+  },
+  "hedefler": [],
+  "kacinilacaklar": []
+}

@@ -1,11 +1,11 @@
 ---
 name: mail-siniflandirma
-description: Gauge'un günlük Gmail taramasını yapar: iş temalı e-postaları bulur, gürültüyü ayıklar, her maili beş durumdan birine sınıflandırır (teklif / mülakat daveti / aksiyon gerekli / red / incelemede) ve data/applications.json'daki kaydı günceller. Günlük tarama çalıştırılırken, "mailleri tara", "yeni başvuru var mı", "gelen kutusuna bak" dendiğinde, bir e-postanın hangi kategoriye girdiği sorulduğunda ve Routine'in prompt'u düzenlenirken bu skill'i kullan. Sorguları ve gürültü listesini ezberden yazma — burada.
+description: Trace'in günlük Gmail taramasını yapar: iş temalı e-postaları bulur, gürültüyü ayıklar, her maili beş durumdan birine sınıflandırır (teklif / mülakat daveti / aksiyon gerekli / red / incelemede) ve data/applications.json'daki kaydı günceller. Günlük tarama çalıştırılırken, "mailleri tara", "yeni başvuru var mı", "gelen kutusuna bak" dendiğinde, bir e-postanın hangi kategoriye girdiği sorulduğunda ve Routine'in prompt'u düzenlenirken bu skill'i kullan. Sorguları ve gürültü listesini ezberden yazma — burada.
 ---
 
 # Mail sınıflandırma
 
-Gauge'un günlük hattının ilk iki adımı. Amaç, gelen kutusundaki gürültüden
+Trace'in günlük hattının ilk iki adımı. Amaç, gelen kutusundaki gürültüden
 başvuru sürecine dair **durum değişikliklerini** ayıklamak.
 
 Kanonik sorgular ve listeler `config/rules.yaml` içindedir. Oradaki
