@@ -16,7 +16,7 @@
     --ink:#111A33; --ink-2:#454F6B; --ink-3:#5A6480;
     --line:#DCE2F0; --line-2:#C6CFE4; --line-strong:#A8B3CE;
 
-    --nav:#151C4A; --nav-ink:#FFFFFF; --nav-ink-2:#B9C1E6; --nav-line:#2C3465;
+    --nav:#22409E; --nav-ink:#FFFFFF; --nav-ink-2:#C3CBEE; --nav-line:#3D57B3;
     --azure:#0B6FBF; --azure-2:#1478C8; --azure-soft:#E3F0FB;
     --brand:#2340C8; --brand-2:#1B34A8; --brand-soft:#E4E8FB; --brand-ring:#93A2EA;
     --violet:#7A4B9E; --violet-soft:#EFE8F4;
@@ -27,6 +27,7 @@
     --m1-tx:#52307A; --m2-tx:#653D85; --m3-tx:#7A4B9E; --m4-tx:#7E509E;
 
     --critical:#B4442E; --warning:#7F5809; --good:#266953; --archive:#5E6672;
+    --gap:#4A5364; --chip-tx:#FFFFFF;
     --chip-critical-bg:#F7E5E1; --chip-warning-bg:#F4EEDF; --chip-good-bg:#E0EDE8; --chip-archive-bg:#EAEDF2;
 
     --r:8px; --r-lg:14px; --r-pill:999px;
@@ -39,7 +40,7 @@
       --ink:#E6EAF4; --ink-2:#A3ADC2; --ink-3:#8E99B0;
       --line:#2A3142; --line-2:#374052; --line-strong:#495267;
 
-      --nav:#0B1030; --nav-ink:#FFFFFF; --nav-ink-2:#9FA9D8; --nav-line:#1E2650;
+      --nav:#16205C; --nav-ink:#FFFFFF; --nav-ink-2:#A9B4E4; --nav-line:#2E3C7A;
       --azure:#4FB0F0; --azure-2:#3EA0E4; --azure-soft:#132433;
       --brand:#8AA4FF; --brand-2:#A2B7FF; --brand-soft:#1B2340; --brand-ring:#4E5C9E;
       --violet:#B79ACF; --violet-soft:#2A2338; --brass:#D9A648; --brass-soft:#332B18;
@@ -49,6 +50,7 @@
       --m1-tx:#D9C9E8; --m2-tx:#C4ABD8; --m3-tx:#A98CC3; --m4-tx:#A78BC4;
 
       --critical:#E08268; --warning:#D9A648; --good:#62B99A; --archive:#8E99AB;
+      --gap:#8E99AB; --chip-tx:#0F131C;
       --chip-critical-bg:#33231E; --chip-warning-bg:#332B18; --chip-good-bg:#1B2E29; --chip-archive-bg:#242A34;
 
       color-scheme:dark;
@@ -59,7 +61,7 @@
     --surface:#181D29; --surface-2:#1F2534; --surface-3:#28303F;
     --ink:#E6EAF4; --ink-2:#A3ADC2; --ink-3:#8E99B0;
     --line:#2A3142; --line-2:#374052; --line-strong:#495267;
-    --nav:#0B1030; --nav-ink:#FFFFFF; --nav-ink-2:#9FA9D8; --nav-line:#1E2650;
+    --nav:#16205C; --nav-ink:#FFFFFF; --nav-ink-2:#A9B4E4; --nav-line:#2E3C7A;
     --azure:#4FB0F0; --azure-2:#3EA0E4; --azure-soft:#132433;
     --brand:#8AA4FF; --brand-2:#A2B7FF; --brand-soft:#1B2340; --brand-ring:#4E5C9E;
     --violet:#B79ACF; --violet-soft:#2A2338; --brass:#D9A648; --brass-soft:#332B18;
@@ -67,6 +69,7 @@
     --m1-bg:#332944; --m2-bg:#2C2438; --m3-bg:#272031; --m4-bg:#231D2B;
     --m1-tx:#D9C9E8; --m2-tx:#C4ABD8; --m3-tx:#A98CC3; --m4-tx:#A78BC4;
     --critical:#E08268; --warning:#D9A648; --good:#62B99A; --archive:#8E99AB;
+    --gap:#8E99AB; --chip-tx:#0F131C;
     --chip-critical-bg:#33231E; --chip-warning-bg:#332B18; --chip-good-bg:#1B2E29; --chip-archive-bg:#242A34;
     color-scheme:dark;
   }
@@ -165,11 +168,16 @@
 
   .chip{display:inline-flex;align-items:center;gap:5px;flex:none;font-family:"IBM Plex Mono",monospace;
         font-size:10.5px;padding:2px 8px;border-radius:2px;white-space:nowrap;border:1px solid transparent}
-  .chip-critical{background:var(--chip-critical-bg);color:var(--critical);border-color:var(--critical)}
-  .chip-warning{background:var(--chip-warning-bg);color:var(--warning);border-color:var(--warning)}
-  .chip-good{background:var(--chip-good-bg);color:var(--good);border-color:var(--good)}
-  .chip-archive{background:var(--chip-archive-bg);color:var(--archive);border-color:var(--line-2)}
-  .chip-brand{background:var(--brand-soft);color:var(--brand);border-color:var(--brand-ring)}
+  /* Durum çipleri dolu zeminli: açık temada beyaz metin, koyu temada koyu metin.
+     Her ikisi de ölçüldü — en düşük 5.52:1 (critical/beyaz). */
+  .chip-critical{background:var(--critical);color:var(--chip-tx);border-color:transparent}
+  .chip-warning{background:var(--warning);color:var(--chip-tx);border-color:transparent}
+  .chip-good{background:var(--good);color:var(--chip-tx);border-color:transparent}
+  .chip-archive{background:var(--archive);color:var(--chip-tx);border-color:transparent}
+  .chip-brand{background:var(--brand);color:var(--chip-tx);border-color:transparent}
+  /* Eksik yetkinlik kendi rengini alır: mor rampa YALNIZCA eşleşme kalitesi için
+     ayrılmıştır, aynı tabloda iki anlama gelemez. */
+  .chip-gap{background:var(--gap);color:var(--chip-tx);border-color:transparent}
   .chip-strong{background:var(--m1-bg);color:var(--m1-tx);border-color:var(--m1)}
   .chip-good-m{background:var(--m2-bg);color:var(--m2-tx);border-color:var(--m2)}
   .chip-fair{background:var(--m3-bg);color:var(--m3-tx);border-color:var(--m3)}
@@ -270,8 +278,9 @@
   tbody tr:last-child td{border-bottom:none}
   tbody tr:hover{background:var(--surface-2)}
   td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
-  .co{font-weight:600}
-  .ro{color:var(--ink-2);font-size:12px}
+  .co{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;
+      letter-spacing:-.015em;color:var(--ink);line-height:1.3}
+  .ro{color:var(--ink-2);font-size:12.5px;font-weight:400;line-height:1.35;margin-top:1px}
   .step{color:var(--ink-2);font-size:12px;max-width:260px}
   .sev{width:2px;padding:0!important}
   .sev-critical{background:var(--critical)} .sev-high{background:var(--warning)}
@@ -935,7 +944,7 @@ function gapChips(a, max) {
   const g = a.gap_skills || [];
   if (!g.length) return `<span style="color:var(--ink-3);font-size:12px">—</span>`;
   const show = max ? g.slice(0, max) : g;
-  return show.map(s => `<span class="chip chip-fair">${esc((CAT[s]||{}).name || s)}</span>`).join(" ")
+  return show.map(s => `<span class="chip chip-gap">${esc((CAT[s]||{}).name || s)}</span>`).join(" ")
        + (g.length > show.length ? ` <span style="font-size:11px;color:var(--ink-3)">+${g.length-show.length}</span>` : "");
 }
 function renderTable() {
