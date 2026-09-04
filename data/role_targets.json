@@ -1,10 +1,163 @@
 {
   "meta": {
-    "uretim_tarihi": null,
-    "profil_surumu": null,
-    "basvuru_sayisi": null,
-    "_note": "rol-onerici-profil ve rol-onerici-gecmis ajanları henüz çalıştırılmadı. Şema rol-hedefleme skill'inde tanımlı; liste boşken arayüz 'henüz üretilmedi' der, uydurma hedef göstermez."
+    "uretim_tarihi": "2026-09-04",
+    "profil_surumu": "2026-09 (KeremAydin.CV.pdf)",
+    "basvuru_sayisi": 68,
+    "_note": "rol-onerici-profil (yalnızca profile.json) ve rol-onerici-gecmis (yalnızca applications.json + insights.py + Indeed) ajanları birbirinden habersiz çalıştırıldı; mutabakat sınıfları rol-hedefleme skill'ine göre atandı. Indeed sayıları sorgu başına dönen liste uzunluğudur, toplam ilan sayısı veya talep göstergesi değildir."
   },
-  "hedefler": [],
-  "kacinilacaklar": []
+  "hedefler": [
+    {
+      "unvan": "Veri / İş Zekası Analisti",
+      "unvan_varyantlari": ["Data Analyst", "BI Analyst", "Business Intelligence Specialist"],
+      "kidem_bandi": "uzman",
+      "sektorler": ["e-ticaret", "q-commerce", "fintech", "oyun"],
+      "mutabakat": "teyitli",
+      "profil_dayanak": "Tableau 5/5, Power BI 3/5 ve CAC/LTV/kohort retention panoları; domains_strong'da kohort ve segmentasyon.",
+      "gecmis_dayanak": "Data track ailesi 15 başvuruyla en kalabalık küme; 2 kayıt assessment aşamasına geçti, 6 kayıt sessizleşti. Kayıp reddde değil, yanıtsızlıkta.",
+      "ornek_sayisi": 15,
+      "ilan_var_mi": "Indeed İstanbul: İngilizce sorguda 10 sonuç, Türkçe 'Veri Analisti' sorgusunda 1 ilgisiz sonuç",
+      "engel": "SQL 3/5 — teknik SQL sınavı yapan ilanlarda eleme riski (profil kanadı). Bu koldaki asıl kayıp 6 sessizleşen kayıt; red gerekçesi hiçbir mailde yazmıyor (geçmiş kanadı).",
+      "arama_sorgusu": "Data Analyst"
+    },
+    {
+      "unvan": "Ticari Analist",
+      "unvan_varyantlari": ["Commercial Analyst", "Commercial Strategy Specialist"],
+      "kidem_bandi": "uzman",
+      "sektorler": ["e-ticaret", "q-commerce", "perakende", "FMCG"],
+      "mutabakat": "teyitli",
+      "profil_dayanak": "Commercial Strategy Intern rolündeki kategori hedef planlama, 1 yıllık gelir tahminleri ve tedarikçi destek programları; domains_strong'da ticari strateji.",
+      "gecmis_dayanak": "68 başvurunun tamamında mülakata giren 3 kayıttan biri tam bu başlıkta (Business Analysis track, 4 başvuru, 0 red).",
+      "ornek_sayisi": 4,
+      "ilan_var_mi": "Indeed İstanbul: Türkçe 'Ticari Analist' sorgusu 0 sonuç; İngilizce karşılığı 10 sonuç",
+      "engel": "Türkçe unvanla arandığında ilan bulunamıyor — İngilizce başlıkla aranmalı. Örneklem alt sınırda (n=4), oran değil tekil sonuç okunuyor.",
+      "arama_sorgusu": "Commercial Analyst"
+    },
+    {
+      "unvan": "FP&A / Finansal Analist",
+      "unvan_varyantlari": ["FP&A Analyst", "Financial Planning & Analysis Specialist", "Corporate Finance Analyst"],
+      "kidem_bandi": "uzman",
+      "sektorler": ["e-ticaret", "perakende", "fintech", "FMCG"],
+      "mutabakat": "teyitli",
+      "profil_dayanak": "FP&A Specialist rolündeki çok senaryolu bütçe modelleri, aylık forecast döngüleri ve kapanış mutabakatı; Excel 5/5.",
+      "gecmis_dayanak": "Finance track ailesi 5 başvuru: 1 assessment (CFO Office Executive), 1 red, 1 closed. Ayrıca kaydedilip başvurulmayan bir FP&A ilanının süresi dolmuş.",
+      "ornek_sayisi": 5,
+      "ilan_var_mi": "Indeed İstanbul: 10 sonuç",
+      "engel": "Mühendislik lisansı — bazı finans ilanları işletme/ekonomi şartı arıyor (profil kanadı). Aynı ailede hem ilerleme hem red var; 5 kayıt ikisini ayırmaya yetmiyor (geçmiş kanadı).",
+      "arama_sorgusu": "FP&A Analyst"
+    },
+    {
+      "unvan": "Growth Analisti",
+      "unvan_varyantlari": ["Growth Analyst", "Growth Specialist", "Growth Strategy Specialist"],
+      "kidem_bandi": "uzman",
+      "sektorler": ["q-commerce", "e-ticaret", "oyun", "SaaS"],
+      "mutabakat": "teyitli",
+      "profil_dayanak": "Mevcut unvanın birebir karşılığı: growth planlama, kullanıcı kazanımı ve 1-5 sipariş alışkanlık oluşturma maddeleri.",
+      "gecmis_dayanak": "Growth track ailesi 5 başvuru: uzman bandıyla denenen tek kayıt next_stage'e geçti; reddedilen ikisi de yönetici unvanlıydı.",
+      "ornek_sayisi": 5,
+      "ilan_var_mi": "Indeed İstanbul: 10 sonuç (birkaçı New Grad etiketli)",
+      "engel": "Uzman bandında ilerleyen kayıt tek (n=1) — tek başına kanıt değil.",
+      "arama_sorgusu": "Growth Specialist"
+    },
+    {
+      "unvan": "İş Analisti",
+      "unvan_varyantlari": ["Business Analyst", "Operations Analyst", "Sales Operations Analyst"],
+      "kidem_bandi": "uzman",
+      "sektorler": ["bankacılık", "danışmanlık", "lojistik", "kurumsal hizmet"],
+      "mutabakat": "teyitli",
+      "profil_dayanak": "Restoran ve depo bazlı P&L analizleri, yapısal olarak kârsız lokasyonların tespiti — operasyonel birim ekonomisi çözümlemesi.",
+      "gecmis_dayanak": "Business Analysis track 4 başvuru, 1 mülakat, 0 red. Operations track'te 3 kayıt hâlâ sonuçsuz — o kolda saha verisi yok.",
+      "ornek_sayisi": 4,
+      "ilan_var_mi": "Indeed İstanbul: 10 sonuç",
+      "engel": "'İş Analisti' unvanı yazılım gereksinim analizi anlamında da kullanılıyor (BPMN, user story) — profilde karşılığı yok, ilan metnine göre ayrıştırılmalı.",
+      "arama_sorgusu": "Business Analyst"
+    },
+    {
+      "unvan": "CRM / Lifecycle Analisti",
+      "unvan_varyantlari": ["CRM Analyst", "Lifecycle Marketing Analyst", "Retention Analyst"],
+      "kidem_bandi": "uzman",
+      "sektorler": ["q-commerce", "e-ticaret", "perakende", "oyun"],
+      "mutabakat": "profil_destekli",
+      "profil_dayanak": "90 günlük churn -4.8pp, 60 günlük churn -5.1pp ve aylık 15M TL churn bütçesi sahipliği — ölçülmüş retention çıktısı.",
+      "gecmis_dayanak": null,
+      "ornek_sayisi": 0,
+      "ilan_var_mi": "bakılmadı",
+      "engel": "Bu başlıkla hiç başvuru yapılmamış, saha kanıtı yok. CRM Tools 3/5 — belirli bir kampanya aracını şart koşan ilanlarda araç adı eksik kalır.",
+      "arama_sorgusu": "CRM Analyst"
+    },
+    {
+      "unvan": "Fiyatlandırma Analisti",
+      "unvan_varyantlari": ["Pricing Analyst", "Pricing & Promotion Specialist"],
+      "kidem_bandi": "uzman",
+      "sektorler": ["e-ticaret", "q-commerce", "perakende", "seyahat"],
+      "mutabakat": "profil_destekli",
+      "profil_dayanak": "Rakip kampanya ve fiyat izleme panoları; talep ve esneklik sinyalleriyle fiyat stratejisi. domains_strong'da fiyatlandırma.",
+      "gecmis_dayanak": null,
+      "ornek_sayisi": 0,
+      "ilan_var_mi": "bakılmadı",
+      "engel": "Deneyim tek bir staj dönemine dayanıyor; esneklik modellemesini istatistiksel kuran ilanlarda Python açığı dezavantaj.",
+      "arama_sorgusu": "Pricing Analyst"
+    },
+    {
+      "unvan": "Kategori Planlama Uzmanı",
+      "unvan_varyantlari": ["Category Analyst", "Category Planning Specialist", "Merchandising Analyst"],
+      "kidem_bandi": "uzman",
+      "sektorler": ["e-ticaret", "perakende", "q-commerce", "FMCG"],
+      "mutabakat": "profil_destekli",
+      "profil_dayanak": "Kategori/alt kategori hedef planlama ve 1 yıllık gelir tahminleri; P&L analizleriyle kategori kârlılığı bakışı.",
+      "gecmis_dayanak": null,
+      "ornek_sayisi": 0,
+      "ilan_var_mi": "bakılmadı",
+      "engel": "Tedarikçi müzakeresi ve stok/tedarik zinciri sorumluluğu CV'de yok — saf ticaret ağırlıklı ilanlarda analitik tarafta kalır.",
+      "arama_sorgusu": "Category Analyst"
+    },
+    {
+      "unvan": "E-ticaret Analisti",
+      "unvan_varyantlari": ["E-commerce Analyst", "E-Ticaret Uzmanı"],
+      "kidem_bandi": "uzman",
+      "sektorler": ["e-ticaret", "perakende"],
+      "mutabakat": "kanit_destekli",
+      "profil_dayanak": null,
+      "gecmis_dayanak": "E-commerce track'inde 2 başvurudan 1'i mülakata girdi. Veri yetersiz — insights.py bunu %50 ilerleme diye listeliyor ama 2 kayıtlık oran istatistik değil.",
+      "ornek_sayisi": 2,
+      "ilan_var_mi": "Indeed İstanbul: 1 sonuç",
+      "engel": "Hem örneklem (n=2) hem ilan varlığı (tek sonuç) zayıf. Mülakata giren kaydın rol başlığı veride 'Belirtilmemiş' — hangi unvana başvurulduğu bilinmiyor.",
+      "arama_sorgusu": "E-commerce Analyst"
+    },
+    {
+      "unvan": "Performance Marketing Uzmanı",
+      "unvan_varyantlari": ["Performance Marketing Specialist", "Paid Media Specialist"],
+      "kidem_bandi": "uzman",
+      "sektorler": ["oyun", "SaaS", "e-ticaret"],
+      "mutabakat": "celiskili",
+      "profil_dayanak": "KAÇIN — profil kanadı bu unvanı kaçınılacaklar listesine koydu: Google Ads/Meta Ads kanal operasyonu ne skills ne experience maddelerinde geçiyor; CAC analizi kanal yönetimiyle aynı şey değil.",
+      "gecmis_dayanak": "ÖNER — geçmiş kanadı Growth ailesinin bir kolu olarak listeledi; Indeed'de Performance Marketing Specialist ilanları dönüyor.",
+      "ornek_sayisi": 5,
+      "ilan_var_mi": "Indeed İstanbul: 10 sonuç (Growth/Performance Marketing birlikte)",
+      "engel": "İki kanat ters yönde. İlan var ve komşu alan, ama CV'de kanal operasyonu kanıtı yok. Denenecekse önce o açığın kapatılması gerekir.",
+      "arama_sorgusu": "Performance Marketing Specialist"
+    },
+    {
+      "unvan": "Growth / CRM Manager",
+      "unvan_varyantlari": ["Growth Manager", "Retention Manager", "CRM Manager"],
+      "kidem_bandi": "yönetici (overreach)",
+      "sektorler": ["q-commerce", "e-ticaret", "oyun"],
+      "mutabakat": "celiskili",
+      "profil_dayanak": "ÖNER (düşük güven) — aylık 10M TL newcomer + 15M TL churn bütçesi sahipliği ve C-level raporlama, bütçe ölçeği bakımından manager ilanlarına yaklaşıyor.",
+      "gecmis_dayanak": "KAÇIN — unvanında Manager/Müdür/Lead/Head geçen 17 başvurunun 0'ı ileri aşamaya geçti, 9'u reddedildi. Aynı dönemde Analyst/Specialist unvanlı 32 başvurunun 3'ü ilerledi.",
+      "ornek_sayisi": 17,
+      "ilan_var_mi": "bakılmadı",
+      "engel": "Veri setindeki en büyük örneklemli tek ayrım bu: 15 reddin 9'u tek bir unvan bandında toplanıyor. Ekip yönetimi deneyimi yok, deneyim 2 yıl. Neden reddedildiği bilinmiyor — hiçbir red maili gerekçe yazmıyor.",
+      "arama_sorgusu": "Growth Manager"
+    }
+  ],
+  "kacinilacaklar": [
+    { "unvan": "Manager / Müdür / Lead / Head unvanlı roller", "sebep": "17 başvuru, 0 ilerleme, 9 red. Ekip yönetimi deneyimi yok, deneyim 2 yıl.", "kanat": "ikisi" },
+    { "unvan": "Veri Bilimci / Machine Learning Engineer", "sebep": "Python ve ileri veri bilimi CV'de yok; skills listesinde hiçbir programlama dili yok.", "kanat": "profil" },
+    { "unvan": "Data Engineer / Analytics Engineer", "sebep": "SQL 3/5 yetersiz; dbt, warehouse ve pipeline deneyimi profilde yok.", "kanat": "profil" },
+    { "unvan": "Yatırım Bankacılığı Analisti / Kurumsal Finans Danışmanı", "sebep": "Mühendislik lisansı bazı ilanlarda filtre; değerleme ve M&A deneyimi yok.", "kanat": "profil" },
+    { "unvan": "Taşınma gerektiren ve anadil İngilizce şartlı roller", "sebep": "location_policy: taşınma -12, dil engeli -20. İngilizce ileri ama anadil değil.", "kanat": "profil" },
+    { "unvan": "Sales / Business Development", "sebep": "4 başvuru: 0 ilerleme, 2 red, 2 closed.", "kanat": "gecmis" },
+    { "unvan": "Strategy & Operations", "sebep": "4 başvuru: 0 ilerleme, 2 red, 2 closed.", "kanat": "gecmis" },
+    { "unvan": "Product Manager / Product Owner", "sebep": "5 başvuru: 0 ilerleme, 0 red, 3 sessizleşti. Olumsuz değil, sonuçsuz — 30 günde hiç sinyal çıkmadı.", "kanat": "gecmis" }
+  ]
 }

@@ -1,6 +1,6 @@
 ---
 name: rol-hedefleme
-description: "Hangi unvanlara ve sektörlere başvurmalıyım" sorusunu yanıtlayan çift ajan akışını yürütür — rol-onerici-profil ve rol-onerici-gecmis ajanlarını bağımsız çalıştırır, çıktılarını karşılaştırır, dört mutabakat sınıfına ayırır ve data/role_targets.json'a yazar. "Hangi işlere başvurabilirim", "CV'me göre ne aramalıyım", "rol hedeflerini güncelle" dendiğinde ve Profil sayfasındaki rol önerileri bölümü değiştirilirken kullan. İki ajanı tek çıktıya indirgeme — ayrıştıkları yer asıl bilgi.
+description: Hangi unvanlara ve sektörlere başvurulacağını belirleyen çift ajan akışını yürütür — rol-onerici-profil ve rol-onerici-gecmis ajanlarını bağımsız çalıştırır, çıktılarını karşılaştırır, dört mutabakat sınıfına ayırır ve data/role_targets.json'a yazar. "Hangi işlere başvurabilirim", "CV'me göre ne aramalıyım", "rol hedeflerini güncelle" dendiğinde ve Profil sayfasındaki rol önerileri bölümü değiştirilirken kullan. İki ajanı tek çıktıya indirgeme — ayrıştıkları yer asıl bilgi.
 ---
 
 # Rol hedefleme

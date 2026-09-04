@@ -52,6 +52,7 @@ def main():
         "profile": load_profile(),
         "insights": insights.build_all(today),
         "catalog": json.loads((ROOT / "data" / "skills_catalog.json").read_text(encoding="utf-8")),
+        "role_targets": json.loads((ROOT / "data" / "role_targets.json").read_text(encoding="utf-8")),
         "segments": segment_summary(apps),
         "applications": [
             dict({k: a.get(k) for k in ("id", "company", "role", "stage", "status", "band", "score",
